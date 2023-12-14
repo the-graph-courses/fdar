@@ -68,28 +68,28 @@ string_2 <- 'Bonjour' # Utilisation de guillemets simples
 Vous ne pouvez normalement pas inclure de guillemets doubles à l'intérieur d'une chaîne qui commence et se termine par des guillemets doubles. La même règle s'applique aux guillemets simples à l'intérieur d'une chaîne qui commence et se termine par des guillemets simples. Par exemple :
 
 ```{r, eval = FALSE}
-will_not_work <- "Guillemets doubles " à l'intérieur de guillemets doubles"
-will_not_work <- 'Guillemets simples ' à l'intérieur de guillemets simples'
+will_not_work <- "Guillemets doubles " au sein de guillemets doubles"
+will_not_work <- 'Guillemets simples ' au sein de guillemets simples'
 ```
 
 Mais vous pouvez inclure des guillemets simples à l'intérieur d'une chaîne qui commence et se termine par des guillemets doubles, et vice versa :
 
 ```{r}
-single_inside_double <- "Guillemets simples ' à l'intérieur de guillemets doubles"
+single_inside_double <- "Guillemets simples ' au sein de guillemets doubles"
 ```
 
 Alternativement, vous pouvez utiliser le caractère d'échappement `\` pour inclure un guillemet simple ou double littéral à l'intérieur d'une chaîne :
 
 ```{r}
-single_quote <- 'Guillemets simples \' à l'intérieur de guillemets doubles'
-double_quote <- "Guillemets doubles \" à l'intérieur de guillemets doubles"
+single_quote <- 'Guillemets simples \' au sein de guillemets simples'
+double_quote <- "Guillemets doubles \" au sein de guillemets doubles"
 ```
 
 Pour afficher ces chaînes telles qu'elles apparaîtraient dans la sortie, comme sur un graphique, utilisez `cat()` :
 
 ```{r}
-cat('Guillemets simples \' à l'intérieur de guillemets doubles')
-cat("Guillemets doubles \" à l'intérieur de guillemets doubles")
+cat('Guillemets simples \' au sein de guillemets simples')
+cat("Guillemets doubles \" au sein de guillemets doubles")
 ```
 
 `cat()` imprime ses arguments sans formatage supplémentaire.
@@ -358,9 +358,7 @@ Dans cet exercice, vous nettoierez un ensemble de données, `lima_messy`, proven
 Commencez par importer l'ensemble de données :
 
 ```{r}
-lima_messy_1 <- openxlsx::
-
-read.xlsx(here("data/lima_messy_1.xlsx")) %>% 
+lima_messy_1 <- openxlsx::read.xlsx(here("data/lima_messy_1.xlsx")) %>% 
   as_tibble()
 lima_messy_1
 ```

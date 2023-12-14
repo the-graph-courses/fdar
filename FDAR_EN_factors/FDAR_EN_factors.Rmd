@@ -206,17 +206,27 @@ levels(hiv_mort_default_factor$birth_month)
 
 Using the `hiv_mort` dataset, convert the `gender` variable to a factor with the levels "Female" and "Male", in that order.
 
+```{r eval = F}
+# Your code here
+hiv_mort 
+
+```
+
+
 ### Q: Error spotting {.unlisted .unnumbered}
 
 What errors are you able to spot in the following code chunk? What are the consequences of these errors?
 
 ```{r eval = F}
-hiv_mort <- 
+hiv_mort_factor <- 
   hiv_mort %>% 
-  mutate(birth_month = factor (x = birth_month, 
+  mutate(birth_month = factor(x = birth_month, 
                              levels = c("Jan", "Feb", "Mar", "Apr", 
                                         "Mai", "Jun", "Jul", "Sep", 
                                         "Oct", "Nov.", "Dec")))
+
+hiv_mort_factor %>% 
+  count(birth_month)
 ```
 
 ### Q: Advantage of factors {.unlisted .unnumbered}
@@ -226,6 +236,7 @@ What is one main advantage of using factors over characters for categorical data
 a)  It is easier to perform string manipulation on factors.
 b)  Factors allow better control over ordering of categorical data.
 c)  Factors increase the accuracy of statistical models.
+
 :::
 
 ------------------------------------------------------------------------
@@ -310,6 +321,12 @@ ggplot() +
 ### Q: Using fct_relevel {.unlisted .unnumbered}
 
 Using the `hiv_mort` dataset, convert the `death_location` variable to a factor such that 'Home/address' is the first level. Then create a bar plot that shows the count of individuals in the dataset by `death_location.`
+
+```{r eval = F}
+# Your code here
+hiv_mort ...
+```
+
 :::
 
 ## fct_reorder
@@ -354,6 +371,13 @@ ggplot(summary_per_muni_reordered) +
 ### Q: Using fct_reorder {.unlisted .unnumbered}
 
 Starting with the `summary_per_muni` data frame, reorder the municipality (`municipality_name`) by the `med_age_death` column and plot the reordered bar chart.
+
+```{r}
+# Your code here
+
+summary_per_muni #
+```
+
 :::
 
 ### The `.fun` argument
@@ -393,6 +417,11 @@ We can see that individuals with the marital status "cohabiting" tend to be the 
 ### Q: Using .fun {.unlisted .unnumbered}
 
 Using the `hiv_mort` dataset, make a boxplot of `birth_year` by `health_insurance_status`, where the `health_insurance_status` categories are arranged by the median `birth_year`.
+
+```{r eval = F}
+# Your code here
+```
+
 :::
 
 ## fct_recode
@@ -573,47 +602,82 @@ Now that you understand the basics of working with factors, you are equipped to 
 
 ------------------------------------------------------------------------
 
-# Answer Key {.unnumbered}
+# Answer Key {.unlisted .unnumbered}
 
-## Q: Gender factor {.unlisted .unnumbered}
+### Q: Gender factor {.unlisted .unnumbered}
 
 ```{r}
-hiv_mort_q1 <- hiv_mort %>% 
-  mutate(gender = factor(x = gender, 
-                         levels = c("Female", "Male")))
+hiv_mort <- hiv_mort %>%
+  mutate(gender = factor(gender, levels = c("Female", "Male")))
 ```
 
-## Q: Error spotting {.unlisted .unnumbered}
+### Q: Error spotting {.unlisted .unnumbered}
 
-**Errors:**
+The errors in the provided code are:
 
--   "Mai" should be "May".
--   "Nov." has an extra period.
--   "Aug" is missing from the list of months.
+1. Incorrect spelling in `levels`: "Mai" should be "May".
+2. Incorrect abbreviation for November: "Nov." should be "Nov".
 
-**Consequences:**
+Consequences of these errors:
+- Months with incorrect spellings or abbreviations will result in those values being converted to `NA` in the factor variable `birth_month`.
+- This will affect analyses and visualizations that rely on accurate categorization of the `birth_month` data.
 
-Any rows with the values "May", "Nov", or "Aug" for death_month will be converted to NA in the new death_month variable. If you create plots, ggplot will drop these levels with only NA values.
+### Q: Advantage of factors {.unlisted .unnumbered}
 
-## Q: Advantage of factors {.unlisted .unnumbered}
+b) Factors allow better control over ordering of categorical data.
 
-b)  Factors allow better control over ordering of categorical data.
+### Q: Using fct_relevel {.unlisted .unnumbered}
 
-The other two statements are not true.
+```{r}
+hiv_mort <- hiv_mort %>%
+  mutate(death_location = fct_relevel(death_location, "Home/address"))
 
-If you want to apply string operations like substr(), strsplit(), paste(), etc., it's actually more straightforward to use character vectors than factors.
+ggplot(hiv_mort) +
+  geom_bar(aes(x = death_location))
+```
 
-And while many statistical functions expect factors, not characters, for categorical predictors, this does not make them more "accurate".
+### Q: Using fct_reorder {.unlisted .unnumbered}
 
-## Q: Using fct_relevel {.unlisted .unnumbered}
+```{r}
+summary_per_muni <- summary_per_muni %>%
+  mutate(municipality_name = fct_reorder(municipality_name, med_age_death))
 
-## Q: Using fct_reorder {.unlisted .unnumbered}
+ggplot(summary_per_muni) +
+  geom_col(aes(y = municipality_name, x = med_age_death))
+```
 
-## Q: Using .fun {.unlisted .unnumbered}
+### Q: Using .fun {.unlisted .unnumbered}
 
-## Q: Using fct_recode {.unlisted .unnumbered}
+```{r}
+hiv_mort_arranged <- hiv_mort %>%
+  mutate(health_insurance_status = fct_reorder(health_insurance_status, birth_year, 
+                                               .fun = median, na.rm = TRUE))
 
-## Q: Using fct_lump {.unlisted .unnumbered}
+ggplot(hiv_mort_arranged, aes(y = health_insurance_status, x = birth_year)) +
+  geom_boxplot()
+```
+
+### Q: Using fct_recode {.unlisted .unnumbered}
+
+```{r}
+hiv_mort_renamed <- hiv_mort %>%
+  mutate(death_location = fct_recode(death_location, 
+                                     "Public place" = "Public way"))
+
+ggplot(hiv_mort_renamed) +
+  geom_bar(aes(x = death_location))
+```
+
+### Q: Using fct_lump {.unlisted .unnumbered}
+
+```{r}
+hiv_mort_lumped <- hiv_mort %>%
+  mutate(occupation = fct_lump(occupation, n = 10, other_level = "Other"))
+
+ggplot(hiv_mort_lumped) +
+  geom_bar(aes(y = occupation))
+```
+
 
 # Appendix: Codebook
 

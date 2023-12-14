@@ -1,5 +1,5 @@
 ---
-title: 'Data Cleaning Pipeline 1: Exploratory Data Analysis'
+title: 'Lesson Notes | Data Cleaning Pipeline 1: Exploratory Data Analysis'
 output:
   html_document:
     number_sections: true
@@ -332,7 +332,7 @@ See you in the next lesson!
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("eem", "lolovanco", "kendavidn"))`
+`r tgc_contributors_list(ids = c("eem", "lolovanco", "kendavidn", "amckinley"))`
 
 ## References {.unlisted .unnumbered}
 
@@ -341,99 +341,3 @@ Some material in this lesson was adapted from the following sources:
 -   Batra, Neale, et al. The Epidemiologist R Handbook. 2021.*Cleaning data and core functions*. <https://epirhandbook.com/en/cleaning-data-and-core-functions.html#cleaning-data-and-core-functions>
 
 -   Waring E, Quinn M, McNamara A, Arino de la Rubia E, Zhu H, Ellis S (2022). skimr: Compact and Flexible Summaries of Data. <https://docs.ropensci.org/skimr/> (website), <https://github.com/ropensci/skimr/.>
-
-------------------------------------------------------------------------
-
-::: demo
-[XXX DEMO HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: reminder
-[XXX SIDE NOTES HERE XXXX]
-:::
-
-------------------------------------------------------------------------
-
-::: recap
-[XXX RECAP HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: practice
-[XXX PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-:::
-
-------------------------------------------------------------------------
-
-::: r-practice
-[XXX PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-:::
-
-------------------------------------------------------------------------
-
-::: challenge
-[XXX CHALLENGE PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-:::
-
-------------------------------------------------------------------------
-
-::: pro-tip
-[XXX PRO-TIPS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: vocab
-[XXX RELEVANT VOCUBULARY WORDS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: side-note
-[XXX SIDE NOTES HERE XXXX]
-:::
-
-------------------------------------------------------------------------
-
-::: watch-out
-[XXX TIPS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: key-point
-[XXX KEY POINTS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: error
-[XXX ERRORS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: rstudio-cloud
-[XXX RSTUDIO CLOUD TIPS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-# WRAP UP! {.unnumbered}
-
-[XXX NICE WRAP UP MESSAGE OR SUMMARY IF NEEDED HERE XXX]
-
-------------------------------------------------------------------------
-
-# Answer Key {.unnumbered}
-
-------------------------------------------------------------------------
-
-# Contributors {.unlisted .unnumbered}
-
-The following team members contributed to this lesson:
-
-`r tgc_contributors_list(ids = c("kendavidn", "lolovanco"))` (make sure to update the contributor list accordingly!)
