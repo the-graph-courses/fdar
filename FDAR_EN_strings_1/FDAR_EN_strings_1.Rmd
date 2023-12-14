@@ -1,0 +1,900 @@
+---
+title: 'Lesson Notes | Working with Strings in R'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, echo = F, message = F, warning = F}
+knitr::opts_chunk$set(fig.width = 4.5, fig.height = 3, warning = F, message = F)
+
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, janitor,  reactable, gt, flextable, gtsummary, lubridate, medicaldata)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+#knitr::opts_chunk$set(class.source = "tgc-code-block", render = reactable_5_rows)
+
+```
+
+# Introduction
+
+Proficiency in string manipulation is a vital skill for data scientists. Tasks like cleaning messy data and formatting outputs rely heavily on the ability to parse, combine, and modify character strings. This lesson focuses on techniques for working with strings in R, utilizing functions from the {stringr} package in the tidyverse. Let's dive in!
+
+# Learning Objectives
+
+-   Understand the concept of strings and rules for defining them in R
+-   Use escapes to include special characters like quotes within strings
+-   Employ {stringr} functions to format strings:
+    -   Change case with `str_to_lower()`, `str_to_upper()`, `str_to_title()`
+    -   Trim whitespace with `str_trim()` and `str_squish()`
+    -   Pad strings to equal width with `str_pad()`
+    -   Wrap text to a certain width using `str_wrap()`
+-   Split strings into parts using `str_split()` and `separate()`
+-   Combine strings together with `paste()` and `paste0()`
+-   Extract substrings from strings using `str_sub()`
+
+# Packages
+
+```{r, warning = FALSE, message = FALSE, echo = TRUE}
+# Loading required packages
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, here, janitor)
+```
+
+# Defining Strings
+
+There are fundamental rules for defining character strings in R.
+
+Strings can be enclosed in either single or double quotes. However, the type of quotation mark used at the start must match the one used at the end. For example:
+
+```{r}
+string_1 <- "Hello" # Using double quotes
+string_2 <- 'Hello' # Using single quotes
+```
+
+You cannot normally include double quotes inside a string that starts and ends with double quotes. The same applies to single quotes inside a string that starts and ends with single quotes. For example:
+
+```{r, eval = FALSE}
+will_not_work <- "Double quotes " inside double quotes"
+will_not_work <- 'Single quotes ' inside double quotes'
+```
+
+But you can include single quotes inside a string that starts and ends with double quotes, and vice versa:
+
+```{r}
+single_inside_double <- "Single quotes ' inside double quotes"
+```
+
+Alternatively, you can use the escape character `\` to include a literal single or double quote inside a string:
+
+```{r}
+single_quote <- 'Single quotes \' inside double quotes'
+double_quote <- "Double quotes \" inside double quotes"
+```
+
+To display these strings as they would appear in output, such as on a plot, use `cat()`:
+
+```{r}
+cat('Single quotes \' inside double quotes')
+cat("Double quotes \" inside double quotes")
+```
+
+`cat()` prints its arguments without additional formatting.
+
+::: side-note
+Since `\` is the escape character, you must use `\\` to include a literal backslash in a string:
+
+```{r}
+backslash <- "This is a backslash: \\"
+cat(backslash)
+```
+:::
+
+::: practice
+### Q: Error Spotting in String Definitions {.unlisted .unnumbered}
+
+Below are attempts to define character strings in R, with two out of five lines containing an error. Identify and correct these errors.
+
+```{r, eval = FALSE}
+ex_a <- 'She said, "Hello!" to him.'
+ex_b <- "She said \"Let's go to the moon\""
+ex_c <- "They've been "best friends" for years."
+ex_d <- 'Jane\\'s diary'
+ex_e <- "It's a sunny day!
+```
+:::
+
+# String Formatting in R with {stringr}
+
+The {stringr} package in R provides useful functions for formatting strings for analysis and visualization. This includes case changes, whitespace handling, length standardization, and text wrapping.
+
+## Changing Case
+
+Converting case is often needed to standardize strings or prepare them for display. The {stringr} package provides several case-changing functions:
+
+-   `str_to_upper()` converts strings to uppercase.
+
+```{r}
+str_to_upper("hello world") 
+```
+
+-   `str_to_lower()` converts strings to lowercase.
+
+```{r}
+str_to_lower("Goodbye")
+```
+
+-   `str_to_title()` capitalizes the first letter of each word. Ideal for titling names, subjects, etc.
+
+```{r}
+str_to_title("string manipulation")
+```
+
+## Handling Whitespace
+
+Managing whitespace makes strings neat and uniform. The {stringr} package provides two main functions for this:
+
+-   `str_trim()` removes whitespace at the start and end.
+
+```{r}
+str_trim(" trimmed ")
+```
+
+-   `str_squish()` removes whitespace at the start and end, *and* reduces multiple internal spaces to one.
+
+```{r}
+str_squish("   too   much    space   ") 
+# notice the difference with str_trim
+str_trim("   too   much    space   ") 
+```
+
+## Text Padding
+
+`str_pad()` pads strings to a fixed width. For example, we can pad the number 7 to force it to have 3 characters:
+
+```{r}
+str_pad("7", width = 3, pad = "0") # Pad left to length 3 with 0
+```
+
+The first argument is the string to pad. `width` sets the final string width and `pad` specifies the padding character.
+
+`side` controls whether padding is added on the left or right. The `side` argument defaults to "left", so padding will be added on the left side if not specified. Specifying `side = "right"` pads on the right side instead:
+
+```{r}
+str_pad("7", width = 4, side = "right", pad = "_") # Pad right to length 4 with _
+```
+
+Or we can pad on both sides:
+
+```{r}
+str_pad("7", width = 5, side = "both", pad = "_") # Pad both sides to length 5 with _
+```
+
+## Text Wrapping
+
+Text wrapping helps fit strings into confined spaces like plot titles. The `str_wrap()` function wraps text to a set width.
+
+For example, to wrap text at 10 characters we can write:
+
+```{r}
+example_string <- "String Manipulation with str_wrap can enhance readability in plots."
+wrapped_to_10 <- str_wrap(example_string, width = 10)
+wrapped_to_10
+```
+
+The output may appear confusing. The `\n` indicates a line break, and to view the modified properly, we need to use the `cat()` function, which is a special version of `print()`:
+
+```{r}
+cat(wrapped_to_10)
+```
+
+Notice that the function maintains whole words, so it won't split longer words like "manipulation".
+
+Setting the width to 1 essentially splits the string into individual words:
+
+```{r}
+cat(str_wrap(example_string, width = 1))
+```
+
+`str_wrap()` is particularly useful in plotting with ggplot2. For example, wrapping a long title to prevent it from spilling over the plot:
+
+```{r}
+long_title <- "This is an example of a very long title, which would usually run over the end of your ggplot, but you can wrap it with str_wrap to fit within a specified character limit."
+
+# Without wrapping
+ggplot(women, aes(height, weight)) +
+  geom_point() +
+  labs(title = long_title)
+
+# With wrapping at 80 characters
+ggplot(women, aes(height, weight)) +
+  geom_point() +
+  labs(title = str_wrap(long_title, width = 50))
+```
+
+So `str_wrap()` keeps titles neatly within the plot!
+
+::: practice
+### Q: Cleaning Patient Name Data {.unlisted .unnumbered}
+
+A dataset contains patient names with inconsistent formatting and extra white spaces. Use the {stringr} package to standardize this information:
+
+```{r, eval = FALSE}
+patient_names <- c("  john doe", "ANNA SMITH   ", "Emily Davis")
+# 1. Trim white spaces from each name.
+# 2. Convert each name to title case for consistency.
+```
+:::
+
+::: practice
+### Q: Standardizing Drug Codes {.unlisted .unnumbered}
+
+The following (fictional) drug codes are inconsistently formatted. Standardize them by padding with zeros to ensure all codes are 8 characters long:
+
+```{r, eval = FALSE}
+drug_codes <- c("12345", "678", "91011")
+# Pad each code with zeros on the left to a fixed width of 8 characters.
+```
+:::
+
+::: practice
+### Q: Wrapping Medical Instructions {.unlisted .unnumbered}
+
+Use `str_wrap()` to format the following for better readability:
+
+```{r}
+instructions <- "Take two tablets daily after meals. If symptoms persist for more than three days, consult your doctor immediately. Do not take more than the recommended dose. Keep out of reach of children."
+
+ggplot(data.frame(x = 1, y = 1), aes(x, y, label = instructions)) +
+  geom_label() + 
+  theme_void()
+
+# Now, wrap the instructions to a width of 50 characters then plot again.
+
+
+```
+:::
+
+## Applying String Formatting to a Dataset
+
+Now let's apply the {stringr} package's string formatting functions to clean and standardize a dataset. Our focus is on a dataset from a study on HIV care and treatment services in Zambézia Province, Mozambique, available [here](https://zenodo.org/records/4965547){target="_blank"}. The original dataset had various formatting inconsistencies, but we've added additional mistakes for educational purposes.
+
+First, we load the dataset and examine specific variables for potential issues.
+
+```{r}
+# Load the dataset
+hiv_dat_messy_1 <- openxlsx::read.xlsx(here("data/hiv_dat_messy_1.xlsx")) %>%
+  as_tibble()
+
+# These four variables contain formatting inconsistencies:
+hiv_dat_messy_1 %>%
+  select(district, health_unit, education, regimen)
+```
+
+Using the `tabyl` function, we can identify and count unique values, revealing the inconsistencies:
+
+```{r}
+# Counting unique values
+hiv_dat_messy_1 %>% tabyl(health_unit)
+hiv_dat_messy_1 %>% tabyl(education)
+hiv_dat_messy_1 %>% tabyl(regimen)
+hiv_dat_messy_1 %>% tabyl(district)
+```
+
+Another useful function for visualizing these issues is `tbl_summary` from the {gtsummary} package:
+
+```{r}
+hiv_dat_messy_1 %>% 
+  select(district, health_unit, education, regimen) %>%
+  tbl_summary()
+```
+
+The output clearly shows inconsistencies in casing, spacing, and format, so we need to standardize them.
+
+Next, we address these issues systematically:
+
+```{r}
+hiv_dat_clean_1 <- hiv_dat_messy_1 %>%
+  mutate(
+    district = str_to_title(str_trim(district)), # Standardizing district names
+    health_unit = str_squish(health_unit),       # Removing extra spaces
+    education = str_to_title(education),         # Standardizing education levels
+    regimen = str_to_upper(regimen)              # Consistency in regimen column
+  )
+```
+
+And we can verify the effectiveness of these changes by rerunning the `tbl_summary()` function:
+
+```{r}
+hiv_dat_clean_1 %>% 
+  select(district, health_unit, education, regimen) %>%
+  tbl_summary()
+```
+
+Great!
+
+Finally, let's attempt to plot counts of the `health_unit` variable. For the plot style below, we encounter an issue with lengthy labels:
+
+```{r}
+ggplot(hiv_dat_clean_1, aes(x = health_unit)) +
+  geom_bar()
+```
+
+To resolve this, we can adjust the labels using `str_wrap()`:
+
+```{r}
+hiv_dat_clean_1 %>% 
+  ggplot(aes(x = str_wrap(health_unit, width = 20))) +
+  geom_bar()
+```
+
+Much cleaner, though we should probably fix the axis title:
+
+```{r}
+hiv_dat_clean_1 %>% 
+  ggplot(aes(x = str_wrap(health_unit, width = 20))) +
+  geom_bar() +
+  labs(x = "Health Unit")
+```
+
+Now try your hand on similar cleaning operations in the practice questions below.
+
+::: practice
+### Q: Formatting a Tuberculosis Dataset {.unlisted .unnumbered}
+
+In this exercise, you will clean a dataset, `lima_messy`, originating from a tuberculosis (TB) treatment adherence study in Lima, Peru. More details about the study and the dataset are available [here](https://zenodo.org/records/4992464){target="_blank"}.
+
+Begin by importing the dataset:
+
+```{r}
+lima_messy_1 <- openxlsx::read.xlsx(here("data/lima_messy_1.xlsx")) %>% 
+  as_tibble()
+lima_messy_1
+```
+
+Your task is to clean the `marital_status`, `sex`, and `age` variables in `lima_messy`. Following the cleaning process, generate a summary table using the `tbl_summary()` function. Aim for your output to align with this structure:
+
+| **Characteristic**     | **N = 1,293** |
+|------------------------|---------------|
+| marital_status         |               |
+| Divorced / Separated   | 93 (7.2%)     |
+| Married / Cohabitating | 486 (38%)     |
+| Single                 | 677 (52%)     |
+| Widowed                | 37 (2.9%)     |
+| sex                    |               |
+| F                      | 503 (39%)     |
+| M                      | 790 (61%)     |
+| age                    |               |
+| 21 and younger         | 338 (26%)     |
+| 22 to 26               | 345 (27%)     |
+| 27 to 37               | 303 (23%)     |
+| 38 and older           | 307 (24%)     |
+
+Implement the cleaning and summarize:
+
+```{r eval = F}
+# Create a new object for cleaned data
+lima_clean <- lima_messy %>%
+  mutate(
+    # Clean marital_status
+    
+    # Clean sex
+    
+    # Clean age
+    
+  )
+
+# Check cleaning
+lima_clean %>% 
+  select(marital_status, sex, age) %>% 
+  tbl_summary()
+```
+:::
+
+::: practice
+### Q: Wrapping Axis Labels in a Plot {.unlisted .unnumbered}
+
+Using the cleaned dataset `lima_clean` from the previous task, create a bar plot to display the count of participants by `marital_status`. Then wrap the axis labels on the x-axis to a maximum of 15 characters per line for readability.
+
+```{r eval = F}
+# Create your bar plot with wrapped text here:
+
+```
+:::
+
+# Splitting Strings with `str_split()` and `separate()`
+
+Splitting strings is common task in data manipulation. The tidyverse offers efficient functions for this task, notably `stringr::str_split()` and `tidyr::separate()`.
+
+## Using `str_split()`
+
+The `str_split()` function is useful for dividing strings into parts. For example:
+
+```{r}
+example_string <- "split-this-string"
+str_split(example_string, pattern = "-")
+```
+
+This code splits `example_string` at each hyphen.
+
+However, applying `str_split()` directly to a dataframe can be more complex.
+
+Let's try it with the IRS dataset from Malawi as a case study. You should already be familiar with this dataset from a previous lesson. It is available [here](https://zenodo.org/record/8146044){target="_blank"}. For now, we'll focus on the `start_date_long` column:
+
+```{r}
+irs <- read_csv(here("data/Illovo_data.csv"))
+irs_dates_1 <- irs %>% select(village, start_date_long)
+irs_dates_1
+```
+
+Suppose we want to split the `start_date_long` variable to extract the day, month, and year. We can write:
+
+```{r}
+irs_dates_1 %>% 
+  mutate(start_date_parts = str_split(start_date_long, " "))
+```
+
+This results in a list column, which can be difficult to work with. To make it more readable, we can use `unnest_wider()`:
+
+```{r}
+irs_dates_1 %>% 
+  mutate(start_date_parts = str_split(start_date_long, " ")) %>% 
+  unnest_wider(start_date_parts, names_sep = "_")
+```
+
+It works! Our date parts are now split. However, this approach is quite cumbersome. A better solution for splitting components is the `separate()` function.
+
+## Using `separate()`
+
+Let's try the same task using `separate()`:
+
+```{r}
+irs_dates_1 %>%
+  separate(start_date_long, into = c("month", "day", "year"), sep = " ")
+```
+
+Much more straightforward!
+
+This function requires specifying:
+
+-   The column to be split.
+-   `into` - Names of the new columns.
+-   `sep` - The separator character.
+
+To retain the original column, use `remove = FALSE`:
+
+```{r}
+irs_dates_1 %>%
+  separate(start_date_long, into = c("month", "day", "year"), sep = " ", remove = FALSE)
+```
+
+::: side-note
+Alternatively, the `lubridate` package offers functions to extract date components:
+
+```{r}
+irs_dates_1 %>% 
+  mutate(start_date_long = mdy(start_date_long)) %>% 
+  mutate(day = day(start_date_long),
+         month = month(start_date_long, label = TRUE),
+         year = year(start_date_long))
+```
+:::
+
+When some rows lack all the necessary parts, `separate()` will issue a warning. Let's demonstrate this by artificially removing all instances of the word "April" from our dates:
+
+```{r}
+irs_dates_with_problem <- 
+  irs_dates_1 %>% 
+  mutate(start_date_missing = str_replace(start_date_long, "April ", ""))
+irs_dates_with_problem
+```
+
+Now, let's try to split the date parts:
+
+```{r warning = TRUE, message = TRUE}
+irs_dates_with_problem %>% 
+  separate(start_date_missing, into = c("month", "day", "year"), sep = " ")
+```
+
+As you can see, rows missing parts will produce warnings. Handle such warnings carefully, as they can lead to inaccurate data. In this case, we now have the day and month information for those rows in the wrong columns.
+
+::: practice
+### Q: Splitting Age Range Strings {.unlisted .unnumbered}
+
+Consider the `esoph_ca` dataset, from the {medicaldata} package, which involves a case-control study of esophageal cancer in France.
+
+```{r}
+medicaldata::esoph_ca %>% as_tibble()
+```
+
+Split the age ranges in the `agegp` column into two separate columns: `agegp_lower` and `agegp_upper`.
+
+After using the `separate()` function, the "75+" age group will require special handling. Use `readr::parse_number()`or another method to convert the lower age limit ("75+") to a number.
+
+```{r eval = F}
+medicaldata::esoph_ca %>% 
+  separate(________) %>% 
+  # convert 75+ to a number 
+  mutate(________)
+```
+:::
+
+## Separating Special Characters
+
+To use the `separate()` function on special characters like the period (.), we need to escape them with a double backslash (`\\`).
+
+Consider the scenario where dates are formatted with periods:
+
+```{r}
+irs_with_period <- irs_dates_1 %>% 
+  mutate(start_date_long = format(lubridate::mdy(start_date_long), "%d.%m.%Y"))
+irs_with_period
+```
+
+Attempting to separate this date format directly with `sep = "."` will not work:
+
+```{r}
+irs_with_period %>%
+  separate(start_date_long, into = c("day", "month", "year"), sep = ".")
+```
+
+This doesn't work as intended because, in regex (regular expressions), the period is a special character. We'll learn more about these in due course. The correct approach is to escape the period uses a double backslash (\\):
+
+```{r}
+irs_with_period %>% 
+  separate(start_date_long, into = c("day", "month", "year"), sep = "\\.")
+```
+
+Now, the function understands to split the string at each literal period.
+
+Similarly, when using other special characters like `+`, `*`, or `?`, we also need to precede them with a double backslash (\\) in the `sep` argument.
+
+::: side-note
+**What is a Special Character?**
+
+In regular expressions, which help find patterns in text, special characters have specific roles. For example, a period (.) is a wildcard that can represent any character. So, in a search, "do.t" could match "dolt," "dost," or "doct" Similarly, the plus sign (+) is used to indicate one or more occurrences of the preceding character. For example, "ho+se" would match "hose" or "hooose" but not "hse." When we need to use these characters in their ordinary roles, we use a double backslash (`\\`) before them, like "`\\.`" or "`\\+.`" More on these special characters will be covered in a future lesson.
+:::
+
+::: practice
+### Q: Separating Special Characters {.unlisted .unnumbered}
+
+Your next task involves the `hiv_dat_clean_1` dataset. Focus on the `regimen` column, which lists drug regimens separated by a `+` sign. Your goal is to split this column into three new columns: `drug_1`, `drug_2`, and `drug_3` using the `separate()` function. Pay close attention to how you handle the `+` separator. Here's the column:
+
+```{r}
+hiv_dat_clean_1 %>% 
+  select(regimen)
+```
+:::
+
+# Combining Strings with `paste()`
+
+The `paste()` function in R concatenates or joins together character strings. This allows you to combine multiple strings into a single string.
+
+To combine two simple strings:
+
+```{r}
+string1 <- "Hello"
+string2 <- "World"
+paste(string1, string2)
+```
+
+The default separator is a space, so this returns "Hello World".
+
+Let's demonstrate how to use this on a dataset, with the IRS date data. First, we'll separate the start date into individual columns:
+
+```{r}
+irs_dates_separated <- # store for later use
+  irs_dates_1 %>%
+  separate(start_date_long, into = c("month", "day", "year"), sep = " ", remove = FALSE)
+irs_dates_separated
+```
+
+Then we can recombine day, month and year with `paste()`:
+
+```{r}
+irs_dates_separated %>%
+  select(day, month, year) %>%
+  mutate(start_date_long_2 = paste(day, month, year))
+```
+
+The `sep` argument specifies the separator between elements. For a different separator, like a hyphen, we can write:
+
+```{r}
+irs_dates_separated %>%
+  mutate(start_date_long_2 = paste(day, month, year, sep = "-"))
+```
+
+To concatenate without spaces, we can set `sep = ""`:
+
+```{r}
+irs_dates_separated %>%
+  select(day, month, year) %>%
+  mutate(start_date_long_2 = paste(day, month, year, sep = ""))
+```
+
+Or we can use the `paste0()` function, which is equivalent to `paste(..., sep = "")`:
+
+```{r}
+irs_dates_separated %>%
+  select(day, month, year) %>%
+  mutate(start_date_long_2 = paste0(day, month, year))
+```
+
+Let's try to combine `paste()` with some other string functions to solve a realistic data problem. Consider the ID column in the `hiv_dat_messy_1` dataset:
+
+```{r}
+hiv_dat_messy_1 %>% 
+  select(patient_id)
+```
+
+Imagine we wanted to standardize these IDs to have the same number of characters. This is often a requirement for IDs (think about phone numbers, for instance).
+
+To implement this, we can use `separate()` to split the IDs into parts, then use `paste()` to recombine them into a standardized format.
+
+```{r}
+hiv_dat_messy_1 %>%
+  select(patient_id) %>% # for visibility
+  separate(patient_id, into = c("prefix", "patient_num"), sep = "-", remove = F) %>%
+  mutate(patient_num = str_pad(patient_num, width = 5, side = "left", pad = "0")) %>%
+  mutate(patient_id_padded = paste(prefix, patient_num, sep = "-"))
+```
+
+In this example, `patient_id` is split into a prefix and a number. The number is then padded with zeros to ensure consistent length, and finally, the two parts are concatenated back together using `paste()` with a hyphen as the separator. This process standardizes the format of patient IDs.
+
+Great work!
+
+::: practice
+### Q: Standardizing IDs in the `lima_messy_1` Dataset {.unlisted .unnumbered}
+
+In the `lima_messy_1` dataset, the IDs are not zero-padded, making them hard to sort.
+
+For example, the ID `pe-998` is at the top of the list after sorting in descending order, which is not what we want.
+
+```{r}
+lima_messy_1 %>%
+  select(id) %>%
+  arrange(desc(id)) # sort in descending order (highest IDs should be at the top)
+```
+
+Try to fix this using a similar procedure to the one used for `hiv_dat_messy_1`.
+
+**Your Task:**
+
+-   Separate the ID into parts.
+-   Pad the numeric part for standardization.
+-   Recombine the parts using `paste()`.
+-   Resort the IDs in descending order. The highest ID should end in `2347`
+
+```{r eval = F}
+lima_messy_1 %>%
+  ______________
+```
+:::
+
+::: practice
+### Q: Creating Summary Statements {.unlisted .unnumbered}
+
+Create a column containing summary statements combining `village`, `start_date_default`, and `coverage_p` from the `irs` dataset. The statement should describe the spray coverage for each village.
+
+**Desired Output:** "For village X, the spray coverage was Y% on Z date."
+
+**Your Task:** - Select the necessary columns from the `irs` dataset. - Use `paste()` to create the summary statement.
+
+```{r eval = F}
+irs %>% 
+  select(village, start_date_default, coverage_p) %>% 
+  ______________________
+```
+:::
+
+::: reminder
+As we go through this lesson, remember that RStudio's auto-complete can help you find functions in the stringr package.
+
+Just type `str_` and a list of stringr functions will pop up. All stringr functions start with `str_`.
+
+So instead of trying to memorize them all, you can use auto-complete as a reference when needed.
+:::
+
+# Subsetting strings with `str_sub`
+
+`str_sub` allows you to extract parts of a string based on character positions. The basic syntax is `str_sub(string, start, end)`.
+
+Example: Extracting the first 2 characters from patient IDs:
+
+```{r}
+patient_ids <- c("ID12345-abc", "ID67890-def")
+str_sub(patient_ids, 1, 2) # Returns "ID", "ID"
+```
+
+Or the first 5:
+
+```{r}
+str_sub(patient_ids, 1, 5) # Returns "ID123", "ID678"
+```
+
+Negative values count backward from the end of the string. This is useful for extracting suffixes.
+
+For example, to get the last 4 characters of patient IDs.
+
+```{r}
+str_sub(patient_ids, -4, -1) # Returns "-abc", "-def"
+```
+
+Be sure to pause and understand what happened above.
+
+When indices are outside the string length, `str_sub` handles it gracefully without errors:
+
+```{r}
+str_sub(patient_ids, 1, 30) # Safely returns the full string when the range exceeds the string length
+```
+
+In a data frame, we can use `str_sub` within `mutate()`. For example, below we extract the year and month from the `start_date_default` column and create a new column called `year_month`:
+
+```{r}
+irs %>% 
+  select(start_date_default) %>%
+  mutate(year_month = str_sub(start_date_default, start = 1, end = 7))
+```
+
+::: practice
+### Q: Extracting ID Substrings {.unlisted .unnumbered}
+
+Use `str_sub()` to isolate just the numeric part of the `patient_id` column in the `hiv_dat_messy_1` dataset.
+
+```{r eval = F}
+hiv_dat_messy_1 %>% 
+  select(patient_id) %>% 
+  # your code here: 
+  ______________
+```
+:::
+
+# Wrap up {.unnumbered}
+
+Congratulations on reaching the end of this lesson! You've learned about strings in R and various functions to manipulate them effectively.
+
+The table below gives a quick recap of the key functions we covered. Remember, you don't need to memorize all these functions. Knowing they exist and how to look them up (like using Google) is more than enough for practical applications.
+
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| Function         | Description                                                   | Example                                  | Example Output      |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_to_upper()` | Convert characters to uppercase                               | `str_to_upper("hiv")`                    | "HIV"               |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_to_lower()` | Convert characters to lowercase                               | `str_to_lower("HIV")`                    | "hiv"               |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_to_title()` | Convert first character of each word to uppercase             | `str_to_title("hiv awareness")`          | "Hiv Awareness"     |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_trim()`     | Remove whitespace from start & end                            | `str_trim(" hiv ")`                      | "hiv"               |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_squish()`   | Remove whitespace from start & end and reduce internal spaces | `str_squish(" hiv cases ")`              | "hiv cases"         |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_pad()`      | Pad a string to a fixed width                                 | `str_pad("45", width = 5)`               | "00045"             |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_wrap()`     | Wrap a string to a given width (for formatting output)        | `str_wrap("HIV awareness", width = 5)`   | "HIV\nawareness"    |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_split()`    | Split elements of a character vector                          | `str_split("Hello-World", "-")`          | c("Hello", "World") |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `paste()`        | Concatenate vectors after converting to character             | `paste("Hello", "World")`                | "Hello World"       |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_sub()`      | Extract and replace substrings from a character vector        | `str_sub("HelloWorld", 1, 4)`            | "Hell"              |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+| `separate()`     | Separate a character column into multiple columns             | `separate(tibble(a = "Hello-World"), a,` | `|b     |c     |`\  |
+|                  |                                                               |                                          | `|Hello |World |`   |
+|                  |                                                               | `into = c("b", "c"),`                    |                     |
+|                  |                                                               |                                          |                     |
+|                  |                                                               | `sep = "-")`                             |                     |
++------------------+---------------------------------------------------------------+------------------------------------------+---------------------+
+
+Note that while these functions cover common tasks such as string standardization, splitting and joining strings, this introduction only scratches the surface of what's possible with the {stringr} package. If you work with a lot of raw text data, you may want to do further exploring on the [stringr](https://stringr.tidyverse.org){target="_blank"} website.
+
+# Answer Key {.unnumbered}
+
+### Q: Error Spotting in String Definitions {.unlisted .unnumbered}
+
+1.  **`ex_a`**: Correct.
+2.  **`ex_b`**: Correct.
+3.  **`ex_c`**: Error. Corrected version: `ex_c <- "They've been \"best friends\" for years."`
+4.  **`ex_d`**: Error. Corrected version: `ex_d <- 'Jane\'s diary'`
+5.  **`ex_e`**: Error. Close quote missing. Corrected version: `ex_e <- "It's a sunny day!"`
+
+### Q: Cleaning Patient Name Data {.unlisted .unnumbered}
+
+```{r eval = F}
+patient_names <- c("  john doe", "ANNA SMITH   ", "Emily Davis")
+
+patient_names <- str_trim(patient_names) # Trim white spaces
+patient_names <- str_to_title(patient_names) # Convert to title case
+```
+
+### Q: Standardizing Drug Codes {.unlisted .unnumbered}
+
+```{r eval = F}
+drug_codes <- c("12345", "678", "91011")
+
+# Pad each code with zeros on the left to a fixed width of 8 characters.
+drug_codes_padded <- str_pad(drug_codes, 8, pad = "0")
+```
+
+### Q: Wrapping Medical Instructions {.unlisted .unnumbered}
+
+```{r eval = F}
+instructions <- "Take two tablets daily after meals. If symptoms persist for more than three days, consult your doctor immediately. Do not take more than the recommended dose. Keep out of reach of children."
+
+# Wrap instructions
+wrapped_instructions <- str_wrap(instructions, width = 50)
+
+ggplot(data.frame(x = 1, y = 1), aes(x, y, label = wrapped_instructions)) +
+  geom_label() + 
+  theme_void()
+```
+
+### Q: Formatting a Tuberculosis Dataset {.unlisted .unnumbered}
+
+The steps to clean the `lima_messy` dataset would involve:
+
+```{r eval = F}
+lima_clean <- lima_messy %>%
+  mutate(
+    marital_status = str_squish(str_to_title(marital_status)), # Clean and standardize marital_status
+    sex = str_squish(str_to_upper(sex)),                        # Clean and standardize sex
+    age = str_squish(str_to_lower(age))                         # Clean and standardize age
+  )
+
+
+lima_clean %>% 
+  select(marital_status, sex, age) %>%
+  tbl_summary()
+```
+
+Then, use the `tbl_summary()` function to create the summary table.
+
+### Q: Wrapping Axis Labels in a Plot {.unlisted .unnumbered}
+
+```{r eval = F}
+# Assuming lima_clean is already created and contains marital_status
+ggplot(lima_clean, aes(x = str_wrap(marital_status, width = 15))) +
+  geom_bar() + 
+  labs(x = "Marital Status")
+```
+
+### Q: Splitting Age Range Strings {.unlisted .unnumbered}
+
+```{r eval = F}
+esoph_ca %>% 
+  select(agegp) %>% # for illustration
+  separate(agegp, into = c("agegp_lower", "agegp_upper"), sep = "-") %>% 
+  mutate(agegp_lower = readr::parse_number(agegp_lower))
+```
+
+### Q: Creating Summary Statements {.unlisted .unnumbered}
+
+```{r eval = F}
+irs %>% 
+  select(village, start_date_default, coverage_p) %>% 
+  mutate(summary_statement = paste0("For village ", village, ", the spray coverage was ", coverage_p, "% on ", start_date_default))
+```
+
+### Q: Extracting ID Substrings {.unlisted .unnumbered}
+
+```{r eval = F}
+hiv_dat_messy_1 %>% 
+  select(patient_id) %>% 
+  mutate(numeric_part = str_sub(patient_id, 4))
+```
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("camille", "kendavidn"))`

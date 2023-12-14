@@ -1,0 +1,15 @@
+municipality,death_location,death_year,death_month,death_day,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Populated center,Home/address,2010,Nov,24,Riosucio,Neuroinfection,G049,Grade III dehydration,E86,AIDS,R571,SIDA,B24
+Municipal head,Hospital/clinic,2010,Mar,19,Riosucio,Pneumonia,J189,HIV infection,B24,NA,A162,NA,NA
+Municipal head,Hospital/clinic,2011,Aug,15,Riosucio,Multilobar Pneumonia,J180,HIV/AIDS infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Jun,19,Riosucio,Cardiorespiratory Arrest,I469,Human immunodeficiency virus acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Jul,18,Riosucio,Respiratory Arrest,R092,Pulmonary origin sepsis,J984,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2012,Jul,13,Riosucio,Severe Community-Acquired Pneumonia,J189,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Mar,10,Riosucio,Acute Respiratory Failure,J960,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2013,Jun,17,Riosucio,Malignant Arrhythmia,I499,Ventilatory failure,J969,Encephalitis,J189,ENCEFALITIS,G049
+Municipal head,Hospital/clinic,2013,Jan,25,Riosucio,Malignant Ventricular Arrhythmia,I499,Septic shock with multiple organ failure,R688,Neurosyphilis cerebral toxoplasmosis,D849,NEUROSIFILIS TOXOPLASMOSIS CEREBRAL,A523
+Municipal head,Hospital/clinic,2014,Jan,29,Riosucio,Acute Respiratory Insufficiency,J960,Tuberculosis,A169,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2015,Apr,8,Riosucio,Malignant Arrhythmia,I499,Electrolyte disorder,E878,Chronic kidney disease,B24,INSUFICIENCIA RENAL CRONICA,N189
+Municipal head,Hospital/clinic,2016,Jul,13,Riosucio,Cardiac Arrest Due to Malignant Arrhythmia,I469,Immunosuppression-related pulmonary sepsis,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Jun,12,Riosucio,Cardiorespiratory Arrest,I469,Malignant arrhythmia,I499,HIV-induced immunosuppression,J189,INMUNOSUPRESION POR VIH,B24
+Municipal head,Hospital/clinic,2016,Feb,24,Riosucio,Multiorgan Dysfunction,R688,Severe pneumonia,J189,Human immunodeficiency virus,B24,VIRUS DE INMUNODEFICIENCIA HUMANA,B24

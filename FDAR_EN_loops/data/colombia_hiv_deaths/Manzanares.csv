@@ -1,0 +1,4 @@
+municipality,death_location,death_year,death_month,death_day,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2011,Jun,4,Manzanares,Meningitis,G039,Human immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Mar,20,Manzanares,Bacterial Sepsis,A499,Gastroenteritis,A09,Urinary tract infection,B24,INFECCION DE VIAS URIBNARIAS,N390
+Municipal head,Hospital/clinic,2016,Jan,18,Manzanares,Urinary Origin Sepsis,N390,Resistant germ urinary tract infection,N390,HIV infection,B24,INFECCION CON VIRUS DE INMUNODEFICIENCIA HUMANA,B24

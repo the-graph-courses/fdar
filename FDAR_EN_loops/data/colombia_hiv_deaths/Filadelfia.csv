@@ -1,0 +1,6 @@
+municipality,death_location,death_year,death_month,death_day,occupation,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2012,Sep,30,Priests and Religious of Different Doctrines,Filadelfia,Septicemia,A419,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2014,Apr,29,Transient Crop Farmers,Filadelfia,Cryptococcal Meningitis,G039,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jul,31,Permanent Crop Farmers (Tree and Shrub Plantations),Filadelfia,Respiratory Arrest,R092,Opportunistic pathogen pneumonia,J168,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2014,Jul,13,"Other Craftsmen, Not Classified Under Other Categories",Filadelfia,Acute Pulmonary Edema,J81,Exacerbated chronic kidney disease,N189,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jun,17,Unknown,Filadelfia,Kaposi's Sarcoma,C469,Human immunodeficiency virus,B24,NA,NA,NA,NA

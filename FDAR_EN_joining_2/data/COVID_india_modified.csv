@@ -1,0 +1,73 @@
+state,hc_type,tb_covid_pos
+Andaman & Nicobar Islands,public,0
+Andaman & Nicobar Islands,private,0
+Andhra Pradesh,public,97
+Andhra Pradesh,private,17
+ArunachalPradesh,public,0
+ArunachalPradesh,private,0
+Assam,public,31
+Assam,private,16
+Bihar,public,78
+Bihar,private,53
+Chandigarh,public,8
+Chandigarh,private,0
+Chhattisgarh,public,57
+Chhattisgarh,private,8
+Dadra & Nagar Haveli and Daman & Diu,public,1
+Dadra & Nagar Haveli and Daman & Diu,private,0
+Delhi,public,44
+Delhi,private,5
+Goa,public,12
+Goa,private,0
+Gujarat,public,105
+Gujarat,private,19
+Haryana,public,44
+Haryana,private,9
+Himachal Pradesh,public,42
+Himachal Pradesh,private,1
+Jammu & Kashmir,public,9
+Jammu & Kashmir,private,1
+Jharkhand,public,40
+Jharkhand,private,14
+Karnataka,public,162
+Karnataka,private,17
+Kerala,public,322
+Kerala,private,37
+Ladakh,public,0
+Ladakh,private,0
+Lakshadweep,public,0
+Lakshadweep,private,0
+Madhya Pradesh,public,146
+Madhya Pradesh,private,26
+Maharashtra,public,322
+Maharashtra,private,73
+Manipur,public,4
+Manipur,private,0
+Meghalaya,public,3
+Meghalaya,private,0
+Mizoram,public,3
+Mizoram,private,0
+Nagaland,public,1
+Nagaland,private,0
+Odisha,public,85
+Odisha,private,2
+Puducherry,public,16
+Puducherry,private,0
+Punjab,public,45
+Punjab,private,7
+Rajasthan,public,71
+Rajasthan,private,12
+Sikkim,public,4
+Sikkim,private,0
+tamil nadu,public,178
+tamil nadu,private,18
+Telangana,public,53
+Telangana,private,45
+Tri pura,public,2
+Tri pura,private,0
+Uttar Pradesh,public,191
+Uttar Pradesh,private,20
+Uttarakhand,public,43
+Uttarakhand,private,4
+West Bengal,public,214
+West Bengal,private,29

@@ -1,0 +1,202 @@
+"sex","clage","origine","adquired","chronic","cd4","cd4_category","acute","latepresent","reasonsdx","testlocal","numberconsult","consultcat","cattimenegtestdx","missed_ops","NaN."
+"Male","18-29","Western World","MSM","No",126,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Male",">50","Western World","MSM","No",147,1,"Not acute","Yes","Epidemiological risk","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"Female",">50","Sub Saharan Africa","Heterosexual","No",416,3,"Not acute","No","Patient initiated","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Male","30-49","Western World","MSM","No",393,3,"Not acute","No","Epidemiological risk","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"Male","30-49","Western World","IV drug use","No",230,2,"Not acute","Yes","Epi risk","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Western World","MSM","No",652,4,"Not acute","No","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"M",">50","Western World","Other","No",88,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","18-29","Western World","IV drug use","Yes",1100,4,"Not acute","No","Patient initiated","Primary care physician",10,">5 previous consultations","HIV testing the previous year",12,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",634,4,"Not acute","No","Suspicion of acute HIV infection","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",465,3,"Not acute","No","Suspicion of acute HIV infection","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","18-29","Western World","Heterosexual","No",265,2,"Not acute","Yes","Suspicion of acute HIV infection","Primary care physician",3,"1-5 previous consultations","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",295,2,"yes","No","Suspicion of acute HIV infection","Primary care physician",2,"1-5 previous consultations","No previous HIV testing",2,NA
+"Male","30-49","Others","MSM","No",322,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Western World","Heterosexual","Yes",252,2,"yes","No","Disease for which the prevalence of HIV is >1%","Primary care physician",4,"1-5 previous consultations","No previous HIV testing",0,NA
+"Female","18-29","Western World","Heterosexual","Yes",679,4,"Not acute","No","Epidemiological risk","Primary care physician",2,"1-5 previous consultations","Last HIV test >1 before diagnosis",3,NA
+"Male","18-29","Others","Heterosexual","No",615,4,"Not acute","No","Epi risk","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Male","18-29","Western World","MSM","No",435,3,"yes","No","Suspicion of acute HIV infection","Primary care physician",3,"1-5 previous consultations","HIV testing the previous year",3,NA
+"M","18-29","Others","MSM","No",487,3,"Not acute","No","Epidemiological risk","Primary care physician",1,"1-5 previous consultations","No previous HIV testing",1,NA
+"M","18-29","Western World","Heterosexual","No",140,1,"Not acute","Yes","Patient initiated","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"M","18-29","Sub Saharan Africa","Heterosexual","No",421,3,"Not acute","No","Epi risk","Primary care physician",2,"1-5 previous consultations","Last HIV test >1 before diagnosis",2,NA
+"M",">50","Western World","MSM","Yes",350,1,"Not acute","Yes","Patient initiated","Primary care physician",2,"1-5 previous consultations","Last HIV test >1 before diagnosis",3,NA
+"Male","30-49","Western World","MSM","No",704,4,"Not acute","No","Epi risk","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Western World","Heterosexual","No",47,1,"Not acute","Yes","Suspicion of acute HIV infection","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",69,1,"Not acute","Yes","Patient initiated","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","18-29","Others","MSM","No",49,1,"Not acute","Yes","AIDS defining illness","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Western World","Heterosexual","No",1004,4,"Not acute","No","Epi risk","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","18-29","Sub Saharan Africa","Heterosexual","No",134,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"M","30-49","Others","Heterosexual","No",76,1,"Not acute","Yes","Epi risk","Primary care physician",1,"1-5 previous consultations","No previous HIV testing",2,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",375,3,"Not acute","No","Patient initiated","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Others","MSM","No",356,3,"yes","No","Suspicion of acute HIV infection","Primary care physician",7,">5 previous consultations","HIV testing the previous year",NA,NA
+"M",">50","Western World","MSM","No",348,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"Male","30-49","Western World","MSM","No",361,3,"yes","No","Suspicion of acute HIV infection","Primary care physician",4,"1-5 previous consultations","HIV testing the previous year",4,NA
+"M",">50","Western World","Heterosexual","Yes",49,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","18-29","Western World","Heterosexual","No",268,2,"yes","No","Epidemiological risk","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",198,1,"Not acute","Yes","Epidemiological risk","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",339,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",3,"1-5 previous consultations","Last HIV test >1 before diagnosis",6,NA
+"Female",">50","Western World","Heterosexual","No",142,1,"yes","No","Suspicion of acute HIV infection","Primary care physician",8,">5 previous consultations","No previous HIV testing",0,NA
+"Male","30-49","Others","Heterosexual","No",216,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male",">50","Western World","Heterosexual","Yes",578,4,"Not acute","No","Epidemiological risk","Primary care physician",5,">5 previous consultations","Last HIV test >1 before diagnosis",2,NA
+"Female",">50","Western World","Heterosexual","Yes",174,1,"Not acute","Yes","Epi risk","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",182,1,"Not acute","Yes","Suspicion of acute HIV infection","Primary care physician",2,"1-5 previous consultations","No previous HIV testing",2,NA
+"Male","30-49","Western World","MSM","No",326,2,"yes","No","Suspicion of acute HIV infection","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",299,2,"Not acute","Yes","Patient initiated","Primary care physician",2,"1-5 previous consultations","No previous HIV testing",3,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",400,3,"Not acute","No","Epi risk","Primary care physician",3,"1-5 previous consultations","No previous HIV testing",3,NA
+"M",">50","Western World","MSM","No",632,4,"Not acute","No","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"M","30-49","Western World","MSM","No",346,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"Female",">50","Western World","Heterosexual","No",471,3,"yes","No","Patient initiated","Primary care physician",1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Male","18-29","Western World","MSM","Yes",1098,4,"Not acute","No","Patient initiated","Primary care physician",3,"1-5 previous consultations","Last HIV test >1 before diagnosis",3,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",205,2,"Not acute","Yes","AIDS defining illness","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Others","Heterosexual","No",43,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Male","30-49","Western World","MSM","Yes",735,4,"yes","No","Suspicion of acute HIV infection","Primary care physician",8,">5 previous consultations","No previous HIV testing",8,NA
+"M","18-29","Western World","MSM","No",175,1,"Not acute","Yes","Suspicion of acute HIV infection","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"Male","30-49","Western World","IV drug use","Yes",642,4,"Not acute","No","Disease for which the prevalence of HIV is >1%","Primary care physician",10,">5 previous consultations","No previous HIV testing",10,NA
+"M","18-29","Western World","MSM","No",532,4,"Not acute","No","Patient initiated","Primary care physician",1,"1-5 previous consultations","No previous HIV testing",2,NA
+"M","30-49","Western World","MSM","Yes",653,4,"yes","No","Suspicion of acute HIV infection","Primary care physician",3,"1-5 previous consultations","HIV testing the previous year",3,NA
+"Male","30-49","Western World","MSM","No",448,3,"Not acute","No","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"M","18-29","Western World","MSM","No",709,4,"Not acute","No","Epidemiological risk","Primary care physician",0,"No previous consultation","HIV testing the previous year",0,NA
+"M",">50","Western World","MSM","No",226,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",705,4,"yes","No","Suspicion of acute HIV infection","Primary care physician",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"Male","30-49","Western World","MSM","No",383,3,"Not acute","No","Epidemiological risk","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Western World","MSM","No",11,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",280,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Male",">50","Western World","Other","No",364,3,"Not acute","No","Disease for which the prevalence of HIV is >1%","Primary care physician",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","18-29","Western World","Heterosexual","No",462,3,"Not acute","No","Epidemiological risk","Primary care physician",2,"1-5 previous consultations","HIV testing the previous year",2,NA
+"M","18-29","Western World","MSM","No",671,4,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",4,"1-5 previous consultations","No previous HIV testing",4,NA
+"Male","18-29","Sub Saharan Africa","Heterosexual","No",224,2,"Not acute","Yes","Suspicion of acute HIV infection","CHUV/PMU outpatient",3,"1-5 previous consultations","Last HIV test >1 before diagnosis",3,NA
+"Male",">50","Others","Heterosexual","No",63,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Western World","Heterosexual","No",33,1,"Not acute","Yes","Suspicion of acute HIV infection","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"M","18-29","Others","MSM","No",442,3,"Not acute","No","Patient initiated","CHUV/PMU outpatient",3,"1-5 previous consultations","No previous HIV testing",3,NA
+"M","30-49","Western World","Heterosexual","No",990,4,"Not acute","No","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",5,">5 previous consultations","No previous HIV testing",0,NA
+"Male",">50","Western World","Heterosexual","Yes",3,1,"Not acute","Yes","AIDS defining illness","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Others","IV drug use","Yes",207,2,"yes","No","AIDS defining illness","CHUV/PMU outpatient",9,">5 previous consultations","Last HIV test >1 before diagnosis",9,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","Yes",329,2,"Not acute","Yes","Suspicion of acute HIV infection","CHUV/PMU outpatient",8,">5 previous consultations","Last HIV test >1 before diagnosis",16,NA
+"M","30-49","Western World","MSM","No",467,3,"Not acute","No","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",4,"1-5 previous consultations","Last HIV test >1 before diagnosis",4,NA
+"Male","18-29","Western World","IV drug use","No",302,2,"Not acute","Yes","Epi risk","CHUV/PMU outpatient",10,">5 previous consultations","Last HIV test >1 before diagnosis",10,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",311,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",78,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"Male","30-49","Others","MSM","No",417,3,"Not acute","No","Epidemiological risk","CHUV/PMU outpatient",0,"No previous consultation","HIV testing the previous year",0,NA
+"Male","30-49","Western World","MSM","No",467,3,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",2,"1-5 previous consultations","No previous HIV testing",2,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",82,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",210,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",1,"1-5 previous consultations","No previous HIV testing",1,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",271,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",6,">5 previous consultations","No previous HIV testing",7,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",127,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Western World","Heterosexual","Yes",106,1,"Not acute","Yes","Epidemiological risk","CHUV/PMU outpatient",1,"1-5 previous consultations","No previous HIV testing",0,NA
+"Male",">50","Western World","Heterosexual","Yes",193,1,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",5,">5 previous consultations","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",413,3,"Not acute","No","Epidemiological risk","CHUV/PMU outpatient",4,"1-5 previous consultations","HIV testing the previous year",6,NA
+"Male","30-49","Western World","MSM","No",300,2,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"Female","30-49","Western World","IV drug use","No",359,3,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",3,"1-5 previous consultations","HIV testing the previous year",4,NA
+"Male","30-49","Sub Saharan Africa","Other","No",379,3,"Not acute","No","Epidemiological risk","CHUV/PMU outpatient",1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Female",">50","Western World","Heterosexual","Yes",8,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",5,">5 previous consultations","No previous HIV testing",5,NA
+"M","30-49","Others","MSM","No",1261,4,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",9,">5 previous consultations","No previous HIV testing",12,NA
+"Male","18-29","Western World","Heterosexual","No",444,3,"Not acute","No","Patient initiated","CHUV/PMU outpatient",4,"1-5 previous consultations","HIV testing the previous year",4,NA
+"Male",">50","Sub Saharan Africa","Heterosexual","No",123,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",3,"1-5 previous consultations","No previous HIV testing",3,NA
+"Male","30-49","Western World","MSM","No",441,3,"yes","No","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",0,"No previous consultation","HIV testing the previous year",0,NA
+"M","18-29","Western World","MSM","Yes",430,3,"Not acute","No","Epidemiological risk","CHUV/PMU outpatient",7,">5 previous consultations","HIV testing the previous year",10,NA
+"Male","30-49","Western World","MSM","Yes",922,4,"Not acute","No","Epi risk","CHUV/PMU outpatient",2,"1-5 previous consultations","No previous HIV testing",2,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",24,1,"Not acute","Yes","AIDS defining illness","CHUV/PMU outpatient",0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",108,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Male","30-49","Sub Saharan Africa","MSM","No",199,1,"Not acute","Yes","Suspicion of acute HIV infection","CHUV/PMU outpatient",5,">5 previous consultations","HIV testing the previous year",5,NA
+"Female","30-49","Western World","Heterosexual","No",193,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",3,"1-5 previous consultations","Last HIV test >1 before diagnosis",6,NA
+"Male","18-29","Sub Saharan Africa","Heterosexual","No",324,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",2,"1-5 previous consultations","Last HIV test >1 before diagnosis",2,NA
+"M","30-49","Western World","MSM","No",232,2,"yes","No","Suspicion of acute HIV infection","CHUV/PMU outpatient",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"Male","30-49","Western World","MSM","Yes",879,4,"Not acute","No","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"Female","30-49","Western World","Heterosexual","Yes",4,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",4,"1-5 previous consultations","Last HIV test >1 before diagnosis",4,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",973,4,"Not acute","No","Disease for which the prevalence of HIV is >1%","CHUV/PMU outpatient",3,"1-5 previous consultations","No previous HIV testing",6,NA
+"M","30-49","Western World","Heterosexual","No",222,2,"Not acute","Yes","Epi risk",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",293,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female",">50","Others","Heterosexual","No",247,2,"yes","No","Suspicion of acute HIV infection",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Male",">50","Sub Saharan Africa","Heterosexual","No",12,1,"Not acute","Yes","AIDS defining illness",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female",">50","Others","Heterosexual","No",59,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,1,"1-5 previous consultations","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",53,1,"Not acute","Yes","AIDS defining illness",NA,1,"1-5 previous consultations","No previous HIV testing",1,NA
+"M","30-49","Western World","Heterosexual","No",21,1,"Not acute","Yes","AIDS defining illness",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Male","18-29","Others","MSM","No",23,1,"Not acute","Yes","AIDS defining illness",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","Heterosexual","Yes",295,2,"yes","No","Suspicion of acute HIV infection",NA,5,">5 previous consultations","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",221,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,1,"1-5 previous consultations","No previous HIV testing",NA,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",123,1,"Not acute","Yes","AIDS defining illness",NA,1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Female","30-49","Western World","Heterosexual","No",110,1,"Not acute","Yes","AIDS defining illness",NA,1,"1-5 previous consultations","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",43,1,"Not acute","Yes","AIDS defining illness",NA,2,"1-5 previous consultations","No previous HIV testing",4,NA
+"Female",">50","Western World","Heterosexual","No",15,1,"Not acute","Yes","AIDS defining illness",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",15,1,"Not acute","Yes","AIDS defining illness",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Sub Saharan Africa","Other","No",2,1,"Not acute","Yes","Epi risk",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"M","18-29","Sub Saharan Africa","Heterosexual","No",850,4,"Not acute","No","AIDS defining illness",NA,5,">5 previous consultations","No previous HIV testing",5,NA
+"M",">50","Western World","Heterosexual","Yes",463,3,"yes","No","Suspicion of acute HIV infection",NA,10,">5 previous consultations","No previous HIV testing",0,NA
+"M",">50","Western World","Heterosexual","No",273,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,9,">5 previous consultations","No previous HIV testing",4,NA
+"Female","30-49","Sub Saharan Africa","Other","No",186,1,"Not acute","Yes","Introduction of immunosuppressive treatment",NA,4,"1-5 previous consultations","Last HIV test >1 before diagnosis",6,NA
+"Female",">50","Western World","Heterosexual","Yes",285,2,"yes","No","Suspicion of acute HIV infection",NA,4,"1-5 previous consultations","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",333,2,"Not acute","Yes","Patient initiated","Anonymous consultation",2,"1-5 previous consultations","No previous HIV testing",2,NA
+"M","18-29","Western World","MSM","Yes",337,2,"Not acute","Yes","Patient initiated","Anonymous consultation",4,"1-5 previous consultations","Last HIV test >1 before diagnosis",4,NA
+"Male","30-49","Sub Saharan Africa","Heterosexual","No",149,1,"Not acute","Yes","Epi risk","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Western World","Heterosexual","No",706,4,"Not acute","No","Patient initiated","Anonymous consultation",8,">5 previous consultations","HIV testing the previous year",1,NA
+"Male","30-49","Sub Saharan Africa","Heterosexual","No",276,2,"yes","No","Suspicion of acute HIV infection","Anonymous consultation",4,"1-5 previous consultations","No previous HIV testing",4,NA
+"M","30-49","Western World","MSM","No",1067,4,"Not acute","No","Suspicion of acute HIV infection","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Other","Yes",363,3,"Not acute","No","Patient initiated","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"M","18-29","Sub Saharan Africa","Heterosexual","No",270,2,"Not acute","Yes","Patient initiated","Anonymous consultation",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"M","18-29","Others","MSM","Yes",212,2,"Not acute","Yes","Patient initiated","Anonymous consultation",2,"1-5 previous consultations","Last HIV test >1 before diagnosis",4,NA
+"M","30-49","Western World","MSM","No",336,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Others","MSM","No",627,4,"Not acute","No","Epidemiological risk","Anonymous consultation",1,"1-5 previous consultations","HIV testing the previous year",2,NA
+"M","30-49","Western World","MSM","No",453,3,"yes","No","Suspicion of acute HIV infection","Anonymous consultation",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Others","Heterosexual","No",146,1,"Not acute","Yes","Epi risk","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Others","MSM","No",13,1,"Not acute","Yes","Patient initiated","Anonymous consultation",0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Male",">50","Western World","MSM","No",340,2,"Not acute","Yes","Patient initiated","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Male","18-29","Western World","Heterosexual","No",208,2,"Not acute","Yes","Patient initiated","Anonymous consultation",1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Male","18-29","Others","MSM","No",397,3,"Not acute","No","Patient initiated","Anonymous consultation",4,"1-5 previous consultations","Last HIV test >1 before diagnosis",5,NA
+"Female",">50","Sub Saharan Africa","Heterosexual","No",169,1,"Not acute","Yes","Epi risk","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Western World","Heterosexual","Yes",256,2,"Not acute","Yes","Epidemiological risk","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Western World","Heterosexual","No",89,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%","Anonymous consultation",2,"1-5 previous consultations","No previous HIV testing",0,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",461,3,"Not acute","No","Patient initiated","Anonymous consultation",6,">5 previous consultations","HIV testing the previous year",6,NA
+"M","18-29","Others","MSM","No",397,3,"Not acute","No","Epidemiological risk","Anonymous consultation",1,"1-5 previous consultations","Last HIV test >1 before diagnosis",2,NA
+"M","18-29","Western World","Heterosexual","No",176,1,"Not acute","Yes","Epi risk","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",103,1,"Not acute","Yes","Epidemiological risk","Anonymous consultation",0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",364,3,"yes","No","Suspicion of acute HIV infection","Anonymous consultation",3,"1-5 previous consultations","No previous HIV testing",4,NA
+"M","30-49","Western World","MSM","Yes",775,4,"Not acute","No","Suspicion of acute HIV infection","Anonymous consultation",1,"1-5 previous consultations","HIV testing the previous year",1,NA
+"Male","30-49","Western World","MSM","Yes",452,3,"Not acute","No","Disease for which the prevalence of HIV is >1%",NA,1,"1-5 previous consultations","Last HIV test >1 before diagnosis",1,NA
+"M",">50","Western World","MSM","No",369,3,"yes","No","Suspicion of acute HIV infection",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",288,2,"Not acute","Yes","Pregnancy",NA,1,"1-5 previous consultations","Last HIV test >1 before diagnosis",2,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","Yes",955,4,"Not acute","No","Epi risk",NA,2,"1-5 previous consultations","No previous HIV testing",2,NA
+"Male","30-49","Western World","Other","No",606,4,"Not acute","No","Patient initiated",NA,1,"1-5 previous consultations","HIV testing the previous year",0,NA
+"Male","30-49","Western World","MSM","No",45,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Others","Heterosexual","No",98,1,"Not acute","Yes","AIDS defining illness",NA,1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",546,4,"Not acute","No","Patient initiated",NA,1,"1-5 previous consultations","No previous HIV testing",1,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",447,3,"Not acute","No","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Sub Saharan Africa","Other","No",291,2,"Not acute","Yes","AIDS defining illness",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","Yes",102,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,2,"1-5 previous consultations","No previous HIV testing",2,NA
+"M","30-49","Western World","MSM","No",44,1,"Not acute","Yes","AIDS defining illness",NA,1,"1-5 previous consultations","Last HIV test >1 before diagnosis",2,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",91,1,"Not acute","Yes","AIDS defining illness",NA,1,"1-5 previous consultations","No previous HIV testing",2,NA
+"Male","18-29","Western World","MSM","No",418,3,"Not acute","No","Patient initiated",NA,3,"1-5 previous consultations","Last HIV test >1 before diagnosis",4,NA
+"Female","30-49","Others","Heterosexual","No",142,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Sub Saharan Africa","Heterosexual","No",17,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",115,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","18-29","Western World","Heterosexual","No",492,3,"Not acute","No","Patient initiated",NA,3,"1-5 previous consultations","No previous HIV testing",1,NA
+"M","30-49","Western World","MSM","No",557,4,"Not acute","No","Disease for which the prevalence of HIV is >1%",NA,5,">5 previous consultations","No previous HIV testing",9,NA
+"Female",">50","Western World","Heterosexual","Yes",167,1,"yes","No","Disease for which the prevalence of HIV is >1%",NA,2,"1-5 previous consultations","No previous HIV testing",0,NA
+"M","30-49","Western World","IV drug use","Yes",188,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,5,">5 previous consultations","No previous HIV testing",10,NA
+"Female",">50","Western World","Heterosexual","No",655,4,"Not acute","No","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Others","Heterosexual","No",222,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Male","30-49","Sub Saharan Africa","Heterosexual","No",105,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,1,"1-5 previous consultations","No previous HIV testing",2,NA
+"M","30-49","Western World","IV drug use","Yes",185,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Male",">50","Sub Saharan Africa","Heterosexual","Yes",486,3,"Not acute","No","AIDS defining illness",NA,2,"1-5 previous consultations","No previous HIV testing",3,NA
+"M",">50","Western World","MSM","Yes",224,2,"Not acute","Yes","AIDS defining illness",NA,10,">5 previous consultations","Last HIV test >1 before diagnosis",11,NA
+"Male","18-29","Western World","IV drug use","No",1209,4,"Not acute","No","Epi risk",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"M","30-49","Western World","Heterosexual","No",277,2,"Not acute","Yes","Epidemiological risk",NA,2,"1-5 previous consultations","No previous HIV testing",0,NA
+"M","30-49","Western World","MSM","No",404,3,"Not acute","No","Epi risk",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Male","18-29","Western World","MSM","No",985,4,"Not acute","No","Epi risk",NA,10,">5 previous consultations","HIV testing the previous year",17,NA
+"Female",">50","Sub Saharan Africa","Heterosexual","Yes",249,2,"Not acute","Yes","Epidemiological risk",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"M","18-29","Sub Saharan Africa","Other","No",50,1,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",631,4,"Not acute","No","Pregnancy",NA,3,"1-5 previous consultations","No previous HIV testing",3,NA
+"Male","18-29","Sub Saharan Africa","Heterosexual","No",240,2,"Not acute","Yes","Pregnancy",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",728,4,"Not acute","No","Epi risk",NA,0,"No previous consultation","No previous HIV testing",0,NA
+"M","18-29","Sub Saharan Africa","Heterosexual","No",507,4,"Not acute","No","Pregnancy",NA,4,"1-5 previous consultations","No previous HIV testing",4,NA
+"Female","18-29","Others","Heterosexual","No",393,3,"Not acute","No","Pregnancy",NA,2,"1-5 previous consultations","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","Yes",267,2,"Not acute","Yes","Pregnancy",NA,2,"1-5 previous consultations","No previous HIV testing",2,NA
+"Female","18-29","Western World","Heterosexual","No",205,2,"Not acute","Yes","Pregnancy",NA,21,">5 previous consultations","No previous HIV testing",6,NA
+"Male","18-29","Sub Saharan Africa","Heterosexual","No",530,4,"Not acute","No","Pregnancy",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",779,4,"Not acute","No","Pregnancy",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","30-49","Others","Heterosexual","No",323,2,"Not acute","Yes","Disease for which the prevalence of HIV is >1%",NA,5,">5 previous consultations","Last HIV test >1 before diagnosis",5,NA
+"Female","18-29","Sub Saharan Africa","Heterosexual","No",351,3,"Not acute","No","Pregnancy",NA,2,"1-5 previous consultations","No previous HIV testing",4,NA
+"Male","30-49","Others","Heterosexual","Yes",219,2,"Not acute","Yes","Pregnancy",NA,6,">5 previous consultations","No previous HIV testing",0,NA
+"Female","30-49","Sub Saharan Africa","Heterosexual","No",431,3,"Not acute","No","Patient initiated",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","18-29","Western World","Heterosexual","No",243,2,"Not acute","Yes","Pregnancy",NA,0,"No previous consultation","HIV testing the previous year",0,NA
+"M","30-49","Sub Saharan Africa","Heterosexual","No",245,2,"Not acute","Yes","Pregnancy",NA,0,"No previous consultation","Last HIV test >1 before diagnosis",0,NA
+"Female","18-29","Others","Other","No",27,1,"Not acute","Yes","Pregnancy",NA,0,"No previous consultation","No previous HIV testing",0,NA

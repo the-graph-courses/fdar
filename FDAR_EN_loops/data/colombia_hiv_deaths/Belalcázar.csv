@@ -1,0 +1,5 @@
+municipality,death_location,death_year,death_month,death_day,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2011,Oct,19,Belalcázar,Immunosuppression by HIV,B24,Chronic malnutrition,E46,NA,NA,NA,NA
+Municipal head,Home/address,2011,Apr,15,Belalcázar,Acute Respiratory Insufficiency,J960,Metabolic acidosis,E872,Human immunodeficiency syndrome,N390,SINDROME DE INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,2013,Jan,8,Belalcázar,Cardiogenic Shock,R570,Cerebrovascular accident,I64,HIV infection,G049,INFECCION POR VIRUS DE INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Home/address,2014,Jun,26,Belalcázar,Neurological Origin Sepsis,G049,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA

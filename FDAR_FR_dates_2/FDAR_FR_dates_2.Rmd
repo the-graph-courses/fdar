@@ -1,0 +1,447 @@
+---
+title: 'Dates 2 : Intervalles, Composantes et Arrondissement'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block")
+```
+
+# Introduction
+
+Vous avez maintenant une bonne compréhension de la façon dont les dates sont stockées, affichées et formatées dans R. Dans cette leçon, vous apprendrez à effectuer des analyses simples avec les dates, telles que le calcul de l'intervalle de temps entre les intervalles de dates et la création de graphiques de séries chronologiques ! Ces compétences sont cruciales pour toute personne travaillant avec des données de santé publique!
+
+# Objectifs d'apprentissage
+
+- Vous savez comment calculer les intervalles entre les dates
+
+- Vous savez comment extraire des composants des colonnes de date 
+
+- Vous savez comment arrondir les dates
+
+- Vous êtes capable de créer des graphiques de séries chronologiques simples
+
+
+# Packages
+
+Veuillez charger les packages nécessaires pour cette leçon avec le code ci-dessous :
+
+```{r warning = F, message = F, echo = T}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse,
+               here,
+               lubridate)
+```
+
+
+
+# Données
+
+Les premières données avec lesquelles nous travaillerons sont les données IRS de la leçon précédente. Consultez la première leçon sur les dates pour plus d'informations sur le contenu de ces données de pulvérisation intradomiciliaire d'insecticide (IRS).
+
+```{r message=FALSE, render = reactable_5_rows}
+irs <- read_csv(here("data/Illovo_data.csv"))
+irs
+```
+
+------------------------------------------------------------------------
+
+Le deuxième jeu de données contient des données mensuelles de 2015 à 2019 comparant l'incidence moyenne du paludisme pour 1000 personnes dans les villages ayant reçu des pulvérisations intradomiciliaires d'insecticide rémanent (PIIR) par rapport aux villages qui n'en ont pas reçu.
+
+```{r message=FALSE, render = reactable_5_rows}  
+incidence_temp <- read_csv(here("data/Illovo_ir_weather.csv"))
+incidence_temp  
+```
+
+La colonne `ir_case` montre l'incidence du paludisme dans les villages avec PIIR et `ir_control` montre l'incidence dans les villages sans PIIR. La colonne `date` contient le mois et un jour aléatoire. Le jeu de données inclut également les températures minimales et maximales moyennes mensuelles (`avg_min` et `avg_max`).
+
+------------------------------------------------------------------------
+
+Le jeu de données final contient 1460 lignes de données meteorologiques quotidiennes pour la région d'Illovo de 2015 à 2019.
+
+```{r message=FALSE, render = reactable_5_rows}
+meteo <- read_csv(here("data/Illovo_weather.csv"))
+meteo 
+```
+
+Chaque ligne représente un seul jour et inclut des mesures de température minimale (`min_temp`) en degrés Celsius, de température maximale (`max_temp`) en degrés Celsius, et de précipitations (`rain`) en millimètres.
+
+# Calcul des intervalles de date
+
+Pour commencer, nous allons examiner deux façons de calculer les intervalles, la première en utilisant l'opérateur "-" en R de base, et la seconde en utilisant l'opérateur d’intervalle du package `lubridate`. Jetons un coup d'œil à ces deux méthodes et comparons-les.
+
+## Utilisation de l'opérateur "-"
+
+La première façon de calculer les différences de temps consiste à utiliser l'opérateur "-" pour soustraire une date d'une autre. Créons deux variables de date et essayons !
+
+```{r echo=FALSE}
+date_1 <- as.Date("2000-01-01")  
+date_2 <- as.Date("2000-01-31")  
+```
+
+```{r}
+date_1 <- as.Date("2000-01-01") # 1er janvier 2000
+date_2 <- as.Date("2000-01-31") # 31 janvier 2000 
+date_2 - date_1
+```
+
+C'est aussi simple que ça ! Ici, nous pouvons voir que R renvoie la différence de temps en jours.
+
+## Utilisation de l'opérateur d'intervalle du package `lubridate`
+
+La deuxième façon de calculer des intervalles de temps consiste à utiliser l'opérateur `%--%` du package `lubridate`. Cela s'appelle parfois l'opérateur d'intervalle. Nous pouvons voir ici que la sortie est légèrement différente de la sortie de R de base.
+
+```{r}
+date_1 %--% date_2
+```
+
+Notre sortie est un intervalle entre deux dates. Si nous voulons savoir combien de jours se sont écoulés, nous devons utiliser la fonction `days()`. Le `(1)` ici indique à lubridate de compter par incréments d'un jour à la fois.
+
+```{r}
+date_1 %--% date_2/days(1)
+```
+
+Techniquement, spécifier `days(1)` n'est pas vraiment nécessaire, nous pouvons également laisser les parenthèses vides (c'est-à-dire `days()`) et obtenir le même résultat, car la valeur par défaut de lubridate est de compter par incréments de 1. Cependant, si nous voulons compter par incréments de 5 jours par exemple, nous pouvons spécifier `days(5)` et le résultat retourné sera de 6, car 5*6=30.
+
+```{r}
+date_1 %--% date_2/days(5)
+```
+
+Cela signifie qu'il y avait six périodes de 5 jours dans cet intervalle.
+::: r-practice
+
+**Lubridate weeks**
+
+Utilisez la fonction `weeks()` à la place de `days()` dans la méthode lubridate pour calculer la différence de temps en semaines entre les deux dates ci-dessous :
+
+````{r eval= FALSE}
+oct_31 <- as.Date("2023-10-31")
+jul_20 <- as.Date("2023-07-20")
+```
+:::
+
+## Comparaison
+
+Alors, quelle méthode est la meilleure ? Lubridate offre plus de flexibilité et de précision lorsqu'on travaille avec des dates dans R. Regardons un exemple simple pour comprendre pourquoi.
+
+Commençons par définir deux dates espacées de 6 ans :
+
+```{r}
+date_1 <- as.Date("2000-01-01") # 1er janvier 2000
+date_2 <- as.Date("2006-01-01") # 1er janvier 2006
+```
+
+Si nous voulons calculer combien d'années se sont écoulées entre ces dates, comment procéderions-nous avec R de base ? Nous pourrions d'abord soustraire les deux dates, `date_2 - date_1`, puis diviser par un nombre moyen de jours, comme 365,25 (en tenant compte des années bissextiles) :
+
+```{r}
+(date_2 - date_1)/365.25
+```
+
+Le résultat est proche de 6 ans mais pas précis!
+
+::: side-note 
+Le résultat est toujours donné en "jours". Vous pouvez facilement convertir la différence de temps en une valeur numérique :
+```{r}
+as.numeric((date_2 - date_1)/365.25)
+```
+:::
+
+Diviser par 365 ou 366 donnera également des résultats imprécis : 
+
+```{r}
+(date_2 - date_1)/365   
+(date_2 - date_1)/366
+```
+
+Ce que vous devez faire est de prendre en compte qu'il y a seulement deux années bissextiles (deux jours supplémentaires) entre ces dates et de soustraire d'abord ces deux jours :
+
+```{r}
+(date_2 - date_1 - 2)/365
+```
+
+Mais ce sera une chose pénible à faire en pratique lorsqu'on travaille avec des données réelles. Avec les intervalles de lubridate, le processus est plus simple, car les années bissextiles sont prises en compte pour vous :
+
+```{r}
+date_1 %--% date_2/years()
+```
+
+La différence est légère, mais lubridate est clairement le gagnant dans cette situation.
+
+Bien que nous ne les couvrions pas dans ce cours, {lubridate} est également excellent pour gérer les irrégularités temporelles telles que les fuseaux horaires et les changements d'heure d'été. 
+
+::: r-practice
+
+**Lubridate intervals**
+
+Pouvez-vous appliquer la fonction d'intervalle de lubridate à notre ensemble de données IRS ? Créez une nouvelle colonne appelée "spraying_time" et, en utilisant l'opérateur %--% de lubridate, calculez le nombre de jours entre `start_date_default` et `end_date_default`.
+
+:::
+
+::: side- note 
+Lubridate distingue techniquement entre les périodes et les durées. Vous pouvez en savoir plus [ici](https://bookdown.org/dereksonderegger/444/dates-and-times.html){target="_blank"}
+:::
+
+---
+
+Note: I've kept the code unchanged since code is language-independent.
+
+# Extraction des composants de la date
+
+Parfois, lors de votre nettoyage ou de votre analyse de données, vous devrez peut-être extraire un composant spécifique de votre variable de date. Un ensemble de fonctions utiles dans le package `lubridate` vous permet de le faire exactement. Par exemple, si nous voulions créer une colonne avec seulement le mois où la pulvérisation a commencé à chaque intervalle, nous pourrions utiliser la fonction `month()` de la manière suivante :
+
+```{r, render = reactable_5_rows}
+irs %>%
+  mutate(mois_début = month(start_date_default)) %>%
+  select(village, start_date_default, mois_début) 
+```
+
+Comme nous pouvons le voir ici, cette fonction renvoie le mois sous forme de numéro de 1 à 12. Pour notre première observation, la pulvérisation a commencé au cours du quatrième mois, donc en avril. C'est aussi simple que ça ! Si nous voulons que R affiche le mois écrit plutôt que le numéro en dessous, nous pouvons utiliser l'argument `label=TRUE`.
+
+```{r, render = reactable_5_rows}
+irs %>%
+  mutate(mois_début = month(start_date_default, label=TRUE)) %>%
+  select(village, start_date_default, mois_début)
+```
+
+De même, si nous voulions extraire l'année, nous utiliserions la fonction `year()`.
+
+```{r, render = reactable_5_rows}
+irs %>%
+  mutate(année_début = year(start_date_default)) %>%
+  select(village, start_date_default, année_début)
+```
+
+::: r-practice
+
+**Extraction des jours de la semaine**
+
+Créez une nouvelle variable appelée `jour_semaine_debut` et extrayez le jour de la semaine où la pulvérisation a commencé de la même manière qu'indiqué ci-dessus, mais avec la fonction `wday()`. Essayez d'afficher les jours de la semaine écrits plutôt que numériquement.
+
+:::
+
+Une des raisons pour lesquelles vous pourriez vouloir extraire des composants de date spécifiques est lorsque vous voulez visualiser vos données.
+
+Par exemple, disons que nous voulions visualiser les mois où les pulvérisations commencent, nous pouvons le faire en créant une nouvelle variable mois avec la fonction `month()`, et en traçant un graphique à barres avec `geom_bar`.
+
+```{r}
+irs %>%
+  mutate(mois = month(start_date_default, label = TRUE)) %>%
+  ggplot(aes(x = mois)) +
+  geom_bar(fill = "orange")
+```
+
+Ici, nous pouvons voir que la plupart des campagnes de pulvérisation ont commencé entre juillet et novembre, aucune n'ayant lieu durant les trois premiers mois de l'année. Les auteurs de l'article dont ces données sont issues ont déclaré que les campagnes de pulvérisation visaient à se terminer juste avant la saison des pluies (novembre-avril) au Malawi. Cela correspond au schéma observé.
+
+
+::: r-practice
+
+**Visualisation des mois de fin d'arrosage**
+
+Utilisez le data frame `irs` pour créer un nouveau graphique montrant les mois de fin des campagnes de pulvérisation. Comparez ce graphique à celui du début des campagnes. Est-ce que les motifs sont similaires ?
+:::
+
+# Arrondir
+
+Parfois, il est nécessaire d'arrondir nos dates vers le haut ou vers le bas si nous voulons analyser ou visualiser nos données de manière significative. Tout d'abord, voyons ce que nous entendons par "arrondir" avec quelques exemples simples.
+
+Prenons la date du 17 mars 2012. Si nous voulions arrondir vers le bas au mois le plus proche, alors nous utiliserions la fonction `floor_date()` de `lubridate` avec l'argument `unit="month"`.
+
+```{r}
+ma_date <- as.Date("2012-03-17")
+floor_date(ma_date, unit="month")
+```
+
+Comme nous pouvons le voir, notre date est maintenant le 1er mars 2012. 
+
+Si nous voulions arrondir vers le haut, nous pouvons utiliser la fonction `ceiling_date()`. Essayons ceci avec la date du 3 janvier 2020.
+
+```{r} 
+ma_date <- as.Date("2020-01-03")
+ceiling_date(ma_date, unit="month")
+```
+
+Avec `ceiling_date()`, le 3 janvier a été arrondi au 1er février.
+
+Enfin, nous pouvons également simplement arrondir sans spécifier vers le haut ou vers le bas, et les dates sont automatiquement arrondies à l'unité spécifiée la plus proche.
+
+```{r}
+mes_dates <- as.Date(c("2000-11-03", "2000-11-27")) 
+round_date(mes_dates, unit="month")
+```
+
+Ici, nous pouvons voir qu'en arrondissant au mois le plus proche, le 3 novembre est arrondi au 1er novembre, et le 27 novembre est arrondi au 1er décembre.
+
+::: r-practice
+
+**Pratique de l'arrondi des dates**
+
+Nous pouvons également arrondir vers le haut ou vers le bas à l'année la plus proche. Que pensez-vous que sera la sortie si nous arrondissons vers le bas la date du 29 novembre 2001 à l'année la plus proche :
+
+```{r  eval=FALSE} 
+date_arrondie <- as.Date("2001-11-29")
+floor_date(date_arrondie, unit="year")
+```
+
+:::
+
+J'espère que ce que nous entendons par "arrondir" est un peu plus clair ! Alors, pourquoi cela pourrait-il être utile avec nos données ? Eh bien, passons maintenant à nos données meteorologiques.
+
+```{r render=reactable_5_rows}
+meteo
+```
+
+Comme nous pouvons le voir, nos données météorologiques sont enregistrées quotidiennement, mais ce niveau de détail n'est pas idéal pour étudier comment les tendances météorologiques affectent la transmission du paludisme, qui suit un modèle saisonnier. Les données météorologiques quotidiennes peuvent être assez bruitées étant donné la variation significative d'un jour à l'autre :
+
+```{r}
+meteo %>%
+  ggplot()+
+  geom_line(aes(date, rain))
+```
+
+En plus d'être visuellement en désordre, il est un peu difficile de voir les motifs saisonniers. L'agrégation mensuelle est une approche plus efficace pour capturer les variations saisonnières.
+
+Si nous voulions tracer la moyenne des précipitations mensuelles, notre première tentative pourrait être d'utiliser la fonction `str_sub()` pour extraire les sept premiers caractères de notre date (le composant mois et année).
+
+```{r render=reactable_5_rows}
+meteo %>% 
+  mutate(mois_annee=str_sub(date, 1, 7)) 
+```
+
+Ensuite, nous regroupons par `mois_annee` pour calculer la moyenne des précipitations pour chaque mois :
+
+```{r}
+resume_meteo_1 <- 
+  weather %>% 
+  mutate(mois_annee=str_sub(date, 1, 7)) %>%
+  # regrouper et résumer
+  group_by(mois_annee) %>%
+  summarise(pluie_moyenne=mean(rain))
+resume_meteo_1
+```
+
+Cependant, nous rencontrons un problème lors de la tentative de tracer ces données. Notre variable `mois_annee` est maintenant un caractère, et non une date. Cela signifie qu'elle n'est pas continue. Tracer un graphique linéaire avec une variable non continue ne fonctionne pas :
+
+```{r}
+resume_meteo_1 %>%
+  ggplot() +
+  geom_line(aes(mois_annee, pluie_moyenne))
+```
+
+La meilleure façon de procéder est d'abord d'arrondir nos dates au mois en utilisant la fonction `floor_date()`, puis de regrouper nos données par notre nouvelle variable `mois_annee`, et ensuite de calculer la moyenne mensuelle. Essayons-le maintenant.
+
+```{r}
+resume_meteo_2 <- weather %>% 
+  mutate(mois_annee=floor_date(date, unit="month")) %>% 
+  group_by(mois_annee) %>%
+  summarise(pluie_moyenne=mean(rain))
+resume_meteo_2
+```
+
+Maintenant, nous pouvons tracer nos données et nous aurons un graphique de la moyenne des précipitations mensuelles sur la période de 4 ans.
+
+```{r}
+resume_meteo_2 %>%
+  ggplot() +
+  geom_line(aes(mois_annee, pluie_moyenne)) +
+  labs(x="Date", y="Moyenne mensuelle des précipitations")
+```
+
+Cela semble bien meilleur ! Nous obtenons maintenant une image beaucoup plus claire des tendances saisonnières et des variations annuelles.
+
+::: r-practice
+
+**Tracer les températures minimales et maximales mensuelles moyennes**
+
+À l'aide des données meteorologiques, créez un nouveau graphique représentant les températures minimales et maximales moyennes mensuelles de 2015 à 2019.
+:::
+
+
+------------------------------------------------------------------------
+
+# Conclusion {.unnumbered}
+
+Cette leçon a couvert les compétences fondamentales pour travailler avec des dates en R - calculer des intervalles, extraire des composantes, arrondir et créer des visualisations de séries temporelles. Avec ces blocs de construction clés maintenant maîtrisés, vous pouvez désormais commencer à manipuler des données de date pour découvrir et analyser des modèles au fil du temps.
+
+
+# Corrigé {.unnumbered}
+
+**Lubridate weeks**
+
+```{r}
+oct_31 <- as.Date("2023-10-31")
+jul_20 <- as.Date("2023-07-20")
+difference_temps <- oct_31 %--% jul_20
+difference_temps/weeks(1)
+```
+
+**Intervalles avec Lubridate**
+
+```{r}
+irs %>%
+  mutate(temps_arrosage = interval(start_date_default, end_date_default)/days(1)) %>% 
+  select(temps_arrosage)
+```
+
+**Extraction des jours de la semaine**
+
+```{r}
+irs %>%
+  mutate(jour_semaine_debut = wday(start_date_default, label = TRUE)) %>% 
+  select(jour_semaine_debut)
+```
+
+**Visualisation des mois de fin d'arrosage**
+
+```{r}
+irs %>%
+  mutate(mois_fin = month(end_date_default, label = TRUE)) %>% 
+  ggplot(aes(x = mois_fin)) +
+  geom_bar() 
+```
+
+**Pratique de l'arrondi des dates**
+
+```{r}
+date_arrondie <- as.Date("2001-11-29")
+date_arrondie <- floor_date(date_arrondie, unit="year")
+date_arrondie
+```
+
+**Tracer les températures minimales et maximales mensuelles moyennes**
+
+```{r}
+weather %>% 
+  mutate(mois_annee = floor_date(date, unit="month")) %>% 
+  group_by(mois_annee) %>%
+  summarise(temp_min_moy = mean(min_temp), 
+            temp_max_moy = mean(max_temp)) %>% 
+  ggplot() + 
+  geom_line(aes(x = mois_annee, y = temp_min_moy), color = "blue") + 
+  geom_line(aes(x = mois_annee, y = temp_max_moy), color = "red")
+```
+
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(c("amckinley", "kendavidn", "guy"))`

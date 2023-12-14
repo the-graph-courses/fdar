@@ -1,0 +1,2 @@
+municipality,death_location,birth_date,death_year,death_month,death_day,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,1970-03-05,2010,May,31,Pensilvania,Septic Shock,A419,Multisystem failure,R688,HIV,D849,VIH,B24

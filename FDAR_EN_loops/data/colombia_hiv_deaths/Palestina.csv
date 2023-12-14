@@ -1,0 +1,17 @@
+municipality,death_location,death_year,death_month,death_day,gender,occupation,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2010,Oct,13,Female,Unknown,Palestina,Intra-abdominal Abscess,K650,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2010,Nov,4,Female,Unknown,Palestina,HIV AIDS C,B24,Pancytopenia,D619,Acute kidney failure,J984,FALLA RENAL AGUDA,N179
+Populated center,Health center/post,2010,Feb,9,Female,NA,Palestina,Pneumonia,J189,Anemia,D649,HIV/AIDS,E43,VIH- SIDA,NA
+Municipal head,Hospital/clinic,2011,Jun,28,Male,Permanent Crop Farmers (Tree and Shrub Plantations),Palestina,Pneumonia,J189,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2011,Feb,18,Male,Unknown,Palestina,Acquired Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Populated center,Home/address,2012,Dec,25,Female,Unknown,Palestina,Acute Diarrheal Disease,A09,HIV AIDS,B24,NA,C539,NA,NA
+Municipal head,Hospital/clinic,2012,Apr,20,Female,Home,Palestina,Septicemia,A419,Pneumonia,J189,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Oct,26,Female,Home,Palestina,Ventilatory Insufficiency,J969,Multiple organ failure,R688,HIV infection,G049,INFECCION POR  VIH,B24
+Municipal head,Hospital/clinic,2014,Aug,21,Male,Transient Crop Farmers,Palestina,Community-Acquired Pneumonia,J189,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jul,27,Male,Load Workers,Palestina,Cerebral Toxoplasmosis,B582,Brain stem lesion,G931,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2014,May,26,Female,Home,Palestina,Cardiorespiratory Arrest,I469,Acquired immunodeficiency syndrome,B24,Progressive multifocal leukoencephalopathy,M866,LEUCOENCEFALOPATIA MULTIFOCAL PROGRESVA,G934
+Municipal head,Hospital/clinic,2015,Dec,31,Male,"Construction Officials and Workers and Similar, Not Classified Under Other Categories",Palestina,Respiratory Insufficiency,J969,Hypovolemic shock,R571,Malnutrition,A419,DESNUTRICION,E46
+Municipal head,Hospital/clinic,2015,Oct,2,Male,Transient Crop Farmers,Palestina,Severe Hypoxia,R090,Pulmonary sepsis,J189,NA,B59,NA,NA
+Municipal head,Home/address,2015,May,3,Male,Transient Crop Farmers,Palestina,Pulmonary Thromboembolism,I269,Kaposi's sarcoma,C469,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2015,Apr,29,Male,"Other Craftsmen, Not Classified Under Other Categories",Palestina,Bilateral Pneumonia,J189,Acquired human immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Mar,27,Male,Unknown,Palestina,Severe Hypoglycemia,E162,Abdominal origin sepsis,K650,NA,A099,NA,NA

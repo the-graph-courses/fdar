@@ -1,0 +1,2 @@
+municipality,death_location,death_year,death_month,death_day,occupation,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2014,Jan,30,Permanent Crop Farmers (Tree and Shrub Plantations),Marulanda,"Meningitis, Not Specified",G039,End-stage HIV infection,B24,NA,NA,NA,NA
