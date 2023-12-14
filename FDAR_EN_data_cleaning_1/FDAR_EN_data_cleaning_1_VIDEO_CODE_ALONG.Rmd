@@ -1,0 +1,313 @@
+---
+title: 'Nettoyage de données: analyse exploratoire'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block")
+```
+
+------------------------------------------------------------------------
+
+# Introduction
+
+![](images/data-cleaning.png){width="145"}
+
+Data cleaning is the process of transforming raw, "messy" data into reliable data that can be properly analyzed. This entails identifying **inaccurate**, **incomplete**, or **improbable** data points and resolving data inconsistencies or errors, as well as renaming variable names to make them more clear and simple to manipulate.
+
+Data cleaning tasks can often be tedious and time-consuming. A common joke among data analysts goes "80% of data science is cleaning the data and the remaining 20% is complaining about cleaning the data." But data cleaning is an essential step of the data analysis process. A little bit of cleaning at the start of the data analysis process will go a long way to improving the quality of your analyses and the ease with which these analyses can be done. And a range of packages and functions in R can significantly simplify the data cleaning process.
+
+In this lesson, we will begin to look at a typical data cleaning pipeline in R. The cleaning steps covered here are unlikely to be exactly what is needed for your own datasets, but they will certainly be a good starting point.
+
+Let's get started!
+
+------------------------------------------------------------------------
+
+# Learning objectives
+
+-   You can list typical operations involved in data cleaning process
+
+-   You can diagnose dataset issues that warrant data cleaning through functions such as:
+
+    -   `visdat::vis_dat()`
+
+    -   `skimr::skim()`
+
+    -   `inspectdf::inspect_cat()`
+
+    -   `inspectdf::inspect_num()`
+
+    -   `gtsummary::tbl_summary()`
+
+    -   `DataExplorer::create_report()`
+
+# Packages
+
+The packages loaded below will be required for this lesson:
+
+```{r}
+if(!require("pacman")) install.packages("pacman")
+pacman::p_load(visdat, 
+               skimr,
+               inspectdf,
+               gtsummary,
+               DataExplorer,
+               tidyverse)
+```
+
+# Dataset
+
+-   The primary dataset comes from a study conducted in Zambezia, Mozambique.
+
+-   It examines individual factors associated with the time until non-adherence to HIV treatment.
+
+```{r render=reactable_5_rows}
+non_adherence <- read_csv(here("data/non_adherence_EN.csv"))
+```
+
+# Visualizing Missing Data with `visdat::vis_dat()`
+
+-   The `vis_dat()` function from the `visdat` package allows us to visualize data types and missing values.
+
+-   Each row of the dataset is represented by a line on the plot.
+
+-   Let's create a mock dataset containing 8 patients and their COVID-19 diagnosis and recovery information.
+
+```{r}
+covid_pat <- tribble(
+  ~Patient_ID, ~Age, ~Gender,  ~Covid_Strain, ~Exposure,    ~Recovery_Days,
+  1,           25,   "Male",   "Alpha",        NA,          10,
+  2,           32,   "Female", "Delta",       "Hospital",   15,
+  3,           45,   "Male",   "Beta",        "Travel",      7,
+  4,           19,   "Female", "Omicron",      NA,          21,
+  5,           38,   "Male",   "Alpha",       "Unknown",    14,
+  6,           55,   "Female",  NA,           "Community",  19,
+  7,           28,   "Female", "Omicron",      NA,           8,
+  8,           NA,   "Female", "Omicron",     "Travel",     26
+)
+covid_pat
+```
+
+-   Let's use the `vis_dat()` function to visualize data types and missing values.
+
+```{r fig.height=2.3}
+vis_dat(covid_pat)
+```
+
+-   Different colors are used to illustrate string variables (pink), numeric variables (blue), and missing values (gray).
+
+-   Now, let's look at our real-world dataset, which is much larger and messy.
+
+As a reminder, here is our `non_adherence` dataset.
+
+```{r render=reactable_5_rows}
+non_adherence
+```
+
+```{r fig.height=3}
+vis_dat(_________)
+```
+
+-   The `NA` column is completely empty.
+
+-   Several variables have a lot of missing values.
+
+-   Some variable names are unclear/uncleaned.
+
+::: r-practice
+The following dataset was adapted from a study that investigated missed opportunities for HIV testing among patients newly presenting for HIV care at a Swiss university hospital. The full dataset can be found [here](https://zenodo.org/records/5008340).
+
+```{r eval=FALSE}
+missed_ops <- read_csv(here("data/HIV_missed_ops.csv"))
+```
+
+Use the `vis_dat()` function to get a visual representation of the data. What potential issues can you spot based on the output?
+:::
+
+------------------------------------------------------------------------
+
+# Generating a summary of variables with `skimr::skim()`
+
+‣ The `skim()` function from the `skimr` package provides a summary of each column (by class/type) in the console.
+
+‣ As a reminder, here is our dataset `covid_pat`:
+
+```{r}
+covid_pat
+```
+
+‣ Let's now try the `skim()` function!
+
+```{r}
+skimr::skim(covid_pat)
+```
+
+‣ The `skim::skimr()` function provides:
+
+-   The number of rows and columns in our dataset
+
+-   The data type for each variable
+
+-   `n_missing`, the number of missing values for each variable
+
+-   `complete_rate`, the completeness rate for each variable
+
+-   A set of summary statistics: mean, standard deviation, and quartiles for numeric variables; and frequency and proportions for categorical variables
+
+-   Histograms for numeric variables
+
+‣ Let's go back to our dataset `non_adherence` and run the `skim()` function on it.
+
+‣ As a reminder, here is our dataset `non_adherence`:
+
+```{r}
+non_adherence
+```
+
+```{r}
+skimr::skim(_________)
+```
+
+‣ From this data output, we can identify some potential issues:
+
+-   We can confirm that the `NA` column is completely empty: it has a `complete_rate` of 0
+
+-   The distribution of `Age at ARV initiation` is skewed
+
+::: r-practice
+Use `skim()` to obtain a detailed overview of the `missed_ops` dataset.
+
+```{r}
+skim(________)
+```
+:::
+
+# Visualization of summary statistics with `inspectdf`
+
+‣ Using the `inspectdf::inspect_cat()` and `inspectdf::inspect_num()` functions to get variable summaries in richer graphical form
+
+‣ `inspect_cat()`: for a summary of categorical variables
+
+```{r}
+inspectdf::inspect_cat(covid_pat)
+```
+
+‣ Important information is hidden in the `levels` column
+
+‣ To see this, let's use the `show_plot()` function with `inspect_cat()`
+
+‣ Use `show_plot()` to visualize categorical distributions
+
+```{r}
+inspect_cat(_________) %>%
+ show_plot()
+```
+
+‣ We can identify some data issues with categorical variables
+
+-   Variable `Age_35`: Inconsistent use of capitalization
+
+-   Variable `sex`: Inconsistent naming
+
+-   Variable `NA`: Empty, requires cleaning
+
+::: r-practice
+**inspectdf for categorical variables**
+
+Complete the following code to obtain a visual summary of the categorical variables in the `missed_ops` dataset.
+
+```{r, eval=FALSE}
+inspect___() %>% 
+  __________
+```
+
+How many potential data issues can you spot?
+:::
+
+‣ For numeric variables, use `inspect_num()`
+
+```{r}
+inspect_num(__________) %>%
+  show_plot()
+```
+
+‣ Common issue: Categorical variables encoded as numeric
+
+::: r-practice
+Use `inspect_num` to create a histograms of your numeric variables in the `missed_ops` dataset. Are the numeric variable types correct?
+
+```{r}
+inspect____(missed_ops) %>%
+  _____________()
+```
+:::
+
+------------------------------------------------------------------------
+
+# Exploring categorical variables with `gtsummary::tbl_summary()`
+
+‣ `tbl_summary()` from `gtsummary` is ideal for obtaining frequencies and percentages of our categorical variables
+
+‣ We will see a tibble format and a snapshot of the output for our `non_adherence` dataset
+
+```{r}
+gtsummary::tbl_summary(_______) %>% 
+  as_tibble()
+```
+
+‣ The summary includes frequencies and percentages for categorical variables, and the median and interquartile range for numeric variables
+
+::: r-practice
+Use `tbl_summary()` to output a summary of your `missed_ops` dataset. Can you identify any additional data issues?
+:::
+
+------------------------------------------------------------------------
+
+# Creating data reports with `DataExplorer::create_report()`
+
+‣ `create_report()` from `DataExplorer` generates an HTML format summary report of our dataset
+
+‣ Let's try it on `non_adherence`
+
+```{r}
+DataExplorer::create_report(________)
+```
+
+‣ The report includes basic statistics, distribution visualizations, and more
+
+‣ QQ plot, correlation analysis, and principal component analysis are included
+
+::: practice
+Create a data report for your `missed_ops` data using the `create_report()` function!
+:::
+
+------------------------------------------------------------------------
+
+# Wrap up!
+
+By familiarizing ourselves with the data, we have been able to identify some potential problems that may need to be addressed before the data are used in an analysis.
+
+And as you have seen, the actual code needed to do this data exploration is very little; other R developers have done the difficult work for us by building amazing packages to quickly scan datasets and identify issues.
+
+From the next lesson, we will begin to take on these identified issues one by one, starting with the problem of inconsistent, messy variable names.
+
+See you in the next lesson!

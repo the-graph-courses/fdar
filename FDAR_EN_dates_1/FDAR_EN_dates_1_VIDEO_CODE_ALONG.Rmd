@@ -1,0 +1,561 @@
+---
+title: 'Dates 1: Recognizing and Formatting Dates'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block")
+```
+
+# Intro
+
+Understanding how to manipulate dates is a crucial skill in health data analysis. From patient admission dates to vaccination schedules, date-related data plays a vital role in epidemiological analyses. In this lesson, we will learn how R stores and displays dates, as well as how to effectively manipulate, parse, and format them. Let's get started!
+
+# Learning Objectives
+
+‣You understand how dates are stored and manipulated in R
+
+‣You understand how to coerce strings to dates
+
+‣You know how to handle messy dates
+
+‣You are able to change how dates are displayed
+
+# Packages
+
+Please load the packages needed for this lesson with the code below:
+
+```{r warning = F, message = F, echo = T}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, 
+               lubridate)
+```
+
+## Datasets
+
+‣ Today we'll work with **two datasets**.
+
+‣ The first is about **Indoor Residual Spraying (IRS)** for **malaria control in Illovo, Malawi**.
+
+```{r message=FALSE}
+irs <- read_csv(here("data/Illovo_data.csv"))
+irs
+```
+
+‣ The second is simulated data on **hospital inpatient stays**. It includes **admission and discharge dates** for 150 patients in different formats.
+
+```{r message=FALSE}
+ip <- read_csv(here("data/inpatient_data.csv"))
+ip
+```
+
+------------------------------------------------------------------------
+
+## Introduction to dates in R
+
+‣ In R, we use the `Date` class to handle dates.
+
+‣ Default format: **"YYYY-MM-DD"**
+
+‣ If you just enter in such a date string, R will initially consider this to be a character:
+
+```{r}
+class("_____________")
+```
+
+‣ To specify a date, we can use `as.Date()` function.
+
+```{r}
+my_date <- as.Date("______________")
+class(my_date)
+```
+
+------------------------------------------------------------------------
+
+‣ With `Date`, we can find the **difference between two dates**.\
+
+```{r}
+as.Date("2020-01-01") - as.Date("2019-01-01")
+```
+
+This would of course not be possible if you had bare characters:
+
+```{r eval = F}
+"2020-01-01" - "2000-12-20"
+```
+
+------------------------------------------------------------------------
+
+‣ The default format for `as.Date()` is "YYYY-MM-DD".
+
+‣ Other common formats like "MM/DD/YYYY" or "Month DD, YYYY" won't work by default (later we'll see how to "parse" such dates):
+
+```{r, eval=FALSE}
+as.Date("12/31/2000") 
+as.Date("Dec 31, 2000")
+```
+
+‣ However, R will also accept "/" instead of "-" as long as the order is still "YYYY/MM/DD".
+
+```{r}
+as.Date("2000/12/31"
+```
+
+# Coercing (parsing) strings to dates
+
+‣ Let's focus on how R classifies date variables in our **IRS dataset**.
+
+‣ We'll examine the columns containing dates and see how R reads them.
+
+```{r}
+irs %>% 
+  select(contains("date")
+```
+
+------------------------------------------------------------------------
+
+‣ To parse the remaining dates, we need to specify the date format. Why? Ambiguity.
+
+‣ For example: `01-02-03`. Is it January 2nd, 2003, or February 1st, 2003?
+
+------------------------------------------------------------------------
+
+## Using Base R for Date coercion (parsing)
+
+‣ As we saw, the function `as.Date()` is used to convert strings to dates in base R.\
+
+‣ Let's try it without specifying the format of the date.
+
+```{r}
+irs %>% 
+  select(start_date_typical) %>% 
+  mutate(start_date_typical = as.Date(start_date_typical))
+```
+
+‣ As you see, not what we wanted. Original format was "DD/MM/YYYY".
+
+------------------------------------------------------------------------
+
+‣ To correctly interpret dates, we use the `format` argument in `as.Date()`
+
+‣ Symbols to specify date components:
+
+| Component                                          | Symbol | Example |
+|----------------------------------------------------|--------|---------|
+| Year (numeric, with century)                       | %Y     | 2023    |
+| Year (numeric, without century)                    | %y     | 23      |
+| Month (numeric, 01-12)                             | %m     | 01      |
+| Month (written out fully)                          | %B     | January |
+| Month (abbreviated)                                | %b     | Jan     |
+| Day of the month                                   | %d     | 31      |
+| Day of the week (numeric, 1-7 with Sunday being 1) | %u     | 5       |
+| Day of the week (written out fully)                | %A     | Friday  |
+| Day of the week (abbreviated)                      | %a     | Fri     |
+
+‣ Let's try with `format = "%d%m%Y"`
+
+```{r, render = reactable_5_rows}
+irs %>%
+  select(start_date_typical) %>% 
+  mutate(start_date_typical = as.Date(start_date_typical, format = "%d%m%Y"))
+
+```
+
+‣ Still did not work? Why?
+
+‣ Format needs to include the slashes `%d/%m/%Y`
+
+```{r}
+irs %>%
+  select(start_date_typical) %>% 
+  mutate(start_date_typical = as.Date(start_date_typical, format = "%d/%m/%Y"))
+```
+
+------------------------------------------------------------------------
+
+**PRACTICE TIME !**
+
+::: practice
+**Coerce long date**
+
+Try to coerce the column `start_date_long` from the IRS dataset to the `Date` class. Don't forget to include all elements into the format option, including the symbols that separate the components of the date!
+
+```{r, eval = FALSE}
+# Complete the code with your answer:
+irs %>% 
+  _____________________
+```
+:::
+
+::: r-practice
+**Find code errors**
+
+Can you find all the errors in the following code?
+
+```{r}
+as.Date("June 26, 1987", format = "%b%d%y")
+```
+:::
+
+# Lubridate
+
+‣ The `lubridate` package offers a **user-friendly way** to convert strings to dates.
+
+‣ Specify the order of **year**, **month**, and **day** using "y", "m", and "d".
+
+‣ Separators between components are **not necessary**.
+
+------------------------------------------------------------------------
+
+```{r}
+# Example conversions
+dmy("8 Sep 2021")
+
+mdy("Jan 01 2020")
+
+class(ymd("2023 May 23")
+```
+
+------------------------------------------------------------------------
+
+‣ Let's apply these functions to the `start_day_long` variable in our dataset.
+
+```{r, render = reactable_5_rows}
+irs %>%
+  select(start_date_long) %>%  
+  mutate(start_date_long_conv = mdy(start_date_long)) 
+  
+```
+
+------------------------------------------------------------------------
+
+**PRACTICE TIME !**
+
+::: r-practice
+**Coerce typical date**
+
+Try to coerce the column `start_date_typical` from the IRS dataset to the `Date` class using the functions in the lubridate package.
+
+```{r, eval = FALSE}
+# Your code here
+```
+:::
+
+------------------------------------------------------------------------
+
+**PRACTICE TIME !**
+
+::: r-practice
+**Base and lubridate formatting**
+
+The following table contains the formats found in the `adm_date_abbr` and `adm_date_messy` formats from our inpatient dataset. See if you can fill in the blank cells:
+
+| Date example | Base R   | Lubridate |
+|--------------|----------|-----------|
+| Dec 07, 2022 |          |           |
+| 03-27-2022   |          | mdy       |
+| 28.04.2022   |          |           |
+|              | %Y/%m/%d |           |
+:::
+
+------------------------------------------------------------------------
+
+‣ We've learned methods to convert strings to dates.
+
+‣ But what about dealing with **multiple date formats** in one column?
+
+------------------------------------------------------------------------
+
+## Handling Messy Dates with `lubridate::parse_date_time()`
+
+‣ Working with dates often involves multiple formats within a single column.
+
+‣ `lubridate` offers `parse_date_time()` function to handle such scenarios.
+
+‣ The function uses the `orders` argument for specifying multiple date formats.
+
+------------------------------------------------------------------------
+
+‣ Let's start with a basic example:
+
+```{r}
+parse_date_time("30/07/2001", orders = "dmy")
+```
+
+‣ The function works well for single string inputs and is equivalent to using `dmy()` in this case.
+
+------------------------------------------------------------------------
+
+‣ The power of `parse_date_time()` is truly evident when handling multiple formats.
+
+‣ Example with two different formats:
+
+```{r}
+parse_date_time(c("1 Jan 2000", "July 30th 2001"), orders = c("dmy", "mdy"))
+```
+
+‣ Order of formats in `orders` argument does not matter when the date strings are distinct:
+
+```{r}
+parse_date_time(c("1 Jan 2000", "July 30th 2001"), orders = c("mdy", "dmy"))
+```
+
+------------------------------------------------------------------------
+
+‣ Ambiguity in dates can be a challenge.
+
+‣ For ambiguous dates, the order in `orders` does matter.
+
+```{r}
+parse_date_time(c("01/02/2000", "01/03/2000"), orders=c("mdy", "dmy"))
+```
+
+```{r}
+parse_date_time(c("01/02/2000", "01/03/2000"), orders=c("dmy", "mdy"))
+```
+
+------------------------------------------------------------------------
+
+**PRACTICE TIME !**
+
+::: r-practice
+**Using parse_date_time**
+
+The dates in the code below are November 9th 2002, December 4th 2001, and June 5th 2003. Complete the code to coerce them from strings to dates.
+
+```{r echo=TRUE, eval=FALSE}
+parse_date_time(c("11/09/2002", "12/04/2001", "2003-06-05"), orders=c(...))
+```
+:::
+
+------------------------------------------------------------------------
+
+‣ Returning to our dataset, focus on the `start_date_messy` column.
+
+‣ We are dealing with four different formats:
+
+\- YYYY/MM/DD
+
+\- Month DD YYYY
+
+\- DD-MM-YYYY
+
+\- MM/DD/YYYY
+
+‣ Now that we know how our data is formatted, we can use the `parse_date_time()` function to clean it up.
+
+```{r render = kable_5_rows}
+irs %>%
+  select(start_date_messy) %>%
+  mutate(start_date_clean = parse_date_time(start_date_messy, 
+                                            orders = c("mdy", "dmy", "ymd")))
+```
+
+‣ Is order important here? Let's try a different order and find out!
+
+```{r render = kable_5_rows}
+irs %>%
+  select(start_date_messy) %>%
+  mutate(start_date_messy_1 = parse_date_time(start_date_messy, 
+                                              orders = c("mdy", "dmy", "ymd")),
+         start_date_messy_2 = parse_date_time(start_date_messy, 
+                                              orders = c("dmy", "mdy", "ymd")))
+```
+
+‣ If you scroll through, you will be able to observe that the conversions were the same.
+
+‣ Why? Because there is no ambiguity in the dataset, and the order of formats provided to `orders` only matter when we have ambiguous dates.
+
+‣ You may think that there IS ambiguity: perhaps, the first date could be July 4, or April 7:
+
+```{r}
+irs %>%
+  select(start_date_messy) %>% 
+  slice(1)
+```
+
+‣ But {lubridate} read it as April 7 ("mdy") in both cases, even when "dmy" was provided first for the `start_date_messy_2` column?
+
+‣ This is because there are other rows that **resolve** this amibiguity. For example, row 11 is "06/26/14":
+
+```{r}
+irs %>%
+  select(start_date_messy) %>% 
+  slice(1, 11)
+```
+
+‣ This row can ONLY be interpreted as June 26. The number 26 cannot represent a month.
+
+‣ So lubridate knows that all rows of the format "XX/XX/XX" in the dataset are "mm/dd/yy"
+
+::: r-practice
+**Using parse_date_time with adm_date_messy**
+
+With the help of the table you completed from the exercise, use the `parse_date_time()` function to clean up the `adm_date_messy` column in the inpatient dataset, `ip`!
+:::
+
+------------------------------------------------------------------------
+
+## Changing how dates are displayed
+
+‣ Up to now, we've been using the `Date` class with a **default "YYYY-MM-DD" format**.
+
+‣ But, how can we **display dates in a specific format** for reports or graphs?
+
+‣ We can use the `format()` function in base R.
+
+‣ This function gives us the freedom to **customize the appearance of dates**.
+
+------------------------------------------------------------------------
+
+‣ Here's a table to remind us how different date parts are represented:
+
+| Component                                          | Symbol | Example |
+|----------------------------------------------------|--------|---------|
+| Year (numeric, with century)                       | %Y     | 2023    |
+| Year (numeric, without century)                    | %y     | 23      |
+| Month (numeric, 01-12)                             | %m     | 01      |
+| Month (written out fully)                          | %B     | January |
+| Month (abbreviated)                                | %b     | Jan     |
+| Day of the month                                   | %d     | 31      |
+| Day of the week (numeric, 1-7 with Sunday being 1) | %u     | 5       |
+| Day of the week (written out fully)                | %A     | Friday  |
+| Day of the week (abbreviated)                      | %a     | Fri     |
+
+------------------------------------------------------------------------
+
+‣ Let's try a single example:
+
+‣ We want to convert `2000-01-31` to "Jan 31, 2000".
+
+```{r}
+my_date <- as.Date("2000-01-31")
+my_date
+format(my_date, "%b %d, %Y")
+```
+
+------------------------------------------------------------------------
+
+**PRACTICE TIME !**
+
+::: practice
+**Format date vector**
+
+Format the date below to MM/DD/YYYY using the format function:
+
+```{r}
+my_date <- as.Date("2018-05-07")
+```
+:::
+
+------------------------------------------------------------------------
+
+‣ Now, let's apply this on our dataset:
+
+‣ Creating a new variable `start_date_char` from `start_date_default`.
+
+‣ We'll display it as **DD/MM/YYYY**.
+
+```{r, render = reactable_5_rows}
+irs %>% 
+  select(start_date_default) %>% 
+  mutate(start_date_char = format(start_date_default, "%d %b %Y")) %>% 
+  select(start_date_default, start_date_char)
+```
+
+------------------------------------------------------------------------
+
+‣ One last example:
+
+‣ Using `end_date_default` and formatting it as **Month DD, YYYY**.
+
+```{r, render = reactable_5_rows}
+irs %>% 
+  select(end_date_default) %>% 
+  mutate(end_date_char = format(end_date_default, "%B %d, %Y")) %>% 
+  select(end_date_default, end_date_char)
+```
+
+------------------------------------------------------------------------
+
+## WRAP UP!
+
+‣ Congratulations on finishing the first Dates lesson!
+
+‣ You now understand **how Dates are stored, displayed, and formatted in R**.
+
+‣ Next, we'll learn how to perform **manipulations with dates** and create **basic time series graphs**.
+
+------------------------------------------------------------------------
+
+# Answer Key {.unnumbered}
+
+**Coerce long date**
+
+```{r echo=TRUE, eval=FALSE}
+irs <- irs %>%
+  mutate(start_date_long = as.Date(start_date_long, format="%B %d %Y"))
+```
+
+**Find code errors**
+
+```{r echo=TRUE, eval=FALSE}
+as.Date("June 26, 1987", format = "%B %d, %Y")
+
+```
+
+**Coerce typical date**
+
+```{r echo=TRUE, eval=FALSE}
+irs %>%
+  mutate(start_date_typical = dmy(start_date_typical))
+```
+
+**Base and lubridate formatting**
+
+| Date example | Base R    | Lubridate |
+|--------------|-----------|-----------|
+| Dec 07, 2022 | %b %d, %Y | mdy       |
+| 03-27-2022   | %m-%d-%Y  | mdy       |
+| 28.04.2022   | %d.%m.%Y  | dmy       |
+| 2021/05/23   | %Y/%m/%d  | ymd       |
+
+**Using parse_date_time**
+
+```{r echo=TRUE, eval=FALSE}
+parse_date_time(c("11/09/2002", "12/04/2001", "2003-06-05"), orders=c("mdy", "ymd"))
+```
+
+**Using parse_date_time with adm_date_messy**
+
+```{r echo=TRUE, eval=FALSE}
+ip %>%
+  mutate(adm_date_messy = parse_date_time(adm_date_messy, orders = c("mdy", "dmy", "ymd")))
+
+```
+
+**Format date vector**
+
+```{r echo=TRUE, eval=FALSE}
+my_date <- as.Date("2018-05-07")
+format(my_date, "%m/%d/%Y")
+```

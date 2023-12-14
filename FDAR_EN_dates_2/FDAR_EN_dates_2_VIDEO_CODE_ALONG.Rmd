@@ -1,0 +1,544 @@
+---
+title: 'Dates 2: Intervals, Components and Rounding'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block")
+```
+
+# Intro
+
+You now have a solid understanding of how dates are stored, displayed, and formatted in R. In this lesson, you will learn how to perform simple analyses with dates, such as calculating the time between date intervals and creating time series graphs! These skills are crucial for anyone working with health data, as they are the basis to understanding temporal patterns such as the progression of diseases over time and the fluctuation in population health metrics across different periods.
+
+# Learning Objectives
+
+-   You know how to calculate intervals between dates
+
+-   You know how to extract components from date columns
+
+-   You know how to round dates
+
+-   You are able to create simple time series graphs
+
+# Packages
+
+Please load the packages needed for this lesson with the code below:
+
+```{r warning = F, message = F, echo = T}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, 
+               here,
+               lubridate)
+```
+
+## Datasets
+
+‣ We will be working with **two datasets** related to **indoor residual spraying (IRS)** for **malaria control** efforts in Illovo, Malawi.
+
+‣ The first dataset provides the **start and end dates** of mosquito spraying campaigns in different villages.
+
+```{r message=FALSE}
+irs <- read_csv(here("data/Illovo_data.csv"))
+irs
+```
+
+------------------------------------------------------------------------
+
+‣ The second dataset gives monthly data from 2015-2019 comparing the **average incidence of malaria per 1000 people**.
+
+‣ It contrasts villages that received IRS against villages that didn't.
+
+```{r message=FALSE}
+incidence_temp <- read_csv(here("data/Illovo_ir_weather.csv"))
+incidence_temp
+
+names(incidence_temp)
+```
+
+‣ Columns:
+
+‣ `ir_case`: Malaria incidence in IRS villages
+
+‣ `ir_control`: Malaria incidence in non-IRS villages
+
+‣ `date`: Contains the month and random day
+
+‣ Average monthly minimum and maximum temperatures (`avg_min` and `avg_max`)
+
+------------------------------------------------------------------------
+
+‣ The final dataset has **1,460 rows** of daily weather data for the same Illovo region.
+
+```{r message=FALSE}
+weather <- read_csv(here("data/Illovo_weather.csv"))
+weather
+```
+
+‣ Each row signifies a single day and offers measurements of:
+
+‣ Minimum temperature (`min_temp`) in Celsius
+
+‣ Maximum temperature (`max_temp`) in Celsius
+
+‣ Rainfall (`rain`) in millimeters
+
+------------------------------------------------------------------------
+
+## Calculating Date Intervals
+
+‣ To begin, we'll explore **two ways to calculate intervals**.
+
+‣ The first uses the "-" operator in base R.
+
+‣ The second utilizes the interval operator from the {lubridate} package.
+
+‣ Let's examine both methods and see how they differ.
+
+## Using the "-" operator
+
+‣ This approach calculates time differences by simply **subtracting one date from another**.
+
+‣ Let's craft two date variables and test this out!
+
+```{r}
+date_1 <- as.Date(__________) # January 1st, 2000
+date_2 <- as.Date(__________) # January 31st, 2000
+# subtract the dates
+
+```
+
+‣ And there we have it! R displays the time difference in days.
+
+## Using the interval operator from {lubridate}
+
+‣ Let's see a **second way** to calculate time intervals
+
+‣ We'll use the `%--%` operator from the {lubridate} package.
+
+‣ This operator is sometimes called the **interval operator**.
+
+```{r}
+# use the interval operator:
+____________
+```
+
+‣ The output shows an interval between two dates.
+
+‣ But what if we want to know **how long has passed** in days?
+
+‣ For this, we need to use the `days()` function.
+
+‣ Dividing by `days(1)` will tell lubridate to count in increments of **one day** at a time.
+
+```{r}
+# divide the interval by days(1):
+date_1 %--% date_2
+```
+
+‣ Leaving the parentheses empty, i.e., `days()`, would also work. This is because lubridate's **default** is to count in increments of 1.
+
+‣ But let's say we want to count in increments of 5 days.
+
+‣ We'd specify `days(5)`
+
+```{r}
+# divide the interval by days(5)
+date_1 %--% date_2
+```
+
+::: r-practice
+**Lubridate weeks**
+
+Use the `weeks()` function in place of `days()` in the lubridate method to calculate the time difference in weeks between the two dates below:
+
+```{r eval= FALSE}
+oct_31 <- as.Date("2023-10-31")
+jul_20 <- as.Date("2023-07-20")
+```
+:::
+
+## Comparison
+
+‣ So which of the methods is best?
+
+‣ Lubridate provides **more flexibility and accuracy** when working with dates in R.
+
+‣ Let's look at a simple example to see why.
+
+‣ First, we'll set two dates that are **6 years apart**:
+
+```{r}
+date_1 <- as.Date(____________) # January 1st, 2000
+date_2 <- as.Date(____________) # January 1st, 2006
+```
+
+‣ How to calculate the years passed between these dates in **base R**?
+
+‣ Subtract the two dates, `date_2 - date_1`
+
+‣ Then, divide by an average day count, like **365.25** (accounting for leap years)
+
+```{r}
+(date_2 - date_1) # complete the code
+```
+
+‣ Result is close to 6 but imprecise due to the averaging of leap years!
+
+‣ (Can remove "days" by converting to numeric)
+
+------------------------------------------------------------------------
+
+‣ Dividing by 365 or 366 will also give **imprecise results**:
+
+```{r}
+# divide by 365
+(date_2 - date_1)/365 
+# divide by 366
+(date_2 - date_1)/366
+```
+
+‣ Need to account for **two leap years** (two extra days) between the dates
+
+‣ Subtract those two days out first:
+
+```{r}
+# fill in
+```
+
+‣ Painful for real data!
+
+------------------------------------------------------------------------
+
+‣ With **lubridate intervals**, process is more straightforward:
+
+‣ Leap years are handled for you
+
+```{r}
+date_1 %--%date_2 /days(365) # interval divided by years()
+```
+
+‣ Small difference, but **lubridate is the winner** here.
+
+‣ Also better at handling daylight savings with date-times.
+
+::: r-practice
+**Lubridate intervals**
+
+Can you apply lubridate's interval function to our IRS dataset? Create a new column called `spraying_time` and using lubridates `%--%` operator, calculate the number of days between `start_date_default` and `end_date_default`.
+:::
+
+‣ Lubridate has a technical distinction between "intervals", "periods" and "durations".
+
+‣ You can find out more here: [STA 444/5 - Introductory Data Science using R](https://bookdown.org/dereksonderegger/444/dates-and-times.html){target = "_blank"}
+
+## Extracting Date Components
+
+‣ During data cleaning or analysis, sometimes you need to **extract a specific component** of your date variable.
+
+‣ {lubridate} package offers a set of **useful functions** for this.
+
+‣ For example, to create a column with just the month of spraying, use the `month()` function.
+
+------------------------------------------------------------------------
+
+```{r}
+irs %>% 
+  mutate(month_start = ________________________) %>%
+  select(village, start_date_default, month_start)
+```
+
+‣ The function returns the month as a **number from 1-12**.
+
+‣ If you want R to display the month's name, use `label=TRUE` argument.
+
+------------------------------------------------------------------------
+
+```{r}
+irs %>% 
+  mutate(month_start = month(start_date_default, _______________)) %>%
+  select(village, start_date_default, month_start)
+```
+
+------------------------------------------------------------------------
+
+‣ Similarly, to extract the **year**, use the `year()` function.
+
+```{r}
+irs %>% 
+  mutate(year_start = _________________) %>%
+  select(village, start_date_default, year_start)
+```
+
+------------------------------------------------------------------------
+
+::: r-practice
+**Extracting weekdays**
+
+Create a new variable called `wday_start` and extract the day of the week that the spraying started in the same way as above but with the `wday()` function. Try to display the days of the week written out rather than numerically.
+
+:::
+
+## Visualizing Date Components
+
+‣ Often, you'll extract specific date components for **visualization**.
+
+‣ For instance, to visualize the **months when spraying starts**:
+
+‣ First, create a new month variable using `month()`.
+
+‣ Then, plot a bar graph with `geom_bar`.
+
+```{r}
+irs %>%
+  mutate(month = _________________) %>% 
+  # then pass to ggplot:
+```
+
+‣ Most spraying campaigns began between **July and November**. No campaigns in the **first three months** of the year.
+
+::: r-practice
+**Visualizing spray end months**
+
+Using the `irs` dataset, create a new graph showing the months when the spraying campaign ended and compare it to the graph of when they started. Do they have a similar pattern?
+:::
+
+## Rounding
+
+‣ We often round dates up or down for **analysis** or **visualization**.
+
+‣ Let's see what we mean by **rounding** with a few examples.
+
+------------------------------------------------------------------------
+
+‣ Consider the date: **March 17th 2012**.
+
+‣ If we want to round **down to the nearest month**, we use the `floor_date()` function from `{lubridate}`.
+
+‣ with `unit="month"`.
+
+```{r}
+my_date_down <- as.Date("2012-03-17")
+_______________________________
+```
+
+‣ As we observe, our date becomes **March 1st, 2012**.
+
+------------------------------------------------------------------------
+
+‣ Now let's round **up**.
+
+‣ Consider the date: **January 3rd 2020**.
+
+‣ To round up, we use the `ceiling_date()` function.
+
+```{r}
+my_date_up <- as.Date("2020-01-03")
+_______________________________
+```
+
+‣ With `ceiling_date()`, January 3rd becomes **February 1st**.
+
+------------------------------------------------------------------------
+
+‣ We can also round **without specifying up or down**.
+
+‣ The dates automatically round to the **nearest specified unit**.
+
+```{r}
+my_dates <- as.Date(c("2000-11-03", "2000-11-27"))
+_______________________________
+```
+
+‣ Here, by rounding to the nearest month:
+
+‣ November 3rd becomes **November 1st**
+
+‣ November 27th becomes **December 1st**.
+
+::: r-practice
+**Rounding dates practice**
+
+We can also round up or down to the nearest year. What do you think the output would be if we round down the date November 29th 2001 to the nearest year:
+
+```{r  eval=FALSE}
+date_round <- as.Date("2001-11-29")
+floor_date(date_round, unit="year")
+```
+:::
+
+‣ Let's see how rounding can be useful!
+
+‣ Consider our **weather data**.
+
+```{r}
+weather
+```
+
+‣ The data you see is **daily weather data**.
+
+‣ Daily data can be **noisy** due to day-to-day variation.
+
+```{r}
+weather %>% 
+  # pass to ggplot
+```
+
+‣ We want to look at **seasonal patterns**; monthly averages might be more suitable.
+
+‣ How do we do this? Let's try aggregating by month using the `str_sub()` function.
+
+```{r}
+weather %>% 
+  mutate(month_year = __________________)
+```
+
+‣ Now, we'll group by `month_year` and calculate the **average rainfall**.
+
+```{r}
+weather %>% 
+  mutate(month_year = str_sub(date, 1, 7)) %>% 
+  __________________
+  __________________
+```
+
+‣ A problem arises! Our `month_year` is a character, not a date.
+
+‣ That means it's not continuous. Let's try plotting:
+
+```{r}
+weather_summary_1 %>% # pass to ggplot
+  __________________
+  __________________
+```
+
+‣ We need a different approach!
+
+‣ Let's round dates to the month using `floor_date()`.
+
+‣ This way, we get a true date variable for our grouping.
+
+```{r}
+weather %>% 
+  mutate(month_year= ______________________________) %>%
+  # group by and summarise
+```
+
+‣ Now, let's plot this newly aggregated data!
+
+```{r}
+weather_summary_2 %>% # pass to ggplot
+  ______________________________
+  ______________________________
+```
+
+‣ That's much better!
+
+‣ Easier to see **seasonal trends** and **yearly variations**.
+
+**NOW TRY THIS FINAL PRACTICE QUESTION!**
+
+::: r-practice
+**Plot avg monthly min and max temperatures**
+
+Using the weather data, create a new line graph plotting the average monthly minimum and maximum temperatures from 2015-2019.
+:::
+
+#  {.unnumbered}
+
+# WRAP UP! {.unnumbered}
+
+This lesson covered fundamental skills for working with dates in R - calculating intervals, extracting components, rounding, and creating time series visualizations. With these key building blocks now mastered, you can can now start to wrangle date data to uncover and analyze patterns over time.
+
+# Learning Objectives
+
+‣ You know how to calculate intervals between dates
+
+‣ You know how to extract components from date columns
+
+‣ You know how to round dates
+
+‣ You are able to create simple time series graphs
+
+# Answer Key {.unnumbered}
+
+**Lubridate weeks**
+
+```{r}
+oct_31 <- as.Date("2023-10-31")
+jul_20 <- as.Date("2023-07-20")
+time_difference <- oct_31 %--% jul_20
+time_difference/weeks(1)
+```
+
+**Lubridate intervals**
+
+```{r}
+irs %>%
+  mutate(spraying_time = interval(start_date_default, end_date_default)/days(1)) %>% 
+  select(spraying_time)
+```
+
+**Extracting weekdays**
+
+```{r}
+irs %>%
+  mutate(wday_start = wday(start_date_default, label = TRUE)) %>% 
+  select(wday_start)
+```
+
+**Visualizing spray end months**
+
+```{r}
+
+irs %>%
+  mutate(month_end = month(end_date_default, label = TRUE)) %>% 
+  ggplot(aes(x = month_end)) +
+  geom_bar() 
+```
+
+**Rounding dates practice**
+
+```{r}
+date_round <- as.Date("2001-11-29")
+rounded_date <- floor_date(date_round, unit="year")
+rounded_date
+```
+
+**Plot avg monthly min and max temperatures**
+
+```{r}
+weather %>% 
+  mutate(month_year = floor_date(date, unit="month")) %>% 
+  group_by(month_year) %>%
+  summarise(avg_min_temp = mean(min_temp), 
+            avg_max_temp = mean(max_temp)) %>% 
+  ggplot() + 
+  geom_line(aes(x = month_year, y = avg_min_temp), color = "blue") + 
+  geom_line(aes(x = month_year, y = avg_max_temp), color = "red")
+```
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(c("amckinley", "kendavidn"))`
