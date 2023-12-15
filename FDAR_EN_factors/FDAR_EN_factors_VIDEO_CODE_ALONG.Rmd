@@ -1,5 +1,5 @@
 ---
-title: 'Lesson Notes | Factors in R' 
+title: 'Factors in R' 
 output:
   html_document:
     number_sections: true

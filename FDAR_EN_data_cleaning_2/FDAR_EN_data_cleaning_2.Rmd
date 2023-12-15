@@ -1,5 +1,5 @@
 ---
-title: 'Lesson Notes | Data Cleaning Pipeline 2: Exploratory Data Analysis'
+title: 'Data Cleaning Pipeline 2: Exploratory Data Analysis'
 output:
   html_document:
     number_sections: true
@@ -30,18 +30,17 @@ knitr::opts_chunk$set(class.source = "tgc-code-block")
 
 # Introduction
 
-In this session, we'll dive into essential techniques to clean and prepare your dataset for analysis. You'll learn to standardize column names, identify and remove empty data, handle duplicates, and correct data types and string values. By the end of this lesson, you'll be equipped to apply a comprehensive data cleaning workflow, ensuring your datasets are accurate and analysis-ready. Let's get started!
+------------------------------------------------------------------------
 
 # Learning Objectives
 
-By the end of the lesson, you will be able to:
+-   Learn how to automatically and manually clean column names
 
-1. Recognize the importance of standardized column names for data analysis.
-2. Learn automated and manual methods for cleaning column names.
-3. Identify and eliminate empty columns and rows in a dataset.
-4. Master techniques to remove duplicate rows and assign correct data types.
-5. Correct string inconsistencies, like typos and capitalization errors.
-6. Apply a comprehensive data cleaning process on a dataset for analysis.
+-   XXXX
+
+-   XXXX
+
+-   XXXX
 
 ------------------------------------------------------------------------
 
@@ -482,8 +481,104 @@ non_adherence_clean <- non_adh_distinct %>%
 non_adherence_clean
 ```
 
+------------------------------------------------------------------------
+
+# Wrap Up!
+
+-   XXXX
+
+------------------------------------------------------------------------
+
+::: demo
+[XXX DEMO HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: reminder
+[XXX SIDE NOTES HERE XXXX]
+:::
+
+------------------------------------------------------------------------
+
+::: recap
+[XXX RECAP HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: practice
+[XXX PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
+:::
+
+------------------------------------------------------------------------
+
+::: r-practice
+[XXX PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
+:::
+
+------------------------------------------------------------------------
+
+::: challenge
+[XXX CHALLENGE PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
+:::
+
+------------------------------------------------------------------------
+
+::: pro-tip
+[XXX PRO-TIPS HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: vocab
+[XXX RELEVANT VOCUBULARY WORDS HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: side-note
+[XXX SIDE NOTES HERE XXXX]
+:::
+
+------------------------------------------------------------------------
+
+::: watch-out
+[XXX TIPS HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: key-point
+[XXX KEY POINTS HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: error
+[XXX ERRORS HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+::: rstudio-cloud
+[XXX RSTUDIO CLOUD TIPS HERE XXX]
+:::
+
+------------------------------------------------------------------------
+
+# WRAP UP! {.unnumbered}
+
+[XXX NICE WRAP UP MESSAGE OR SUMMARY IF NEEDED HERE XXX]
+
+------------------------------------------------------------------------
+
+# Answer Key {.unnumbered}
+
+------------------------------------------------------------------------
+
 # Contributors {.unlisted .unnumbered}
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("kendavidn", "lolovanco", "amckinley"))` 
+`r tgc_contributors_list(ids = c("kendavidn", "lolovanco"))` (make sure to update the contributor list accordingly!)

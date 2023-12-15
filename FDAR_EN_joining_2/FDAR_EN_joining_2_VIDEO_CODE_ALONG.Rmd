@@ -1,5 +1,5 @@
 ---
-title: 'Joining 2: Joining Real-World Datasets'
+title: 'Joining 2: Mismatched Values, One-to-Many & Multi-Key Joins'
 output:
   html_document:
     number_sections: true

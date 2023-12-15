@@ -1,5 +1,5 @@
 ---
-title: 'Lesson Notes | Working with Strings in R'
+title: 'Working with Strings in R'
 output:
   html_document:
     number_sections: true

@@ -1,5 +1,5 @@
 ---
-title: 'Notes de Leçon | Travailler avec les Chaînes de Caractères en R'
+title: 'Travailler avec les Chaînes de Caractères en R'
 output:
   html_document:
     number_sections: true
@@ -81,14 +81,14 @@ single_inside_double <- "Guillemets simples ' au sein de guillemets doubles"
 Alternativement, vous pouvez utiliser le caractère d'échappement `\` pour inclure un guillemet simple ou double littéral à l'intérieur d'une chaîne :
 
 ```{r}
-single_quote <- 'Guillemets simples \' au sein de guillemets simples'
+single_quote <- 'Guillemets simples \' au sein de guillemets doubles'
 double_quote <- "Guillemets doubles \" au sein de guillemets doubles"
 ```
 
 Pour afficher ces chaînes telles qu'elles apparaîtraient dans la sortie, comme sur un graphique, utilisez `cat()` :
 
 ```{r}
-cat('Guillemets simples \' au sein de guillemets simples')
+cat('Guillemets simples \' au sein de guillemets doubles')
 cat("Guillemets doubles \" au sein de guillemets doubles")
 ```
 
