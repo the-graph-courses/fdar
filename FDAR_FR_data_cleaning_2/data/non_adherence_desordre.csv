@@ -1,0 +1,1421 @@
+"id_patient","District","Unite de sante","Sexe","Age_35","Age a l'initiation du ARV","EDUCATION_DU_PATIENT","OCCUPATION_DU_PATIENT","Etat...civil","Statut OMS a l'initiation du ARV","IMC_initiation_ARV","CD4_initiation_ARV","regime.1","Nmbr_comprimes_jour","NA"
+10037,1,1,"Homme","plus de 35 ans",36,NA,"Chauffeur de camion","Union Stable",1,19.42,NA,3,2,NA
+10537,1,1,"F","plus de 35 ans",40,"Secondaire","Ouvrier","Union Stable",1,24.69,107,6,1,NA
+5489,2,3,"F","Moins de 35 ans",34.1,NA,"Ouvrier","Veuf(ve)",3,NA,NA,6,1,NA
+5523,2,3,"Homme","Moins de 35 ans",28.1,NA,"Ouvrier","Union Stable",1,NA,NA,6,1,NA
+4942,2,3,"F","plus de 35 ans",46.9,"Universite","Technicien superieur","Union Stable",3,NA,NA,6,1,NA
+4742,2,3,"Homme","plus de 35 ans",37.5,"Technique","Technicien de laboratoire","Union Stable",2,NA,NA,3,2,NA
+10879,1,1,"Homme","plus de 35 ans",49.2,"Technique","Technicien de l'eau",NA,2,23.62,139,6,1,NA
+2885,2,3,"Homme","plus de 35 ans",43.2,"Technique","Technicien en agriculture","Union Stable",2,NA,NA,3,2,NA
+4861,2,3,"F","plus de 35 ans",50.9,"Technique","Technicien en agriculture",NA,1,NA,NA,3,2,NA
+5180,2,3,"Homme","plus de 35 ans",36.1,"Technique","Technicien en agriculture","Celibataire",1,NA,NA,6,1,NA
+8031,1,1,"Homme","plus de 35 ans",36.1,"Secondaire","Enseignant","Union Stable",3,20.4,354,2,3,NA
+15634,1,2,"Homme","Moins de 35 ans",25.4,"Secondaire","Chauffeur de taxi",NA,3,18.93,NA,3,2,NA
+514,1,1,"F","Moins de 35 ans",22.9,"None","Etudiant","Celibataire",4,20.2,347,2,3,NA
+643,2,3,"F","Moins de 35 ans",30.1,NA,"Etudiant","Union Stable",1,NA,NA,6,1,NA
+963,1,1,"F","Moins de 35 ans",20.9,"Primaire","Etudiant","Celibataire",3,19,307,6,1,NA
+1847,2,3,"F","Moins de 35 ans",21.2,NA,"Etudiant","Union Stable",1,NA,NA,7,2,NA
+2450,2,3,"F","Moins de 35 ans",30.5,"Secondaire","Etudiant","Union Stable",1,NA,NA,3,2,NA
+2945,2,3,"Homme","Moins de 35 ans",28.6,"Secondaire","Etudiant","Union Stable",3,NA,NA,3,2,NA
+3288,2,3,"F","Moins de 35 ans",25,"Primaire","Etudiant","Celibataire",3,NA,NA,3,2,NA
+3360,1,1,"F","Moins de 35 ans",26,"Secondaire","Etudiant","Union Stable",1,20.2,345,6,1,NA
+3379,1,1,"F","Moins de 35 ans",30.2,"Secondaire","Etudiant","Celibataire",1,24.78,475,6,1,NA
+3729,2,3,"F","Moins de 35 ans",22.2,"Primaire","Etudiant","Union Stable",1,NA,NA,6,1,NA
+3876,2,3,"F","Moins de 35 ans",24.4,"Secondaire","Etudiant","Union Stable",3,NA,NA,3,2,NA
+3926,2,3,"F","Moins de 35 ans",23.8,"Secondaire","Etudiant","Celibataire",2,NA,NA,3,2,NA
+3956,2,3,"Homme","Moins de 35 ans",28.4,"Secondaire","Etudiant","Union Stable",1,NA,NA,3,2,NA
+3977,2,3,"Homme","Moins de 35 ans",30.8,"Secondaire","Etudiant","Union Stable",2,NA,NA,3,2,NA
+3999,2,3,"F","Moins de 35 ans",19.4,"Secondaire","Etudiant","Union Stable",1,NA,NA,6,1,NA
+4021,2,3,"Homme","plus de 35 ans",36.5,"Secondaire","Etudiant","Union Stable",2,NA,NA,3,2,NA
+4083,2,3,"F","Moins de 35 ans",24.9,"Secondaire","Etudiant","Celibataire",NA,NA,NA,3,2,NA
+4095,2,3,"F","Moins de 35 ans",22.3,"Secondaire","Etudiant","Union Stable",3,NA,NA,3,2,NA
+4119,1,1,"F","Moins de 35 ans",27.2,"Secondaire","Etudiant",NA,3,16.69,417,6,1,NA
+4146,2,3,"F","Moins de 35 ans",26.3,"Secondaire","Etudiant","Celibataire",3,NA,NA,3,2,NA
+4285,2,3,"Homme","Moins de 35 ans",27.2,"Secondaire","Etudiant",NA,3,NA,NA,3,2,NA
+4286,2,3,"Homme","Moins de 35 ans",18.6,"Secondaire","Etudiant",NA,2,NA,NA,3,2,NA
+4287,2,3,"Homme","Moins de 35 ans",30.1,"Secondaire","Etudiant","Union Stable",3,NA,NA,3,2,NA
+4291,2,3,"Homme","Moins de 35 ans",24.5,"Secondaire","Etudiant","Celibataire",2,NA,NA,3,2,NA
+4310,2,3,"Homme","Moins de 35 ans",29.7,"Secondaire","Etudiant","Celibataire",1,NA,NA,6,1,NA
+4377,2,3,"F","plus de 35 ans",35.1,"Secondaire","Etudiant",NA,3,NA,NA,3,2,NA
+4495,1,1,"Homme","Moins de 35 ans",26,"Secondaire","Etudiant","Celibataire",3,20.45,NA,3,2,NA
+4503,2,3,"F","Moins de 35 ans",24.3,"Primaire","Etudiant","Celibataire",1,NA,NA,3,2,NA
+4544,2,3,"F","Moins de 35 ans",21.1,"Secondaire","Etudiant","Union Stable",1,NA,NA,7,2,NA
+4715,2,3,"F","Moins de 35 ans",17.7,"Primaire","Etudiant","Union Stable",1,NA,NA,7,2,NA
+4723,2,3,"F","Moins de 35 ans",25.2,"Secondaire","Etudiant","Celibataire",3,NA,NA,3,2,NA
+4761,2,3,"Homme","Moins de 35 ans",33.7,"Secondaire","Etudiant","Celibataire",2,NA,NA,3,2,NA
+4798,2,3,"F","Moins de 35 ans",23.6,"Secondaire","Etudiant","Union Stable",1,NA,NA,3,2,NA
+4825,2,3,"F","Moins de 35 ans",27.9,"Secondaire","Etudiant",NA,3,NA,NA,6,1,NA
+5086,1,1,"F","Moins de 35 ans",20.5,"Secondaire","Etudiant","Union Stable",1,25.24,341,6,1,NA
+5177,2,3,"F","Moins de 35 ans",30.7,"Secondaire","Etudiant",NA,1,NA,NA,6,1,NA
+5253,2,3,"F","Moins de 35 ans",24.2,"Secondaire","Etudiant","Celibataire",1,NA,NA,6,1,NA
+5268,2,3,"F","Moins de 35 ans",18.1,"Primaire","Etudiant","Celibataire",3,NA,NA,6,1,NA
+5383,2,3,"F","Moins de 35 ans",21.9,"Secondaire","Etudiant","Union Stable",1,NA,NA,6,1,NA
+5407,2,3,"F","Moins de 35 ans",28.1,"Secondaire","Etudiant",NA,3,NA,NA,6,1,NA
+5476,2,3,"F","Moins de 35 ans",19,"Secondaire","Etudiant","Union Stable",1,NA,NA,6,1,NA
+5526,2,3,"F","Moins de 35 ans",26.1,"Secondaire","Etudiant","Union Stable",3,NA,NA,6,1,NA
+5544,2,3,"Homme","Moins de 35 ans",17.1,"Primaire","Etudiant","Celibataire",3,NA,NA,6,1,NA
+5548,2,3,"F","Moins de 35 ans",23,"Secondaire","Etudiant","Celibataire",1,NA,NA,6,1,NA
+5553,2,3,"F","Moins de 35 ans",22,"Secondaire","Etudiant","Union Stable",2,NA,NA,6,1,NA
+5560,2,3,"F","Moins de 35 ans",17,"Secondaire","Etudiant","Celibataire",1,NA,NA,6,1,NA
+5580,2,3,"F","Moins de 35 ans",22,"Secondaire","Etudiant",NA,1,NA,NA,6,1,NA
+5613,2,3,"F","Moins de 35 ans",25.5,NA,"Etudiant","Union Stable",3,NA,NA,6,1,NA
+6438,1,1,"F","Moins de 35 ans",20.1,"Secondaire","Etudiant",NA,1,19.9,334,3,2,NA
+7635,1,1,"F","Moins de 35 ans",17.6,"Primaire","Etudiant","Union Stable",1,20,1362,6,1,NA
+7914,1,1,"F","Moins de 35 ans",18.1,"Secondaire","Etudiant","Union Stable",1,NA,228,3,2,NA
+8022,1,1,"Homme","Moins de 35 ans",20.1,"Secondaire","Etudiant","Celibataire",1,21.9,222,3,2,NA
+8084,1,1,"F","Moins de 35 ans",20.1,"Secondaire","Etudiant","Celibataire",4,16.4,NA,3,2,NA
+8756,1,1,"Homme","Moins de 35 ans",23.5,"Secondaire","Etudiant","Celibataire",3,20.3,403,2,3,NA
+9321,1,2,"F","Moins de 35 ans",20.1,"Secondaire","Etudiant","Union Stable",1,22,538,6,1,NA
+9616,1,1,"F","Moins de 35 ans",19.6,"Primaire","Etudiant","Celibataire",2,21.94,263,3,2,NA
+9831,1,2,"F","Moins de 35 ans",22.1,"Secondaire","Etudiant",NA,1,23.96,NA,6,1,NA
+10331,1,1,"F","Moins de 35 ans",23.9,"Secondaire","Etudiant","Union Stable",1,26.66,320,6,1,NA
+10605,1,1,"F","Moins de 35 ans",18,"Secondaire","Etudiant","Union Stable",1,25.88,995,6,1,NA
+10677,1,1,"F","Moins de 35 ans",19.1,NA,"Etudiant","Union Stable",1,23.3,454,6,1,NA
+10696,1,1,"F","Moins de 35 ans",17.9,"Primaire","Etudiant",NA,1,20.66,314,6,1,NA
+10880,1,1,"F","Moins de 35 ans",19.2,"Secondaire","Etudiant",NA,1,21.9,471,6,1,NA
+10943,1,1,"F","Moins de 35 ans",20.2,"Secondaire","Etudiant","Union Stable",1,22.51,541,6,1,NA
+10950,1,1,"F","Moins de 35 ans",21.2,"Secondaire","Etudiant","Union Stable",1,22.94,428,6,1,NA
+10969,1,1,"F","Moins de 35 ans",25.2,"Secondaire","Etudiant",NA,1,22.8,370,6,1,NA
+11329,1,1,"F","Moins de 35 ans",23.3,"Secondaire","Etudiant","Union Stable",1,20.57,386,6,1,NA
+12223,1,1,"F","Moins de 35 ans",28.5,"Primaire","Etudiant","Celibataire",1,19.14,766,2,3,NA
+15155,1,1,"Homme","Moins de 35 ans",18.4,"Primaire","Etudiant","Celibataire",1,23.42,354,6,1,NA
+4375,2,3,"F","plus de 35 ans",49.5,"Primaire","Domestique","Union Stable",3,NA,NA,3,2,NA
+4621,1,1,"Homme","plus de 35 ans",51,"Primaire","Domestique","Union Stable",1,21,295,3,2,NA
+3909,2,3,"Homme","plus de 35 ans",36.9,NA,"Serrurier","Union Stable",3,NA,NA,3,2,NA
+4573,2,3,"Homme","plus de 35 ans",48.4,NA,"Serrurier","Union Stable",3,NA,NA,3,2,NA
+2250,2,3,"F","plus de 35 ans",44.1,"Secondaire","Securite","Union Stable",1,NA,NA,6,1,NA
+4242,2,3,"Homme","plus de 35 ans",50.2,NA,"Securite","Union Stable",2,NA,NA,3,2,NA
+4325,2,3,"Homme","Moins de 35 ans",30.2,NA,"Securite","Union Stable",3,NA,NA,3,2,NA
+4442,2,3,"Homme","Moins de 35 ans",33.7,NA,"Securite","Union Stable",2,NA,NA,3,2,NA
+4541,2,3,"F","plus de 35 ans",50,NA,"Securite","Union Stable",3,NA,NA,3,2,NA
+5064,2,3,"Homme","plus de 35 ans",46,NA,"Securite","Union Stable",3,NA,NA,6,1,NA
+5581,2,3,"Homme","plus de 35 ans",45.1,NA,"Securite","Veuf(ve)",3,NA,NA,6,1,NA
+14765,1,2,"Homme","plus de 35 ans",45.4,"Primaire","Securite",NA,1,23.18,NA,3,2,NA
+5059,2,3,"F","Moins de 35 ans",26.1,NA,"Secretaire","Celibataire",1,NA,NA,6,1,NA
+9862,1,2,"F","Moins de 35 ans",31.3,"None","Couturiere","Union Stable",1,19.69,371,6,1,NA
+4896,2,3,"F","plus de 35 ans",59,NA,"Retraite","Union Stable",3,NA,NA,3,2,NA
+5282,2,3,"F","plus de 35 ans",59.7,NA,"Retraite","Celibataire",3,NA,NA,6,1,NA
+3993,2,3,"F","Moins de 35 ans",29.4,NA,"Receptionniste","Union Stable",3,NA,NA,3,2,NA
+1911,1,1,"F","Moins de 35 ans",31.3,"Secondaire","professeur","Celibataire",1,NA,258,3,2,NA
+3472,1,1,"F","Moins de 35 ans",28.1,"Technique","professeur",NA,1,22.9,285,3,2,NA
+4469,1,1,"F","plus de 35 ans",40.4,"Secondaire","professeur","Celibataire",1,20.88,773,6,1,NA
+5307,2,3,"F","plus de 35 ans",49.2,"Secondaire","professeur","Celibataire",3,NA,NA,6,1,NA
+5499,2,3,"F","Moins de 35 ans",32,"Secondaire","professeur","Celibataire",1,NA,NA,6,1,NA
+5524,1,1,"F","plus de 35 ans",52.1,"Secondaire","professeur","Union Stable",2,17.91,387,6,1,NA
+5905,1,1,"F","Moins de 35 ans",24.2,"Secondaire","professeur","Union Stable",1,23.34,1238,6,1,NA
+8543,1,1,"F","plus de 35 ans",35.5,"Secondaire","professeur",NA,1,52,510,6,1,NA
+10238,1,1,"F","Moins de 35 ans",26.7,"Secondaire","professeur","Union Stable",1,25,645,6,1,NA
+10920,1,1,"F","Moins de 35 ans",29.2,"Secondaire","professeur","Union Stable",1,28,NA,6,1,NA
+12103,1,1,"F","Moins de 35 ans",25.4,"Secondaire","professeur",NA,1,23.73,259,6,1,NA
+1268,2,3,"F","Moins de 35 ans",31.7,"Secondaire","Professeur","Union Stable",1,NA,NA,6,1,NA
+2737,2,3,"F","plus de 35 ans",48.8,"Secondaire","Professeur","Union Stable",3,NA,NA,3,2,NA
+3441,1,1,"F","plus de 35 ans",38.4,"Technique","Professeur","Union Stable",1,30.4,299,3,2,NA
+3648,2,3,"Homme","Moins de 35 ans",32.2,"Technique","Professeur","Union Stable",1,NA,NA,6,1,NA
+3762,2,3,"F","Moins de 35 ans",21.7,"Technique","Professeur","Union Stable",2,NA,NA,3,2,NA
+3867,2,3,"Homme","plus de 35 ans",53.6,"Secondaire","Professeur","Union Stable",3,NA,NA,3,2,NA
+4033,2,3,"Homme","Moins de 35 ans",34.7,"Technique","Professeur","Union Stable",2,NA,NA,3,2,NA
+4062,2,3,"F","Moins de 35 ans",25.5,"Technique","Professeur","Union Stable",3,NA,NA,3,2,NA
+4320,2,3,"F","Moins de 35 ans",31.1,"Secondaire","Professeur","Union Stable",2,NA,NA,4,2,NA
+4494,1,1,"Homme","Moins de 35 ans",34.5,"Technique","Professeur","Union Stable",1,17.4,309,3,2,NA
+4665,2,3,"F","plus de 35 ans",48.6,"Secondaire","Professeur","Celibataire",3,NA,NA,3,2,NA
+4685,2,3,"Homme","plus de 35 ans",35.1,"Secondaire","Professeur","Union Stable",3,NA,NA,3,2,NA
+4688,2,3,"F","Moins de 35 ans",25.3,"Technique","Professeur","Celibataire",3,NA,NA,3,2,NA
+4734,2,3,"Homme","plus de 35 ans",53.6,"Secondaire","Professeur","Union Stable",3,NA,NA,2,3,NA
+4889,1,1,"F","Moins de 35 ans",28.4,"Secondaire","Professeur","Union Stable",2,18.73,710,6,1,NA
+4932,2,3,"F","Moins de 35 ans",28.9,"Secondaire","Professeur","Union Stable",2,NA,NA,3,2,NA
+4951,2,3,"Homme","Moins de 35 ans",28.1,"Secondaire","Professeur","Union Stable",3,NA,NA,4,2,NA
+5271,2,3,"Homme","Moins de 35 ans",27,"Secondaire","Professeur","Union Stable",1,NA,NA,6,1,NA
+5320,2,3,"Homme","plus de 35 ans",52.7,"Secondaire","Professeur","Union Stable",1,NA,NA,6,1,NA
+5378,2,3,"F","Moins de 35 ans",30,"Secondaire","Professeur","Union Stable",1,NA,NA,6,1,NA
+5454,2,3,"F","Moins de 35 ans",27.8,"Secondaire","Professeur",NA,2,NA,NA,6,1,NA
+5468,2,3,"F","Moins de 35 ans",34.1,"Secondaire","Professeur","Union Stable",1,NA,NA,6,1,NA
+5478,2,3,"Homme","Moins de 35 ans",24.1,"Secondaire","Professeur","Union Stable",3,NA,NA,6,1,NA
+5509,1,1,"Homme","plus de 35 ans",37.2,"Secondaire","Professeur","Union Stable",1,NA,219,4,2,NA
+5639,2,3,"Homme","Moins de 35 ans",23.1,"Secondaire","Professeur","Celibataire",3,NA,NA,6,1,NA
+5771,2,3,"F","Moins de 35 ans",33.9,"Secondaire","Professeur","Union Stable",1,NA,NA,6,1,NA
+7356,1,1,"Homme","Moins de 35 ans",28.4,"Secondaire","Professeur","Union Stable",1,17,89,3,2,NA
+8137,1,1,"F","Moins de 35 ans",27.8,"Secondaire","Professeur","Union Stable",1,20.27,407,4,2,NA
+8507,1,1,"Homme","Moins de 35 ans",26.5,"Secondaire","Professeur","Union Stable",1,19,273,3,2,NA
+8761,1,1,"Homme","Moins de 35 ans",26.7,"Secondaire","Professeur",NA,1,22.7,243,6,1,NA
+8803,1,2,"Homme","plus de 35 ans",43.5,"Secondaire","Professeur","Celibataire",1,20,309,3,2,NA
+9077,1,2,"F","plus de 35 ans",53.5,"Secondaire","Professeur","Union Stable",4,28.39,456,2,3,NA
+9462,1,2,"Homme","plus de 35 ans",57.5,"Secondaire","Professeur","Union Stable",1,17,NA,3,2,NA
+10271,1,1,"F","plus de 35 ans",53.1,"Secondaire","Professeur","Union Stable",1,19.39,214,6,1,NA
+10273,1,1,"Homme","Moins de 35 ans",32.8,"Secondaire","Professeur","Union Stable",1,20.48,150,6,1,NA
+2857,2,3,"Homme","Moins de 35 ans",26,"Technique","Police","Celibataire",1,NA,NA,3,2,NA
+4353,2,3,"Homme","Moins de 35 ans",33,"Technique","Police","Celibataire",4,NA,NA,3,2,NA
+10108,1,1,"Homme","plus de 35 ans",49.7,"Technique","Police",NA,1,20.05,81,6,1,NA
+5406,2,3,"Homme","Moins de 35 ans",28.1,NA,"Pecheur","Celibataire",4,NA,NA,6,1,NA
+9405,1,2,"F","Moins de 35 ans",32.4,NA,"Pecheur",NA,1,19.4,32,3,2,NA
+2267,1,1,"Homme","Moins de 35 ans",33.1,"Primaire","Tailleur de pierre","Union Stable",3,NA,208,3,2,NA
+3461,2,3,"Homme","Moins de 35 ans",29,NA,"Tailleur de pierre","Union Stable",3,NA,NA,3,2,NA
+3556,2,3,"Homme","plus de 35 ans",36.1,NA,"Tailleur de pierre","Celibataire",2,NA,NA,3,2,NA
+4066,2,3,"F","plus de 35 ans",37.5,NA,"Tailleur de pierre","Union Stable",3,NA,NA,3,2,NA
+5193,2,3,"Homme","plus de 35 ans",43,NA,"Tailleur de pierre","Union Stable",1,NA,NA,6,1,NA
+5375,2,3,"Homme","Moins de 35 ans",33.8,NA,"Tailleur de pierre","Union Stable",1,NA,NA,6,1,NA
+8368,1,1,"Homme","Moins de 35 ans",28.6,"Primaire","Tailleur de pierre",NA,3,19.92,744,3,2,NA
+8887,1,2,"Homme","Moins de 35 ans",26.1,"Primaire","Tailleur de pierre",NA,3,18.9,11,3,2,NA
+9438,1,2,"Homme","plus de 35 ans",41.4,"Primaire","Tailleur de pierre",NA,3,21.6,415,3,2,NA
+7965,1,1,"Homme","plus de 35 ans",45.1,"Primaire","Proprietaire de magasin","Union Stable",1,23,315,3,2,NA
+4458,2,3,"Homme","Moins de 35 ans",28,NA,"Chauffeur","Union Stable",1,NA,NA,6,1,NA
+4530,2,3,"F","plus de 35 ans",56.3,NA,"Chauffeur","Union Stable",3,NA,NA,3,2,NA
+4623,2,3,"F","plus de 35 ans",48.1,NA,"Chauffeur","Union Stable",3,NA,NA,3,2,NA
+9587,1,2,"Homme","plus de 35 ans",48.1,"None","Chauffeur","Union Stable",2,23.34,81,4,2,NA
+10549,1,1,"Homme","plus de 35 ans",51,NA,"Chauffeur",NA,2,21.09,543,6,1,NA
+9515,1,2,"Homme","plus de 35 ans",52.4,"Primaire","Mineur","Union Stable",1,NA,146,3,2,NA
+1443,2,3,"Homme","plus de 35 ans",36.1,NA,"Operateur de moulin","Celibataire",3,NA,NA,3,2,NA
+4916,2,3,"F","plus de 35 ans",37.1,NA,"Operateur de moulin","Celibataire",3,NA,NA,2,3,NA
+2973,2,3,"Homme","plus de 35 ans",39.3,"Primaire","Militaire","Union Stable",2,NA,NA,3,2,NA
+4786,2,3,"Homme","Moins de 35 ans",31.1,NA,"Militaire","Celibataire",3,NA,NA,2,3,NA
+5369,2,3,"Homme","plus de 35 ans",45.1,NA,"Militaire","Union Stable",2,NA,NA,6,1,NA
+9997,1,1,"Homme","Moins de 35 ans",28,"Primaire","Guerisseur traditionnel","Union Stable",4,22.5,300,6,1,NA
+12227,1,1,"Homme","plus de 35 ans",45.5,"Primaire","Guerisseur traditionnel","Celibataire",1,33.59,250,6,1,NA
+4032,2,3,"Homme","plus de 35 ans",39.2,"Primaire","Mecanicien","Union Stable",1,NA,NA,3,2,NA
+5402,2,3,"F","plus de 35 ans",39.7,NA,"Mecanicien","Union Stable",3,NA,NA,6,1,NA
+5408,2,3,"Homme","Moins de 35 ans",31.9,NA,"Mecanicien","Union Stable",3,NA,NA,6,1,NA
+5319,2,3,"Homme","Moins de 35 ans",32.4,NA,"Capitaine de bateau","Union Stable",3,NA,NA,6,1,NA
+4429,2,3,"F","plus de 35 ans",46.4,"Universite","Juge","Union Stable",2,NA,NA,3,2,NA
+5128,2,3,"Homme","plus de 35 ans",51.1,"Secondaire","Journaliste","Celibataire",3,NA,NA,6,1,NA
+4100,2,3,"F","plus de 35 ans",38.1,NA,"Securite","Celibataire",2,NA,NA,3,2,NA
+4692,2,3,"F","plus de 35 ans",54.2,NA,"Securite","Union Stable",4,NA,NA,3,2,NA
+4789,2,3,"Homme","Moins de 35 ans",32.4,NA,"Securite","Union Stable",3,NA,NA,3,2,NA
+5076,2,3,"Homme","plus de 35 ans",45.9,NA,"Securite","Celibataire",3,NA,NA,6,1,NA
+6998,2,3,"Homme","plus de 35 ans",35,NA,"Securite","Union Stable",3,NA,NA,3,2,NA
+2517,1,1,"F","Moins de 35 ans",28,"Primaire","Agriculteur","Union Stable",2,17.98,771,6,1,NA
+3095,1,1,"Homme","Moins de 35 ans",31.1,"Primaire","Agriculteur","Union Stable",2,21.49,375,6,1,NA
+4343,2,3,"F","plus de 35 ans",49.8,NA,"Agriculteur","Union Stable",3,NA,NA,3,2,NA
+4451,2,3,"Homme","Moins de 35 ans",26.8,NA,"Agriculteur","Union Stable",3,NA,195,3,2,NA
+4613,2,3,"F","Moins de 35 ans",34,NA,"Agriculteur","Union Stable",NA,NA,NA,6,1,NA
+4702,1,1,"Homme","Moins de 35 ans",33.5,"Primaire","Agriculteur","Union Stable",1,NA,125,3,2,NA
+5897,1,1,"Homme","plus de 35 ans",49.5,"Primaire","Agriculteur","Celibataire",1,23,676,3,2,NA
+7106,1,1,"Homme","plus de 35 ans",53.1,"Primaire","Agriculteur","Union Stable",1,21.11,317,6,1,NA
+7530,1,1,"Homme","plus de 35 ans",61,NA,"Agriculteur","Union Stable",1,21.1,244,3,2,NA
+7714,1,1,"F","Moins de 35 ans",31.1,"Primaire","Agriculteur","Union Stable",1,17,66,4,2,NA
+7769,1,1,"Homme","plus de 35 ans",44.1,"Primaire","Agriculteur","Union Stable",2,23.85,515,3,2,NA
+8150,1,1,"F","plus de 35 ans",39.2,"Primaire","Agriculteur","Union Stable",1,24.5,160,4,2,NA
+9254,1,2,"F","plus de 35 ans",39.7,NA,"Agriculteur",NA,1,24,NA,3,2,NA
+9441,1,2,"Homme","Moins de 35 ans",30.3,"None","Agriculteur","Union Stable",4,23.6,335,3,2,NA
+9442,1,2,"Homme","plus de 35 ans",43.5,"None","Agriculteur","Union Stable",1,21,493,3,2,NA
+9454,1,2,"Homme","plus de 35 ans",51.2,NA,"Agriculteur","Veuf(ve)",3,NA,133,3,2,NA
+9460,1,2,"Homme","Moins de 35 ans",24.3,"Primaire","Agriculteur",NA,1,NA,164,3,2,NA
+9539,1,2,"Homme","plus de 35 ans",75.3,"Primaire","Agriculteur","Divorce",2,20,120,3,2,NA
+9546,1,2,"Homme","Moins de 35 ans",34.3,NA,"Agriculteur","Union Stable",1,18,256,3,2,NA
+10028,1,2,"F","plus de 35 ans",51.4,"Primaire","Agriculteur","Union Stable",3,20.17,360,6,1,NA
+10098,1,1,"Homme","plus de 35 ans",43.1,"Primaire","Agriculteur","Union Stable",1,21.5,248,6,1,NA
+10119,1,1,"F","Moins de 35 ans",29.7,"None","Agriculteur",NA,1,22,562,6,1,NA
+10394,1,1,"F","Moins de 35 ans",31,NA,"Agriculteur",NA,3,19.1,325,6,1,NA
+10625,1,1,"F","Moins de 35 ans",30,"Primaire","Agriculteur","Union Stable",2,20,259,6,1,NA
+11476,1,1,"Homme","plus de 35 ans",50.4,NA,"Agriculteur","Union Stable",1,19.59,376,6,1,NA
+11851,1,1,"Homme","Moins de 35 ans",34.3,"Secondaire","Agriculteur",NA,1,18.21,NA,6,1,NA
+11862,1,1,"Homme","Moins de 35 ans",32.4,"Primaire","Agriculteur","Union Stable",2,17.36,124,6,1,NA
+15249,1,2,"F","Moins de 35 ans",30.2,NA,"Agriculteur","Celibataire",1,16.67,NA,3,2,NA
+2491,1,1,"F","plus de 35 ans",44.1,NA,"Agriculteur","Union Stable",1,17.8,319,3,2,NA
+4376,2,3,"F","plus de 35 ans",43.8,NA,"Agriculteur","Union Stable",3,NA,NA,2,3,NA
+4653,1,1,"F","Moins de 35 ans",24.4,"None","Agriculteur","Union Stable",1,16.56,NA,6,1,NA
+4802,2,3,"Homme","Moins de 35 ans",33.7,NA,"Agriculteur",NA,3,NA,NA,3,2,NA
+4893,2,3,"Homme","plus de 35 ans",39.4,NA,"Agriculteur","Union Stable",1,NA,NA,6,1,NA
+5241,1,1,"F","plus de 35 ans",56,"Primaire","Agriculteur","Union Stable",3,21.29,354,6,1,NA
+5467,2,3,"Homme","Moins de 35 ans",30.1,NA,"Agriculteur","Union Stable",1,NA,NA,6,1,NA
+5563,1,1,"F","Moins de 35 ans",26.1,"Primaire","Agriculteur","Union Stable",1,23.42,765,6,1,NA
+5622,1,1,"F","Moins de 35 ans",26.1,"Primaire","Agriculteur","Union Stable",1,22.22,308,6,1,NA
+5672,1,1,"F","Moins de 35 ans",22.8,"Secondaire","Agriculteur","Union Stable",1,26.56,NA,6,1,NA
+6003,1,1,"F","Moins de 35 ans",33.1,NA,"Agriculteur","Union Stable",3,20.03,397,6,1,NA
+6308,1,1,"F","plus de 35 ans",35.3,NA,"Agriculteur","Union Stable",NA,NA,NA,3,2,NA
+6321,1,1,"F","Moins de 35 ans",30,NA,"Agriculteur","Union Stable",NA,NA,522,6,1,NA
+6405,1,1,"F","Moins de 35 ans",31.6,"Primaire","Agriculteur",NA,2,18,538,6,1,NA
+6444,1,1,"F","Moins de 35 ans",28.1,NA,"Agriculteur",NA,1,24.13,63,6,1,NA
+6632,1,1,"F","Moins de 35 ans",21.9,"Primaire","Agriculteur","Union Stable",1,23.15,553,6,1,NA
+6642,1,1,"F","Moins de 35 ans",31.6,"None","Agriculteur","Union Stable",1,NA,289,6,1,NA
+6725,1,1,"F","Moins de 35 ans",31.5,"Primaire","Agriculteur","Union Stable",1,18,378,6,1,NA
+6735,1,1,"F","Moins de 35 ans",31.7,"None","Agriculteur","Union Stable",1,20.1,501,6,1,NA
+6770,1,1,"F","Moins de 35 ans",24.1,"Primaire","Agriculteur",NA,1,21.05,311,6,1,NA
+6810,1,1,"F","Moins de 35 ans",21,"Primaire","Agriculteur",NA,1,21.3,732,6,1,NA
+6838,1,1,"F","Moins de 35 ans",21.7,NA,"Agriculteur",NA,1,18,520,6,1,NA
+6847,1,1,"F","Moins de 35 ans",25.5,"None","Agriculteur",NA,1,21,250,6,1,NA
+6848,1,1,"F","Moins de 35 ans",31.6,"None","Agriculteur",NA,1,14,818,6,1,NA
+6971,1,1,"F","Moins de 35 ans",31.7,NA,"Agriculteur",NA,1,22.07,604,6,1,NA
+6975,1,1,"F","Moins de 35 ans",27.6,"Primaire","Agriculteur","Union Stable",1,16,794,3,2,NA
+7067,1,1,"F","Moins de 35 ans",20,"Primaire","Agriculteur",NA,2,20.13,409,6,1,NA
+7282,1,1,"F","Moins de 35 ans",27.7,"Primaire","Agriculteur",NA,1,20,782,6,1,NA
+7345,1,1,"F","Moins de 35 ans",16.6,"Primaire","Agriculteur","Union Stable",1,17.6,477,6,1,NA
+7391,1,1,"F","Moins de 35 ans",22.6,"Secondaire","Agriculteur","Union Stable",1,14.5,446,6,1,NA
+7473,1,1,"F","plus de 35 ans",41.6,"Primaire","Agriculteur","Union Stable",2,14.38,228,3,2,NA
+8129,1,1,"F","Moins de 35 ans",30.3,NA,"Agriculteur","Celibataire",3,17.9,256,3,2,NA
+8502,1,1,"F","Moins de 35 ans",25.5,"Primaire","Agriculteur","Union Stable",2,16.9,519,6,1,NA
+8534,1,1,"F","Moins de 35 ans",28.6,"Primaire","Agriculteur","Celibataire",2,20,105,3,2,NA
+8707,1,1,"Homme","plus de 35 ans",49.5,NA,"Agriculteur",NA,1,30,344,3,2,NA
+8767,1,2,"F","Moins de 35 ans",34.4,"None","Agriculteur","Union Stable",4,15.22,405,3,2,NA
+8804,1,2,"F","plus de 35 ans",36.2,"Primaire","Agriculteur","Celibataire",1,23,302,3,2,NA
+8841,1,2,"F","plus de 35 ans",37.2,"None","Agriculteur","Union Stable",1,18,NA,3,2,NA
+8872,1,2,"F","plus de 35 ans",45.1,NA,"Agriculteur","Union Stable",2,NA,189,3,2,NA
+8965,1,1,"F","Moins de 35 ans",31,"Primaire","Agriculteur","Union Stable",2,18.09,625,3,2,NA
+8979,1,2,"F","Moins de 35 ans",30.3,"None","Agriculteur",NA,3,18.5,NA,3,2,NA
+9152,1,2,"F","plus de 35 ans",40.1,NA,"Agriculteur","Celibataire",1,19,343,3,2,NA
+9207,1,2,"F","Moins de 35 ans",19.4,"Primaire","Agriculteur",NA,4,12.58,23,4,2,NA
+9248,1,2,"F","Moins de 35 ans",28.2,NA,"Agriculteur","Union Stable",1,17.8,NA,4,2,NA
+9267,1,2,"F","Moins de 35 ans",30.1,"Primaire","Agriculteur",NA,1,19.9,311,3,2,NA
+9314,1,2,"F","Moins de 35 ans",27.6,"Primaire","Agriculteur","Union Stable",1,19.7,NA,2,3,NA
+9317,1,2,"F","Moins de 35 ans",30.7,NA,"Agriculteur","Union Stable",1,18.61,645,2,3,NA
+9331,1,2,"F","Moins de 35 ans",32.6,NA,"Agriculteur",NA,3,NA,718,2,3,NA
+9350,1,2,"F","Moins de 35 ans",33.8,NA,"Agriculteur",NA,3,17,NA,3,2,NA
+9406,1,2,"F","plus de 35 ans",35.1,"None","Agriculteur",NA,4,15.3,382,3,2,NA
+9408,1,2,"F","Moins de 35 ans",31.1,NA,"Agriculteur",NA,1,22.21,248,5,3,NA
+9440,1,2,"Homme","Moins de 35 ans",20.4,"Primaire","Agriculteur",NA,3,21.16,414,3,2,NA
+9461,1,2,"F","plus de 35 ans",35.7,NA,"Agriculteur","Union Stable",1,22,NA,3,2,NA
+9466,1,2,"F","Moins de 35 ans",20.3,NA,"Agriculteur","Union Stable",2,18.2,313,3,2,NA
+9468,1,2,"F","Moins de 35 ans",31.2,"None","Agriculteur","Union Stable",1,NA,273,3,2,NA
+9469,1,2,"Homme","Moins de 35 ans",30.1,"None","Agriculteur","Union Stable",4,15.5,NA,3,2,NA
+9470,1,2,"Homme","plus de 35 ans",52.3,NA,"Agriculteur",NA,1,20,148,3,2,NA
+9471,1,2,"F","Moins de 35 ans",30.2,"Primaire","Agriculteur","Celibataire",2,18,181,3,2,NA
+9473,1,2,"F","Moins de 35 ans",29.5,"Primaire","Agriculteur","Union Stable",1,22.2,151,3,2,NA
+9491,1,2,"F","Moins de 35 ans",22.6,NA,"Agriculteur","Union Stable",3,20,671,3,2,NA
+9497,1,2,"Homme","plus de 35 ans",48.3,NA,"Agriculteur","Union Stable",3,NA,405,3,2,NA
+9500,1,2,"F","plus de 35 ans",45.5,NA,"Agriculteur",NA,1,18,142,3,2,NA
+9517,1,2,"F","Moins de 35 ans",27.1,"None","Agriculteur",NA,1,22,323,3,2,NA
+9519,1,2,"F","plus de 35 ans",45.4,NA,"Agriculteur","Union Stable",3,NA,315,3,2,NA
+9522,1,2,"F","Moins de 35 ans",30.3,NA,"Agriculteur","Celibataire",2,22.2,378,3,2,NA
+9523,1,2,"F","Moins de 35 ans",31,NA,"Agriculteur",NA,1,19,NA,6,1,NA
+9527,1,2,"F","Moins de 35 ans",30.3,NA,"Agriculteur","Veuf(ve)",1,17,246,3,2,NA
+9533,1,2,"F","Moins de 35 ans",30.8,NA,"Agriculteur","Union Stable",1,18.67,1184,3,2,NA
+9536,1,2,"F","Moins de 35 ans",29.3,NA,"Agriculteur",NA,3,21.2,307,3,2,NA
+9538,1,2,"F","Moins de 35 ans",30.4,NA,"Agriculteur",NA,1,22.72,120,4,2,NA
+9549,1,2,"F","plus de 35 ans",45.3,NA,"Agriculteur",NA,3,17.1,786,3,2,NA
+9561,1,2,"F","plus de 35 ans",40.3,NA,"Agriculteur","Veuf(ve)",2,21,306,3,2,NA
+9564,1,2,"F","plus de 35 ans",35.4,NA,"Agriculteur",NA,1,20,336,3,2,NA
+9580,1,2,"F","Moins de 35 ans",29.3,NA,"Agriculteur","Union Stable",1,18,317,3,2,NA
+9593,1,2,"F","plus de 35 ans",37.5,"Primaire","Agriculteur","Celibataire",1,22.3,268,3,2,NA
+9601,1,2,"F","Moins de 35 ans",29.4,NA,"Agriculteur","Celibataire",1,23,361,3,2,NA
+9639,1,1,"F","Moins de 35 ans",21.9,"Primaire","Agriculteur",NA,2,19.72,376,6,1,NA
+9725,1,2,"F","plus de 35 ans",40.8,NA,"Agriculteur","Union Stable",1,21.1,NA,2,3,NA
+9767,1,2,"F","Moins de 35 ans",28.3,"None","Agriculteur",NA,3,16.87,401,3,2,NA
+9785,1,2,"F","Moins de 35 ans",31.5,NA,"Agriculteur",NA,1,22.18,NA,6,1,NA
+9799,1,2,"F","Moins de 35 ans",31.4,NA,"Agriculteur",NA,1,NA,472,6,1,NA
+9818,1,2,"Homme","plus de 35 ans",35.8,NA,"Agriculteur",NA,1,NA,279,3,2,NA
+9839,1,2,"F","Moins de 35 ans",30.9,"Primaire","Agriculteur",NA,1,18.67,NA,3,2,NA
+9886,1,2,"F","Moins de 35 ans",34.4,NA,"Agriculteur","Union Stable",1,20,251,6,1,NA
+10042,1,1,"Homme","plus de 35 ans",37.1,"Primaire","Agriculteur","Union Stable",2,25.2,332,6,1,NA
+10088,1,1,"F","Moins de 35 ans",23.1,"Primaire","Agriculteur","Union Stable",1,18.97,622,6,1,NA
+10103,1,1,"F","Moins de 35 ans",29.1,"None","Agriculteur","Veuf(ve)",1,19.48,370,3,2,NA
+10139,1,1,"F","plus de 35 ans",49.1,"Primaire","Agriculteur","Union Stable",1,23.78,173,6,1,NA
+10153,1,1,"F","Moins de 35 ans",29.8,NA,"Agriculteur","Union Stable",1,21.7,NA,6,1,NA
+10446,1,1,"Homme","plus de 35 ans",38.9,"Secondaire","Agriculteur",NA,1,NA,214,6,1,NA
+11000,1,1,"F","Moins de 35 ans",31.2,"Primaire","Agriculteur",NA,1,21.89,720,6,1,NA
+11167,1,2,"F","Moins de 35 ans",34.1,NA,"Agriculteur",NA,3,20,80,2,3,NA
+11533,1,2,"F","plus de 35 ans",37.8,NA,"Agriculteur","Veuf(ve)",4,17.26,NA,3,2,NA
+11676,1,2,"F","Moins de 35 ans",30.2,"Primaire","Agriculteur","Union Stable",3,17.9,327,3,2,NA
+11684,1,2,"F","Moins de 35 ans",30.1,"None","Agriculteur","Union Stable",4,15.87,NA,4,2,NA
+11846,1,1,"F","Moins de 35 ans",20.4,"Primaire","Agriculteur",NA,1,23.11,1004,6,1,NA
+11953,1,1,"F","plus de 35 ans",44.4,NA,"Agriculteur","Celibataire",1,19.5,121,6,1,NA
+12023,1,1,"F","Moins de 35 ans",20.4,NA,"Agriculteur",NA,1,26.2,375,6,1,NA
+12100,1,2,"F","Moins de 35 ans",16.4,NA,"Agriculteur",NA,1,20.09,670,2,3,NA
+12365,1,2,"F","Moins de 35 ans",20.5,"Primaire","Agriculteur","Union Stable",1,23.05,892,6,1,NA
+12366,1,2,"F","Moins de 35 ans",28.5,"Primaire","Agriculteur","Union Stable",1,23.05,NA,6,1,NA
+14762,1,2,"F","Moins de 35 ans",22,"None","Agriculteur",NA,NA,19.31,NA,6,1,NA
+16601,1,2,"F","Moins de 35 ans",29.2,"Primaire","Agriculteur","Celibataire",NA,NA,NA,6,1,NA
+20038,1,2,"F","Moins de 35 ans",26.4,"Primaire","Agriculteur","Union Stable",3,17.78,NA,3,2,NA
+4255,2,3,"Homme","plus de 35 ans",53.3,NA,"Travailleur de bureau","Union Stable",3,NA,NA,3,2,NA
+3875,2,3,"Homme","plus de 35 ans",36.2,NA,"Electricien","Union Stable",3,NA,NA,3,2,NA
+4476,2,3,"Homme","plus de 35 ans",49.9,NA,"Electricien","Union Stable",3,NA,NA,3,2,NA
+4872,2,3,"Homme","Moins de 35 ans",25,NA,"Electricien","Celibataire",1,NA,NA,6,1,NA
+4892,2,3,"F","plus de 35 ans",36.8,NA,"Electricien",NA,2,NA,NA,3,2,NA
+5604,2,3,"Homme","plus de 35 ans",44.4,NA,"Electricien",NA,3,NA,NA,6,1,NA
+1223,1,1,"Homme","Moins de 35 ans",28.1,"Primaire","Domestique","Union Stable",3,13.93,125,6,1,NA
+2490,1,1,"Homme","Moins de 35 ans",24.2,"Primaire","Domestique","Union Stable",3,19.8,667,3,2,NA
+3188,1,1,"Homme","Moins de 35 ans",31.9,NA,"Domestique","Union Stable",1,19.78,33,6,1,NA
+3509,1,1,"Homme","Moins de 35 ans",31.3,"Primaire","Domestique","Union Stable",2,20.98,197,3,2,NA
+3760,1,1,"F","plus de 35 ans",42.4,NA,"Domestique","Union Stable",1,19.7,211,3,2,NA
+4699,1,1,"Homme","Moins de 35 ans",33.1,"Primaire","Domestique","Union Stable",1,NA,307,6,1,NA
+5686,1,1,"F","Moins de 35 ans",31.4,NA,"Domestique","Union Stable",1,22.77,NA,6,1,NA
+6054,1,1,"Homme","Moins de 35 ans",23.2,"Secondaire","Domestique","Celibataire",2,21.83,165,6,1,NA
+6845,1,1,"Homme","Moins de 35 ans",25.1,"None","Domestique",NA,1,NA,11,3,2,NA
+6863,1,1,"Homme","Moins de 35 ans",25.5,NA,"Domestique",NA,3,20.14,NA,6,1,NA
+6883,1,1,"Homme","plus de 35 ans",35.4,NA,"Domestique",NA,1,17.7,287,3,2,NA
+7355,1,1,"Homme","plus de 35 ans",36.5,"Primaire","Domestique",NA,2,21,322,3,2,NA
+7760,1,1,"Homme","Moins de 35 ans",25,"Primaire","Domestique","Union Stable",1,21.9,145,3,2,NA
+7790,1,1,"F","Moins de 35 ans",31.5,NA,"Domestique","Union Stable",1,19.7,648,6,1,NA
+7811,1,1,"F","plus de 35 ans",52.4,NA,"Domestique","Union Stable",1,23.68,344,6,1,NA
+7839,1,1,"Homme","Moins de 35 ans",29,"Secondaire","Domestique","Union Stable",1,16.76,50,3,2,NA
+7918,1,1,"Homme","Moins de 35 ans",30.1,"Primaire","Domestique","Union Stable",3,19.4,712,3,2,NA
+7919,1,1,"Homme","plus de 35 ans",45.1,"Primaire","Domestique","Union Stable",3,23.1,132,2,3,NA
+7939,1,1,"Homme","Moins de 35 ans",31.6,"Primaire","Domestique","Union Stable",2,19.15,176,3,2,NA
+7957,1,1,"F","Moins de 35 ans",30.5,"Primaire","Domestique","Celibataire",1,22.9,318,6,1,NA
+8115,1,1,"F","Moins de 35 ans",33.4,"Primaire","Domestique","Union Stable",2,23.69,276,6,1,NA
+8213,1,1,"Homme","plus de 35 ans",47.2,"Primaire","Domestique","Union Stable",4,NA,NA,3,2,NA
+8242,1,1,"Homme","Moins de 35 ans",30.4,"Primaire","Domestique","Celibataire",3,NA,682,2,3,NA
+8277,1,1,"Homme","Moins de 35 ans",24.3,"Secondaire","Domestique",NA,1,19.5,265,3,2,NA
+8358,1,1,"Homme","Moins de 35 ans",23.4,"Primaire","Domestique",NA,1,20.4,260,3,2,NA
+8441,1,1,"F","Moins de 35 ans",26.3,NA,"Domestique","Union Stable",1,20,192,6,1,NA
+8548,1,1,"Homme","Moins de 35 ans",20.7,"Primaire","Domestique","Union Stable",3,22.41,135,3,2,NA
+8594,1,1,"F","Moins de 35 ans",30.5,"Primaire","Domestique",NA,1,19.2,722,6,1,NA
+8599,1,1,"Homme","plus de 35 ans",39.5,"Primaire","Domestique","Union Stable",1,18,214,3,2,NA
+8636,1,1,"Homme","Moins de 35 ans",26.1,"Primaire","Domestique","Union Stable",2,37,NA,6,1,NA
+8747,1,1,"Homme","Moins de 35 ans",20.6,"None","Domestique","Celibataire",2,20.69,206,3,2,NA
+9507,1,2,"Homme","plus de 35 ans",43.2,NA,"Domestique","Celibataire",1,21.2,140,3,2,NA
+9551,1,2,"F","Moins de 35 ans",30.5,"None","Domestique",NA,3,17,399,3,2,NA
+9589,1,2,"Homme","plus de 35 ans",40.6,"None","Domestique","Veuf(ve)",4,17,NA,3,2,NA
+9591,1,2,"F","Moins de 35 ans",30.6,"None","Domestique",NA,3,17,667,3,2,NA
+9613,1,1,"Homme","Moins de 35 ans",26.6,"Secondaire","Domestique","Union Stable",3,19.3,544,6,1,NA
+9700,1,2,"F","Moins de 35 ans",33.4,NA,"Domestique","Union Stable",NA,NA,NA,6,1,NA
+9919,1,1,"Homme","Moins de 35 ans",25.6,"Secondaire","Domestique","Union Stable",1,16.1,49,3,2,NA
+9990,1,1,"F","plus de 35 ans",49.1,"Primaire","Domestique","Veuf(ve)",1,21.76,674,6,1,NA
+10107,1,1,"Homme","Moins de 35 ans",31.1,"Secondaire","Domestique",NA,3,17.06,328,6,1,NA
+10195,1,1,"F","Moins de 35 ans",24.8,"Primaire","Domestique","Union Stable",1,21.52,NA,6,1,NA
+10401,1,1,"Homme","Moins de 35 ans",24,"Primaire","Domestique","Celibataire",1,17.26,215,2,3,NA
+10441,1,1,"F","plus de 35 ans",39.9,"None","Domestique","Celibataire",1,17.6,201,6,1,NA
+10474,1,1,"F","Moins de 35 ans",18,"Primaire","Domestique","Union Stable",1,22.5,666,6,1,NA
+10507,1,1,"Homme","plus de 35 ans",43.1,"None","Domestique","Celibataire",1,21.78,249,6,1,NA
+10527,1,1,"F","Moins de 35 ans",20,"Primaire","Domestique","Celibataire",1,17.53,5,6,1,NA
+10529,1,1,"F","Moins de 35 ans",25,NA,"Domestique","Celibataire",1,16.4,NA,6,1,NA
+10927,1,1,"Homme","plus de 35 ans",51.2,"None","Domestique",NA,1,18.13,341,6,1,NA
+10997,1,1,"F","Moins de 35 ans",29.4,"None","Domestique",NA,3,15.95,504,6,1,NA
+11224,1,2,"Homme","plus de 35 ans",49,NA,"Domestique","Union Stable",1,21.09,206,6,1,NA
+11274,1,2,"Homme","Moins de 35 ans",34.1,"Primaire","Domestique",NA,3,18.55,314,2,3,NA
+11663,1,2,"Homme","plus de 35 ans",40.1,"Primaire","Domestique",NA,2,15.22,333,3,2,NA
+12127,1,1,"F","plus de 35 ans",38.4,NA,"Domestique",NA,1,19.1,158,6,1,NA
+12173,1,1,"F","Moins de 35 ans",19.4,NA,"Domestique","Celibataire",1,23.5,558,6,1,NA
+12248,1,1,"F","Moins de 35 ans",33.5,NA,"Domestique",NA,1,20.57,236,6,1,NA
+12293,1,1,"F","Moins de 35 ans",19.5,NA,"Domestique",NA,1,20.8,343,6,1,NA
+12447,1,2,"Homme","Moins de 35 ans",28.4,NA,"Domestique",NA,3,17,NA,6,1,NA
+14260,1,2,"F","plus de 35 ans",41.7,"Primaire","Domestique",NA,3,22.8,NA,3,2,NA
+14841,1,2,"Homme","Moins de 35 ans",34.9,NA,"Domestique","Union Stable",2,21.08,218,3,2,NA
+15184,1,1,"Homme","plus de 35 ans",37.1,NA,"Domestique","Union Stable",NA,NA,NA,6,1,NA
+15243,1,2,"F","Moins de 35 ans",22,"Secondaire","Domestique","Celibataire",3,24.14,NA,4,2,NA
+242,1,1,"F","Moins de 35 ans",32.5,NA,"Domestique","Union Stable",1,17.8,643,3,2,NA
+295,1,1,"F","Moins de 35 ans",33.4,"None","Domestique","Union Stable",3,15.48,98,6,1,NA
+303,1,1,"F","Moins de 35 ans",32,NA,"Domestique",NA,1,NA,332,3,2,NA
+395,1,1,"F","Moins de 35 ans",31.5,"Primaire","Domestique","Union Stable",1,20.6,121,6,1,NA
+540,1,1,"Homme","plus de 35 ans",61.3,NA,"Domestique","Union Stable",1,20.82,103,6,1,NA
+650,1,1,"F","Moins de 35 ans",25,NA,"Domestique","Celibataire",NA,NA,NA,3,2,NA
+826,2,3,"F","Moins de 35 ans",23.3,NA,"Domestique",NA,1,NA,NA,6,1,NA
+908,2,3,"F","plus de 35 ans",41.4,NA,"Domestique","Veuf(ve)",1,NA,NA,3,2,NA
+966,1,1,"F","Moins de 35 ans",32.7,"Primaire","Domestique",NA,1,15,1174,6,1,NA
+1014,1,1,"Homme","Moins de 35 ans",25.4,"Primaire","Domestique","Celibataire",2,18.13,294,6,1,NA
+1086,2,3,"Homme","Moins de 35 ans",34,NA,"Domestique",NA,3,NA,NA,3,2,NA
+1116,1,1,"Homme","Moins de 35 ans",31.5,"Primaire","Domestique","Union Stable",3,19.71,344,6,1,NA
+1225,1,1,"F","Moins de 35 ans",26,"Primaire","Domestique","Union Stable",1,20,21,3,2,NA
+1317,1,1,"F","Moins de 35 ans",31.1,"Primaire","Domestique","Union Stable",2,15.8,NA,3,2,NA
+1361,1,1,"F","plus de 35 ans",42.5,NA,"Domestique","Union Stable",1,22.99,643,6,1,NA
+1444,1,1,"F","Moins de 35 ans",29.8,"Primaire","Domestique","Union Stable",1,25.48,430,6,1,NA
+1459,1,1,"F","Moins de 35 ans",29.7,"Primaire","Domestique","Union Stable",1,21.7,294,6,1,NA
+1543,1,1,"F","Moins de 35 ans",32.3,NA,"Domestique","Union Stable",1,21,365,6,1,NA
+1643,1,1,"F","Moins de 35 ans",34.8,NA,"Domestique","Celibataire",2,18.42,238,6,1,NA
+1820,2,3,"F","Moins de 35 ans",24.8,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+1870,1,1,"F","Moins de 35 ans",32.5,"None","Domestique","Union Stable",1,26.2,598,7,2,NA
+1945,2,3,"F","plus de 35 ans",39.3,NA,"Domestique","Union Stable",NA,NA,NA,3,2,NA
+1953,2,3,"Homme","plus de 35 ans",35.4,"Secondaire","Domestique","Union Stable",1,NA,NA,3,2,NA
+1988,2,3,"F","plus de 35 ans",50.7,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+2027,1,1,"F","Moins de 35 ans",25.9,"None","Domestique","Celibataire",3,20.36,1401,6,1,NA
+2073,1,1,"F","Moins de 35 ans",33.6,"Primaire","Domestique","Veuf(ve)",3,23.5,770,3,2,NA
+2079,1,1,"Homme","plus de 35 ans",40.5,"Primaire","Domestique","Union Stable",1,19.52,3,6,1,NA
+2086,1,1,"F","Moins de 35 ans",22.4,"Primaire","Domestique","Celibataire",2,20,95,6,1,NA
+2110,1,1,"F","plus de 35 ans",35.4,"Primaire","Domestique","Union Stable",1,20.07,245,6,1,NA
+2120,2,3,"F","plus de 35 ans",36.8,"Secondaire","Domestique","Union Stable",3,NA,NA,6,1,NA
+2219,1,1,"F","plus de 35 ans",43.1,"Primaire","Domestique","Union Stable",1,25,203,6,1,NA
+2325,1,1,"F","Moins de 35 ans",26.2,"Primaire","Domestique","Union Stable",1,NA,620,3,2,NA
+2395,1,1,"F","Moins de 35 ans",23.2,NA,"Domestique","Union Stable",1,22.32,NA,6,1,NA
+2412,1,1,"F","Moins de 35 ans",27.1,NA,"Domestique","Union Stable",1,NA,420,2,3,NA
+2423,1,1,"F","plus de 35 ans",36.5,"Primaire","Domestique","Celibataire",1,28.4,605,6,1,NA
+2424,1,1,"F","Moins de 35 ans",29.6,"None","Domestique","Union Stable",1,18.2,1064,6,1,NA
+2466,2,3,"F","plus de 35 ans",44.6,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+2478,1,1,"F","Moins de 35 ans",30.6,"None","Domestique","Union Stable",1,20.31,NA,3,2,NA
+2518,1,1,"F","plus de 35 ans",36.2,"Primaire","Domestique","Union Stable",1,23,NA,6,1,NA
+2540,1,1,"F","Moins de 35 ans",23,"Secondaire","Domestique","Union Stable",1,25.32,507,6,1,NA
+2563,1,1,"F","Moins de 35 ans",26.4,"Primaire","Domestique","Union Stable",1,16.67,NA,6,1,NA
+2580,1,1,"F","Moins de 35 ans",31.9,"Primaire","Domestique","Union Stable",2,23.63,476,6,1,NA
+2642,1,1,"F","Moins de 35 ans",33.5,"None","Domestique",NA,1,19,296,4,2,NA
+2750,2,3,"F","Moins de 35 ans",25.7,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+2840,1,1,"F","Moins de 35 ans",26.6,NA,"Domestique","Union Stable",3,18.3,505,3,2,NA
+2869,2,3,"F","Moins de 35 ans",30.5,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+2891,2,3,"F","Moins de 35 ans",27.6,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+2892,2,3,"F","Moins de 35 ans",23.5,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+2897,1,1,"F","Moins de 35 ans",34.6,NA,"Domestique","Union Stable",1,20.57,405,3,2,NA
+2907,1,1,"F","Moins de 35 ans",32.2,NA,"Domestique","Union Stable",1,16.66,602,6,1,NA
+2915,1,1,"F","Moins de 35 ans",33.9,NA,"Domestique","Union Stable",1,21,892,6,1,NA
+2937,1,1,"F","Moins de 35 ans",33.2,NA,"Domestique",NA,2,17.69,325,3,2,NA
+2976,2,3,"F","Moins de 35 ans",33.6,NA,"Domestique","Union Stable",3,NA,NA,4,2,NA
+2981,1,1,"F","Moins de 35 ans",25,"Primaire","Domestique","Union Stable",1,21.48,119,6,1,NA
+2987,1,1,"F","plus de 35 ans",38.5,"None","Domestique","Union Stable",1,18.5,NA,6,1,NA
+2999,2,3,"Homme","Moins de 35 ans",31.5,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+3042,2,3,"F","plus de 35 ans",46.7,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+3046,1,1,"F","Moins de 35 ans",25.5,"Primaire","Domestique","Veuf(ve)",1,20.57,293,3,2,NA
+3055,1,1,"F","Moins de 35 ans",29.4,NA,"Domestique","Union Stable",1,20,752,3,2,NA
+3070,2,3,"F","Moins de 35 ans",18.7,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3080,1,1,"F","Moins de 35 ans",21.7,"Primaire","Domestique","Union Stable",1,18.61,147,6,1,NA
+3127,1,1,"F","Moins de 35 ans",31.5,"Primaire","Domestique","Union Stable",1,24.97,489,6,1,NA
+3129,2,3,"Homme","Moins de 35 ans",27.6,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3147,2,3,"Homme","plus de 35 ans",41.3,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3224,2,3,"F","plus de 35 ans",35.3,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+3240,1,1,"F","Moins de 35 ans",24.8,"Primaire","Domestique",NA,1,20.83,NA,6,1,NA
+3246,1,1,"F","Moins de 35 ans",24.7,"Primaire","Domestique",NA,2,19.47,252,3,2,NA
+3254,1,1,"F","Moins de 35 ans",28.1,"Primaire","Domestique","Union Stable",1,25,NA,6,1,NA
+3265,1,1,"F","Moins de 35 ans",33.1,NA,"Domestique","Union Stable",1,22.9,498,3,2,NA
+3298,2,3,"F","Moins de 35 ans",30.9,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3299,2,3,"F","Moins de 35 ans",28.6,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3301,2,3,"F","Moins de 35 ans",31.5,NA,"Domestique",NA,3,NA,NA,3,2,NA
+3321,2,3,"F","Moins de 35 ans",33.5,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+3351,2,3,"F","Moins de 35 ans",23,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3423,2,3,"F","Moins de 35 ans",26.2,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3426,2,3,"F","plus de 35 ans",39.4,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3439,1,1,"F","plus de 35 ans",38.6,NA,"Domestique","Union Stable",1,21,320,6,1,NA
+3443,1,1,"F","plus de 35 ans",43.1,NA,"Domestique","Union Stable",2,17.8,482,6,1,NA
+3457,1,1,"F","Moins de 35 ans",25.5,"Secondaire","Domestique","Union Stable",3,36.68,406,3,2,NA
+3495,2,3,"F","Moins de 35 ans",23.3,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+3548,2,3,"F","Moins de 35 ans",32.7,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3576,2,3,"Homme","Moins de 35 ans",28.4,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+3586,1,1,"F","Moins de 35 ans",34,NA,"Domestique","Union Stable",1,NA,118,3,2,NA
+3586,2,3,"F","Moins de 35 ans",29.1,NA,"Domestique","Union Stable",1,NA,NA,5,3,NA
+3602,2,3,"F","plus de 35 ans",43.5,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+3642,1,1,"F","Moins de 35 ans",26.3,NA,"Domestique","Celibataire",4,21.9,586,2,3,NA
+3677,2,3,"F","Moins de 35 ans",19.6,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+3694,1,1,"F","Moins de 35 ans",24.1,NA,"Domestique","Union Stable",1,15.2,214,6,1,NA
+3719,2,3,"F","plus de 35 ans",63.9,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+3737,2,3,"F","Moins de 35 ans",33.7,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+3745,1,1,"F","Moins de 35 ans",33.6,"None","Domestique","Union Stable",2,15.5,256,6,1,NA
+3756,2,3,"F","plus de 35 ans",51.2,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+3765,1,1,"F","plus de 35 ans",43.1,NA,"Domestique","Celibataire",2,19.98,322,6,1,NA
+3778,2,3,"F","plus de 35 ans",43.7,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+3794,2,3,"F","Moins de 35 ans",33.2,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3802,1,1,"F","Moins de 35 ans",21.7,"Secondaire","Domestique",NA,1,25.29,321,6,1,NA
+3810,2,3,"F","plus de 35 ans",36.3,NA,"Domestique","Celibataire",2,NA,NA,2,3,NA
+3825,2,3,"F","Moins de 35 ans",29,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3869,1,1,"F","Moins de 35 ans",30.6,NA,"Domestique","Union Stable",1,20.3,833,3,2,NA
+3880,2,3,"F","Moins de 35 ans",27.1,NA,"Domestique","Celibataire",4,NA,NA,3,2,NA
+3890,2,3,"F","Moins de 35 ans",23.9,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3911,1,1,"F","Moins de 35 ans",23.3,"Primaire","Domestique","Celibataire",2,20.57,448,6,1,NA
+3914,2,3,"F","Moins de 35 ans",21.1,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+3930,2,3,"F","Moins de 35 ans",23.4,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3966,1,1,"F","plus de 35 ans",47.3,NA,"Domestique","Veuf(ve)",3,20.58,345,6,1,NA
+3968,2,3,"F","Moins de 35 ans",22.7,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+3988,2,3,"F","plus de 35 ans",48.9,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+3989,2,3,"F","Moins de 35 ans",30.6,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+3994,2,3,"F","Moins de 35 ans",30.5,NA,"Domestique","Union Stable",3,NA,NA,4,2,NA
+3995,2,3,"F","Moins de 35 ans",21,NA,"Domestique","Celibataire",4,NA,NA,3,2,NA
+3998,2,3,"Homme","plus de 35 ans",35.5,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4001,1,1,"F","Moins de 35 ans",29.1,NA,"Domestique","Union Stable",3,16.65,160,6,1,NA
+4001,2,3,"F","Moins de 35 ans",19,NA,"Domestique","Celibataire",3,NA,NA,1,3,NA
+4005,1,1,"F","Moins de 35 ans",30.6,"None","Domestique","Union Stable",1,21.36,400,7,2,NA
+4006,2,3,"F","Moins de 35 ans",32.8,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4011,2,3,"F","Moins de 35 ans",30.2,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4012,2,3,"Homme","Moins de 35 ans",27.4,NA,"Domestique","Union Stable",4,NA,NA,3,2,NA
+4026,1,1,"F","Moins de 35 ans",24.4,"Primaire","Domestique","Union Stable",1,16.1,241,3,2,NA
+4028,2,3,"F","Moins de 35 ans",31.8,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4044,2,3,"Homme","plus de 35 ans",36.9,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4046,2,3,"F","Moins de 35 ans",30.6,NA,"Domestique","Veuf(ve)",2,NA,NA,3,2,NA
+4067,2,3,"F","plus de 35 ans",44.6,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4086,2,3,"F","Moins de 35 ans",19.4,NA,"Domestique","Union Stable",3,NA,NA,4,2,NA
+4094,1,1,"F","Moins de 35 ans",28.8,"Primaire","Domestique","Union Stable",1,22.14,NA,6,1,NA
+4096,2,3,"F","Moins de 35 ans",22.1,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4097,2,3,"F","Moins de 35 ans",27.1,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4104,2,3,"F","Moins de 35 ans",27.4,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4106,2,3,"Homme","Moins de 35 ans",24.8,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4112,2,3,"F","Moins de 35 ans",20.7,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4114,2,3,"Homme","Moins de 35 ans",30.9,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+4117,2,3,"F","Moins de 35 ans",29.4,NA,"Domestique","Veuf(ve)",1,NA,NA,3,2,NA
+4122,1,1,"F","Moins de 35 ans",34.1,NA,"Domestique","Union Stable",2,17.3,250,3,2,NA
+4124,2,3,"F","Moins de 35 ans",21.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4129,2,3,"Homme","Moins de 35 ans",25.2,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4132,2,3,"F","Moins de 35 ans",20,NA,"Domestique","Veuf(ve)",2,NA,NA,3,2,NA
+4151,2,3,"F","Moins de 35 ans",24.7,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4160,1,1,"F","plus de 35 ans",35.1,NA,"Domestique","Veuf(ve)",1,18.26,216,6,1,NA
+4161,1,1,"F","Moins de 35 ans",23.5,NA,"Domestique","Celibataire",1,24,334,3,2,NA
+4177,2,3,"F","Moins de 35 ans",26.4,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4185,2,3,"F","Moins de 35 ans",28.4,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4190,2,3,"F","Moins de 35 ans",25.8,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+4199,2,3,"F","plus de 35 ans",50.1,NA,"Domestique","Celibataire",1,NA,NA,6,1,NA
+4203,1,1,"F","Moins de 35 ans",21.9,"None","Domestique",NA,2,13.5,493,6,1,NA
+4207,2,3,"Homme","Moins de 35 ans",25.9,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+4208,1,1,"F","Moins de 35 ans",31.7,"Primaire","Domestique","Union Stable",1,21.1,301,3,2,NA
+4211,1,1,"F","plus de 35 ans",41.8,NA,"Domestique","Union Stable",1,18.12,817,6,1,NA
+4211,2,3,"Homme","plus de 35 ans",35.8,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4214,2,3,"F","Moins de 35 ans",25,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+4232,2,3,"F","Moins de 35 ans",33.1,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4234,2,3,"F","plus de 35 ans",41.3,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+4246,1,1,"F","Moins de 35 ans",33,"None","Domestique","Celibataire",3,13.6,527,3,2,NA
+4253,2,3,"Homme","Moins de 35 ans",31.2,NA,"Domestique","Union Stable",NA,NA,NA,3,2,NA
+4261,1,1,"F","plus de 35 ans",44.6,NA,"Domestique","Union Stable",1,17.91,730,6,1,NA
+4272,2,3,"F","Moins de 35 ans",22.6,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4277,1,1,"F","Moins de 35 ans",30.2,NA,"Domestique","Union Stable",3,24.97,628,6,1,NA
+4281,2,3,"Homme","plus de 35 ans",35.5,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+4284,2,3,"Homme","Moins de 35 ans",28.3,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4289,1,1,"F","Moins de 35 ans",34.4,NA,"Domestique","Union Stable",1,22.03,457,6,1,NA
+4293,2,3,"F","Moins de 35 ans",22.6,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4301,2,3,"Homme","Moins de 35 ans",24.7,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4315,2,3,"F","plus de 35 ans",37.8,NA,"Domestique","Celibataire",2,NA,NA,3,2,NA
+4317,2,3,"Homme","Moins de 35 ans",31.8,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4332,2,3,"F","plus de 35 ans",44.9,NA,"Domestique","Veuf(ve)",1,NA,NA,3,2,NA
+4338,2,3,"F","Moins de 35 ans",30,NA,"Domestique","Union Stable",3,NA,NA,2,3,NA
+4349,1,1,"F","Moins de 35 ans",28,"Primaire","Domestique","Union Stable",3,17.8,123,3,2,NA
+4350,2,3,"F","plus de 35 ans",56.6,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4351,2,3,"F","plus de 35 ans",44.8,NA,"Domestique","Veuf(ve)",4,NA,NA,3,2,NA
+4356,1,1,"F","Moins de 35 ans",20.6,"Primaire","Domestique","Union Stable",1,16,534,6,1,NA
+4359,2,3,"F","Moins de 35 ans",22.2,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4364,1,1,"F","Moins de 35 ans",22.5,"Primaire","Domestique","Union Stable",1,25,412,6,1,NA
+4364,2,3,"F","plus de 35 ans",40.6,NA,"Domestique","Celibataire",3,NA,NA,2,3,NA
+4366,2,3,"F","plus de 35 ans",43.4,NA,"Domestique","Veuf(ve)",3,NA,NA,4,2,NA
+4368,2,3,"F","plus de 35 ans",36.1,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4371,2,3,"F","plus de 35 ans",41.7,NA,"Domestique","Union Stable",4,NA,NA,3,2,NA
+4373,2,3,"F","Moins de 35 ans",25.8,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+4387,2,3,"F","Moins de 35 ans",27.9,NA,"Domestique","Union Stable",2,NA,NA,7,2,NA
+4392,2,3,"F","Moins de 35 ans",26.1,NA,"Domestique","Veuf(ve)",2,NA,NA,6,1,NA
+4396,2,3,"F","Moins de 35 ans",29.6,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4407,2,3,"Homme","plus de 35 ans",45.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+4410,2,3,"Homme","plus de 35 ans",39.3,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4412,2,3,"F","plus de 35 ans",43.9,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+4416,2,3,"F","Moins de 35 ans",28.7,NA,"Domestique","Union Stable",3,NA,NA,7,2,NA
+4419,2,3,"F","Moins de 35 ans",31.7,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4424,2,3,"F","Moins de 35 ans",31.2,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+4441,2,3,"F","plus de 35 ans",40.2,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4443,2,3,"F","plus de 35 ans",35.1,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4445,2,3,"F","Moins de 35 ans",29.4,NA,"Domestique","Union Stable",4,NA,NA,3,2,NA
+4446,2,3,"F","Moins de 35 ans",21.1,"Primaire","Domestique","Union Stable",NA,NA,NA,3,2,NA
+4448,2,3,"Homme","plus de 35 ans",39.8,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+4452,2,3,"F","Moins de 35 ans",29.9,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4455,2,3,"F","Moins de 35 ans",27.6,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4457,2,3,"F","Moins de 35 ans",28.2,NA,"Domestique","Celibataire",2,NA,NA,3,2,NA
+4464,2,3,"F","Moins de 35 ans",34.6,NA,"Domestique","Union Stable",4,NA,NA,3,2,NA
+4475,2,3,"F","plus de 35 ans",48.4,NA,"Domestique","Veuf(ve)",3,NA,NA,4,2,NA
+4489,2,3,"Homme","Moins de 35 ans",28,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+4492,2,3,"F","plus de 35 ans",60.2,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4498,2,3,"F","Moins de 35 ans",25,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4499,2,3,"F","Moins de 35 ans",30.1,NA,"Domestique","Veuf(ve)",2,NA,NA,3,2,NA
+4507,2,3,"Homme","Moins de 35 ans",26,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4510,1,1,"F","Moins de 35 ans",30.6,NA,"Domestique","Union Stable",1,19,722,6,1,NA
+4512,2,3,"F","Moins de 35 ans",30.5,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4515,2,3,"Homme","Moins de 35 ans",30.2,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4526,2,3,"F","Moins de 35 ans",24.4,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4529,2,3,"F","plus de 35 ans",48.2,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+4533,2,3,"F","Moins de 35 ans",33.9,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4535,2,3,"F","plus de 35 ans",41.3,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4536,2,3,"Homme","plus de 35 ans",49.3,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4552,2,3,"Homme","plus de 35 ans",36.1,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4553,2,3,"F","Moins de 35 ans",34.1,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4559,1,1,"F","Moins de 35 ans",30.5,"Primaire","Domestique",NA,1,14.9,177,6,1,NA
+4559,2,3,"F","Moins de 35 ans",33.5,NA,"Domestique","Veuf(ve)",1,NA,NA,3,2,NA
+4562,2,3,"F","Moins de 35 ans",22.5,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4584,1,1,"F","plus de 35 ans",42.6,"Primaire","Domestique",NA,4,19,589,3,2,NA
+4585,2,3,"F","plus de 35 ans",55,NA,"Domestique","Veuf(ve)",3,NA,NA,3,2,NA
+4603,2,3,"F","Moins de 35 ans",30.4,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4632,2,3,"F","plus de 35 ans",36.2,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+4636,2,3,"Homme","plus de 35 ans",45.1,NA,"Domestique","Union Stable",2,NA,NA,4,2,NA
+4639,2,3,"F","Moins de 35 ans",30.8,NA,"Domestique","Celibataire",3,NA,NA,4,2,NA
+4646,2,3,"F","Moins de 35 ans",27,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4647,2,3,"F","Moins de 35 ans",19.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4656,2,3,"Homme","Moins de 35 ans",29.7,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4674,2,3,"F","Moins de 35 ans",26.8,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4687,2,3,"F","plus de 35 ans",39.1,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4696,2,3,"F","Moins de 35 ans",34.7,NA,"Domestique","Union Stable",NA,NA,NA,3,2,NA
+4698,2,3,"Homme","Moins de 35 ans",27.7,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+4700,2,3,"Homme","Moins de 35 ans",18.9,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4702,2,3,"Homme","Moins de 35 ans",22.1,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4703,2,3,"Homme","Moins de 35 ans",23.4,NA,"Domestique","Celibataire",2,NA,NA,3,2,NA
+4704,2,3,"Homme","plus de 35 ans",63.4,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+4705,2,3,"Homme","Moins de 35 ans",32.5,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4708,1,1,"F","Moins de 35 ans",34.5,NA,"Domestique","Union Stable",1,20,402,3,2,NA
+4708,2,3,"Homme","Moins de 35 ans",28.2,NA,"Domestique",NA,2,NA,NA,2,3,NA
+4712,1,1,"F","Moins de 35 ans",32.7,"None","Domestique","Union Stable",1,23.51,794,6,1,NA
+4721,2,3,"F","Moins de 35 ans",16.7,NA,"Domestique","Celibataire",3,NA,NA,3,2,NA
+4725,2,3,"Homme","plus de 35 ans",47.5,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4733,2,3,"F","Moins de 35 ans",30.1,NA,"Domestique","Union Stable",2,NA,NA,7,2,NA
+4785,2,3,"Homme","Moins de 35 ans",27.7,NA,"Domestique","Union Stable",4,NA,NA,3,2,NA
+4787,2,3,"F","Moins de 35 ans",32.3,NA,"Domestique",NA,3,NA,NA,3,2,NA
+4790,2,3,"F","Moins de 35 ans",27.2,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+4791,2,3,"Homme","Moins de 35 ans",28.7,NA,"Domestique",NA,3,NA,NA,3,2,NA
+4793,2,3,"F","Moins de 35 ans",20.1,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4806,2,3,"Homme","plus de 35 ans",37.7,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+4811,2,3,"Homme","Moins de 35 ans",24.4,NA,"Domestique",NA,3,NA,NA,6,1,NA
+4812,2,3,"F","Moins de 35 ans",25.6,NA,"Domestique",NA,3,NA,NA,6,1,NA
+4821,2,3,"F","Moins de 35 ans",26.6,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+4822,2,3,"F","Moins de 35 ans",24.8,NA,"Domestique",NA,3,NA,NA,6,1,NA
+4823,2,3,"F","Moins de 35 ans",25.1,NA,"Domestique",NA,3,NA,NA,3,2,NA
+4824,2,3,"Homme","Moins de 35 ans",33.6,NA,"Domestique",NA,4,NA,NA,3,2,NA
+4829,1,1,"F","Moins de 35 ans",33.9,NA,"Domestique","Union Stable",1,17.22,233,6,1,NA
+4846,2,3,"F","plus de 35 ans",50.4,NA,"Domestique","Union Stable",2,NA,NA,3,2,NA
+4854,1,1,"F","Moins de 35 ans",25.7,"Primaire","Domestique","Union Stable",1,22,NA,3,2,NA
+4858,2,3,"F","plus de 35 ans",36.5,NA,"Domestique","Union Stable",3,NA,NA,4,2,NA
+4866,2,3,"F","plus de 35 ans",56,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+4882,2,3,"F","Moins de 35 ans",25.7,NA,"Domestique","Union Stable",3,NA,NA,3,2,NA
+4908,1,1,"F","Moins de 35 ans",28.2,NA,"Domestique","Union Stable",NA,NA,NA,3,2,NA
+4911,2,3,"F","Moins de 35 ans",20.1,NA,"Domestique","Celibataire",1,NA,NA,6,1,NA
+4927,2,3,"F","plus de 35 ans",39.9,NA,"Domestique","Veuf(ve)",1,NA,NA,4,2,NA
+4928,2,3,"Homme","plus de 35 ans",35.8,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+4948,2,3,"F","Moins de 35 ans",34.3,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+4949,2,3,"F","Moins de 35 ans",17,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4957,2,3,"Homme","Moins de 35 ans",27.7,NA,"Domestique","Union Stable",3,NA,NA,5,3,NA
+4959,1,1,"F","Moins de 35 ans",31.2,NA,"Domestique","Union Stable",3,22,512,3,2,NA
+4970,2,3,"F","plus de 35 ans",38.8,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+4972,2,3,"Homme","plus de 35 ans",55.3,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+4974,2,3,"F","plus de 35 ans",45.4,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+4981,2,3,"F","plus de 35 ans",38.1,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+4992,1,1,"F","Moins de 35 ans",27.4,"Secondaire","Domestique","Union Stable",1,21,356,6,1,NA
+4992,2,3,"F","Moins de 35 ans",21.7,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+4994,2,3,"Homme","plus de 35 ans",35.3,NA,"Domestique","Celibataire",4,NA,NA,3,2,NA
+5000,2,3,"F","Moins de 35 ans",32.2,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5001,2,3,"F","Moins de 35 ans",30.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5006,2,3,"F","Moins de 35 ans",25,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5009,2,3,"F","Moins de 35 ans",33.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5015,2,3,"F","Moins de 35 ans",20.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5024,2,3,"F","Moins de 35 ans",25.3,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5029,2,3,"F","Moins de 35 ans",32.9,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5030,2,3,"F","Moins de 35 ans",30.2,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5035,2,3,"F","Moins de 35 ans",27.4,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5044,2,3,"Homme","Moins de 35 ans",22.8,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5047,2,3,"Homme","plus de 35 ans",57.1,NA,"Domestique","Union Stable",4,NA,NA,6,1,NA
+5060,2,3,"F","plus de 35 ans",50.2,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+5063,2,3,"Homme","Moins de 35 ans",30.2,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5068,2,3,"F","plus de 35 ans",38.6,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5072,2,3,"Homme","plus de 35 ans",40.6,NA,"Domestique","Celibataire",1,NA,NA,6,1,NA
+5079,2,3,"Homme","plus de 35 ans",52.7,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5089,1,1,"F","Moins de 35 ans",22.9,"Secondaire","Domestique","Union Stable",1,18.75,811,6,1,NA
+5095,2,3,"F","plus de 35 ans",54.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5114,2,3,"F","plus de 35 ans",37.8,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+5118,2,3,"F","Moins de 35 ans",22,NA,"Domestique","Veuf(ve)",1,NA,NA,6,1,NA
+5124,2,3,"F","plus de 35 ans",50.3,NA,"Domestique","Veuf(ve)",1,NA,NA,6,1,NA
+5130,2,3,"F","plus de 35 ans",51.9,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5132,2,3,"F","Moins de 35 ans",29.5,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5141,1,1,"F","Moins de 35 ans",30.9,NA,"Domestique","Union Stable",NA,NA,420,3,2,NA
+5150,2,3,"Homme","plus de 35 ans",37,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5153,1,1,"F","Moins de 35 ans",31.4,"Primaire","Domestique","Union Stable",3,19.09,NA,6,1,NA
+5164,2,3,"F","plus de 35 ans",36.1,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5171,1,1,"F","Moins de 35 ans",34.6,NA,"Domestique","Union Stable",1,20.4,371,6,1,NA
+5173,2,3,"Homme","plus de 35 ans",56.7,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5181,1,1,"F","Moins de 35 ans",29,"Primaire","Domestique","Union Stable",NA,NA,NA,3,2,NA
+5181,2,3,"Homme","Moins de 35 ans",21.2,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+5185,2,3,"F","plus de 35 ans",36.3,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5192,2,3,"F","Moins de 35 ans",23.1,NA,"Domestique","Celibataire",4,NA,NA,6,1,NA
+5194,2,3,"F","Moins de 35 ans",18,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5202,1,1,"F","Moins de 35 ans",24.5,"Primaire","Domestique","Union Stable",1,25.4,NA,6,1,NA
+5210,2,3,"F","Moins de 35 ans",25.2,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5216,1,1,"F","Moins de 35 ans",25.5,"Primaire","Domestique","Union Stable",1,23.2,980,6,1,NA
+5217,1,1,"F","plus de 35 ans",38.7,"Primaire","Domestique","Union Stable",1,23.14,432,6,1,NA
+5224,2,3,"F","plus de 35 ans",38.8,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5226,2,3,"F","Moins de 35 ans",18.3,NA,"Domestique","Celibataire",NA,NA,NA,6,1,NA
+5232,2,3,"F","plus de 35 ans",39.4,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5233,2,3,"Homme","Moins de 35 ans",29,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5239,1,1,"Homme","Moins de 35 ans",31.3,"Primaire","Domestique","Union Stable",1,18.3,375,3,2,NA
+5240,2,3,"Homme","Moins de 35 ans",29.7,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5246,2,3,"F","Moins de 35 ans",32,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5252,2,3,"F","Moins de 35 ans",22.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5254,1,1,"F","Moins de 35 ans",22.4,NA,"Domestique","Union Stable",1,19.6,452,6,1,NA
+5260,2,3,"F","Moins de 35 ans",26.2,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5263,2,3,"Homme","plus de 35 ans",42.8,NA,"Domestique","Veuf(ve)",2,NA,NA,6,1,NA
+5267,1,1,"F","Moins de 35 ans",32.2,"Secondaire","Domestique","Union Stable",2,21.21,215,3,2,NA
+5280,2,3,"Homme","plus de 35 ans",39.7,NA,"Domestique","Union Stable",3,18.36,NA,6,1,NA
+5283,2,3,"F","Moins de 35 ans",20.9,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+5287,2,3,"F","Moins de 35 ans",26.7,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5289,2,3,"F","Moins de 35 ans",28.6,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5295,2,3,"F","plus de 35 ans",46.2,NA,"Domestique","Celibataire",NA,NA,NA,6,1,NA
+5304,2,3,"F","Moins de 35 ans",31,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5323,2,3,"F","Moins de 35 ans",34.3,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5327,2,3,"F","Moins de 35 ans",20.8,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+5328,1,1,"F","Moins de 35 ans",31.6,NA,"Domestique","Union Stable",1,21.8,NA,6,1,NA
+5332,2,3,"F","Moins de 35 ans",28.7,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5339,1,1,"F","Moins de 35 ans",33.6,NA,"Domestique","Union Stable",1,21,NA,7,2,NA
+5340,2,3,"Homme","Moins de 35 ans",23.2,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5341,2,3,"F","Moins de 35 ans",20,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5343,2,3,"F","Moins de 35 ans",25.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5347,1,1,"F","plus de 35 ans",41.5,"Primaire","Domestique","Union Stable",1,NA,NA,3,2,NA
+5354,2,3,"F","plus de 35 ans",49.8,NA,"Domestique","Celibataire",1,NA,NA,6,1,NA
+5360,1,1,"F","plus de 35 ans",37.1,NA,"Domestique","Union Stable",1,25.39,316,6,1,NA
+5364,2,3,"F","plus de 35 ans",51.3,NA,"Domestique","Celibataire",1,NA,NA,6,1,NA
+5373,2,3,"F","Moins de 35 ans",26,NA,"Domestique","Veuf(ve)",1,NA,NA,6,1,NA
+5374,2,3,"F","Moins de 35 ans",29.3,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5381,1,1,"F","Moins de 35 ans",18.7,"Primaire","Domestique","Union Stable",1,NA,381,3,2,NA
+5388,1,1,"F","Moins de 35 ans",22,"Primaire","Domestique","Celibataire",4,18.2,174,4,2,NA
+5397,1,1,"F","Moins de 35 ans",33.2,"Primaire","Domestique","Union Stable",1,26.63,NA,6,1,NA
+5405,2,3,"F","Moins de 35 ans",33,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5414,2,3,"F","plus de 35 ans",61.1,NA,"Domestique","Veuf(ve)",1,NA,NA,6,1,NA
+5425,2,3,"F","plus de 35 ans",37.1,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5426,2,3,"F","Moins de 35 ans",30.1,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+5436,2,3,"F","Moins de 35 ans",24.8,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5440,2,3,"F","Moins de 35 ans",27,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+5442,1,1,"F","Moins de 35 ans",17.7,NA,"Domestique","Celibataire",1,14,809,6,1,NA
+5444,2,3,"F","Moins de 35 ans",28,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5448,2,3,"F","Moins de 35 ans",19.1,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5462,1,1,"F","Moins de 35 ans",22.6,"Primaire","Domestique","Union Stable",1,16,397,7,2,NA
+5470,2,3,"Homme","Moins de 35 ans",27,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5487,2,3,"F","Moins de 35 ans",30,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5504,2,3,"Homme","plus de 35 ans",52.2,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+5516,2,3,"F","Moins de 35 ans",31.1,NA,"Domestique",NA,2,NA,NA,6,1,NA
+5520,2,3,"F","Moins de 35 ans",32.2,NA,"Domestique","Veuf(ve)",1,NA,NA,6,1,NA
+5522,2,3,"F","Moins de 35 ans",23.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5524,2,3,"F","Moins de 35 ans",24.1,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+5528,2,3,"F","Moins de 35 ans",33.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5536,2,3,"F","plus de 35 ans",70.6,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5537,1,1,"F","plus de 35 ans",38.7,NA,"Domestique","Union Stable",2,23.63,721,3,2,NA
+5547,2,3,"F","Moins de 35 ans",23.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5551,2,3,"F","Moins de 35 ans",28,NA,"Domestique","Celibataire",1,NA,NA,6,1,NA
+5552,2,3,"Homme","Moins de 35 ans",30.4,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5561,2,3,"F","plus de 35 ans",51.8,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5575,2,3,"Homme","plus de 35 ans",40,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5589,2,3,"F","Moins de 35 ans",24.1,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5591,2,3,"F","plus de 35 ans",41.8,NA,"Domestique","Veuf(ve)",2,NA,NA,6,1,NA
+5598,2,3,"F","plus de 35 ans",39.2,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5600,2,3,"F","Moins de 35 ans",24.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5609,2,3,"F","Moins de 35 ans",27,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5612,2,3,"F","Moins de 35 ans",18.4,NA,"Domestique",NA,3,NA,NA,6,1,NA
+5615,2,3,"F","plus de 35 ans",40.1,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5616,2,3,"Homme","plus de 35 ans",60.4,NA,"Domestique","Union Stable",2,NA,NA,6,1,NA
+5636,2,3,"F","Moins de 35 ans",33.9,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5644,2,3,"F","plus de 35 ans",35.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5645,2,3,"F","Moins de 35 ans",25.2,NA,"Domestique","Union Stable",NA,NA,NA,6,1,NA
+5648,2,3,"Homme","Moins de 35 ans",26.6,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5649,2,3,"F","Moins de 35 ans",21.4,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5668,2,3,"F","plus de 35 ans",36.4,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5689,2,3,"F","Moins de 35 ans",23.2,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5707,2,3,"F","plus de 35 ans",42.1,NA,"Domestique","Veuf(ve)",3,NA,NA,6,1,NA
+5718,2,3,"F","Moins de 35 ans",30,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5724,2,3,"F","Moins de 35 ans",20,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5725,2,3,"F","Moins de 35 ans",27.1,NA,"Domestique","Celibataire",3,NA,NA,6,1,NA
+5728,2,3,"F","Moins de 35 ans",21,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5734,1,1,"F","plus de 35 ans",48.8,NA,"Domestique","Union Stable",1,21.51,558,3,2,NA
+5738,2,3,"F","Moins de 35 ans",23.1,NA,"Domestique","Union Stable",3,NA,NA,6,1,NA
+5744,1,1,"F","Moins de 35 ans",32.7,NA,"Domestique","Union Stable",NA,NA,NA,4,2,NA
+5756,2,3,"F","plus de 35 ans",48.7,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5762,1,1,"Homme","Moins de 35 ans",32.7,"Primaire","Domestique","Union Stable",1,21.05,199,3,2,NA
+5784,2,3,"F","Moins de 35 ans",21,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5796,2,3,"F","Moins de 35 ans",21,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5797,2,3,"F","Moins de 35 ans",27,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+5872,1,1,"F","Moins de 35 ans",26.8,"Primaire","Domestique","Union Stable",1,24.24,NA,6,1,NA
+6006,1,1,"F","Moins de 35 ans",32,"Primaire","Domestique",NA,1,23.4,721,6,1,NA
+6101,1,1,"F","Moins de 35 ans",32.8,NA,"Domestique","Union Stable",1,23.63,228,6,1,NA
+6174,1,1,"F","Moins de 35 ans",22.9,"Primaire","Domestique","Celibataire",1,22.89,895,6,1,NA
+6205,1,1,"F","Moins de 35 ans",29.4,"Primaire","Domestique",NA,1,20.29,563,6,1,NA
+6249,1,1,"F","plus de 35 ans",35,"Primaire","Domestique","Veuf(ve)",1,20.96,694,6,1,NA
+6280,1,1,"F","Moins de 35 ans",34.6,NA,"Domestique",NA,2,22,648,3,2,NA
+6290,1,1,"F","Moins de 35 ans",21.2,"Primaire","Domestique","Union Stable",1,23.03,524,6,1,NA
+6363,1,1,"F","Moins de 35 ans",23.2,"None","Domestique","Celibataire",NA,NA,NA,4,2,NA
+6395,1,1,"F","Moins de 35 ans",19.4,"Primaire","Domestique","Union Stable",1,21.17,1233,6,1,NA
+6408,1,1,"F","Moins de 35 ans",32.7,NA,"Domestique",NA,1,18.9,NA,6,1,NA
+6489,1,1,"F","Moins de 35 ans",29.9,"Primaire","Domestique",NA,1,19.46,567,6,1,NA
+6505,1,1,"F","Moins de 35 ans",21.5,"Primaire","Domestique","Union Stable",1,15,671,6,1,NA
+6522,1,1,"F","Moins de 35 ans",21.5,"Primaire","Domestique","Union Stable",1,15,640,6,1,NA
+6536,1,1,"F","Moins de 35 ans",21.1,"Primaire","Domestique","Union Stable",1,18.35,802,6,1,NA
+6537,1,1,"F","Moins de 35 ans",34,NA,"Domestique","Union Stable",1,18.53,634,6,1,NA
+6561,1,1,"F","Moins de 35 ans",20.2,NA,"Domestique","Union Stable",1,20.06,636,6,1,NA
+6644,1,1,"F","Moins de 35 ans",26.1,NA,"Domestique","Union Stable",4,18.52,247,6,1,NA
+6737,1,1,"F","Moins de 35 ans",31.5,"None","Domestique","Union Stable",1,16,944,6,1,NA
+6889,1,1,"F","Moins de 35 ans",20.7,"Secondaire","Domestique",NA,1,29.8,648,6,1,NA
+6890,1,1,"F","Moins de 35 ans",21,"Primaire","Domestique",NA,3,19.9,847,3,2,NA
+6907,1,1,"F","Moins de 35 ans",32.3,NA,"Domestique",NA,1,21.37,148,6,1,NA
+6925,1,1,"F","Moins de 35 ans",30.6,NA,"Domestique",NA,2,19.8,757,6,1,NA
+7027,1,1,"F","Moins de 35 ans",30.2,"Primaire","Domestique","Celibataire",1,17.04,227,6,1,NA
+7047,1,1,"F","Moins de 35 ans",21.6,"Primaire","Domestique","Union Stable",1,14,588,6,1,NA
+7134,1,1,"F","Moins de 35 ans",32.4,"Primaire","Domestique","Union Stable",2,23.61,NA,6,1,NA
+7144,1,1,"F","Moins de 35 ans",24.7,"Primaire","Domestique","Union Stable",1,33,1137,6,1,NA
+7170,1,1,"F","Moins de 35 ans",30.1,"Primaire","Domestique","Celibataire",2,17,545,3,2,NA
+7223,1,1,"Homme","Moins de 35 ans",29.1,"Secondaire","Domestique","Union Stable",1,22,146,3,2,NA
+7347,1,1,"F","plus de 35 ans",38,"None","Domestique","Union Stable",NA,NA,NA,6,1,NA
+7392,1,1,"Homme","plus de 35 ans",46.1,"Primaire","Domestique","Union Stable",3,16.44,114,2,3,NA
+7451,1,1,"F","Moins de 35 ans",24.5,"Primaire","Domestique","Union Stable",1,NA,647,7,2,NA
+7556,1,1,"F","plus de 35 ans",36.1,"Primaire","Domestique","Celibataire",1,21.16,718,6,1,NA
+7572,1,1,"F","Moins de 35 ans",26,"Primaire","Domestique","Veuf(ve)",1,25,246,3,2,NA
+7590,1,1,"F","Moins de 35 ans",23.7,"Primaire","Domestique",NA,1,NA,676,3,2,NA
+7600,1,1,"F","Moins de 35 ans",29.1,"Primaire","Domestique","Union Stable",1,15,69,3,2,NA
+7639,1,1,"F","Moins de 35 ans",21.4,NA,"Domestique",NA,NA,NA,NA,3,2,NA
+7644,1,1,"F","plus de 35 ans",51.3,"Primaire","Domestique","Veuf(ve)",1,17.58,365,6,1,NA
+7649,1,1,"F","Moins de 35 ans",21.9,"Primaire","Domestique","Union Stable",1,23.47,269,6,1,NA
+7659,1,1,"F","Moins de 35 ans",32,"Primaire","Domestique",NA,3,19.88,537,6,1,NA
+7678,1,1,"F","Moins de 35 ans",22.2,"Primaire","Domestique",NA,1,19.82,NA,6,1,NA
+7703,1,1,"F","Moins de 35 ans",28.7,"Primaire","Domestique","Union Stable",1,15,1023,6,1,NA
+7704,1,1,"F","Moins de 35 ans",18.8,NA,"Domestique",NA,1,20,774,6,1,NA
+7730,1,1,"F","Moins de 35 ans",27,"Secondaire","Domestique","Union Stable",1,20.6,80,3,2,NA
+7748,1,1,"F","Moins de 35 ans",26.4,"Primaire","Domestique",NA,2,11,NA,6,1,NA
+7750,1,1,"F","Moins de 35 ans",18.1,"Primaire","Domestique","Union Stable",1,19.5,947,6,1,NA
+7786,1,1,"F","Moins de 35 ans",26.3,"Primaire","Domestique","Veuf(ve)",2,18.6,1015,3,2,NA
+7788,1,1,"F","Moins de 35 ans",24.7,"Primaire","Domestique","Union Stable",1,21,657,6,1,NA
+7793,1,1,"F","Moins de 35 ans",26.7,"Primaire","Domestique","Union Stable",1,17.31,704,6,1,NA
+7821,1,1,"F","plus de 35 ans",35.1,"Primaire","Domestique","Celibataire",3,18,384,3,2,NA
+7824,1,1,"F","Moins de 35 ans",25,NA,"Domestique","Celibataire",3,13.2,4,3,2,NA
+7834,1,1,"F","Moins de 35 ans",23.1,"Secondaire","Domestique","Union Stable",1,21.2,227,3,2,NA
+7854,1,1,"Homme","plus de 35 ans",50,"Primaire","Domestique","Union Stable",1,19.4,346,3,2,NA
+7860,1,1,"F","Moins de 35 ans",32.3,"Primaire","Domestique","Union Stable",1,20.8,NA,6,1,NA
+7881,1,1,"F","plus de 35 ans",36.3,NA,"Domestique","Union Stable",1,19.39,446,6,1,NA
+7884,1,1,"F","Moins de 35 ans",20.3,"Primaire","Domestique","Union Stable",2,24.01,NA,6,1,NA
+7930,1,1,"F","Moins de 35 ans",20.3,"Primaire","Domestique","Union Stable",1,17.71,NA,6,1,NA
+7937,1,1,"F","plus de 35 ans",35,NA,"Domestique","Celibataire",4,16,12,3,2,NA
+7945,1,1,"F","Moins de 35 ans",19.9,"Primaire","Domestique","Union Stable",1,NA,NA,6,1,NA
+7956,1,1,"F","Moins de 35 ans",24,"Secondaire","Domestique",NA,2,22,178,3,2,NA
+7973,1,1,"F","Moins de 35 ans",25.1,NA,"Domestique","Union Stable",1,17.7,147,3,2,NA
+7978,1,1,"F","Moins de 35 ans",27.4,"Primaire","Domestique","Celibataire",2,17.36,296,6,1,NA
+7980,1,1,"F","plus de 35 ans",46.3,"None","Domestique","Celibataire",NA,NA,NA,3,2,NA
+7986,1,1,"F","Moins de 35 ans",17.9,"Secondaire","Domestique","Union Stable",1,20.61,NA,6,1,NA
+8011,1,1,"F","Moins de 35 ans",21.8,"Primaire","Domestique","Celibataire",1,20.65,696,6,1,NA
+8045,1,1,"F","Moins de 35 ans",33.1,NA,"Domestique","Veuf(ve)",1,18.3,425,3,2,NA
+8046,1,1,"F","Moins de 35 ans",28.1,NA,"Domestique","Celibataire",3,NA,858,3,2,NA
+8049,1,1,"F","Moins de 35 ans",25.6,NA,"Domestique",NA,1,18,391,6,1,NA
+8052,1,1,"F","Moins de 35 ans",34.4,"Primaire","Domestique","Union Stable",1,NA,NA,6,1,NA
+8053,1,1,"F","Moins de 35 ans",26.8,NA,"Domestique","Union Stable",1,19.39,796,6,1,NA
+8058,1,1,"F","Moins de 35 ans",20.7,"Primaire","Domestique","Union Stable",1,NA,NA,5,3,NA
+8060,1,1,"F","Moins de 35 ans",33.7,"None","Domestique","Union Stable",1,22.06,964,6,1,NA
+8080,1,1,"F","Moins de 35 ans",31.6,NA,"Domestique","Union Stable",1,NA,750,3,2,NA
+8099,1,1,"F","Moins de 35 ans",23.6,NA,"Domestique","Union Stable",1,18.26,993,6,1,NA
+8101,1,1,"F","plus de 35 ans",48.2,NA,"Domestique","Veuf(ve)",3,21.2,735,3,2,NA
+8113,1,1,"F","plus de 35 ans",51.4,NA,"Domestique","Veuf(ve)",1,20.31,363,6,1,NA
+8140,1,1,"F","Moins de 35 ans",20.3,"Primaire","Domestique","Union Stable",1,NA,NA,3,2,NA
+8142,1,1,"F","Moins de 35 ans",17.1,"Primaire","Domestique","Celibataire",1,NA,234,3,2,NA
+8147,1,1,"F","Moins de 35 ans",30.5,NA,"Domestique",NA,1,23.3,514,3,2,NA
+8156,1,1,"F","Moins de 35 ans",22.3,NA,"Domestique","Union Stable",1,26,347,3,2,NA
+8161,1,1,"F","Moins de 35 ans",23.5,"Primaire","Domestique","Union Stable",3,16.7,768,5,3,NA
+8162,1,1,"F","Moins de 35 ans",27.2,"Secondaire","Domestique","Union Stable",1,18.3,342,3,2,NA
+8184,1,1,"F","Moins de 35 ans",25.2,"Primaire","Domestique","Union Stable",1,22.4,309,4,2,NA
+8185,1,1,"F","plus de 35 ans",37.6,"Secondaire","Domestique",NA,2,22,344,3,2,NA
+8189,1,1,"F","Moins de 35 ans",23.2,NA,"Domestique","Celibataire",3,20,93,3,2,NA
+8190,1,1,"F","Moins de 35 ans",20.4,NA,"Domestique","Celibataire",1,17.51,309,3,2,NA
+8192,1,1,"F","Moins de 35 ans",25.7,"Primaire","Domestique",NA,1,23.27,NA,6,1,NA
+8199,1,1,"F","Moins de 35 ans",26.5,"Primaire","Domestique",NA,1,22.52,394,3,2,NA
+8203,1,1,"F","Moins de 35 ans",28.6,"None","Domestique","Union Stable",1,19,618,6,1,NA
+8204,1,1,"F","Moins de 35 ans",30.4,NA,"Domestique",NA,1,18.4,518,3,2,NA
+8209,1,1,"F","plus de 35 ans",37.3,"Primaire","Domestique","Veuf(ve)",1,20.8,104,3,2,NA
+8210,1,1,"F","Moins de 35 ans",29,"Primaire","Domestique","Union Stable",1,NA,389,6,1,NA
+8215,1,1,"F","Moins de 35 ans",31.6,"Primaire","Domestique",NA,1,14.3,184,6,1,NA
+8234,1,1,"F","Moins de 35 ans",16.5,"Primaire","Domestique",NA,1,26,716,7,2,NA
+8254,1,1,"Homme","plus de 35 ans",35.2,"Primaire","Domestique",NA,1,17.1,103,3,2,NA
+8258,1,1,"Homme","plus de 35 ans",50.3,NA,"Domestique","Celibataire",1,20.5,305,3,2,NA
+8285,1,1,"F","plus de 35 ans",51.5,NA,"Domestique",NA,1,22.66,358,6,1,NA
+8289,1,1,"F","Moins de 35 ans",26.5,NA,"Domestique",NA,3,10,124,3,2,NA
+8290,1,1,"F","Moins de 35 ans",28.5,NA,"Domestique",NA,1,30.7,202,3,2,NA
+8296,1,1,"F","Moins de 35 ans",22.1,"Secondaire","Domestique","Union Stable",1,21.36,741,6,1,NA
+8300,1,1,"F","Moins de 35 ans",19.6,"Primaire","Domestique",NA,1,27.5,803,6,1,NA
+8301,1,1,"F","Moins de 35 ans",15.5,"Primaire","Domestique","Union Stable",1,18.3,235,3,2,NA
+8307,1,1,"F","Moins de 35 ans",24.1,NA,"Domestique","Union Stable",1,18.22,363,6,1,NA
+8324,1,1,"F","Moins de 35 ans",27.6,NA,"Domestique",NA,1,23.4,492,3,2,NA
+8326,1,1,"F","Moins de 35 ans",29.3,NA,"Domestique","Veuf(ve)",1,21.5,635,3,2,NA
+8327,1,1,"F","plus de 35 ans",38.7,"Secondaire","Domestique",NA,2,22.2,480,3,2,NA
+8361,1,1,"Homme","plus de 35 ans",35.3,"None","Domestique","Union Stable",1,18.2,127,3,2,NA
+8363,1,1,"F","Moins de 35 ans",30.5,"Primaire","Domestique",NA,3,24.4,521,3,2,NA
+8381,1,1,"F","plus de 35 ans",47.5,"None","Domestique",NA,2,17.4,241,4,2,NA
+8405,1,1,"F","Moins de 35 ans",22.7,"Primaire","Domestique","Union Stable",1,18.83,510,3,2,NA
+8410,1,1,"F","plus de 35 ans",37.5,"None","Domestique",NA,1,19.59,318,3,2,NA
+8411,1,1,"F","Moins de 35 ans",23.4,"None","Domestique","Veuf(ve)",1,21.09,168,2,3,NA
+8418,1,1,"Homme","plus de 35 ans",42.3,"Secondaire","Domestique","Union Stable",1,18.5,303,3,2,NA
+8420,1,1,"F","Moins de 35 ans",29.7,"Primaire","Domestique","Union Stable",1,21.61,309,6,1,NA
+8434,1,1,"F","Moins de 35 ans",26.7,"None","Domestique","Union Stable",1,24,146,6,1,NA
+8438,1,1,"F","plus de 35 ans",35.4,"Primaire","Domestique",NA,1,27,263,3,2,NA
+8457,1,1,"F","Moins de 35 ans",31.5,"None","Domestique","Union Stable",1,21,461,6,1,NA
+8462,1,1,"F","Moins de 35 ans",26.5,NA,"Domestique",NA,1,22.81,434,3,2,NA
+8468,1,1,"F","plus de 35 ans",50.6,"None","Domestique","Veuf(ve)",1,18.31,419,3,2,NA
+8471,1,1,"Homme","plus de 35 ans",46.5,NA,"Domestique",NA,3,20.85,445,3,2,NA
+8490,1,1,"F","Moins de 35 ans",27.4,"Secondaire","Domestique","Union Stable",3,20,577,2,3,NA
+8491,1,1,"F","Moins de 35 ans",28.4,"Primaire","Domestique","Celibataire",1,20.4,239,3,2,NA
+8509,1,1,"F","Moins de 35 ans",24.5,"Secondaire","Domestique",NA,1,22.9,NA,2,3,NA
+8510,1,1,"F","plus de 35 ans",49.4,"None","Domestique","Celibataire",1,18.9,251,4,2,NA
+8518,1,1,"F","Moins de 35 ans",20.4,"Primaire","Domestique","Union Stable",1,16.66,902,6,1,NA
+8532,1,1,"F","plus de 35 ans",35.6,"Primaire","Domestique","Union Stable",2,18.9,324,6,1,NA
+8539,1,1,"F","plus de 35 ans",35.5,"None","Domestique","Union Stable",1,20.7,539,6,1,NA
+8542,1,1,"F","plus de 35 ans",36.5,"None","Domestique","Union Stable",1,26.8,672,6,1,NA
+8546,1,1,"F","Moins de 35 ans",32.5,"None","Domestique","Union Stable",3,21.1,354,6,1,NA
+8602,1,1,"F","plus de 35 ans",42,"Primaire","Domestique","Union Stable",3,19.88,187,6,1,NA
+8611,1,1,"F","plus de 35 ans",39.6,NA,"Domestique","Union Stable",1,16,354,3,2,NA
+8620,1,1,"F","Moins de 35 ans",23.6,NA,"Domestique",NA,1,23,394,6,1,NA
+8632,1,1,"F","Moins de 35 ans",31.6,"None","Domestique",NA,2,18.8,130,3,2,NA
+8648,1,1,"F","Moins de 35 ans",27.5,"Primaire","Domestique",NA,2,18.3,147,3,2,NA
+8661,1,1,"F","Moins de 35 ans",29.1,"Secondaire","Domestique","Veuf(ve)",1,23,509,6,1,NA
+8666,1,1,"F","plus de 35 ans",39.6,"Primaire","Domestique",NA,1,24.3,945,6,1,NA
+8671,1,1,"F","Moins de 35 ans",34.6,"None","Domestique","Union Stable",1,28,288,6,1,NA
+8673,1,1,"F","Moins de 35 ans",30.6,"Primaire","Domestique","Union Stable",1,18.5,1221,6,1,NA
+8675,1,1,"F","Moins de 35 ans",20.6,"Secondaire","Domestique",NA,1,19,NA,6,1,NA
+8676,1,1,"F","Moins de 35 ans",20.6,"Primaire","Domestique",NA,1,21.3,579,6,1,NA
+8677,1,1,"F","Moins de 35 ans",34.6,"None","Domestique","Union Stable",1,28,462,6,1,NA
+8678,1,1,"F","Moins de 35 ans",25.6,"None","Domestique","Union Stable",1,22.9,443,6,1,NA
+8680,1,1,"F","plus de 35 ans",50.7,"None","Domestique","Union Stable",2,16.8,374,3,2,NA
+8683,1,1,"F","Moins de 35 ans",32.5,"None","Domestique","Celibataire",1,NA,316,3,2,NA
+8689,1,1,"F","Moins de 35 ans",29.5,NA,"Domestique","Union Stable",1,25.23,432,6,1,NA
+8716,1,1,"F","Moins de 35 ans",18.6,"Primaire","Domestique",NA,1,23.44,271,6,1,NA
+8717,1,1,"F","Moins de 35 ans",29.6,"Primaire","Domestique","Union Stable",1,21.6,212,6,1,NA
+8733,1,1,"F","plus de 35 ans",45.6,NA,"Domestique","Celibataire",1,17.43,373,3,2,NA
+8734,1,1,"F","Moins de 35 ans",23.6,NA,"Domestique",NA,1,26,762,6,1,NA
+8751,1,1,"F","Moins de 35 ans",16.6,"Primaire","Domestique","Union Stable",1,20.8,632,6,1,NA
+8762,1,1,"F","Moins de 35 ans",26,NA,"Domestique","Celibataire",3,19.4,140,6,1,NA
+8793,1,2,"F","plus de 35 ans",45.3,"Primaire","Domestique","Union Stable",1,18.26,313,3,2,NA
+9015,1,2,"F","plus de 35 ans",55.4,NA,"Domestique","Union Stable",1,NA,473,3,2,NA
+9016,1,2,"F","Moins de 35 ans",30.7,NA,"Domestique",NA,4,23.6,126,3,2,NA
+9098,1,2,"F","plus de 35 ans",38.1,NA,"Domestique","Union Stable",2,16.8,NA,3,2,NA
+9147,1,2,"F","Moins de 35 ans",30.8,NA,"Domestique","Union Stable",3,19.31,NA,3,2,NA
+9235,1,2,"F","Moins de 35 ans",21.3,NA,"Domestique",NA,1,20.55,303,5,3,NA
+9263,1,2,"F","Moins de 35 ans",30.6,NA,"Domestique","Celibataire",1,19.3,895,3,2,NA
+9280,1,2,"F","plus de 35 ans",35.4,NA,"Domestique","Union Stable",3,17,243,3,2,NA
+9371,1,2,"F","Moins de 35 ans",25.6,NA,"Domestique","Union Stable",1,37,581,3,2,NA
+9374,1,2,"F","Moins de 35 ans",24.4,"Primaire","Domestique","Union Stable",1,NA,729,3,2,NA
+9375,1,2,"F","Moins de 35 ans",28.1,"None","Domestique","Union Stable",1,17.36,NA,3,2,NA
+9380,1,2,"F","Moins de 35 ans",30.7,NA,"Domestique","Union Stable",1,22,680,2,3,NA
+9385,1,2,"F","plus de 35 ans",40.8,"Primaire","Domestique","Union Stable",1,NA,248,2,3,NA
+9391,1,2,"F","Moins de 35 ans",25.5,"Primaire","Domestique",NA,1,22,NA,2,3,NA
+9424,1,1,"F","plus de 35 ans",40.4,"None","Domestique","Union Stable",4,15.8,240,3,2,NA
+9457,1,2,"F","Moins de 35 ans",30,NA,"Domestique",NA,3,17.5,NA,4,2,NA
+9465,1,2,"F","plus de 35 ans",40.5,NA,"Domestique",NA,3,17,334,3,2,NA
+9474,1,2,"F","Moins de 35 ans",30.6,NA,"Domestique",NA,4,17.5,197,3,2,NA
+9477,1,2,"F","plus de 35 ans",43.1,"Primaire","Domestique","Union Stable",3,16.6,361,3,2,NA
+9499,1,2,"F","plus de 35 ans",40.5,"None","Domestique","Veuf(ve)",4,14,NA,3,2,NA
+9535,1,2,"F","Moins de 35 ans",30.5,NA,"Domestique","Union Stable",4,14,NA,4,2,NA
+9559,1,2,"F","Moins de 35 ans",30.6,"Primaire","Domestique","Union Stable",3,18.5,NA,3,2,NA
+9574,1,1,"F","Moins de 35 ans",30.3,"Primaire","Domestique","Celibataire",3,20,NA,3,2,NA
+9578,1,2,"F","Moins de 35 ans",28.4,"Primaire","Domestique","Union Stable",1,20.2,330,3,2,NA
+9582,1,2,"F","plus de 35 ans",35.4,NA,"Domestique",NA,3,NA,416,3,2,NA
+9585,1,2,"F","Moins de 35 ans",30.6,NA,"Domestique","Union Stable",1,23,457,2,3,NA
+9629,1,1,"F","Moins de 35 ans",21.6,"Primaire","Domestique","Union Stable",2,23,258,3,2,NA
+9635,1,1,"F","Moins de 35 ans",34.7,NA,"Domestique",NA,1,20.92,170,6,1,NA
+9636,1,1,"F","Moins de 35 ans",23.6,"None","Domestique","Union Stable",1,21.36,668,6,1,NA
+9649,1,1,"F","Moins de 35 ans",29.6,"Primaire","Domestique","Union Stable",1,22.55,582,2,3,NA
+9658,1,1,"F","plus de 35 ans",42.6,NA,"Domestique",NA,1,14.3,264,3,2,NA
+9662,1,1,"F","Moins de 35 ans",30.7,"Primaire","Domestique","Union Stable",1,23.1,NA,6,1,NA
+9663,1,1,"F","Moins de 35 ans",29.7,"Primaire","Domestique","Union Stable",1,21,603,6,1,NA
+9669,1,1,"F","Moins de 35 ans",30.8,NA,"Domestique",NA,2,17.09,616,6,1,NA
+9670,1,2,"F","plus de 35 ans",51.2,NA,"Domestique","Union Stable",1,18.29,590,6,1,NA
+9904,1,1,"F","Moins de 35 ans",27.6,"Primaire","Domestique",NA,1,19.31,126,3,2,NA
+9907,1,1,"F","Moins de 35 ans",30.7,NA,"Domestique",NA,1,21,454,6,1,NA
+9921,1,1,"F","plus de 35 ans",40.7,NA,"Domestique","Union Stable",3,18.9,979,5,3,NA
+9927,1,1,"F","Moins de 35 ans",30.7,"Primaire","Domestique","Union Stable",1,26,356,6,1,NA
+9933,1,1,"F","Moins de 35 ans",31.7,"None","Domestique","Union Stable",1,25,604,6,1,NA
+9935,1,1,"Homme","plus de 35 ans",50.7,"Secondaire","Domestique","Union Stable",3,23.4,629,2,3,NA
+9941,1,1,"F","Moins de 35 ans",28.3,"Primaire","Domestique",NA,1,23.56,676,6,1,NA
+9943,1,1,"F","Moins de 35 ans",27.8,"None","Domestique","Union Stable",1,15,890,6,1,NA
+9947,1,1,"F","plus de 35 ans",53.8,"None","Domestique","Celibataire",1,20.45,268,6,1,NA
+9974,1,1,"F","plus de 35 ans",37.3,"None","Domestique","Union Stable",3,21.59,522,6,1,NA
+9979,1,1,"Homme","plus de 35 ans",47.7,"Primaire","Domestique","Union Stable",1,21.5,790,3,2,NA
+9980,1,1,"F","Moins de 35 ans",31.1,"Primaire","Domestique",NA,1,16.8,832,6,1,NA
+9982,1,1,"F","plus de 35 ans",40.6,NA,"Domestique","Veuf(ve)",1,20.7,123,3,2,NA
+9987,1,1,"F","Moins de 35 ans",22.7,NA,"Domestique",NA,2,18.2,127,3,2,NA
+9988,1,1,"F","plus de 35 ans",50.6,"Primaire","Domestique","Union Stable",1,16.2,148,3,2,NA
+10000,1,1,"F","plus de 35 ans",50.7,NA,"Domestique",NA,1,NA,274,6,1,NA
+10077,1,1,"F","Moins de 35 ans",26.7,"Primaire","Domestique",NA,1,15,NA,6,1,NA
+10079,1,1,"F","Moins de 35 ans",31,"None","Domestique","Celibataire",3,19.53,113,6,1,NA
+10083,1,1,"F","Moins de 35 ans",19.7,"Primaire","Domestique","Union Stable",1,24.5,NA,6,1,NA
+10113,1,1,"F","Moins de 35 ans",25.7,"Primaire","Domestique","Union Stable",1,19.81,169,6,1,NA
+10124,1,1,"F","Moins de 35 ans",20.7,"Primaire","Domestique",NA,1,22,505,6,1,NA
+10131,1,1,"F","Moins de 35 ans",26.8,NA,"Domestique","Veuf(ve)",1,NA,149,6,1,NA
+10143,1,1,"F","plus de 35 ans",39,"Primaire","Domestique",NA,2,17.68,588,6,1,NA
+10152,1,1,"F","Moins de 35 ans",20.8,"Secondaire","Domestique",NA,1,21.8,176,6,1,NA
+10159,1,1,"F","plus de 35 ans",50.7,NA,"Domestique","Celibataire",2,NA,NA,6,1,NA
+10197,1,1,"F","Moins de 35 ans",17.8,"Primaire","Domestique",NA,1,27.54,550,6,1,NA
+10208,1,1,"F","plus de 35 ans",39,"None","Domestique",NA,1,18.13,1058,6,1,NA
+10209,1,1,"F","plus de 35 ans",36.8,"None","Domestique",NA,NA,20,694,3,2,NA
+10213,1,1,"F","Moins de 35 ans",30.8,"Primaire","Domestique",NA,1,26.98,NA,6,1,NA
+10214,1,1,"F","Moins de 35 ans",18.8,"Primaire","Domestique",NA,1,22.2,NA,6,1,NA
+10220,1,1,"F","Moins de 35 ans",32.8,NA,"Domestique","Union Stable",1,21.3,698,6,1,NA
+10223,1,1,"F","Moins de 35 ans",26.8,NA,"Domestique","Union Stable",1,21.37,782,6,1,NA
+10309,1,1,"F","plus de 35 ans",36,"Primaire","Domestique","Celibataire",2,21.78,271,6,1,NA
+10324,1,1,"F","plus de 35 ans",36.1,"None","Domestique","Union Stable",1,22.99,328,3,2,NA
+10336,1,1,"F","Moins de 35 ans",20.4,NA,"Domestique","Union Stable",2,21.21,319,6,1,NA
+10353,1,1,"F","plus de 35 ans",38,NA,"Domestique","Celibataire",3,19.95,703,6,1,NA
+10358,1,1,"F","Moins de 35 ans",34,"None","Domestique",NA,1,26.22,733,6,1,NA
+10370,1,2,"F","Moins de 35 ans",29.7,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+10377,1,1,"F","Moins de 35 ans",31,NA,"Domestique","Celibataire",1,17.98,128,6,1,NA
+10380,1,1,"F","Moins de 35 ans",20.9,"Primaire","Domestique",NA,1,21.91,364,6,1,NA
+10383,1,1,"F","Moins de 35 ans",22.9,"Primaire","Domestique","Union Stable",1,25.34,391,6,1,NA
+10410,1,1,"F","plus de 35 ans",35.9,NA,"Domestique","Union Stable",1,20.81,230,6,1,NA
+10424,1,1,"F","Moins de 35 ans",27.1,"Secondaire","Domestique","Union Stable",1,NA,233,6,1,NA
+10426,1,1,"F","plus de 35 ans",42,"Primaire","Domestique","Celibataire",1,17.91,128,6,1,NA
+10449,1,1,"F","Moins de 35 ans",17.2,"Primaire","Domestique","Union Stable",1,19.86,NA,6,1,NA
+10452,1,1,"F","Moins de 35 ans",33.1,"None","Domestique","Union Stable",1,21.79,517,6,1,NA
+10458,1,1,"F","plus de 35 ans",35,NA,"Domestique","Celibataire",1,19,239,6,1,NA
+10469,1,1,"F","Moins de 35 ans",19,"Primaire","Domestique","Union Stable",1,18.79,NA,6,1,NA
+10471,1,1,"F","Moins de 35 ans",20,"Primaire","Domestique","Union Stable",1,21.9,367,6,1,NA
+10473,1,1,"F","Moins de 35 ans",22,"Secondaire","Domestique","Union Stable",1,22.49,354,6,1,NA
+10475,1,1,"F","Moins de 35 ans",18.9,"None","Domestique","Union Stable",1,22.44,965,6,1,NA
+10497,1,1,"F","plus de 35 ans",38,"None","Domestique","Union Stable",NA,17.31,278,6,1,NA
+10505,1,1,"F","Moins de 35 ans",25,"Primaire","Domestique","Union Stable",1,21.09,445,6,1,NA
+10528,1,1,"F","Moins de 35 ans",20,"Primaire","Domestique",NA,1,18.36,NA,6,1,NA
+10540,1,1,"F","plus de 35 ans",37.9,"None","Domestique",NA,1,19.63,250,6,1,NA
+10542,1,1,"F","Moins de 35 ans",30.1,"Primaire","Domestique",NA,1,25.43,1022,6,1,NA
+10545,1,1,"F","Moins de 35 ans",30,"None","Domestique","Celibataire",1,22.76,399,6,1,NA
+10547,1,1,"F","Moins de 35 ans",18,"Secondaire","Domestique","Celibataire",1,20.96,9,6,1,NA
+10548,1,1,"F","Moins de 35 ans",29,"Primaire","Domestique","Union Stable",1,21.49,656,6,1,NA
+10550,1,1,"F","plus de 35 ans",36.6,"Primaire","Domestique","Union Stable",NA,17.9,NA,6,1,NA
+10554,1,1,"F","Moins de 35 ans",28,"Primaire","Domestique",NA,1,21.95,150,6,1,NA
+10556,1,1,"F","Moins de 35 ans",15.1,"Primaire","Domestique","Celibataire",1,18.77,546,6,1,NA
+10557,1,1,"F","Moins de 35 ans",28.1,"None","Domestique","Celibataire",1,19.38,109,6,1,NA
+10559,1,1,"F","Moins de 35 ans",29.2,"Primaire","Domestique","Union Stable",1,22.39,372,6,1,NA
+10567,1,1,"F","Moins de 35 ans",34,"None","Domestique",NA,1,20.2,254,6,1,NA
+10582,1,1,"F","plus de 35 ans",43.2,"None","Domestique",NA,2,18.42,290,6,1,NA
+10590,1,1,"Homme","plus de 35 ans",53,"None","Domestique","Union Stable",3,18.14,332,6,1,NA
+10591,1,1,"F","Moins de 35 ans",30.1,NA,"Domestique","Union Stable",1,17.33,269,6,1,NA
+10599,1,1,"F","Moins de 35 ans",17.1,"Primaire","Domestique","Union Stable",1,20.89,16,6,1,NA
+10603,1,1,"F","Moins de 35 ans",27.1,"None","Domestique","Union Stable",1,20.24,736,6,1,NA
+10619,1,1,"F","Moins de 35 ans",34.1,NA,"Domestique","Union Stable",1,20,233,6,1,NA
+10629,1,1,"F","Moins de 35 ans",23,"None","Domestique",NA,1,26.7,NA,6,1,NA
+10630,1,1,"Homme","Moins de 35 ans",33.3,"Primaire","Domestique","Union Stable",1,19.22,291,6,1,NA
+10640,1,1,"F","Moins de 35 ans",30.1,"Primaire","Domestique",NA,1,30,419,3,2,NA
+10642,1,1,"F","Moins de 35 ans",33,NA,"Domestique",NA,1,20.93,310,6,1,NA
+10689,1,1,"F","Moins de 35 ans",17.1,"None","Domestique",NA,1,20.19,361,6,1,NA
+10704,1,1,"F","Moins de 35 ans",30.1,"None","Domestique",NA,1,21.2,NA,6,1,NA
+10711,1,1,"F","Moins de 35 ans",30,"Primaire","Domestique","Union Stable",1,NA,388,6,1,NA
+10712,1,1,"F","Moins de 35 ans",23.1,"Primaire","Domestique","Union Stable",1,23.34,385,6,1,NA
+10720,1,1,"F","Moins de 35 ans",34,"None","Domestique",NA,1,24.06,516,6,1,NA
+10750,1,2,"F","Moins de 35 ans",23.1,"Primaire","Domestique","Union Stable",1,NA,NA,2,3,NA
+10771,1,1,"F","Moins de 35 ans",30.1,"None","Domestique","Union Stable",2,19.53,255,6,1,NA
+10808,1,2,"F","plus de 35 ans",49.9,"None","Domestique","Union Stable",4,20.13,NA,3,2,NA
+10826,1,1,"F","Moins de 35 ans",30.1,"Primaire","Domestique",NA,1,28.84,322,6,1,NA
+10838,1,1,"F","Moins de 35 ans",22.3,"Primaire","Domestique","Celibataire",1,23.59,866,6,1,NA
+10843,1,1,"F","Moins de 35 ans",33.1,NA,"Domestique",NA,3,21,NA,3,2,NA
+10851,1,1,"F","Moins de 35 ans",20.2,"Primaire","Domestique",NA,1,29.03,245,6,1,NA
+10854,1,1,"F","Moins de 35 ans",24.2,"Primaire","Domestique","Union Stable",1,23.63,153,6,1,NA
+10856,1,1,"F","plus de 35 ans",38.2,NA,"Domestique",NA,1,18.37,150,6,1,NA
+10916,1,1,"F","plus de 35 ans",53.1,"None","Domestique","Celibataire",1,17.33,393,6,1,NA
+10929,1,1,"F","Moins de 35 ans",29.2,"Primaire","Domestique","Union Stable",1,21.63,757,6,1,NA
+10930,1,1,"F","Moins de 35 ans",24.2,"Primaire","Domestique","Union Stable",1,23,264,6,1,NA
+10932,1,1,"F","Moins de 35 ans",30.2,NA,"Domestique",NA,1,18.26,110,6,1,NA
+10937,1,1,"F","Moins de 35 ans",16.2,NA,"Domestique",NA,1,25.97,559,6,1,NA
+10951,1,1,"F","Moins de 35 ans",24.2,"None","Domestique","Union Stable",1,20.96,296,6,1,NA
+10952,1,1,"F","Moins de 35 ans",33.2,NA,"Domestique",NA,2,23.15,15,2,3,NA
+10961,1,1,"F","Moins de 35 ans",22.2,"Secondaire","Domestique","Union Stable",1,19,819,6,1,NA
+10962,1,1,"F","Moins de 35 ans",23.2,"Secondaire","Domestique","Union Stable",1,22.2,598,6,1,NA
+10968,1,1,"F","plus de 35 ans",38.2,"None","Domestique","Celibataire",1,19.5,808,6,1,NA
+10996,1,1,"F","plus de 35 ans",35.2,"Primaire","Domestique",NA,1,22.57,239,6,1,NA
+11007,1,1,"Homme","Moins de 35 ans",30.2,"Primaire","Domestique","Celibataire",3,21.16,444,6,1,NA
+11013,1,1,"F","Moins de 35 ans",20.2,"Primaire","Domestique","Union Stable",1,24.64,NA,6,1,NA
+11014,1,2,"F","Moins de 35 ans",34.6,"None","Domestique",NA,1,22.94,NA,2,3,NA
+11070,1,2,"F","Moins de 35 ans",26.8,NA,"Domestique",NA,1,16.93,NA,2,3,NA
+11071,1,2,"F","plus de 35 ans",38.7,NA,"Domestique","Union Stable",1,NA,NA,3,2,NA
+11086,1,2,"F","Moins de 35 ans",21.9,"Primaire","Domestique","Union Stable",2,NA,NA,3,2,NA
+11111,1,1,"F","Moins de 35 ans",23.2,NA,"Domestique",NA,1,15.79,334,6,1,NA
+11118,1,2,"F","Moins de 35 ans",30.1,NA,"Domestique",NA,3,16.67,465,4,2,NA
+11206,1,2,"F","Moins de 35 ans",29.1,NA,"Domestique","Celibataire",NA,NA,NA,6,1,NA
+11209,1,2,"F","Moins de 35 ans",28.8,"None","Domestique","Union Stable",1,NA,NA,2,3,NA
+11211,1,2,"F","Moins de 35 ans",20,NA,"Domestique","Veuf(ve)",1,22.68,900,3,2,NA
+11213,1,2,"F","Moins de 35 ans",29.9,"None","Domestique",NA,2,19.98,NA,3,2,NA
+11219,1,2,"F","Moins de 35 ans",23,"Primaire","Domestique","Union Stable",3,19.11,193,3,2,NA
+11222,1,2,"F","plus de 35 ans",40.1,NA,"Domestique",NA,3,18.47,203,3,2,NA
+11223,1,2,"F","Moins de 35 ans",22.9,NA,"Domestique","Union Stable",1,NA,520,6,1,NA
+11226,1,2,"F","Moins de 35 ans",30.1,NA,"Domestique",NA,1,16.44,43,4,2,NA
+11231,1,2,"F","Moins de 35 ans",25.9,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+11241,1,2,"F","Moins de 35 ans",16,NA,"Domestique","Union Stable",1,NA,NA,6,1,NA
+11242,1,2,"F","Moins de 35 ans",30.9,"None","Domestique","Union Stable",1,NA,637,6,1,NA
+11245,1,2,"F","Moins de 35 ans",20,NA,"Domestique",NA,1,NA,NA,3,2,NA
+11262,1,2,"F","Moins de 35 ans",17.8,"Primaire","Domestique","Union Stable",1,NA,NA,2,3,NA
+11290,1,1,"F","Moins de 35 ans",30.2,NA,"Domestique",NA,1,20.36,308,6,1,NA
+11292,1,1,"F","Moins de 35 ans",25.2,"None","Domestique",NA,1,19.5,173,6,1,NA
+11299,1,1,"F","plus de 35 ans",40.2,"None","Domestique","Union Stable",1,21,899,6,1,NA
+11339,1,1,"F","Moins de 35 ans",30.3,NA,"Domestique",NA,1,24,437,6,1,NA
+11479,1,1,"F","Moins de 35 ans",20.3,"Primaire","Domestique",NA,1,22.37,49,6,1,NA
+11515,1,1,"F","Moins de 35 ans",26.3,"Primaire","Domestique","Union Stable",4,16.23,NA,6,1,NA
+11525,1,2,"Homme","Moins de 35 ans",25.1,NA,"Domestique",NA,1,15.9,69,3,2,NA
+11531,1,2,"Homme","plus de 35 ans",54.9,NA,"Domestique",NA,4,18.59,NA,3,2,NA
+11544,1,2,"F","plus de 35 ans",40.5,NA,"Domestique",NA,3,20.41,621,6,1,NA
+11577,1,1,"F","Moins de 35 ans",29.4,NA,"Domestique",NA,3,20.61,292,6,1,NA
+11602,1,1,"F","plus de 35 ans",50.4,NA,"Domestique",NA,1,17.91,247,6,1,NA
+11610,1,1,"F","Moins de 35 ans",33.4,"None","Domestique","Celibataire",3,15.23,365,6,1,NA
+11624,1,1,"F","plus de 35 ans",50.4,"Primaire","Domestique",NA,3,17.85,NA,5,3,NA
+11648,1,2,"F","Moins de 35 ans",29.9,NA,"Domestique","Veuf(ve)",3,16,298,3,2,NA
+11651,1,2,"F","plus de 35 ans",38.2,NA,"Domestique",NA,3,18.3,133,3,2,NA
+11662,1,2,"F","plus de 35 ans",62.2,NA,"Domestique",NA,1,19.68,303,3,2,NA
+11671,1,2,"F","Moins de 35 ans",30.3,"None","Domestique",NA,2,22.68,317,3,2,NA
+11678,1,2,"F","plus de 35 ans",42.8,"Primaire","Domestique","Union Stable",1,22.04,328,3,2,NA
+11689,1,2,"F","Moins de 35 ans",30.1,NA,"Domestique",NA,2,NA,NA,6,1,NA
+11721,1,1,"F","Moins de 35 ans",16.3,"Primaire","Domestique","Union Stable",1,18.5,798,6,1,NA
+11724,1,1,"F","Moins de 35 ans",27.3,"Primaire","Domestique","Union Stable",1,24,1033,6,1,NA
+11726,1,1,"F","Moins de 35 ans",18.3,"Secondaire","Domestique","Union Stable",1,22.83,381,6,1,NA
+11728,1,1,"F","Moins de 35 ans",28.5,"Primaire","Domestique","Union Stable",4,17.22,NA,6,1,NA
+11783,1,1,"F","Moins de 35 ans",25.2,"None","Domestique","Union Stable",1,22,NA,6,1,NA
+11788,1,2,"F","Moins de 35 ans",30.4,NA,"Domestique",NA,1,19.63,NA,3,2,NA
+11804,1,1,"F","plus de 35 ans",39.4,"None","Domestique",NA,1,18.51,419,6,1,NA
+11811,1,1,"F","plus de 35 ans",37.3,"None","Domestique","Union Stable",3,16.02,95,6,1,NA
+11814,1,1,"F","Moins de 35 ans",30.4,"Primaire","Domestique",NA,1,24.11,512,6,1,NA
+11818,1,1,"F","plus de 35 ans",37.5,"Primaire","Domestique",NA,1,26.49,220,6,1,NA
+11825,1,2,"F","plus de 35 ans",39.8,"None","Domestique","Veuf(ve)",3,17.85,408,3,2,NA
+11827,1,2,"Homme","Moins de 35 ans",34.8,NA,"Domestique","Union Stable",2,19,NA,3,2,NA
+11868,1,1,"F","Moins de 35 ans",15.4,"None","Domestique","Union Stable",1,19.9,610,6,1,NA
+11877,1,1,"F","plus de 35 ans",37.4,"None","Domestique","Union Stable",1,16.36,237,6,1,NA
+11881,1,1,"F","Moins de 35 ans",34.5,"None","Domestique","Union Stable",1,19.11,336,6,1,NA
+11958,1,1,"F","Moins de 35 ans",28.4,"None","Domestique","Union Stable",1,22.35,81,6,1,NA
+11966,1,1,"F","Moins de 35 ans",27.4,NA,"Domestique","Union Stable",1,17,520,6,1,NA
+12094,1,2,"F","Moins de 35 ans",26.4,"Primaire","Domestique",NA,3,21.6,NA,3,2,NA
+12099,1,1,"F","Moins de 35 ans",19.4,"Primaire","Domestique","Union Stable",1,22,176,6,1,NA
+12101,1,1,"F","plus de 35 ans",36.4,"None","Domestique","Union Stable",1,23,NA,6,1,NA
+12105,1,2,"F","Moins de 35 ans",29.4,NA,"Domestique","Union Stable",1,23.63,NA,2,3,NA
+12117,1,1,"F","plus de 35 ans",39.5,"Primaire","Domestique","Veuf(ve)",1,NA,342,6,1,NA
+12125,1,1,"F","Moins de 35 ans",25.3,"Primaire","Domestique","Union Stable",2,22.48,274,6,1,NA
+12134,1,1,"F","Moins de 35 ans",30.4,"None","Domestique","Celibataire",1,22.48,628,6,1,NA
+12160,1,2,"F","Moins de 35 ans",28.4,NA,"Domestique","Union Stable",1,26,726,3,2,NA
+12167,1,1,"F","plus de 35 ans",41.4,"None","Domestique",NA,1,18.26,290,6,1,NA
+12280,1,2,"F","Moins de 35 ans",18.5,NA,"Domestique","Union Stable",1,21,NA,6,1,NA
+12300,1,1,"F","plus de 35 ans",37.5,NA,"Domestique",NA,1,20.7,NA,6,1,NA
+12311,1,1,"F","plus de 35 ans",50.5,NA,"Domestique","Union Stable",3,16.55,330,6,1,NA
+12329,1,2,"F","Moins de 35 ans",28.4,NA,"Domestique","Celibataire",1,21.17,238,6,1,NA
+12372,1,2,"Homme","Moins de 35 ans",32.5,"Secondaire","Domestique",NA,4,17,198,6,1,NA
+12546,1,2,"F","Moins de 35 ans",29.1,NA,"Domestique",NA,NA,NA,NA,6,1,NA
+12634,1,1,"F","plus de 35 ans",38.5,"Primaire","Domestique","Veuf(ve)",1,24.86,349,6,1,NA
+13545,1,2,"F","Moins de 35 ans",22.7,NA,"Domestique","Union Stable",1,NA,NA,2,3,NA
+13743,1,2,"Homme","Moins de 35 ans",28.3,"Primaire","Domestique","Union Stable",2,22,401,3,2,NA
+13960,1,2,"F","Moins de 35 ans",30.4,"None","Domestique","Union Stable",3,17.12,592,4,2,NA
+14200,1,1,"F","plus de 35 ans",41.2,"Primaire","Domestique",NA,1,21.29,NA,6,1,NA
+14201,1,1,"F","plus de 35 ans",36.2,"Primaire","Domestique",NA,NA,NA,NA,3,2,NA
+14554,1,2,"F","Moins de 35 ans",29.8,NA,"Domestique","Union Stable",1,18.26,NA,3,2,NA
+14840,1,2,"F","Moins de 35 ans",30.3,"Primaire","Domestique","Union Stable",2,19.63,358,3,2,NA
+15224,1,1,"F","Moins de 35 ans",32.4,"Primaire","Domestique","Union Stable",1,18.82,267,6,1,NA
+15580,1,2,"F","plus de 35 ans",59.1,NA,"Domestique",NA,3,19.72,277,6,1,NA
+15600,1,2,"F","plus de 35 ans",44.2,NA,"Domestique","Veuf(ve)",3,18.18,551,6,1,NA
+15708,1,2,"F","plus de 35 ans",47.3,NA,"Domestique",NA,4,15.98,375,3,2,NA
+15858,1,2,"F","Moins de 35 ans",29.1,"None","Domestique","Celibataire",3,15.4,NA,3,2,NA
+16413,1,2,"F","plus de 35 ans",44,"None","Domestique","Union Stable",3,17.97,268,6,1,NA
+16908,1,2,"F","Moins de 35 ans",21.9,NA,"Domestique",NA,2,22.45,670,6,1,NA
+17489,1,1,"F","Moins de 35 ans",29,"None","Domestique","Union Stable",1,21.42,3,6,1,NA
+18423,1,2,"F","plus de 35 ans",38.6,"None","Domestique",NA,2,20.31,620,6,1,NA
+18431,1,2,"F","Moins de 35 ans",20.4,"Primaire","Domestique",NA,1,17.26,475,6,1,NA
+5168,2,3,"Homme","plus de 35 ans",44.1,"Universite","Enseignant","Union Stable",3,NA,NA,6,1,NA
+5337,2,3,"Homme","Moins de 35 ans",32.4,"Universite","enseignant","Union Stable",1,NA,NA,6,1,NA
+7924,1,1,"Homme","Moins de 35 ans",29.5,"Secondaire","Enseignant","Union Stable",1,18,371,3,2,NA
+18522,1,1,"Homme","Moins de 35 ans",30.7,"Secondaire","Enseignant","Union Stable",1,21.95,126,3,2,NA
+3759,2,3,"F","Moins de 35 ans",26.4,NA,"Cuisinier","Celibataire",2,NA,NA,3,2,NA
+4788,2,3,"Homme","plus de 35 ans",46.7,NA,"Cuisinier","Union Stable",3,NA,NA,2,3,NA
+5013,2,3,"F","Moins de 35 ans",30.1,NA,"Cuisinier","Union Stable",2,NA,NA,6,1,NA
+8967,1,2,"Homme","plus de 35 ans",56.5,"None","Conseiller","Union Stable",1,9,60,3,2,NA
+8802,1,2,"Homme","Moins de 35 ans",32.7,"Secondaire","Agent correctionnel","Celibataire",1,23.42,484,3,2,NA
+5038,2,3,"Homme","Moins de 35 ans",28.8,"Secondaire","Comptable","Union Stable",3,NA,NA,6,1,NA
+3407,2,3,"Homme","plus de 35 ans",37.7,NA,"Travailleur independant","Union Stable",3,NA,NA,3,2,NA
+4689,2,3,"Homme","plus de 35 ans",50.1,NA,"Travailleur independant",NA,3,NA,NA,3,2,NA
+4804,2,3,"F","plus de 35 ans",53.7,NA,"Travailleur independant",NA,3,NA,NA,4,2,NA
+5019,2,3,"Homme","plus de 35 ans",45.3,NA,"Travailleur independant","Union Stable",1,NA,NA,6,1,NA
+5257,2,3,"Homme","Moins de 35 ans",30.1,NA,"Travailleur independant",NA,2,NA,NA,6,1,NA
+5285,2,3,"F","Moins de 35 ans",23.7,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5308,2,3,"Homme","Moins de 35 ans",31.3,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5385,2,3,"F","Moins de 35 ans",26.1,NA,"Travailleur independant","Union Stable",1,NA,NA,6,1,NA
+5415,2,3,"Homme","Moins de 35 ans",24.1,NA,"Travailleur independant","Celibataire",1,NA,NA,6,1,NA
+5428,2,3,"Homme","Moins de 35 ans",26.1,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5462,2,3,"F","Moins de 35 ans",25.1,NA,"Travailleur independant","Celibataire",3,NA,NA,6,1,NA
+5535,2,3,"F","Moins de 35 ans",21.2,NA,"Travailleur independant","Celibataire",1,NA,NA,6,1,NA
+5557,2,3,"Homme","plus de 35 ans",38.9,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5569,2,3,"Homme","plus de 35 ans",38,NA,"Travailleur independant","Union Stable",1,NA,NA,6,1,NA
+5573,2,3,"F","Moins de 35 ans",28.1,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5587,2,3,"F","plus de 35 ans",39.1,NA,"Travailleur independant","Celibataire",1,NA,NA,6,1,NA
+5592,2,3,"Homme","Moins de 35 ans",33.9,NA,"Travailleur independant","Union Stable",2,NA,NA,6,1,NA
+5605,2,3,"Homme","Moins de 35 ans",27.8,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5640,2,3,"F","plus de 35 ans",36.4,NA,"Travailleur independant","Union Stable",2,NA,NA,6,1,NA
+5681,2,3,"F","Moins de 35 ans",25,NA,"Travailleur independant","Celibataire",3,NA,NA,6,1,NA
+5711,2,3,"Homme","plus de 35 ans",35.9,NA,"Travailleur independant","Union Stable",1,NA,NA,6,1,NA
+5731,2,3,"Homme","Moins de 35 ans",34.1,NA,"Travailleur independant","Celibataire",3,NA,NA,6,1,NA
+5739,2,3,"Homme","plus de 35 ans",35.1,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5757,2,3,"Homme","plus de 35 ans",51.4,NA,"Travailleur independant","Union Stable",3,NA,NA,6,1,NA
+5804,2,3,"F","plus de 35 ans",40.5,NA,"Travailleur independant","Union Stable",1,NA,NA,6,1,NA
+5815,2,3,"Homme","Moins de 35 ans",34,NA,"Travailleur independant","Union Stable",4,NA,NA,6,1,NA
+9458,1,2,"Homme","plus de 35 ans",50.6,"Primaire","Chauffeur de tracteur","Union Stable",3,17.1,687,3,2,NA
+469,2,3,"F","Moins de 35 ans",30.4,NA,"Commercial","Union Stable",3,NA,NA,3,2,NA
+705,1,1,"F","Moins de 35 ans",34.4,"None","Commercial","Union Stable",1,27.6,416,3,2,NA
+3028,2,3,"Homme","plus de 35 ans",35.8,NA,"Commercial","Union Stable",3,NA,NA,6,1,NA
+3499,2,3,"Homme","plus de 35 ans",36.9,NA,"Commercial","Union Stable",1,NA,NA,3,2,NA
+3885,2,3,"F","plus de 35 ans",40.5,NA,"Commercial","Union Stable",1,NA,NA,3,2,NA
+4115,2,3,"Homme","Moins de 35 ans",20.1,NA,"Commercial","Celibataire",3,NA,NA,3,2,NA
+4121,2,3,"Homme","plus de 35 ans",36.7,NA,"Commercial","Union Stable",4,NA,NA,3,2,NA
+5315,2,3,"F","Moins de 35 ans",23.1,NA,"Commercial","Union Stable",3,NA,NA,6,1,NA
+6773,1,1,"Homme","Moins de 35 ans",27.2,"Secondaire","Commercial",NA,3,18,279,3,2,NA
+7893,1,1,"Homme","Moins de 35 ans",27,"Secondaire","Commercial","Union Stable",2,18.7,73,3,2,NA
+8236,1,1,"Homme","Moins de 35 ans",24,"Primaire","Commercial","Union Stable",2,19.14,337,6,1,NA
+8757,1,1,"Homme","Moins de 35 ans",30.6,"Technique","Commercial",NA,1,20,336,3,2,NA
+9509,1,2,"Homme","plus de 35 ans",64.9,"Primaire","Commercial","Union Stable",3,20.56,500,3,2,NA
+11668,1,2,"Homme","Moins de 35 ans",31.1,NA,"Commercial",NA,4,21.09,NA,3,2,NA
+11669,1,2,"Homme","plus de 35 ans",37.1,"Primaire","Commercial",NA,1,23.05,72,3,2,NA
+12128,1,1,"Homme","Moins de 35 ans",32.4,"Primaire","Commercial",NA,3,18.33,110,6,1,NA
+16354,1,2,"Homme","Moins de 35 ans",27.9,"Secondaire","Commercial","Union Stable",4,21.67,582,6,1,NA
+24377,1,1,"Homme","Moins de 35 ans",26.6,"Secondaire","Commercial",NA,1,18.65,NA,3,2,NA
+9594,1,2,"Homme","plus de 35 ans",44.4,"Secondaire","Administrateur",NA,1,20.7,255,3,2,NA
+5719,2,3,"Homme","plus de 35 ans",41,NA,"Menuisier","Union Stable",3,NA,NA,6,1,NA
+7540,1,1,"Homme","plus de 35 ans",35.4,"Primaire","Menuisier","Union Stable",1,19.92,681,6,1,NA
+10428,1,1,"Homme","plus de 35 ans",60,"Primaire","Menuisier","Union Stable",1,21.34,29,6,1,NA
+12211,1,1,"Homme","Moins de 35 ans",32.5,"Primaire","Menuisier",NA,1,21.7,272,6,1,NA
+318,1,1,"Homme","plus de 35 ans",48,"Primaire","Entrepreneur",NA,2,24,153,3,2,NA
+1186,1,1,"Homme","plus de 35 ans",41,"Primaire","Entrepreneur","Celibataire",3,19.6,402,6,1,NA
+7699,1,1,"Homme","plus de 35 ans",41.1,NA,"Entrepreneur","Union Stable",1,22,368,3,2,NA
+5564,2,3,"Homme","plus de 35 ans",55.7,"Primaire","Pompier","Union Stable",3,NA,NA,6,1,NA
+6051,1,1,"Homme","plus de 35 ans",36.5,"Primaire","Agent de service de base","Union Stable",1,26.1,616,3,2,NA
+12264,1,2,"F","plus de 35 ans",39.5,"Secondaire","Agent de service de base","Union Stable",3,20,353,6,1,NA
+4236,2,3,"Homme","Moins de 35 ans",29.5,NA,"Barman","Union Stable",1,NA,NA,3,2,NA
+8109,1,1,"Homme","plus de 35 ans",50.2,"Secondaire","Artiste","Union Stable",1,NA,162,3,2,NA
+147,1,1,"F","Moins de 35 ans",34.2,NA,NA,"Union Stable",1,21.78,698,6,1,NA
+518,2,3,"F","Moins de 35 ans",32,NA,NA,NA,3,NA,NA,3,2,NA
+596,1,1,"F","Moins de 35 ans",34.1,"Primaire",NA,"Union Stable",1,21.2,418,3,2,NA
+628,1,1,"F","Moins de 35 ans",24.5,"Primaire",NA,NA,2,23.3,233,3,2,NA
+1227,1,1,"Homme","plus de 35 ans",37.5,"Secondaire",NA,"Union Stable",3,22.1,335,2,3,NA
+1428,2,3,"Homme","Moins de 35 ans",28.7,NA,NA,NA,NA,NA,NA,6,1,NA
+1932,2,3,"F","Moins de 35 ans",28.2,NA,NA,NA,3,NA,NA,6,1,NA
+1938,2,3,"F","Moins de 35 ans",29.1,NA,NA,NA,1,NA,NA,6,1,NA
+1947,2,3,"F","Moins de 35 ans",31.7,NA,NA,NA,3,NA,NA,4,2,NA
+1955,2,3,"Homme","plus de 35 ans",50.9,NA,NA,NA,3,NA,NA,3,2,NA
+1973,2,3,"F","Moins de 35 ans",34,NA,NA,NA,3,NA,NA,6,1,NA
+1975,2,3,"F","Moins de 35 ans",26.8,NA,NA,NA,4,NA,NA,6,1,NA
+1985,2,3,"F","Moins de 35 ans",27.7,NA,NA,NA,3,NA,NA,6,1,NA
+2236,1,1,"F","Moins de 35 ans",16.6,NA,NA,NA,2,19.8,40,3,2,NA
+3199,2,3,"F","Moins de 35 ans",31.6,NA,NA,NA,3,NA,NA,6,1,NA
+3248,2,3,"F","Moins de 35 ans",17.4,NA,NA,NA,NA,NA,NA,3,2,NA
+3880,1,1,"F","Moins de 35 ans",28.3,"Primaire",NA,"Union Stable",1,21.76,733,6,1,NA
+4193,2,3,"F","Moins de 35 ans",25,NA,NA,NA,1,NA,NA,6,1,NA
+4318,2,3,"Homme","plus de 35 ans",47.7,NA,NA,NA,2,NA,NA,3,2,NA
+4348,2,3,"Homme","Moins de 35 ans",29.6,NA,NA,NA,NA,NA,NA,6,1,NA
+4409,1,1,"F","Moins de 35 ans",25,"Primaire",NA,"Union Stable",1,22,602,3,2,NA
+4684,2,3,"Homme","Moins de 35 ans",32.1,NA,NA,NA,3,NA,NA,3,2,NA
+4739,2,3,"Homme","Moins de 35 ans",25.7,NA,NA,NA,3,NA,NA,3,2,NA
+4747,2,3,"F","Moins de 35 ans",33.2,NA,NA,NA,3,NA,NA,3,2,NA
+4762,2,3,"F","Moins de 35 ans",34.7,NA,NA,NA,2,NA,NA,3,2,NA
+4777,2,3,"F","plus de 35 ans",41.8,NA,NA,NA,3,NA,NA,6,1,NA
+4827,2,3,"Homme","Moins de 35 ans",23.6,NA,NA,NA,3,NA,NA,3,2,NA
+4832,2,3,"Homme","plus de 35 ans",53.7,NA,NA,NA,2,NA,NA,3,2,NA
+4847,2,3,"Homme","Moins de 35 ans",26.6,NA,NA,NA,3,NA,NA,3,2,NA
+4852,2,3,"Homme","Moins de 35 ans",26.7,NA,NA,NA,3,NA,NA,6,1,NA
+4857,2,3,"F","Moins de 35 ans",22.2,NA,NA,NA,3,NA,NA,3,2,NA
+4862,2,3,"F","Moins de 35 ans",21,NA,NA,NA,1,NA,NA,6,1,NA
+5169,2,3,"Homme","Moins de 35 ans",30.9,NA,NA,NA,1,NA,NA,6,1,NA
+5195,2,3,"F","Moins de 35 ans",16,NA,NA,NA,1,25,NA,6,1,NA
+5284,2,3,"F","Moins de 35 ans",23,NA,NA,NA,NA,NA,NA,6,1,NA
+5290,2,3,"F","Moins de 35 ans",18,NA,NA,NA,2,NA,NA,6,1,NA
+5297,2,3,"F","Moins de 35 ans",27,NA,NA,NA,NA,NA,NA,6,1,NA
+5311,2,3,"F","Moins de 35 ans",23.4,NA,NA,NA,1,NA,NA,6,1,NA
+5400,2,3,"F","Moins de 35 ans",34,NA,NA,NA,2,NA,NA,6,1,NA
+5419,1,1,"F","plus de 35 ans",44,"Primaire",NA,"Veuf(ve)",1,24,210,3,2,NA
+5610,2,3,"Homme","plus de 35 ans",60,NA,NA,"Union Stable",3,NA,NA,6,1,NA
+5617,2,3,"F","Moins de 35 ans",30,NA,NA,"Celibataire",2,NA,NA,6,1,NA
+5631,2,3,"F","Moins de 35 ans",30,NA,NA,NA,1,NA,NA,6,1,NA
+5729,2,3,"F","Moins de 35 ans",20,NA,NA,NA,NA,NA,NA,6,1,NA
+5741,2,3,"F","Moins de 35 ans",18,NA,NA,NA,1,NA,NA,6,1,NA
+5742,1,1,"F","Moins de 35 ans",27.6,NA,NA,NA,2,15.1,129,6,1,NA
+5801,1,1,"F","plus de 35 ans",54.7,NA,NA,NA,1,23.11,430,6,1,NA
+6611,1,1,"F","Moins de 35 ans",23.7,NA,NA,"Union Stable",1,NA,NA,6,1,NA
+7401,1,1,"F","Moins de 35 ans",32.1,"Primaire",NA,"Union Stable",NA,NA,491,3,2,NA
+7411,1,1,"F","Moins de 35 ans",32.2,"Secondaire",NA,"Union Stable",1,20.83,294,6,1,NA
+7665,1,1,"F","Moins de 35 ans",34.6,NA,NA,NA,1,18.13,39,3,2,NA
+7796,1,1,"F","plus de 35 ans",50.1,"Primaire",NA,NA,1,19,194,3,2,NA
+8378,1,1,"F","Moins de 35 ans",20.5,"Primaire",NA,NA,1,22.4,535,6,1,NA
+8406,1,1,"Homme","Moins de 35 ans",23.2,NA,NA,"Union Stable",1,19.47,NA,3,2,NA
+8421,1,1,"F","Moins de 35 ans",21.8,"Secondaire",NA,"Union Stable",1,21.02,719,6,1,NA
+8800,1,2,"F","Moins de 35 ans",20.6,"None",NA,"Union Stable",1,23.7,NA,2,3,NA
+8810,1,2,"F","Moins de 35 ans",29.6,"None",NA,NA,NA,15,94,3,2,NA
+8817,1,2,"F","plus de 35 ans",41.4,NA,NA,NA,NA,NA,NA,6,1,NA
+8819,1,2,"F","plus de 35 ans",40.1,NA,NA,NA,4,14.3,NA,3,2,NA
+8820,1,2,"F","Moins de 35 ans",32.7,NA,NA,"Union Stable",2,22.15,NA,3,2,NA
+8823,1,2,"F","plus de 35 ans",35.5,"Primaire",NA,NA,3,14.61,491,3,2,NA
+8845,1,2,"F","Moins de 35 ans",28.7,NA,NA,NA,NA,NA,NA,3,2,NA
+8864,1,2,"F","plus de 35 ans",40,NA,NA,"Celibataire",4,15.7,NA,4,2,NA
+8866,1,2,"F","Moins de 35 ans",27,"Primaire",NA,"Celibataire",3,17,784,2,3,NA
+8871,1,2,"F","Moins de 35 ans",30,"Primaire",NA,"Celibataire",1,20.9,303,3,2,NA
+8884,1,2,"F","plus de 35 ans",42.1,NA,NA,"Union Stable",1,16,353,4,2,NA
+8888,1,2,"F","plus de 35 ans",41,NA,NA,"Celibataire",1,24.24,NA,3,2,NA
+8946,1,2,"F","Moins de 35 ans",31.2,NA,NA,NA,4,16.03,492,3,2,NA
+8950,1,2,"F","Moins de 35 ans",30.9,NA,NA,"Celibataire",4,12.49,NA,2,3,NA
+8953,1,2,"Homme","Moins de 35 ans",33.7,"Primaire",NA,"Celibataire",NA,NA,NA,3,2,NA
+9017,1,2,"F","Moins de 35 ans",25.4,"None",NA,"Celibataire",1,17,466,3,2,NA
+9051,1,2,"F","Moins de 35 ans",31.3,NA,NA,NA,3,20.69,567,6,1,NA
+9107,1,2,"F","plus de 35 ans",41.1,NA,NA,"Celibataire",3,23.88,874,3,2,NA
+9183,1,2,"F","plus de 35 ans",35.8,NA,NA,"Union Stable",1,NA,343,2,3,NA
+9225,1,2,"Homme","Moins de 35 ans",20,NA,NA,NA,1,13.6,240,3,2,NA
+9279,1,2,"Homme","plus de 35 ans",35.6,NA,NA,NA,3,17.5,271,3,2,NA
+9420,1,2,"Homme","plus de 35 ans",35.3,"Primaire",NA,"Union Stable",1,19.2,107,3,2,NA
+9445,1,2,"Homme","Moins de 35 ans",23.7,"Primaire",NA,"Celibataire",3,18.7,147,3,2,NA
+9448,1,2,"Homme","Moins de 35 ans",33.7,"Primaire",NA,"Celibataire",1,19,251,3,2,NA
+9479,1,2,"F","plus de 35 ans",35.5,"Primaire",NA,NA,1,20,350,3,2,NA
+9483,1,2,"F","Moins de 35 ans",28.8,"Secondaire",NA,"Celibataire",1,NA,NA,2,3,NA
+9485,1,2,"F","Moins de 35 ans",30.8,NA,NA,"Celibataire",1,NA,NA,3,2,NA
+9488,1,2,"F","Moins de 35 ans",25.2,NA,NA,"Veuf(ve)",1,18.7,315,4,2,NA
+9514,1,2,"F","Moins de 35 ans",22.2,"Primaire",NA,"Celibataire",1,NA,310,4,2,NA
+9560,1,2,"F","Moins de 35 ans",18.4,NA,NA,NA,3,13.7,NA,4,2,NA
+9581,1,2,"F","plus de 35 ans",40.4,NA,NA,NA,3,22.2,440,3,2,NA
+9584,1,2,"F","Moins de 35 ans",30.5,NA,NA,NA,4,17,371,3,2,NA
+9603,1,1,"Homme","plus de 35 ans",45.6,"Primaire",NA,"Union Stable",3,19.5,388,3,2,NA
+9984,1,1,"F","plus de 35 ans",36.7,"Primaire",NA,"Union Stable",1,22.5,NA,6,1,NA
+10003,1,1,"Homme","plus de 35 ans",35,NA,NA,"Union Stable",2,19.63,189,6,1,NA
+10176,1,2,"F","Moins de 35 ans",23.7,NA,NA,NA,1,18.18,NA,3,2,NA
+10179,1,2,"F","plus de 35 ans",35.7,NA,NA,"Celibataire",3,17.31,NA,3,2,NA
+10215,1,1,"F","Moins de 35 ans",31.2,NA,NA,NA,2,16.67,403,6,1,NA
+10219,1,1,"F","Moins de 35 ans",28.8,NA,NA,"Union Stable",1,NA,NA,6,1,NA
+10226,1,2,"F","plus de 35 ans",35.9,"Primaire",NA,"Celibataire",1,25.34,356,3,2,NA
+10265,1,1,"Homme","Moins de 35 ans",30.8,NA,NA,NA,3,20.07,145,6,1,NA
+10266,1,1,"F","Moins de 35 ans",33.1,NA,NA,NA,1,NA,331,6,1,NA
+10267,1,1,"F","plus de 35 ans",38,NA,NA,NA,1,NA,573,6,1,NA
+10337,1,1,"F","Moins de 35 ans",20,NA,NA,NA,1,19.48,223,6,1,NA
+10338,1,1,"F","Moins de 35 ans",34,NA,NA,NA,1,23.5,82,6,1,NA
+10348,1,1,"F","Moins de 35 ans",18.2,NA,NA,NA,NA,NA,NA,6,1,NA
+10354,1,1,"F","plus de 35 ans",35.9,NA,NA,NA,1,21.08,NA,6,1,NA
+10379,1,1,"F","Moins de 35 ans",20.9,NA,NA,NA,1,27.47,NA,6,1,NA
+10387,1,1,"F","Moins de 35 ans",20.9,NA,NA,NA,1,20.17,NA,6,1,NA
+10421,1,1,"F","Moins de 35 ans",31.5,NA,NA,NA,2,18.18,380,6,1,NA
+10432,1,1,"Homme","plus de 35 ans",51,NA,NA,NA,2,19.81,380,6,1,NA
+10440,1,1,"F","plus de 35 ans",38.1,NA,NA,NA,1,23.23,270,6,1,NA
+10453,1,1,"F","Moins de 35 ans",25,NA,NA,NA,1,25.04,615,6,1,NA
+10457,1,1,"F","Moins de 35 ans",22,NA,NA,NA,1,NA,102,6,1,NA
+10461,1,1,"F","plus de 35 ans",38,NA,NA,NA,NA,NA,NA,6,1,NA
+10462,1,1,"Homme","plus de 35 ans",42.1,"Primaire",NA,NA,1,23.98,388,6,1,NA
+10487,1,1,"F","Moins de 35 ans",28.4,NA,NA,NA,2,21.23,268,6,1,NA
+10490,1,1,"F","Moins de 35 ans",29,NA,NA,NA,2,19.78,132,6,1,NA
+10522,1,1,"F","Moins de 35 ans",16,"Primaire",NA,NA,1,21.76,165,6,1,NA
+10648,1,1,"F","plus de 35 ans",37.1,NA,NA,NA,1,16,NA,6,1,NA
+10656,1,1,"F","plus de 35 ans",45.1,NA,NA,NA,2,18.47,77,6,1,NA
+10659,1,1,"F","Moins de 35 ans",27.2,NA,NA,NA,1,20.34,214,6,1,NA
+10678,1,1,"F","Moins de 35 ans",24,NA,NA,NA,4,14.23,24,6,1,NA
+10680,1,1,"F","Moins de 35 ans",23.1,"Primaire",NA,NA,1,30.11,200,6,1,NA
+10709,1,1,"F","plus de 35 ans",35.1,NA,NA,NA,1,18.83,NA,6,1,NA
+10715,1,1,"F","plus de 35 ans",38.1,NA,NA,NA,1,NA,151,6,1,NA
+10716,1,1,"F","plus de 35 ans",40.1,NA,NA,NA,1,20.43,NA,6,1,NA
+10722,1,1,"Homme","plus de 35 ans",39.2,NA,NA,NA,3,19.1,436,6,1,NA
+10740,1,1,"Homme","Moins de 35 ans",20.1,NA,NA,NA,3,24.45,149,6,1,NA
+10741,1,1,"Homme","plus de 35 ans",42.1,NA,NA,NA,4,15.35,NA,6,1,NA
+10772,1,1,"F","Moins de 35 ans",30.1,NA,NA,NA,3,NA,NA,3,2,NA
+10776,1,1,"F","plus de 35 ans",50.3,NA,NA,NA,1,15.82,196,3,2,NA
+10809,1,2,"Homme","plus de 35 ans",36.3,NA,NA,NA,3,17.04,19,3,2,NA
+10828,1,1,"F","Moins de 35 ans",30.2,NA,NA,NA,1,24.49,331,6,1,NA
+10833,1,1,"Homme","Moins de 35 ans",26.2,NA,NA,NA,1,19.14,280,6,1,NA
+10836,1,1,"F","Moins de 35 ans",28,NA,NA,NA,1,NA,405,6,1,NA
+10842,1,1,"F","plus de 35 ans",36.1,NA,NA,NA,3,19.23,413,6,1,NA
+10847,1,1,"F","plus de 35 ans",42.1,NA,NA,NA,1,21.49,332,6,1,NA
+10861,1,1,"Homme","Moins de 35 ans",25.2,NA,NA,NA,NA,NA,93,6,1,NA
+10862,1,1,"F","Moins de 35 ans",20.2,NA,NA,NA,1,17.51,79,6,1,NA
+10863,1,1,"F","plus de 35 ans",50.2,NA,NA,NA,1,20.82,246,6,1,NA
+10864,1,1,"F","Moins de 35 ans",23.2,NA,NA,NA,1,17.78,NA,2,3,NA
+10871,1,1,"F","Moins de 35 ans",22.2,NA,NA,NA,1,18,NA,6,1,NA
+10872,1,1,"F","plus de 35 ans",38.2,NA,NA,NA,1,20.17,249,6,1,NA
+10978,1,1,"F","Moins de 35 ans",28.2,NA,NA,NA,1,19.47,NA,6,1,NA
+10993,1,1,"F","Moins de 35 ans",20.2,NA,NA,NA,1,23.23,333,6,1,NA
+11114,1,1,"F","Moins de 35 ans",22.2,NA,NA,NA,1,16,168,6,1,NA
+11142,1,2,"F","Moins de 35 ans",25.4,NA,NA,NA,3,16,645,2,3,NA
+11191,1,2,"F","Moins de 35 ans",22.2,NA,NA,NA,1,NA,NA,4,2,NA
+11197,1,2,"F","Moins de 35 ans",26.1,NA,NA,NA,1,17.54,531,3,2,NA
+11215,1,2,"F","Moins de 35 ans",20,NA,NA,NA,1,18.55,131,3,2,NA
+11294,1,1,"F","Moins de 35 ans",30.2,NA,NA,NA,1,17.13,265,6,1,NA
+11473,1,1,"Homme","Moins de 35 ans",20.4,NA,NA,NA,4,15,700,6,1,NA
+11513,1,1,"F","Moins de 35 ans",31.3,NA,NA,NA,1,16.45,251,6,1,NA
+11520,1,1,"F","plus de 35 ans",45.3,NA,NA,NA,1,21.47,271,6,1,NA
+11571,1,1,"F","plus de 35 ans",42.3,NA,NA,NA,1,16.66,318,6,1,NA
+11573,1,1,"F","Moins de 35 ans",22.3,NA,NA,NA,1,NA,151,6,1,NA
+11580,1,1,"F","Moins de 35 ans",32.3,NA,NA,NA,1,23.87,348,6,1,NA
+11591,1,1,"Homme","plus de 35 ans",44.4,NA,NA,NA,1,21.71,325,6,1,NA
+11621,1,2,"Homme","Moins de 35 ans",30.3,NA,NA,NA,3,NA,196,5,3,NA
+11635,1,2,"F","plus de 35 ans",45.1,NA,NA,NA,3,13.13,NA,2,3,NA
+11696,1,1,"Homme","Moins de 35 ans",25.3,NA,NA,NA,2,17,NA,6,1,NA
+11762,1,1,"F","plus de 35 ans",40.5,NA,NA,NA,1,16.67,315,6,1,NA
+11789,1,2,"F","plus de 35 ans",40.3,NA,NA,NA,1,16.45,535,3,2,NA
+11858,1,1,"F","Moins de 35 ans",16.4,NA,NA,NA,1,19.15,844,6,1,NA
+11876,1,1,"F","Moins de 35 ans",25.4,NA,NA,NA,2,21.45,374,6,1,NA
+11889,1,1,"F","Moins de 35 ans",22.4,"Secondaire",NA,"Celibataire",1,22.97,200,6,1,NA
+11918,1,2,"F","Moins de 35 ans",24.3,NA,NA,NA,1,29.09,528,2,3,NA
+11920,1,2,"F","Moins de 35 ans",19.2,NA,NA,NA,1,30.68,997,2,3,NA
+11927,1,2,"F","plus de 35 ans",36.3,NA,NA,NA,1,20.44,NA,2,3,NA
+11986,1,1,"F","Moins de 35 ans",20.4,NA,NA,NA,1,16.69,NA,6,1,NA
+11988,1,1,"Homme","plus de 35 ans",49.4,NA,NA,NA,1,19.63,137,6,1,NA
+12051,1,2,"F","Moins de 35 ans",22.3,NA,NA,NA,2,25.75,120,2,3,NA
+12055,1,2,"F","Moins de 35 ans",24.3,NA,NA,NA,1,23.69,209,2,3,NA
+12056,1,2,"F","Moins de 35 ans",16.3,NA,NA,NA,NA,NA,NA,2,3,NA
+12068,1,2,"Homme","plus de 35 ans",55.3,NA,NA,NA,3,16.14,104,3,2,NA
+12073,1,2,"F","plus de 35 ans",50.5,NA,NA,NA,1,25.1,296,6,1,NA
+12078,1,2,"F","plus de 35 ans",40.4,NA,NA,NA,1,15.43,137,6,1,NA
+12079,1,2,"F","Moins de 35 ans",30.3,NA,NA,NA,3,16.87,340,3,2,NA
+12085,1,2,"F","Moins de 35 ans",31.4,NA,NA,NA,4,16.01,280,3,2,NA
+12090,1,2,"F","Moins de 35 ans",30.5,NA,NA,NA,1,21.84,50,4,2,NA
+12093,1,2,"Homme","Moins de 35 ans",30.5,NA,NA,NA,1,15.6,118,6,1,NA
+12095,1,2,"F","Moins de 35 ans",30.5,NA,NA,NA,1,16.66,141,6,1,NA
+12118,1,1,"F","Moins de 35 ans",34.4,NA,NA,NA,2,19.3,328,6,1,NA
+12216,1,2,"F","Moins de 35 ans",30.4,NA,NA,NA,3,17.33,502,6,1,NA
+12217,1,2,"F","plus de 35 ans",50.4,NA,NA,NA,3,21.83,203,5,3,NA
+12232,1,1,"F","Moins de 35 ans",20,"Primaire",NA,NA,2,25.22,701,6,1,NA
+12290,1,2,"F","Moins de 35 ans",31.4,NA,NA,"Union Stable",1,21.7,NA,6,1,NA
+12317,1,1,"F","Moins de 35 ans",27.5,NA,NA,NA,1,18.97,986,6,1,NA
+12450,1,2,"F","Moins de 35 ans",25.4,NA,NA,NA,4,19.5,NA,3,2,NA
+12455,1,2,"F","plus de 35 ans",40.3,NA,NA,NA,3,21.7,NA,3,2,NA
+12456,1,2,"F","Moins de 35 ans",22.3,NA,NA,NA,1,16.02,NA,6,1,NA
+12493,1,2,"F","Moins de 35 ans",24.3,NA,NA,NA,3,17.53,610,3,2,NA
+14317,1,2,"F","Moins de 35 ans",30.3,NA,NA,NA,3,16.42,NA,3,2,NA
+14320,1,2,"F","plus de 35 ans",50.3,NA,NA,NA,3,17.12,382,3,2,NA
+16120,1,2,"F","Moins de 35 ans",30.8,NA,NA,NA,4,15.23,NA,6,1,NA
+16894,1,2,"F","Moins de 35 ans",34,"None",NA,"Veuf(ve)",3,17.09,NA,6,1,NA
+18432,1,2,"Homme","plus de 35 ans",61.7,NA,NA,"Veuf(ve)",1,21.56,NA,6,1,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+2412,1,1,"F","Moins de 35 ans",27.1,NA,"Domestique","Union Stable",1,NA,420,2,3,NA
+3576,2,3,"Homme","Moins de 35 ans",28.4,NA,"Domestique","Celibataire",1,NA,NA,3,2,NA
+4692,2,3,"F","plus de 35 ans",54.2,NA,"Securite","Union Stable",4,NA,NA,3,2,NA
+4208,1,1,"F","Moins de 35 ans",31.7,"Primaire","Domestique","Union Stable",1,21.1,301,3,2,NA
