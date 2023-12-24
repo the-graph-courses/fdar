@@ -1,5 +1,5 @@
 ---
-title: 'Data Cleaning Pipeline 1: Exploratory Data Analysis'
+title: 'Data Cleaning Pipeline 1: Data Diagnostics'
 output:
   html_document:
     number_sections: true
@@ -144,9 +144,11 @@ Great! From this view we can already see some problems:
 In the next lesson, we will try to remedy these and other issues as best as possible during the data cleaning process. But for now, the goal is that we understand the functions used to identify them. So now that we have a solid grasp on how to visualize missing data with `vis_dat()`, let's take a look at another package and function that can help us generate summary statistics of our variables!
 
 ::: r-practice
+### Spotting data issues with `vis_dat()`
+
 The following dataset was adapted from a study that investigated missed opportunities for HIV testing among patients newly presenting for HIV care at a Swiss university hospital. The full dataset can be found [here](https://zenodo.org/records/5008340).
 
-```{r eval=FALSE}
+```{r echo=FALSE}
 missed_ops <- read_csv(here("data/HIV_missed_ops.csv"))
 ```
 
@@ -194,6 +196,8 @@ From this output, we can identify some potential issues with our data:
 -   the distribution for `Age at ART initation` is skewed
 
 ::: r-practice
+### Genertaing summary stats with `skim()` {.unlisted .unnumbered}
+
 Use `skim()` to obtain a detailed overview of the `missed_ops` dataset.
 :::
 
@@ -238,6 +242,8 @@ From here you can observe some issues with a few categorical variables:
 -   As we have previously seen, `NA` is completely empty
 
 ::: r-practice
+### Spotting data issues with `inspect_cat()` {.unlisted .unnumbered}
+
 Complete the following code to obtain a visual summary of the categorical variables in the `missed_op` dataset.
 
 ```{r, eval=FALSE}
@@ -257,7 +263,9 @@ inspect_num(non_adherence) %>%
 
 From this output, you can notice that many variables which should be factor variables are coded as numeric. In fact, the only true numeric variables are `Age at ART initiation`, `BMI_Initiation_ART`, `CD4_Initation_ART`, and `Nr_of_pills_day`. We will fix these issues in the next lesson when we move on to data cleaning. For now though, let's take a look at our another function that's particularly helpful for categorical varibales!
 
-::: r-practice 
+::: r-practice
+### Variable types with `inspect_num()` {.unlisted .unnumbered}
+
 Use `inspect_num` to create a histograms of your numeric variables in the `missed_op` dataset. Are the numeric variable types correct?
 :::
 
@@ -287,6 +295,8 @@ The `tbl_summary()` function is not appropriate for checking variable names. As 
 :::
 
 ::: r-practice
+### Spotting data issues with `tbl_summary()` {.unlisted .unnumbered}
+
 Use `tbl_summary()` to output a summary of your `missed_ops` dataset. Can you identify any additional data issues?
 :::
 
@@ -311,6 +321,8 @@ As you can see, the report is quite extensive. We won't go over all of the outpu
 Feel free to explore the [package documentation](https://boxuancui.github.io/DataExplorer/index.html) on your own time.
 
 ::: r-practice
+### Data report with `create_report()` {.unlisted .unnumbered}
+
 Create a data report for your `missed_ops` data using the `create_report()` function!
 :::
 
@@ -328,11 +340,56 @@ See you in the next lesson!
 
 ------------------------------------------------------------------------
 
-## Contributors {.unlisted .unnumbered}
+# Answer Key {.unnumbered}
 
-The following team members contributed to this lesson:
+### Q: Spotting data issues with `vis_dat()` {.unlisted .unnumbered}
 
-`r tgc_contributors_list(ids = c("eem", "lolovanco", "kendavidn"))`
+```{r}
+vis_dat(missed_ops)
+```
+
+-   The column NaN is completely empty
+
+### Q: Genertaing summary stats with `skim()` {.unlisted .unnumbered}
+
+```{r}
+skim(missed_ops)
+```
+
+### Q: Spotting data issues with `inspect_cat()` {.unlisted .unnumbered}
+
+```{r}
+inspect_cat(missed_ops) %>%
+  show_plot()
+```
+
+-   The variable `acute` has 2 levels: `Not acute` and `yes`. This should be standardized.
+-   The varibale `sex` has 3 levels: `Female`, `Male`, and `M`. The `M` should be changed to `Male`.
+
+### Q: Variable types with `inspect_num()` {.unlisted .unnumbered}
+
+```{r}
+inspect_num(missed_ops) %>%
+  show_plot()
+```
+
+-   The variable `cd4category` should be a factor variabale
+
+### Q: Spotting data issues with `tbl_summary()` {.unlisted .unnumbered}
+
+```{r}
+tbl_summary(missed_ops)
+```
+
+-   For the variable `reasonsdx`, there are the categories `Epidemiological risk` and `Epi risk` which should be a single category
+
+### Q: Data report with `create_report()` {.unlisted .unnumbered}
+
+```{r eval=FALSE}
+DataExplorer::create_report(missed_ops)
+```
+
+------------------------------------------------------------------------
 
 ## References {.unlisted .unnumbered}
 
@@ -344,96 +401,8 @@ Some material in this lesson was adapted from the following sources:
 
 ------------------------------------------------------------------------
 
-::: demo
-[XXX DEMO HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: reminder
-[XXX SIDE NOTES HERE XXXX]
-:::
-
-------------------------------------------------------------------------
-
-::: recap
-[XXX RECAP HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: practice
-[XXX PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-:::
-
-------------------------------------------------------------------------
-
-::: r-practice
-[XXX PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-:::
-
-------------------------------------------------------------------------
-
-::: challenge
-[XXX CHALLENGE PRACTICE QUESTIONS HERE XXX] - NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-:::
-
-------------------------------------------------------------------------
-
-::: pro-tip
-[XXX PRO-TIPS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: vocab
-[XXX RELEVANT VOCUBULARY WORDS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: side-note
-[XXX SIDE NOTES HERE XXXX]
-:::
-
-------------------------------------------------------------------------
-
-::: watch-out
-[XXX TIPS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: key-point
-[XXX KEY POINTS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: error
-[XXX ERRORS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-::: rstudio-cloud
-[XXX RSTUDIO CLOUD TIPS HERE XXX]
-:::
-
-------------------------------------------------------------------------
-
-# WRAP UP! {.unnumbered}
-
-[XXX NICE WRAP UP MESSAGE OR SUMMARY IF NEEDED HERE XXX]
-
-------------------------------------------------------------------------
-
-# Answer Key {.unnumbered}
-
-------------------------------------------------------------------------
-
 # Contributors {.unlisted .unnumbered}
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("kendavidn", "lolovanco"))` (make sure to update the contributor list accordingly!)
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko"))` 
