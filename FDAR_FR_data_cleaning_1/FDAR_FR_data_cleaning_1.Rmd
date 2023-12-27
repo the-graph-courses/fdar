@@ -1,5 +1,5 @@
 ---
-title: 'Data Cleaning 1: Exploratory Data Analysis'
+title: 'Nettoyage de données: analyse exploratoire'
 output:
   html_document:
     number_sections: true
@@ -26,42 +26,41 @@ registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
 knitr::opts_chunk$set(class.source = "tgc-code-block")
 ```
 
-
 ------------------------------------------------------------------------
 
-# Introduction 
+# Introduction
 
 Le nettoyage des données est le processus qui consiste à transformer des données brutes et "désordonnées" en des données fiables pouvant être analysées correctement. Cela implique d'identifier les points de données **inexacts**, **incomplets** ou **improbables** et de résoudre les incohérences ou les erreurs dans les données, ainsi que de renommer les noms de variables pour les rendre plus clairs et simples à manipuler.
 
-Les tâches de nettoyage de données peuvent souvent être fastidieuses. Une blague courante chez les analystes de données dit : "80% de la science des données consiste à nettoyer les données et les 20% restants à se plaindre du nettoyage des données". Mais le nettoyage des données est une étape essentielle du processus d'analyse des données. Un peu de nettoyage au début du processus d'analyse des données contribuera grandement à améliorer la qualité de vos analyses et la facilité avec laquelle ces analyses peuvent être effectuées. Et une gamme de packages et de fonctions dans R peut enormoement simplifier le processus de nettoyage des données.
+Les tâches de nettoyage de données peuvent souvent être fastidieuses. Une blague courante chez les analystes de données dit : "80% de la science des données consiste à nettoyer les données et les 20% restants à se plaindre du nettoyage des données". Mais le nettoyage des données est une étape essentielle du processus d'analyse des données. Un peu de nettoyage avant de commencer votre analyse contribuera à améliorer la qualité de vos analyses et la facilité avec laquelle ces analyses peuvent être effectuées. Et une gamme de packages et de fonctions dans R peuvent enormoement simplifier le processus de nettoyage des données.
 
-Dans cette leçon, nous allons commencer à examiner un pipeline de nettoyage de données typique dans R. Les étapes de nettoyage couvertes ici ne correspondent probablement pas exactement à ce dont vous aurez besoin pour vos propres données, mais elles constituent certainement un bon point de départ.
+Dans cette leçon, nous allons commencer à examiner un processus de nettoyage de données typique dans R. Les étapes de nettoyage couvertes ici ne correspondent probablement pas exactement à ce dont vous aurez besoin pour vos propres données, mais elles constituent certainement un bon point de départ.
 
 Commençons !
 
 ------------------------------------------------------------------------
 
-Voici la traduction en français des sections suivantes :
-
 # Objectifs d'apprentissage
 
-- Vous pouvez énumérer les opérations typiques impliquées dans le processus de nettoyage des données
+-   Vous pouvez énumérer les opérations typiques impliquées dans le processus de nettoyage des données
 
-- Vous pouvez diagnostiquer les problèmes de jeux de données qui nécessitent un nettoyage des données grâce à des fonctions telles que :
+-   Vous pouvez diagnostiquer des problèmes dans vos jeux de données à l'aide des fonctions suivantes :
 
-    - `visdat::vis_dat()`
+    -   `visdat::vis_dat()`
 
-    - `skimr::skim()`
+    -   `skimr::skim()`
 
-    - `inspectdf::inspect_cat()`
+    -   `inspectdf::inspect_cat()`
 
-    - `inspectdf::inspect_num()`
+    -   `inspectdf::inspect_num()`
 
-    - `DataExplorer::create_report()`
+    -   `gtsummary::tbl_summary()`
+
+    -   `DataExplorer::create_report()`
 
 ------------------------------------------------------------------------
 
-# Packages 
+# Packages
 
 Les packages chargés ci-dessous seront nécessaires pour cette leçon :
 
@@ -70,6 +69,7 @@ if(!require("pacman")) install.packages("pacman")
 pacman::p_load(visdat,  
                skimr,
                inspectdf,
+               gtsummary,
                DataExplorer,
                tidyverse)
 ```
@@ -78,14 +78,14 @@ pacman::p_load(visdat,
 
 # Jeu de données
 
-Le jeu de données principal que nous utiliserons dans cette leçon provient d'une étude menée dans trois centres de santé de Zambezia, au Mozambique. L'étude a examiné les facteurs individuels associés au délai avant le non-respect des services de soins et de traitement du VIH. Pour les besoins de cette leçon, nous ne regarderons qu'un sous-ensemble modifié de l'ensemble de données complet. 
+Le jeu de données principal que nous utiliserons dans cette leçon provient d'une étude menée dans trois centres de santé de Zambezia, au Mozambique. L'étude a examiné les facteurs individuels associés au temps jusqu'à la non-adhérénce aux services de soins et de traitement du VIH. Pour les besoins de cette leçon, nous ne regarderons qu'un sous-ensemble modifié de l'ensemble de données complet.
 
-L'ensemble de données complet peut être obtenu auprès de [Zenodo](https://zenodo.org/records/4965547), et l'article peut être consulté [ici](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6433271/).
+L'ensemble de données complet peut être trouvé [ici](https://zenodo.org/records/4965547), et l'article peut être consulté [ici](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6433271/).
 
-Jetons un coup d'œil à cet ensemble de données :
+Jetons un coup d'œil à ce jeu de données :
 
 ```{r message=FALSE}
-non_adherence <- read_csv(here("data/non_adherence_moz.csv"))
+non_adherence <- read_csv(here("data/non_adherence_VF.csv"))
 ```
 
 ```{r render = reactable_5_rows}
@@ -94,7 +94,7 @@ non_adherence
 
 La première étape du nettoyage des données consistera à explorer cet ensemble de données afin d'identifier les problèmes potentiels qui nécessitent un nettoyage. Cette étape préliminaire est parfois appelée "analyse exploratoire des données" ou AED.
 
-Regardons quelques commandes AED simples dans R qui vous aideront à identifier les erreurs et incohérences de données possibles.
+Regardons quelques fonctions simples dans R qui vous aideront à identifier les erreurs et incohérences de données possibles.
 
 ------------------------------------------------------------------------
 
@@ -106,15 +106,15 @@ Essayons d'abord avec un petit jeu de données fictif pour comprendre son foncti
 
 ```{r render=reactable_10_rows}
 covid_pat <- tribble(
-  ~Patient_ID, ~Age, ~Sexe, ~Souche_Covid, ~Exposition, ~Jours_guérison,
-  1, 25, "Homme", "Alpha", NA, 10,
-  2, 32, "Femme", "Delta", "Hôpital", 15, 
-  3, 45, "Homme", "Beta", "Voyage", 7,
-  4, 19, "Femme", "Omicron", NA, 21,
-  5, 38, "Homme", "Alpha", "Inconnu", 14,
-  6, 55, "Femme", NA, "Communauté", 19,
-  7, 28, "Femme", "Omicron", NA, 8,
-  8, NA, "Femme", "Omicron", "Voyage", 26  
+  ~Patient_ID, ~Age, ~Sexe,   ~Souche_Covid, ~Exposition,   ~Jours_guérison,
+  1,           25,   "Homme", "Alpha",        NA,           10,
+  2,           32,   "Femme", "Delta",        "Hôpital",    15, 
+  3,           45,   "Homme", "Beta",         "Voyage",      7,
+  4,           19,   "Femme", "Omicron",      NA,           21,
+  5,           38,   "Homme", "Alpha",        "Inconnu",    14,
+  6,           55,   "Femme", NA,             "Communauté", 19,
+  7,           28,   "Femme", "Omicron",      NA,            8,
+  8,           NA,   "Femme", "Omicron",      "Voyage",     26  
 )
 covid_pat
 ```
@@ -127,7 +127,7 @@ vis_dat(covid_pat)
 
 C'est parfait ! Chaque ligne de notre dataframe est représentée par une seule ligne dans le graphique et différentes couleurs sont utilisées pour illustrer les variables caractères (rose) et numériques (bleu), ainsi que les valeurs manquantes (gris). À partir de ce graphique, nous pouvons voir que plusieurs patients de notre jeu de données ont des données manquantes pour la variable `Exposition`.
 
-Regardons maintenant notre vrai jeu de données du monde réel, qui est beaucoup plus grand et plus désordonné. Les grands jeux de données réels peuvent présenter des motifs complexes dans les données qui sont difficiles à repérer sans visualisation, donc l'utilisation de fonctions comme `vis_dat()` peut être particulièrement utile. Essayons-le maintenant !
+Regardons maintenant notre jeu de données du monde réel, qui est beaucoup plus grand et désordonné. Les grands jeux de données réels peuvent présenter des structures complexes qui sont difficiles à repérer sans visualisation, donc des fonctions comme `vis_dat()` peuvent être particulièrement utile. Essayons-le maintenant !
 
 ```{r dpi = 350}
 vis_dat(non_adherence)
@@ -135,37 +135,38 @@ vis_dat(non_adherence)
 
 Génial ! À partir de cette vue, nous pouvons déjà voir certains problèmes :
 
-- Il semble y avoir une colonne complètement vide dans les données (la colonne `NA` qui est entièrement grise)
+-   Il semble y avoir une colonne complètement vide (la colonne `NA` qui est entièrement grise)
 
-- Plusieurs variables ont beaucoup de valeurs manquantes (comme `Education`, `BMI_Initation_Art` et `CD4_Initation_ART`) 
+-   Plusieurs variables ont beaucoup de valeurs manquantes (comme `Education`, `IMC_intiation_ARV` et `CD4_initation_ARV`)
 
-- Les noms de certaines variables sont peu clairs/non nettoyés (par exemple, `Age at ART initation` et `WHO status at ART initiaion` ont des espaces dans leurs noms et `Civil...status` et `regimen.1` ont des caractères spéciaux `.`)
+-   Les noms de certaines variables sont peu clairs/non nettoyés (par exemple, `Age a l'initiation du ARV` et `Statut OMS a l'initiation du ARV` ont des espaces dans leurs noms et `Etat...civil` et `regimen.1` ont des caractères spéciaux `.`)
 
-Dans la prochaine leçon, nous essayerons de remédier à ces problèmes et à d'autres dans la mesure du possible pendant le processus de nettoyage des données. Mais pour l'instant, l'objectif est que nous comprenions les fonctions utilisées pour les identifier. Maintenant que nous avons une solide compréhension de la façon de visualiser les données manquantes avec `vis_dat()`, jetons un coup d'œil à un autre package et fonction qui peut nous aider à générer des statistiques sommaires de nos variables !
+Dans la prochaine leçon, nous essayerons de remédier à ces problèmes pendant le processus de nettoyage des données. Mais pour l'instant, l'objectif est que nous comprenions les fonctions utilisées pour les identifier. Maintenant que nous savons visualiser les données manquantes avec `vis_dat()`, jetons un coup d'œil à un autre package et fonction qui peut nous aider à générer des statistiques sommaires de nos variables !
 
 ::: r-practice
-L'ensemble de données suivant a été adapté d'une étude qui a examiné les occasions manquées de dépistage du VIH chez les patients se présentant pour la première fois pour des soins contre le VIH dans un hôpital universitaire suisse. L'ensemble de données complet peut être trouvé [ici](https://zenodo.org/records/5008340).
 
-```{r eval=FALSE}
-missed_ops <- read_csv(here("data/HIV_missed_ops.csv"))
+**Q : Repérer les problèmes de données avec `vis_dat()`**
+
+L'ensemble de données suivant a été adapté d'une étude qui a examiné les opportunités manquées de dépistage du VIH chez les patients se présentant pour la première fois pour des soins contre le VIH dans un hôpital universitaire suisse. L'ensemble de données complet peut être trouvé [ici](https://zenodo.org/records/5008340).
+
+```{r}
+opp_manquees <- read_csv(here("data/opportunites_manquees.csv"))
 ```
 
-Utilisez la fonction `vis_dat()` pour obtenir une représentation visuelle des données. Quels problèmes potentiels pouvez-vous repérer en fonction de la sortie ?
+Utilisez la fonction `vis_dat()` pour obtenir une représentation visuelle des données. Quels problèmes potentiels pouvez-vous repérer ?
 :::
 
 ------------------------------------------------------------------------
 
-Voici la traduction en français de la section suivante :
-
 # Génération de statistiques sommaires avec `skimr::skim()`
 
-La fonction `skim()` du package `skimr` fournit une vue d'ensemble dans la console du dataframe et un résumé de chaque colonne (par classe/type). Essayons-la d'abord sur nos données fictives `covid_pat` pour comprendre son fonctionnement. Tout d'abord, pour rappel, voici notre dataframe `covid_pat` :
+La fonction `skim()` du package `skimr` fournit un résumé de chaque colonne (par classe/type) dans la console. Essayons-la d'abord sur nos données fictives `covid_pat` pour comprendre son fonctionnement. Tout d'abord, pour rappel, voici notre dataframe `covid_pat` :
 
 ```{r render=reactable_10_rows}
 covid_pat
 ```
 
-Parfait, lançons maintenant la fonction `skim()` !
+Parfait, essayons maintenant la fonction `skim()` !
 
 ```{r}
 skimr::skim(covid_pat)
@@ -173,21 +174,21 @@ skimr::skim(covid_pat)
 
 Incroyable ! Comme nous pouvons le voir, cette fonction fournit :
 
-- Un aperçu des lignes et des colonnes du dataframe
+-   Un aperçu des lignes et des colonnes du dataframe
 
-- Le type de données pour chaque variable 
+-   Le type de données pour chaque variable
 
-- `n_missing`, le nombre de valeurs manquantes pour chaque variable
+-   `n_missing`, le nombre de valeurs manquantes pour chaque variable
 
-- `complete_rate`, le taux d'exhaustivité pour chaque variable
+-   `complete_rate`, le taux d'exhaustivité pour chaque variable
 
-- Un ensemble de statistiques sommaires : la moyenne, l'écart-type et les quartiles pour les variables numériques ; et la fréquence et les proportions pour les variables catégorielles
+-   Un ensemble de statistiques sommaires : la moyenne, l'écart-type, et les quartiles pour les variables numériques ; et la fréquence et les proportions pour les variables catégorielles
 
-- Des histogrammes spark pour les variables numériques
+-   Des histogrammes spark pour les variables numériques
 
-Maintenant, nous pouvons voir pourquoi cela est si précieux avec de grands dataframes ! Revenons à notre ensemble de données `adh` et exécutons la fonction `skim()` dessus.
+Maintenant, nous pouvons voir pourquoi cela est si utile avec de grands dataframes ! Revenons à notre jeu de données `non_adherence` et exécutons la fonction `skim()` dessus.
 
-```{r render=reactable_5_rows}  
+```{r render=reactable_5_rows}
 non_adherence
 ```
 
@@ -195,42 +196,45 @@ non_adherence
 skimr::skim(non_adherence)
 ```
 
-À partir de cette sortie, nous pouvons identifier certains problèmes potentiels avec nos données :
+À partir de cette sortie de données, nous pouvons identifier certains problèmes potentiels :
 
-- Nous pouvons confirmer que la colonne `NA`, que vous avez vue dans la sortie `vis_dat()`, est bien complètement vide : elle a un `complete_rate` de 0
+-   Nous pouvons confirmer que la colonne `NA` est bien complètement vide : elle a un `complete_rate` de 0
 
-- La distribution de `Age at ART initation` est asymétrique
+-   La distribution de `Age a l'initiation du ARV` est asymétrique
 
 ::: r-practice
-Utilisez `skim()` pour obtenir un aperçu détaillé de l'ensemble de données `missed_ops`.
+
+**Q : Générer des statistiques sommaires avec `skim()`**
+
+Utilisez `skim()` pour obtenir un aperçu détaillé de l'ensemble de données `opp_manquees`.
 :::
 
-Super ! Maintenant que nous savons comment générer un bref rapport de statistiques sommaires pour nos variables. Dans la prochaine section, nous découvrirons quelques fonctions utiles du package `inspectdf` qui nous permettent de visualiser différentes statistiques sommaires.
+Super ! Maintenant nous savons comment générer un bref rapport de statistiques sommaires pour nos variables. Dans la prochaine section, nous découvrirons quelques fonctions utiles du package `inspectdf` qui nous permettent de visualiser différentes statistiques sommaires.
 
 ------------------------------------------------------------------------
 
-# Visualisation des statistiques sommaires avec des fonctions de `inspectdf`
+# Visualisation des statistiques sommaires avec le package `inspectdf`
 
-Bien que la fonction `skimr::skim()` vous donne des résumés de variables dans la console, vous voudrez parfois plutôt des résumés de variables sous une forme graphique plus riche. Pour cela, les fonctions `inspectdf::inspect_cat()` et `inspectdf::inspect_num()` peuvent être utilisées.
+Bien que la fonction `skimr::skim()` vous donne des résumés de variables dans la console, parfois il est préferable d'avoir un résumé de variables sous une forme graphique plus riche. Pour cela, les fonctions `inspectdf::inspect_cat()` et `inspectdf::inspect_num()` peuvent être utilisées.
 
-Si vous exécutez `inspect_cat()` sur un objet de données, vous obtenez un résumé tabulaire des variables catégorielles dans le jeu de données (les informations importantes sont cachées dans la colonne `levels`). Essayons-le d'abord sur le jeu de données `covid_pat`. Pour rappel, voici notre jeu de données :
+Si vous exécutez `inspect_cat()` sur un jeu de données, vous obtenez un résumé des variables catégorielles dans un tableau (les informations importantes sont cachées dans la colonne `levels`). Essayons-le d'abord sur le jeu de données `covid_pat`. Pour rappel, voici notre jeu de données :
 
 ```{r render=reactable_10_rows}
 covid_pat
-``` 
+```
 
 ```{r render=reactable_5_rows}
 inspect_cat(covid_pat)
 ```
 
-La magie se produit lorsque vous exécutez `show_plot()` sur le résultat de `inspect_cat()` :
+La magie se produit lorsque vous utilsier la fonction `show_plot()` sur le résultat de `inspect_cat()` :
 
-```{r} 
+```{r}
 inspect_cat(covid_pat) %>%
   show_plot()
 ```
 
-Cela semble parfait ! Vous obtenez une belle figure récapitulative montrant la distribution des variables catégorielles ! Les niveaux de variable sont également joliment étiquetés (s'il y a suffisamment d'espace pour afficher une étiquette).
+C'est parfait ! Vous obtenez une belle figure récapitulative montrant la distribution des variables catégorielles ! Les niveaux de variable sont également étiquetés, s'il y a suffisamment d'espace pour afficher une étiquette.
 
 Maintenant, essayons-le sur notre jeu de données `non_adherence` :
 
@@ -241,16 +245,19 @@ inspect_cat(non_adherence) %>%
 
 À partir de là, vous pouvez observer certains problèmes avec quelques variables catégorielles :
 
-- Le niveau de variable `Under 35` commence par une majuscule, tandis que `over 35` commence par une minuscule. Il pourrait être bon de standardiser cela.
+-   Pour le variable `Age_35`, on a deux niveaux. Le niveau `Moins de 35 ans` commence par une majuscule, tandis que `plus de 35 ans` commence par une minuscule. Ca pourrait être un bonn idée de standardiser cela.
 
-- La variable sexe a les niveaux `F` et `Male`. Cela pourrait également valoir la peine d'être normalisé.
+-   La variable `sexe` a les niveaux `F` et `Homme`. Cela pourrait également valoir la peine d'être standardisé.
 
-- Comme nous l'avons vu précédemment, `NA` est complètement vide.
+-   Comme nous l'avons vu précédemment, `NA` est complètement vide.
 
 ::: r-practice
-Complétez le code suivant pour obtenir un résumé visuel des variables catégorielles dans le jeu de données `missed_op`.
 
-```{r, eval=FALSE} 
+**Q : Repérer les problèmes de données avec `inspect_cat()`**
+
+Complétez le code suivant pour obtenir un résumé visuel des variables catégorielles dans le jeu de données `opp_manquees`.
+
+```{r, eval=FALSE}
 inspect___() %>%
   __________
 ```
@@ -258,184 +265,158 @@ inspect___() %>%
 Combien de problèmes de données potentiels pouvez-vous repérer ?
 :::
 
-De même, vous pouvez obtenir un graphique de résumé pour les variables numériques du jeu de données avec `inspect_num()`. Exécutons cela sur notre jeu de données `non_adherence` :
+De même, vous pouvez obtenir un graphique de résumé pour les variables numériques du jeu de données avec `inspect_num()`. Essayons cela sur notre jeu de données `non_adherence` :
 
 ```{r}
 inspect_num(non_adherence) %>%
   show_plot()
 ```
 
-À partir de cette sortie, vous pouvez remarquer que de nombreuses variables qui devraient être des variables factor sont codées comme numériques. En fait, les seules vraies variables numériques sont `Age at ART initiation`, `BMI_Initiation_ART`, `CD4_Initation_ART` et `Nr_of_pills_day`. Nous corrigerons ces problèmes dans la prochaine leçon lorsque nous passerons au nettoyage des données. Pour l'instant cependant, jetons un coup d'œil à notre dernière fonction pour l'analyse exploratoire des données !
+À partir de ce graphique généré, vous remarqueriez que de nombreuses variables qui devraient être des variables factor sont codées comme numériques. En fait, les seules vraies variables numériques sont `Age a l'initiation du ARV`, `IMC_initiation_ARV`, `CD4_initiation_ARV` et `Nmbr_comprimes_jour`. Nous corrigerons ces problèmes dans la prochaine leçon lorsque nous passerons au nettoyage des données. En attendant, regardons de plus près une autre fonction qui s'avère particulièrement utile pour les variables catégorielles !
 
-::: r-practice  
-Utilisez `inspect_num` pour créer des histogrammes de vos variables numériques dans le jeu de données `missed_op`. Les types de variables numériques sont-ils corrects ?
+::: r-practice
+
+**Q : Types de variables avec `inspect_num()`**
+
+Utilisez `inspect_num` pour créer des histogrammes de vos variables numériques dans le jeu de données `opp_manquees`. Les types de variables numériques sont-ils corrects ?
 :::
 
 ------------------------------------------------------------------------
 
-Voici la traduction en français de la section suivante :
+# Explorer les variables catégorielles avec `gtsummary::tbl_summary()`
+
+Bien que la fonction `inspect_cat()` soit utile pour un aperçu graphique des variables catégorielles, elle ne fournit pas d'informations sur les fréquences et les pourcentages pour les différents niveaux. Pour cela, `tbl_summary()` du package `gtsummary` est particulièrement utile ! La sortie de données étant particulièrement longue, nous allons regarder la forme tibble et montrer une photo de la partie importante pour notre jeu de données. Vous pouvez explorer les données complètes en codant chez vous.
+
+Essayons-le sur notre jeu de données `non_adherence` :
+
+```{r}
+gtsummary::tbl_summary(non_adherence) %>%
+  as_tibble() 
+```
+
+Super ! Comme nous pouvons le voir, cela nous fournit un résumé des fréquences et des pourcentages pour les variables catégorielles et la médiane et l'IQR pour les variables numériques.
+
+Ci-dessous vous pouvez voir une photo d'une partie de la sortie où nous pouvons remarquer des problèmes supplémentaires dans nos données qui n'étaient pas clairs avec la fonction `inspect_cat()`. Certaines valeurs de notre variable `Occupation` sont en majuscules, tandis que d'autres sont entièrement en minuscules.
+
+![](images/tbl_summary_vf.png)
+
+Cela signifie que R ne les reconnaît pas comme étant la même valeur, ce qui poserait problème lors de l'analyse. Nous corrigerons ces erreurs dans la prochaine leçon, pour l'instant passons à notre dernière fonction pour l'analyse exploratoire des données !
+
+::: practice
+
+**Q : Repérer les problèmes de données avec `tbl_summary()`**
+
+Utilisez `tbl_summary()` pour produire un résumé de votre jeu de données `opp_manquees`. Pouvez-vous identifier des problèmes de données supplémentaires ?
+:::
+
+------------------------------------------------------------------------
 
 # Création de rapports de données avec `DataExplorer::create_report()`
 
-Enfin, la fonction `create_report()` du package `DataExplorer` crée un profil complet d'un dataframe : un fichier HTML avec des statistiques de base et des visualisations de distribution. 
+Enfin, la fonction `create_report()` du package `DataExplorer` crée un profil complet d'un dataframe : un fichier HTML avec des statistiques de base et des visualisations de distribution.
 
-Exécutons cette fonction sur le dataframe `adh` et observons sa sortie. Notez que cela peut prendre un certain temps. Si cela prend trop de temps, vous pouvez l'exécuter sur un échantillon du jeu de données plutôt que sur l'ensemble du jeu de données.
+Utilisons cette fonction sur notre jeu de donnnées `non_adherence`. Notez que cela peut prendre un certain temps. Si cela prend trop de temps, vous pouvez l'exécuter sur un sous-ensemble du jeu de données plutôt que sur l'ensemble du jeu de données.
 
 ```{r eval = FALSE}
 create_report(non_adherence)
 ```
 
-Comme vous pouvez le voir, le rapport est assez complet. Nous ne passerons pas en revue toutes les sorties de ce rapport de données car de nombreuses sorties graphiques sont les mêmes que celles que nous avons vues avec les fonctions précédentes ! Cependant, certaines nouvelles sorties incluent :
+Comme vous pouvez le voir, le rapport est assez complet. Nous ne passerons pas en revue toutes les sorties de ce rapport de données car de nombreuses graphiques sont les mêmes que celles que nous avons vues avec les fonctions précédentes ! Cependant, certain nouveautés incluent :
 
-- Un graphique QQ pour évaluer la normalité des variables numériques
+-   Un graphique QQ pour évaluer la normalité des variables numériques
 
-- Une analyse de corrélation (lorsqu'il y a suffisamment de lignes complètes) 
+-   Une analyse de corrélation (lorsqu'il y a suffisamment de lignes complètes)
 
-- Une analyse en composantes principales (lorsqu'il y a suffisamment de lignes complètes)
+-   Une analyse en composantes principales (lorsqu'il y a suffisamment de lignes complètes)
 
 N'hésitez pas à explorer la [documentation du package](https://boxuancui.github.io/DataExplorer/index.html) par vous-même.
 
 ::: r-practice
-Créez un rapport de données pour vos données `missed_ops` en utilisant la fonction `create_report()` !
-:::
 
+**Q : Rapport de données avec `create_report()`**
+
+Créez un rapport de données pour vos données `opp_manquees` en utilisant la fonction `create_report()` !
+:::
 
 ------------------------------------------------------------------------
 
 # En Résumé
 
-En nous familiarisant avec les données, nous avons pu identifier certains problèmes potentiels qu'il faudra peut-être résoudre avant d'utiliser les données dans une analyse.
+En nous familiarisant avec les données, nous avons pu identifier certains problèmes potentiels qu'il faudra résoudre avant d'utiliser les données dans une analyse.
 
-Et comme vous l'avez vu, le code nécessaire pour explorer ces données est en réalité très peu important ; d'autres développeurs R ont fait le travail difficile pour nous en construisant d'incroyables packages pour analyser rapidement les jeux de données et identifier les problèmes.
+Et comme vous l'avez vu d'autres développeurs R ont fait le travail difficile pour créer d'incroyables packages pour analyser rapidement les jeux de données et identifier les problèmes.
 
-À partir de la prochaine leçon, nous allons aborder ces problèmes identifiés un par un, en commençant par le problème de noms de variables incohérents et désordonnés. 
+À partir de la prochaine leçon, nous allons aborder ces problèmes identifiés un par un, en commençant par le problème de noms de variables incohérents et désordonnés.
 
 On se retrouve à la prochaine leçon !
-------------------------------------------------------------------------
-
-::: demo
-
-[XXX DEMO HERE XXX]
-
-::: 
-
-------------------------------------------------------------------------
-
-::: reminder
-
-[XXX SIDE NOTES HERE XXXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: recap
-
-[XXX RECAP HERE XXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: practice
-
-[XXX PRACTICE QUESTIONS HERE XXX] 
-- NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-
-:::
-
-------------------------------------------------------------------------
-
-::: r-practice
-
-[XXX PRACTICE QUESTIONS HERE XXX] 
-- NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-
-:::
-
-------------------------------------------------------------------------
-
-::: challenge
-
-[XXX CHALLENGE PRACTICE QUESTIONS HERE XXX]
-- NOTE: Make sure to add the answers to all practice at the end of the lesson! We are no longer using autograders for the GF project.
-
-::: 
-
-------------------------------------------------------------------------
-
-::: pro-tip
-
-[XXX PRO-TIPS HERE XXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: vocab
-
-[XXX RELEVANT VOCUBULARY WORDS HERE XXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: side-note
-
-[XXX SIDE NOTES HERE XXXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: watch-out
-
-[XXX TIPS HERE XXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: key-point
-
-[XXX KEY POINTS HERE XXX]
-
-:::
-
-------------------------------------------------------------------------
-
-::: error
-
-[XXX ERRORS HERE XXX]
-
-::: 
-
-------------------------------------------------------------------------
-
-::: rstudio-cloud
-
-[XXX RSTUDIO CLOUD TIPS HERE XXX]
-
-::: 
-
-------------------------------------------------------------------------
-
-# WRAP UP! {.unnumbered}
-
-[XXX NICE WRAP UP MESSAGE OR SUMMARY IF NEEDED HERE XXX]
 
 ------------------------------------------------------------------------
 
 # Answer Key {.unnumbered}
 
+### Q : Repérer les problèmes de données avec `vis_dat()` {.unlisted .unnumbered}
+
+```{r}
+vis_dat(opp_manquees)
+```
+
+-   La colonne NaN est complètement vide
+
+### Q : Générer des statistiques sommaires avec `skim()` {.unlisted .unnumbered}
+
+```{r}
+skim(opp_manquees)
+```
+
+### Q : Repérer les problèmes de données avec `inspect_cat()` {.unlisted .unnumbered}
+
+```{r}
+inspect_cat(opp_manquees) %>%
+  show_plot()
+```
+
+-   La variable `acute` a 2 niveaux : `Not acute` et `yes`. Cela devrait être normalisé.
+-   La variable `sex` a 3 niveaux : `Female`, `Male` et `M`. Le `M` devrait être changé en `Male`.
+
+### Q : Types de variables avec `inspect_num()` {.unlisted .unnumbered}
+
+```{r}
+inspect_num(opp_manquees) %>%
+  show_plot()
+```
+
+-   La variable `cd4category` devrait être une variable de type facteur.
+
+### Q : Repérer les problèmes de données avec `tbl_summary()` {.unlisted .unnumbered}
+
+```{r}
+tbl_summary(opp_manquees)
+```
+
+-   Pour la variable `reasonsdx`, il y a les catégories `Epidemiological risk` et `Epi risk` qui devraient être regroupées en une seule catégorie.
+
+### Q : Rapport de données avec `create_report()` {.unlisted .unnumbered}
+
+```{r eval=FALSE}
+DataExplorer::create_report(opp_manquees)
+```
+
 ------------------------------------------------------------------------
 
-# Contributors {.unlisted .unnumbered}
+## References {.unlisted .unnumbered}
 
-The following team members contributed to this lesson:
+Une partie du matériel de cette leçon a été adaptée des sources suivantes :
 
-`r tgc_contributors_list(ids = c("kendavidn", "lolovanco"))` 
-(make sure to update the contributor list accordingly!)
+-   Batra, Neale, et al. The Epidemiologist R Handbook. 2021.*Cleaning data and core functions*. <https://epirhandbook.com/en/cleaning-data-and-core-functions.html#cleaning-data-and-core-functions>
 
+-   Waring E, Quinn M, McNamara A, Arino de la Rubia E, Zhu H, Ellis S (2022). skimr: Compact and Flexible Summaries of Data. <https://docs.ropensci.org/skimr/> (website), <https://github.com/ropensci/skimr/.>
+
+------------------------------------------------------------------------
+
+# Contributeurs {.unlisted .unnumbered}
+
+Les membres suivants de l'équipe ont contribué à cette leçon :
+
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko"))` 
 
 

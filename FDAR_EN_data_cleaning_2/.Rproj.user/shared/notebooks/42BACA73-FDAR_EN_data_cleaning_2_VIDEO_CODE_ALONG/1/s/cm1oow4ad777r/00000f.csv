@@ -1,0 +1,12 @@
+"0","case_match(test_vector, 
+           ""+"" ~ ""positive"", 
+           ""-"" ~ ""negative"", 
+           .default = ""unknown"")
+"
+"1","[1]"
+"1"," ""positive"""
+"1"," ""negative"""
+"1"," ""unknown"" "
+"1"," ""unknown"" "
+"1","
+"

@@ -465,3 +465,10 @@ typhoid %>%
 typhoid %>%
   mutate(across(13:29, ~as.factor(.)))
 ```
+
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko"))`

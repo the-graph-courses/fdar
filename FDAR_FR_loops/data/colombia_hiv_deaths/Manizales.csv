@@ -1,0 +1,200 @@
+municipality,death_location,birth_date,death_year,death_month,death_day,gender,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,1980-07-09,2010,Jan,11,Male,Other,Manizales,Septic Shock,A419,Severe immunosuppression,D849,Suspected HIV infection,A162,SONSPECHA DE VIH,B24
+Municipal head,Hospital/clinic,1961-09-08,2010,Jan,28,Female,Other,Manizales,Septic Shock,A419,Multilobar pneumonia,J181,HIV infection,B24,INFECCION POR VIAS DE INMUNODEFICIENCIA HUMANA,NA
+Municipal head,Hospital/clinic,1963-05-12,2010,Dec,24,Male,Other,Manizales,Severe Respiratory Failure,J969,Mycotic pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1959-10-23,2010,Sep,8,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Cryptococcal meningitis,B451,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1958-02-26,2010,Sep,21,Male,Other,Manizales,Respiratory Failure,J969,Gastric cancer,C169,Pulmonary edema,B24,EDEMA PULMONAR,J81
+Municipal head,Hospital/clinic,1960-10-17,2010,Sep,23,Male,Other,Manizales,Kaposi's Sarcoma,C469,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1964-08-09,2010,Oct,13,Male,Other,Manizales,Asystole,I469,Metabolic acidosis,E872,Pulmonary tuberculosis,N19,TUBERCULOSIS PULMONAR,A162
+Municipal head,Hospital/clinic,1975-12-24,2010,Oct,16,Male,Other,Manizales,Pneumonia,J189,Immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2048-12-31,2010,Nov,4,Female,Other,Manizales,Cardiorespiratory Arrest,I469,Idioventricular rhythm,I498,Septic shock of pulmonary and urinary origin,R688,SHOCK SEPTICO DE ORIGEN PULMONAR Y URINARIO,J984
+Municipal head,Home/address,1959-10-27,2010,Nov,9,Male,Other,Manizales,Malignant Ventricular Arrhythmia,I498,Multiple organ failure,R688,AIDS stage IIIC,A419,SIDA ESTADIO IIIC,B24
+Municipal head,Hospital/clinic,1982-06-13,2010,Nov,23,Female,Other,Manizales,HIV AIDS,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1980-09-10,2010,Dec,22,Male,Other,Manizales,Respiratory Insufficiency,J969,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1957-08-12,2010,Sep,4,Male,Other,Manizales,Tuberculosis,A169,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1979-04-09,2010,Aug,12,Male,Other,Manizales,Septic Shock,A419,Pneumonia due to other specified infectious microorganisms,J189,NA,B206,NA,NA
+Municipal head,Hospital/clinic,1974-10-18,2010,Jan,5,Male,Other,Manizales,Cerebral Infarction,I639,Diffuse cerebral vasculitis,I677,HIV infection,B459,INFECCION POR EL VIRUS DE LA INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Home/address,1967-01-07,2010,Nov,25,Female,Other,Manizales,Acute Malnutrition,E46,Chronic diarrheal disease,A09,NA,B24,NA,NA
+Municipal head,Public way,1979-06-11,2010,Oct,28,Male,Other,Manizales,Severe Protein Caloric Malnutrition,E43,HIV,B24,NA,NA,NA,NA
+Populated center,Home/address,1970-12-13,2010,Jul,31,Male,Other,Manizales,Human Immunodeficiency Virus,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1984-08-20,2010,May,24,Male,Other,Manizales,Sepsis,A419,Multifactorial pneumonia,J189,Questionable HIV (not yet confirmed),D849,SE INTERROGA VIH (AUN NO CONFIRMADO),B24
+Municipal head,Hospital/clinic,1969-10-08,2010,Apr,13,Female,Other,Manizales,Multi-Organ Failure,R688,Septic shock,A419,NA,J189,NA,NA
+Municipal head,Hospital/clinic,2035-07-08,2010,Aug,18,Male,Other,Manizales,Bronchoaspiration,T175,Respiratory failure,J969,HIV,R418,VIH,B24
+Populated center,Home/address,1968-03-09,2010,Jul,5,Male,Other,Manizales,Acute Dehydration,E86,Acute diarrheal disease,A09,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1954-11-15,2010,Jul,1,Male,Other,Manizales,Cerebral Toxoplasmosis,B582,HIV,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1953-03-28,2010,Jul,17,Male,Other,Manizales,Respiratory Insufficiency,J969,Pneumonia,J189,HIV disease,A162,ENFERMEDAD POR VIH,B24
+Municipal head,Hospital/clinic,2035-11-09,2010,Jun,26,Male,Other,Manizales,Multilobar Pneumonia,J181,AIDS stage 36,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1968-04-16,2010,May,11,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Immunosuppression,D849,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1964-02-14,2010,May,24,Male,Other,Manizales,Multi-Organ Respiratory Failure,J969,Pneumonia,J189,HIV infection,D849,INFECCION POR VIH,B24
+Municipal head,Hospital/clinic,2049-09-04,2010,May,16,Male,Other,Manizales,Acute Respiratory Failure,J969,Acute kidney failure,N179,HIV disease (diagnosed in ICU),K729,ENFERMEDAD POR VIH (DIAGNOSTICADA EN UCI),B24
+Municipal head,Hospital/clinic,1954-02-12,2010,Apr,19,Male,Other,Manizales,Neurogenic Shock,R578,Meningeal cryptococcosis,B451,NA,B24,NA,NA
+Municipal head,Home/address,1965-12-15,2010,Apr,2,Male,Other,Manizales,Respiratory Failure,J969,Respiratory failure,NA,HIV infection,J628,INFECCION VIRUS INMUNODEFICIENCIA,B24
+Municipal head,Hospital/clinic,1986-05-16,2010,Mar,11,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Neuroinfection - pneumonia,G049,HIV,D849,VIH,B24
+Municipal head,Hospital/clinic,1990-04-28,2010,Mar,5,Male,Other,Manizales,Respiratory Arrest,R092,Intracranial hypertension,G932,Acquired immunodeficiency syndrome,B451,SINDROME DE INMUNODEFICIENCIA ADQUIRIDA,B24
+Municipal head,Hospital/clinic,1984-04-15,2010,Mar,10,Male,Other,Manizales,Bacterial Meningoencephalitis,G042,Severe malnutrition,E43,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1965-07-10,2010,Feb,26,Male,Other,Manizales,Septic Shock,A419,HIV,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1972-10-12,2010,Feb,14,Male,Other,Manizales,Sepsis,A419,Toxoplasmosis,B589,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2031-01-19,2010,Feb,10,Male,Other,Manizales,Acute Renal Insufficiency,N179,Pulmonary cryptococcosis,B450,HIV disease,B451,ENFERMEDAD POR VIH,B24
+Municipal head,Hospital/clinic,1984-06-17,2011,Dec,28,Female,Other,Manizales,Cerebral Anoxia,G931,Diffuse cerebral edema,G936,Toxic hepatitis,K720,HEPATITIS TOXICA,K716
+Municipal head,Hospital/clinic,2047-02-25,2011,Dec,17,Male,Other,Manizales,Multi-Organ Failure,R688,Septic shock,A419,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1962-10-13,2011,Nov,27,Male,Other,Manizales,Septicemia,A419,Cerebral toxoplasmosis infection,B582,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2048-11-20,2011,Nov,11,Female,Other,Manizales,Septic Shock,A419,Urinary tract infection,N390,Cachexia,B24,CAQUEXIA,R64
+Municipal head,Hospital/clinic,1978-04-12,2011,Nov,7,Male,Other,Manizales,Encephalopathy,G934,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1960-01-24,2011,Nov,8,Male,Other,Manizales,Acute Meningoencephalitis,G049,Septicemia,A419,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1990-04-29,2011,Oct,29,Male,Other,Manizales,Bacterial Pneumonia,J159,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1957-01-30,2011,Oct,21,Male,Other,Manizales,HIV,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Home/address,1960-05-16,2011,Oct,20,Male,Other,Manizales,Multi-Organ Failure,R688,HIV infection,B24,NA,A199,NA,NA
+Municipal head,Hospital/clinic,1987-12-04,2011,Oct,18,Male,Other,Manizales,HIV Infection Confirmed by Western Blot,B24,Pulmonary tuberculosis,A162,NA,J960,NA,NA
+Municipal head,Home/address,1982-06-27,2011,Sep,26,Male,Other,Manizales,Respiratory Failure,J969,Bronchopneumonia,J180,HIV infection,E43,INFECCION POR VIH,B24
+Municipal head,Hospital/clinic,1958-02-27,2011,Sep,11,Male,Other,Manizales,Respiratory Insufficiency,J969,Lung disease under study,J984,Acquired immunodeficiency,C837,INMUNODEFICIENCIA ADQUIRIDA,B24
+Municipal head,Hospital/clinic,1973-10-13,2011,Aug,27,Male,Other,Manizales,Septic Shock,A419,Pleural empyema,J869,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1967-10-20,2012,Dec,23,Male,Other,Manizales,Acute Myocardial Infarction,I219,HIV encephalopathy,G934,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1979-05-23,2011,Aug,24,Female,Other,Manizales,Septic Shock,A419,Bilateral interstitial pneumonia,J849,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1970-05-17,2011,Jul,26,Male,Other,Manizales,Multiple Organ Failure,R688,Septic shock,A419,Intestinal perforation,K659,PERFORACIËN INTESTINAL,K631
+Municipal head,Hospital/clinic,1970-05-23,2011,Jul,5,Male,Other,Manizales,Respiratory Failure,J969,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1973-06-13,2011,Jul,5,Female,Other,Manizales,Respiratory Failure,J969,Severe pneumonia,J189,Urinary tract infection,B378,INFECCION URINARIA,N390
+Municipal head,Hospital/clinic,1955-05-10,2011,Jul,4,Female,Other,Manizales,Septicemia,A419,Pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,NA,2011,Jun,28,Male,Other,Manizales,Severe Protein Caloric Malnutrition,E43,Human immunodeficiency virus disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1987-11-30,2011,Jun,4,Male,Other,Manizales,Malignant Cardiac Arrhythmia,I498,Acute respiratory failure,J960,Acute gastroenteritis,A419,GASTROENTERITIS AGUDA,A09
+Municipal head,Hospital/clinic,1982-12-04,2011,May,15,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Massive hemorrhage,R58,HIV stage IIIc,D696,VIH ESTADIO TRES C,B24
+Municipal head,Hospital/clinic,1972-11-15,2011,Apr,29,Male,Other,Manizales,Septic Shock,A419,Bone marrow dysplasia,Q061,HIV virus,B24,VIRUS DE VIH,B24
+Municipal head,Hospital/clinic,1967-11-14,2011,May,5,Female,Other,Manizales,Acquired Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1970-07-03,2011,Jun,4,Male,Other,Manizales,Acute Renal Insufficiency,N179,Kaposi's sarcoma,C469,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1958-01-31,2011,May,27,Male,Other,Manizales,Respiratory Insufficiency,J969,Community-acquired pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1964-09-09,2011,Jun,10,Male,Other,Manizales,"Shock, Not Specified",R579,Genitourinary tuberculosis,A181,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1975-01-18,2011,Apr,9,Female,Other,Manizales,Cerebrovascular Accident,I64,Unspecified toxoplasmosis,B589,HIV/AIDS disease,J189,ENFERMEDAD VIH SIDA,B24
+Municipal head,Hospital/clinic,1991-02-12,2011,Apr,27,Female,Other,Manizales,Cerebral Hemorrhage,I619,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1986-08-04,2011,Mar,8,Male,Other,Manizales,Mixed Shock,R578,Cerebral toxoplasmosis,B582,HIV/AIDS,B59,VIH SIDA  C,B24
+Municipal head,Hospital/clinic,1987-12-28,2011,Feb,18,Female,Other,Manizales,Miliary Tuberculosis,A199,HIV AIDS infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1976-01-13,2011,Jan,7,Male,Other,Manizales,Pulmonary Tuberculosis,A162,Human immunodeficiency virus disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1952-06-06,2011,Jan,13,Male,Other,Manizales,Septicemia,A419,Immunosuppression,D849,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1979-04-02,2011,May,27,Male,Other,Manizales,Respiratory Insufficiency,J969,HIV - AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1968-12-13,2011,Feb,22,Male,Other,Manizales,Acute Pulmonary Edema,J81,Acute kidney failure,N179,Burkitt's lymphoma,B24,LINFOMA BURIKIT,C837
+Municipal head,Hospital/clinic,1982-09-09,2012,Jul,17,Male,Other,Manizales,Gastrointestinal Bleeding,K922,Disseminated intravascular coagulation,D65,HIV/AIDS,C469,VIH SIDA,B24
+Municipal head,Hospital/clinic,1958-12-21,2012,Jun,1,Male,Other,Manizales,Community-Acquired Pneumonia,J189,Acquired immunodeficiency syndrome,B24,NA,B24,NA,NA
+Municipal head,Health center/post,1966-12-01,2012,Jun,21,Male,Other,Manizales,Cardiac Arrhythmia,I499,Pleural effusion,J90,Non-Hodgkin's lymphoma,I272,LINFOMA NO HODKING,C859
+Municipal head,Hospital/clinic,2033-07-04,2012,Nov,22,Male,Other,Manizales,Severe Hydroelectrolytic Imbalance,E878,Kidney and liver failure,N19,NA,C859,NA,NA
+Municipal head,Home/address,1987-04-01,2012,Oct,23,Female,Other,Manizales,Septic Shock,A419,Infected decubitus ulcers,L89,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2038-07-26,2012,Dec,29,Male,Other,Manizales,Septicemia,A419,Lymphoma,C859,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1986-01-05,2012,Nov,1,Female,Other,Manizales,HIV Infection State II,B24,Pulmonary tuberculosis,A162,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1977-06-01,2012,Oct,19,Male,Other,Manizales,Respiratory Arrest,R092,HIV disease,B24,Pneumonia,B588,NEUMONIA,J189
+Municipal head,Hospital/clinic,1973-02-25,2012,Oct,8,Male,Other,Manizales,Acquired Immunodeficiency Syndrome AIDS,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1976-11-29,2012,Oct,7,Male,Other,Manizales,Urinary and Gastrointestinal Sepsis,N390,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1984-06-16,2012,Sep,29,Male,Other,Manizales,Pulmonary Edema,J81,Respiratory tract infection,J988,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1966-04-19,2012,Sep,8,Male,Other,Manizales,Disease by HIV Virus,B24,Pneumonia,J189,Malnutrition,C859,DESNUTRICION,E46
+Municipal head,Hospital/clinic,1957-01-30,2012,Sep,25,Female,Other,Manizales,Multi-Organ Failure,R688,Hypovolemic shock,R571,NA,A09,NA,NA
+Municipal head,Hospital/clinic,1977-05-04,2012,Sep,19,Male,Other,Manizales,Pneumonia by Other Microorganisms,J189,HIV disease with multiple infections,B24,NA,A162,NA,NA
+Municipal head,Hospital/clinic,1983-03-17,2012,Sep,12,Female,Other,Manizales,Cardiorespiratory Arrest,I469,Ventricular fibrillation,I490,Tuberculosis,B220,TUBERCULOSIS,A169
+Municipal head,Hospital/clinic,1998-03-26,2012,Aug,31,Male,Other,Manizales,Pulmonary Tuberculosis,A162,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1975-11-19,2012,Aug,22,Female,Other,Manizales,Pneumonia,J189,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2036-12-09,2012,Jul,3,Male,Other,Manizales,HIV Virus Infection,B24,Cryptococcal meningitis,B451,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1980-08-14,2012,May,11,Male,Other,Manizales,Cerebral Toxoplasmosis,B588,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1978-12-02,2012,May,10,Male,Other,Manizales,Pulmonary Edema,J81,Community-acquired pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1954-09-26,2012,Apr,21,Male,Other,Manizales,Asystole,I469,Respiratory failure,J969,NA,J690,NA,NA
+Municipal head,Hospital/clinic,1979-06-30,2012,Mar,19,Male,Other,Manizales,Respiratory Failure,J969,Toxoplasmosis,B589,NA,G060,NA,NA
+Municipal head,Hospital/clinic,1958-11-22,2013,Dec,14,Female,Other,Manizales,Severe Pneumonia,J189,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1959-05-03,2013,Dec,2,Male,Other,Manizales,Acquired Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Home/address,1964-08-27,2013,Oct,17,Male,Other,Manizales,Septic Shock,A419,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1985-04-15,2013,Apr,29,Male,Other,Manizales,HIV Encephalopathy,G934,Histoplasmosis,B399,NA,B459,NA,NA
+Municipal head,Hospital/clinic,1963-07-01,2013,Oct,22,Male,Other,Manizales,Septic Shock,A419,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1963-06-23,2013,Nov,10,Male,Other,Manizales,Multilobar Pneumonia,J180,Respiratory arrest,R092,Cachexia,B24,CAQUEXIA,R64
+Municipal head,Hospital/clinic,1985-10-16,2013,Dec,20,Male,Other,Manizales,Liver Failure,K729,Human immunodeficiency virus disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1978-07-30,2013,Nov,17,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Septic shock,A419,Pneumocystosis,J984,NEUMOCISTOSIS,B59
+Municipal head,Hospital/clinic,1952-02-25,2013,Sep,21,Male,Other,Manizales,Human Immunodeficiency Syndrome,B24,Multisystem organ failure,R688,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1987-09-12,2013,Sep,19,Male,Other,Manizales,Malignant Cerebral Edema,G936,Cerebral toxoplasmosis,B582,HIV infection,B24,INFECCION POR VIRUS DE INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,1957-05-30,2013,Sep,14,Male,Other,Manizales,Central Nervous System Infection,G049,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Home/address,1983-01-28,2013,Jul,11,Male,Other,Manizales,Anemia,D649,Extrapulmonary tuberculosis,A162,NA,B589,NA,NA
+Municipal head,Hospital/clinic,1964-04-30,2013,Jun,27,Male,Other,Manizales,Acute Myocardial Infarction,I219,HIV encephalopathy,B220,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1964-06-22,2013,Jun,18,Female,Other,Manizales,Acute Respiratory Insufficiency,J960,HIV encephalopathy,G934,Opportunistic CNS infection,B24,INFECCION OPORTUNISTA DEL SNC,B209
+Municipal head,Home/address,1974-11-02,2013,Jun,18,Male,Other,Manizales,Chronic Malnutrition,E46,Chronic diarrhea,K529,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1979-06-08,2013,Jun,15,Female,Other,Manizales,Unspecified Septicemia,A419,Urinary tract infection,N390,HIV resulting in cachectic syndrome,K560,VIH RESULTANTE EN SINDROME CAQUECTICO,B222
+Municipal head,Hospital/clinic,1955-02-28,2013,Jun,6,Male,Other,Manizales,Respiratory Insufficiency,J969,Community-acquired pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1952-08-02,2013,May,29,Male,Other,Manizales,Cardiac Arrest,I469,Thrombocytopenia,D696,Severe protein-calorie malnutrition,B207,DESNUTRICION PROTEICOCALORICA SEVERA,E43
+Municipal head,Hospital/clinic,1971-03-19,2013,Aug,17,Male,Other,Manizales,Septic Shock,A419,Pseudomonas tracheitis pneumonia,J189,NA,A170,NA,NA
+Municipal head,Hospital/clinic,1956-08-17,2013,Apr,5,Male,Other,Manizales,Acute Myocardial Infarction,I219,Volume depletion,E86,HIV disease resulting in multiple infections,E43,ENFERMEDAD POR VIH RESULTANTE EN INFECCIONES MULTIPLES,B207
+Municipal head,Hospital/clinic,1971-06-11,2013,Mar,20,Male,Other,Manizales,Severe Pulmonary Sepsis,J984,HIV/AIDS infection,B24,NA,M866,NA,NA
+Municipal head,Hospital/clinic,1971-12-16,2013,Mar,19,Male,Other,Manizales,Acute Kidney Failure,N179,HIV-associated nephropathy,N289,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1963-11-28,2013,Mar,17,Male,Other,Manizales,Brain Stem Herniation,G935,Cerebral toxoplasmosis,B588,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1951-08-15,2013,Mar,13,Male,Other,Manizales,Cerebral Toxoplasmosis,B582,Human immunodeficiency virus AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1986-05-15,2013,Mar,10,Male,Other,Manizales,Cardiac Arrest,I469,Pneumonia,J189,Severe protein-calorie malnutrition,B204,DESNUTRICION PROTEICOCALORICA SEVERA,E43
+Municipal head,Hospital/clinic,1964-07-15,2013,Feb,4,Male,Other,Manizales,Human Immunodeficiency Virus HIV,B24,Chronic kidney failure,N189,NA,I10,NA,NA
+Municipal head,Hospital/clinic,1983-03-29,2013,Feb,3,Male,Other,Manizales,Septicemia,A419,HIV infection,B24,NA,K650,NA,NA
+Municipal head,Hospital/clinic,2044-04-27,2013,Jan,18,Male,Other,Manizales,Acute Infection Syndrome due to HIV,B230,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1974-09-10,2013,Jan,19,Male,Other,Manizales,Septic Shock,A419,Severe respiratory failure,J969,NA,J189,NA,NA
+Municipal head,Hospital/clinic,1984-01-20,2013,Jan,15,Male,Other,Manizales,Pneumonia,J189,HIVAIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2047-08-10,2013,Jan,3,Male,Other,Manizales,Encephalopathy,G934,Cerebral toxoplasmosis,B582,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1962-08-01,2014,Jun,30,Male,Other,Manizales,Cardiac Arrest,I469,Anemic syndrome,D649,HIV/AIDS infection,D471,INFECCION POR VIH SIDA,B24
+Municipal head,Hospital/clinic,1985-12-24,2014,Jun,30,Male,Other,Manizales,Acute Liver Failure,K720,Miliary tuberculosis,A199,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1959-12-26,2014,Nov,16,Male,Other,Manizales,Severe Sepsis,A419,Pneumonia in immunocompromised patient,J189,HIV infection,B24,INFECCIËN POR VIH,B24
+Municipal head,Hospital/clinic,1989-04-10,2014,May,17,Male,Other,Manizales,Septic Shock,R572,Bacterial and mycotic infection,A499,HIV disease acquired immunodeficiency syndrome,C859,ENFERMEDAD POR VIRUS DE INMUNODEFICIENCIA HUMANA SINDROME DE INMUNODEFICIENCIA HUMANA ADQUIRIDA,B24
+Municipal head,Hospital/clinic,1965-03-30,2014,May,15,Male,Other,Manizales,Pneumocystis jirovecii Pneumonia,B59,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1991-06-15,2014,Apr,23,Male,Other,Manizales,Tuberculous Meningitis,A170,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1979-10-24,2014,Mar,18,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Toxoplasmosis,B589,Malignant brain tumor,B24,TUMOR CEREBRAL MALIGNO,C719
+Municipal head,Hospital/clinic,1964-02-13,2014,Mar,23,Male,Other,Manizales,Malignant Ventricular Arrhythmia,I498,Septic shock of undetermined origin,R572,Chronic HIV/AIDS infection stage C,J168,INFECCION CRONICA POR VIH SIDA ESTADIO C,B24
+Municipal head,Home/address,1986-01-04,2014,Aug,16,Male,Other,Manizales,HIV,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1967-02-25,2014,Dec,2,Male,Indigenous,Manizales,HIV AIDS,B24,Sepsis,A419,Immunosuppression,J189,INMUNOSUPRESION,D849
+Municipal head,Home/address,1956-02-12,2014,Nov,24,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Myocardial dysfunction,I518,Community acquired pneumonia,R572,NEUMONIA ADQUIRIDA EN LA COMUNIDAD,J189
+Municipal head,Hospital/clinic,1987-06-18,2014,Nov,16,Male,Other,Manizales,Severe Atypical Pneumonia,J189,Acquired immunodeficiency syndrome AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1959-08-31,2014,Oct,12,Male,Other,Manizales,Respiratory Failure,J969,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1950-07-16,2014,Sep,28,Female,Other,Manizales,Septic Shock,R572,Community-acquired pneumonia,J189,NA,K566,NA,NA
+Municipal head,Hospital/clinic,1952-03-15,2014,Aug,7,Male,Other,Manizales,Metastatic Cancer to Lung and Pleura,C780,Human immunodeficiency virus infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1970-11-30,2014,Jul,31,Male,Other,Manizales,HIV Positive,B24,Carcinomatosis,C799,NA,I469,NA,NA
+Municipal head,Hospital/clinic,1980-10-23,2014,Jul,20,Male,Other,Manizales,High-grade Arrhythmia,I499,Multiple organ failure,R688,HIV/AIDS,N390,VIH SIDA,B24
+Municipal head,Hospital/clinic,2047-06-03,2014,Jun,30,Male,Other,Manizales,Anemic Heart,I509,Aplastic anemia,D619,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1962-10-27,2014,Jun,10,Male,Other,Manizales,Pulmonary Origin Sepsis,J984,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1965-01-18,2014,Jun,1,Female,Other,Manizales,Cardiac Arrhythmia,I499,Electrolyte imbalance,E878,NA,J189,NA,NA
+Municipal head,Hospital/clinic,1956-08-12,2014,May,23,Male,Other,Manizales,Neuroinfection,G049,Human immunodeficiency virus disease,B24,Oral Candidiasis,J159,CANDIDIASIS ORAL,B370
+Municipal head,Hospital/clinic,1961-05-06,2014,May,8,Male,Other,Manizales,Septic Shock,R572,Pulmonary tuberculosis,A162,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1966-05-22,2014,Apr,27,Male,Other,Manizales,Febrile Neutropenia,D70,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1984-11-18,2014,May,1,Male,Other,Manizales,Viral Encephalitis,A86,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1957-12-29,2014,Mar,21,Female,Other,Manizales,Ventricular Fibrillation,I490,Acute myocardial infarction,I219,HIV/AIDS,J189,VIH   SIDA,B24
+Municipal head,Hospital/clinic,1977-10-15,2014,Feb,24,Male,Other,Manizales,Tuberculous Meningitis,A170,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1973-07-03,2014,Jan,14,Male,Other,Manizales,Multi-Systemic Failure,R688,Urinary sepsis,N390,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1973-10-23,2014,Jan,11,Male,Other,Manizales,Bacterial Pneumonia,J159,Human immunodeficiency virus disease,B24,NA,N179,NA,NA
+Municipal head,Hospital/clinic,1977-12-07,2014,Jan,5,Male,Other,Manizales,Pneumonia,J189,Cerebral toxoplasmosis,B582,NA,B24,NA,NA
+Municipal head,Home/address,1975-12-23,2015,Nov,7,Male,Other,Manizales,Myelodysplastic Syndrome,D469,Pulmonary tuberculosis,A162,HIV/AIDS infection,B582,INFECCION POR VIH  SIDA,B24
+Municipal head,Home/address,1959-12-02,2015,Oct,25,Male,Other,Manizales,HIV Infection,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1962-07-05,2015,Dec,6,Female,Other,Manizales,HIV/AIDS Disease,B24,Unspecified hepatic insufficiency,K729,NA,NA,NA,NA
+Municipal head,Home/address,1960-02-19,2015,Sep,7,Male,Other,Manizales,Septic Shock of Cerebral Origin,R572,Acquired immunodeficiency syndrome,B24,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1972-01-25,2015,Aug,21,Male,Other,Manizales,Respiratory Arrest,R092,Severe hypercapnia,R068,HIV/AIDS,A169,VIH SIDA,B24
+Municipal head,Hospital/clinic,1978-07-13,2015,Aug,16,Male,Other,Manizales,Uremic Encephalopathy,N19,Exacerbated chronic kidney disease,N189,Severe dehydration and protein-calorie malnutrition,N288,DESHIDRATACION SEVERA Y DESNUTRICON PROTEICO CALORICA,E86
+Municipal head,Hospital/clinic,1972-12-09,2015,Jul,19,Male,Other,Manizales,Aspiration Pneumonia,J690,Brain tumor of uncertain behavior,D430,Cardiorespiratory arrest,B24,PARO CARDIORESPIRATORIO,I469
+Municipal head,Hospital/clinic,1982-06-24,2015,May,27,Male,Other,Manizales,Respiratory Failure,J969,Respiratory infection,J988,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1981-08-06,2015,May,16,Male,Other,Manizales,Multiple Organ Dysfunction,R688,Septic shock,R572,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2040-10-02,2015,May,10,Male,Other,Manizales,Cardiorespiratory Arrest,I469,Malignant neoplasm of prostate,C61,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1974-11-10,2015,Apr,5,Female,Other,Manizales,Acute Respiratory Insufficiency,J960,Advanced stage HIV disease,B24,NA,B24,NA,NA
+Municipal head,Home/address,1959-08-27,2015,Apr,7,Female,Other,Manizales,Acute Myocardial Infarction,I219,Kidney cancer,C64,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1970-08-05,2015,Mar,27,Male,Other,Manizales,Respiratory Arrest,R092,Lymphoproliferative disease,D479,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1964-11-19,2015,Mar,26,Male,Other,Manizales,Infection by the Human Immunodeficiency Virus,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1978-05-30,2015,Mar,24,Male,Other,Manizales,HIV Encephalopathy,G934,Pulmonary tuberculosis,A162,Toxoplasmosis,B24,TOXOPLASMAOSIS,B582
+Municipal head,Hospital/clinic,1982-12-14,2015,Mar,20,Male,Other,Manizales,Septicemia,A419,Human immunodeficiency virus,B24,NA,D479,NA,NA
+Municipal head,Hospital/clinic,1981-02-26,2015,Feb,12,Male,Other,Manizales,Alveolar Hemorrhage,R048,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Home/address,1980-06-15,2015,Jan,11,Male,Other,Manizales,Death Without Assistance,R98,Distributive shock,R578,Chronic obstructive pulmonary disease,B24,ENFERMEDAD PULMONAR OBSTRUCTIVA CRONICA,J449
+Municipal head,Hospital/clinic,1966-12-09,2015,Jan,10,Female,Other,Manizales,Wasting Syndrome by HIV AIDS,Z730,HIV stage three C,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1992-07-08,2015,Jan,9,Female,Other,Manizales,Septic Shock,R572,Severe pneumonia,J189,Drug addiction,B24,DROGADICCION,F192
+Municipal head,Hospital/clinic,1950-10-22,2015,Jan,4,Male,Other,Manizales,Infectious Gastroenteritis,A090,HIV acquired immunodeficiency,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1958-09-25,2016,Dec,18,Male,Other,Manizales,Septic Shock from Soft Tissues,L089,HIV disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1966-01-04,2016,Sep,3,Male,Other,Manizales,Abdominal Sepsis,K650,Intestinal perforation,K631,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1988-06-05,2016,Sep,22,Male,Other,Manizales,Respiratory Arrest,R092,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1971-04-01,2016,Sep,1,Male,Other,Manizales,Cerebral Edema,G936,Multiple myeloma,C900,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1982-09-29,2016,Aug,23,Male,Other,Manizales,Multi-Systemic Failure,R688,Septic shock,R572,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1966-09-19,2016,Aug,22,Male,Other,Manizales,Malignant Arrhythmia,I499,Septic shock of pulmonary origin,J189,Immunosuppression due to HIV infection,A162,INMUNOSUPRESION POR INFECCION DE VIH,B24
+Municipal head,Hospital/clinic,1996-08-19,2016,Aug,16,Male,Other,Manizales,Aspiration Pneumonia,J690,Toxoplasma encephalitis,B582,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1958-05-26,2016,Aug,6,Male,Other,Manizales,Acute Respiratory Insufficiency,J960,Severe atypical pneumonia,J189,Immunodeficiency syndrome,J80,SINDROME DE INMUNODEFICIENCIA,B24
+Municipal head,Hospital/clinic,1981-10-18,2016,Jul,29,Male,Other,Manizales,Cerebral Edema,G936,Cerebral tuberculosis,A178,HIV infection,B24,INFECCION POR VIRUS DEL VIH,B24
+Municipal head,Hospital/clinic,1980-07-01,2016,Jul,15,Male,Other,Manizales,Acute Respiratory Insufficiency,J960,Pneumocystis jirovecii pneumonia,B59,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1971-01-15,2016,Jun,5,Male,Other,Manizales,Pulmonary Origin Sepsis,J189,Pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1964-12-14,2016,Jun,23,Male,Other,Manizales,Septicemia,A419,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1978-08-31,2016,Jun,11,Male,Other,Manizales,Septicemia,A419,Pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2044-08-16,2016,May,5,Female,Other,Manizales,Sepsis of Biliary Origin,K830,Stage C3 HIV/AIDS infection,B24,NA,NA,NA,NA
+Municipal head,Home/address,1964-09-24,2016,Apr,10,Male,Other,Manizales,Bronchopneumonia,J180,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1959-01-14,2016,Apr,3,Male,Other,Manizales,Multi-Systemic Failure,R688,Severe pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1981-07-29,2016,Jan,31,Male,Other,Manizales,Hemolytic Uremic Syndrome,D593,Multilobar pneumonia,J180,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1973-07-23,2016,Jan,26,Female,Other,Manizales,Severe Pneumonia,J189,Disseminated miliary tuberculosis,A199,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1995-11-30,2016,Jan,24,Male,Other,Manizales,Septic Shock,R572,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Home/address,1965-03-10,2016,Jan,16,Female,Other,Manizales,Cardiorespiratory Arrest,I469,Ventilatory failure,J969,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1968-07-25,2016,Jan,12,Male,Other,Manizales,Severe Pneumonia,J189,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2041-09-14,2016,Feb,8,Male,Other,Manizales,Cerebrovascular Accident,I64,Essential primary hypertension,I10,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1988-09-03,2016,Feb,7,Male,Other,Manizales,Central Nervous System Tuberculosis,A178,HIV infection,B24,NA,C819,NA,NA
+Municipal head,Hospital/clinic,1966-12-06,2016,Mar,13,Male,Other,Manizales,Pneumonia,J189,Acquired immunodeficiency,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2040-11-04,2016,Mar,5,Male,Other,Manizales,Disorder of the Balance of Electrolytes and Liquids NCOP Others,E878,Septicemia,A419,HIV disease without other specification,J159,ENFERMEDAD POR VIRUS DE LA INMUNODEFICIENCIA HUMANA VIH SIN OTRA ESPECIFICACION,B24

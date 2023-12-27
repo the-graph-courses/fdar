@@ -720,7 +720,7 @@ devtools::source_gist("https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b
 
 ‣ **4) Package**: - Suitable for a collection of functions. - Requires knowledge of R package development. - Reference: [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html).
 
-# Answer Keys
+# Answer Key
 
 ### Age Months Function {.unlisted .unnumbered}
 

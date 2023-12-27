@@ -1,0 +1,47 @@
+municipality,death_location,birth_date,death_year,death_month,death_day,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Home/address,1979-10-02,2010,Jun,20,Other,La Dorada,Multi-Systemic Failure,R688,Lower respiratory tract infection,J984,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1987-01-01,2010,May,4,Other,La Dorada,Septic Shock,A419,HIV-AIDS,B24,NA,NA,NA,NA
+Municipal head,Home/address,1981-10-08,2010,May,15,Other,La Dorada,Multi-Systemic Failure,R688,HIV,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1971-03-30,2011,Jan,10,Other,La Dorada,Coma State,R402,Seizures,R568,Human immunodeficiency syndrome,B588,SINDROME DE INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,1973-08-22,2010,Jun,8,Other,La Dorada,Pneumonia,J189,Acquired immunodeficiency,B24,NA,B24,NA,NA
+Municipal head,Hospital/clinic,NA,2010,Oct,26,Other,La Dorada,Acute Respiratory Failure,J960,Pulmonary edema,J81,NA,I10,NA,NA
+Municipal head,Hospital/clinic,1967-11-26,2011,Jul,24,Other,La Dorada,Multi-Systemic Failure,R688,Septic shock,A419,NA,N390,NA,NA
+Municipal head,Hospital/clinic,1976-08-14,2011,May,1,Other,La Dorada,"Pneumonia, Not Specified",J189,Pneumonitis due to aspiration of food or vomit,J690,NA,K210,NA,NA
+Municipal head,Hospital/clinic,1970-03-07,2011,Mar,9,Other,La Dorada,Acute Respiratory Insufficiency,J960,Unspecified pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1974-11-11,2011,Jan,30,Other,La Dorada,Pulmonary Origin Sepsis,J984,Unconfirmed HIV tuberculosis,A169,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1972-04-05,2011,Jan,18,Other,La Dorada,Acute Respiratory Insufficiency,J960,Multiple organ failure,R688,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1968-09-17,2012,Dec,12,Other,La Dorada,Acute Respiratory Failure,J960,Human immunodeficiency virus,B24,Meningoencephalitis,J841,MENINGOENCEFALITIS,G049
+Municipal head,Hospital/clinic,1955-01-30,2012,Sep,25,Other,La Dorada,Septic Shock,A419,Opportunistic pathogen sepsis,A419,NA,B24,NA,NA
+Municipal head,Home/address,1954-09-22,2012,May,3,Other,La Dorada,Pneumonia,J189,AIDS stage C3,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1962-10-18,2012,May,5,Other,La Dorada,Respiratory Insufficiency,J969,Meningitis,G039,NA,A170,NA,NA
+Municipal head,Hospital/clinic,1971-07-20,2012,Jan,14,Other,La Dorada,Bacterial Meningoencephalitis,G042,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1964-10-22,2012,Mar,4,Other,La Dorada,Respiratory Insufficiency,J969,Toxoplasmosis neuroinfection,G049,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1980-10-06,2012,Feb,15,Other,La Dorada,Cardiorespiratory Arrest,I469,Acute respiratory failure,J960,NA,J189,NA,NA
+Municipal head,Hospital/clinic,1965-06-29,2013,Mar,31,Other,La Dorada,Respiratory Distress Syndrome,J80,Septic shock of pulmonary origin,J984,Acquired immunodeficiency syndrome,D689,SINDROME DE INMUNODEFICIENCIA ADQUIRIDA,B24
+Municipal head,Hospital/clinic,1975-04-23,2013,Jul,9,Other,La Dorada,Acute Respiratory Insufficiency,J960,Opportunistic pathogen pneumonia,J168,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1968-09-06,2013,May,5,Other,La Dorada,Septic Shock of Pulmonary Origin,J984,Pneumonia,J189,Human immunodeficiency virus,B24,VIRUS DE INMUNOFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,1969-10-10,2013,May,3,Other,La Dorada,Interstitial Pneumonia,J849,Immunodepression,D849,NA,B24,NA,NA
+Municipal head,Home/address,1993-08-04,2013,Apr,11,Other,La Dorada,Heart Failure,I509,Immunodeficiency syndrome,B24,Immunodeficiency syndrome,J189,SINDROME INMUNODEFICIENCIA,B24
+Municipal head,Hospital/clinic,1972-06-30,2013,Jan,17,Other,La Dorada,Cardiopulmonary Arrest,I469,Respiratory failure,J969,HIV/AIDS infection,A419,INFECCION POR VIHSIDA,B24
+Municipal head,Hospital/clinic,1962-08-21,2014,Aug,1,Other,La Dorada,Malignant Ventricular Arrhythmia,I490,Severe and persistent hypoxemia,R090,Pseudomonas aeruginosa pneumonia,J984,NEUMONIA POR PSEUDOMONAS AERUGINOSA,J151
+Municipal head,Hospital/clinic,1970-09-26,2014,Dec,6,Other,La Dorada,Disease by Human Immunodeficiency Virus (HIV),B24,Urinary tract infection,N390,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1971-05-15,2014,Dec,8,Other,La Dorada,Hepatic Encephalopathy,K729,Staphylococcal septicemia,A412,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1962-08-21,2014,Nov,27,Other,La Dorada,Tuberculosis,A169,Acquired immunodeficiency syndrome,B24,NA,J449,NA,NA
+Municipal head,Hospital/clinic,NA,2014,Sep,27,Other,La Dorada,Acute Respiratory Insufficiency,J960,Multilobar pneumonia,J180,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1988-09-27,2014,Nov,14,Other,La Dorada,Disseminated Cryptococcosis,B457,Pneumocystis jirovecii pneumonia,B59,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1970-09-17,2014,Sep,17,Other,La Dorada,Ventilatory Failure,J969,HIV,B24,NA,C959,NA,NA
+Municipal head,Hospital/clinic,1978-03-06,2014,Sep,4,Other,La Dorada,Human Immunodeficiency Virus,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1956-07-22,2014,Jul,30,Other,La Dorada,Acute Respiratory Insufficiency,J960,HIV/AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1981-05-05,2014,Jun,4,Other,La Dorada,Multilobar Bacterial Pneumonia,J159,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1988-12-08,2014,Jul,8,Other,La Dorada,Ventricular Tachycardia,I472,Intracranial hypertension,G932,HIV infection stage IIIc,I776,INFECCION POR VIH ESTADIO TRES C,B24
+Scattered rural,Hospital/clinic,1958-04-13,2014,Jun,8,Other,La Dorada,Septic Shock,R572,Brain abscess,G060,Acquired human immunodeficiency virus,B582,VIRUS DE INMUNODEFICIENCIA HUMANA ADQUIRIDA,B24
+Municipal head,Hospital/clinic,1972-11-30,2014,Mar,10,Other,La Dorada,Human Immunodeficiency Virus,B24,Dyspeptic syndrome,K30,NA,C539,NA,NA
+Municipal head,Home/address,1982-06-20,2015,Oct,26,Other,La Dorada,Sepsis of Abdominal Origin,K650,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Home/address,1969-12-27,2015,Dec,31,Other,La Dorada,Hydroelectrolytic Imbalance,E878,Diarrhea and vomiting,A099,Chronic HIV gastroenteritis,E46,GASTROENTERITIS CRONICA POR VIH,A099
+Municipal head,Hospital/clinic,1963-10-03,2015,Aug,26,Other,La Dorada,Respiratory Failure,J969,Gastrointestinal origin sepsis,A090,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1964-08-01,2015,Jun,24,Other,La Dorada,Pulmonary Sepsis due to TB,J189,Acquired immunodeficiency virus HIV,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,1976-03-01,2015,Jul,27,Other,La Dorada,Ventilatory Failure,J969,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Home/address,2040-11-03,2016,Sep,7,Other,La Dorada,Acute Respiratory Failure,J960,Pneumonic respiratory infection,J189,NA,B24,NA,NA
+Municipal head,Home/address,1962-11-09,2016,Sep,14,Other,La Dorada,Acute Respiratory Insufficiency,J960,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Home/address,1971-06-11,2016,Mar,28,Other,La Dorada,Ventilatory Insufficiency,J969,HIV infection,B209,NA,B59,NA,NA
+Municipal head,Hospital/clinic,1981-03-05,2016,Mar,10,Other,La Dorada,Acute Respiratory Insufficiency,J960,Pulmonary tuberculosis,A162,NA,B24,NA,NA

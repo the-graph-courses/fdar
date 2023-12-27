@@ -789,7 +789,7 @@ hiv_dat_messy_1 %>%
 ```
 :::
 
-# Wrap up {.unnumbered}
+# Wrap Up! {.unnumbered}
 
 Congratulations on reaching the end of this lesson! You've learned about strings in R and various functions to manipulate them effectively.
 

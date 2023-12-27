@@ -1,0 +1,21 @@
+municipality,death_location,death_year,death_month,death_day,occupation,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2010,Oct,16,Operators of Automated Assembly Lines and Mechanical Installations and Industrial Robots,Other,Villamaría,Cardiogenic Shock,R570,Respiratory failure,J969,Sepsis,B24,SEPSIS,A419
+Municipal head,Hospital/clinic,2010,Aug,7,NA,Other,Villamaría,Cerebral Anoxia,G931,Multiple organ dysfunction,R688,Septicemia,A419,SEPTICEMIA,NA
+Municipal head,Hospital/clinic,2010,May,26,NA,Other,Villamaría,Acute Respiratory Insufficiency,J960,Acute respiratory distress syndrome,J80,Human immunodeficiency syndrome,K650,SINDROME DE INMUNODEFICNEICA HUMANA,B24
+Municipal head,Hospital/clinic,2011,Aug,17,"Waiters, Bartenders, and Similar",Other,Villamaría,Cerebral Anoxia,G931,Severe hypoxemia,R090,Multilobar pneumonia,J960,NEUMONIA MULTILOBAR,J180
+Municipal head,Hospital/clinic,2011,Aug,1,Home,Other,Villamaría,Septic Shock,A419,Meningitis,G039,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2011,Jun,22,Recyclable Material Collectors,Other,Villamaría,Severe Mixed Shock,R579,Ventilatory failure,J969,Septic shock,R688,SHOCK SEPTICO,A419
+Municipal head,Hospital/clinic,2011,Feb,28,Home,Other,Villamaría,Pneumonia,J189,Acquired immunodeficiency,B24,NA,M329,NA,NA
+Municipal head,Home/address,2012,Jun,10,Independent Worker,Other,Villamaría,Cardiogenic Shock,R570,Congestive heart failure,I500,NA,D381,NA,NA
+Municipal head,Hospital/clinic,2012,Feb,24,Home,Other,Villamaría,HIV AIDS,B24,Non-Hodgkin's lymphoma,C859,Pneumonia,D509,NEUMONIA,J189
+Municipal head,Hospital/clinic,2013,Jan,15,"Commercial Agents and Brokers, Not Classified Under Other Categories",Other,Villamaría,Cardiorespiratory Arrest,I469,Bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Home/address,2014,Jul,2,Non-commissioned Officers of the Military Forces,Other,Villamaría,Community-Acquired Pneumonia,J189,HIV AIDS stage III C,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jun,18,Transient Crop Farmers,Other,Villamaría,Bacterial Meningitis,G009,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,May,2,"Shop and Store Sellers, Demonstrators",Other,Villamaría,Pulmonary Tuberculosis,A162,Human immunodeficiency virus disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Dec,12,Unknown,Other,Villamaría,Hypovolemic Shock,R571,Upper gastrointestinal bleeding,K922,HIV/AIDS,C159,VIH SIDA,B24
+Municipal head,Hospital/clinic,2015,Jul,6,Transient Crop Farmers,Other,Villamaría,HIV Encephalitis,G049,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Feb,27,"Shop and Store Sellers, Demonstrators",Other,Villamaría,Bacterial Pneumonia,J159,Human immunodeficiency virus disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Feb,20,Taxi Drivers,Afro-Colombian,Villamaría,Atypical Pneumonia,J189,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Home/address,2016,Dec,18,Transient Crop Farmers,Other,Villamaría,Human Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Aug,8,Unknown,Other,Villamaría,HIV Encephalopathy,G934,Acquired immunodeficiency syndrome,B24,NA,B24,NA,NA
+Municipal head,Home/address,2016,May,19,Load Workers,Other,Villamaría,Acute Myocardial Infarction,I219,Cardiorespiratory arrest,I469,NA,I10,NA,NA

@@ -519,7 +519,7 @@ Put `occupation` on the y-axis, not the x-axis, to avoid label overlap.
 
 ------------------------------------------------------------------------
 
-# Wrap up {.unnumbered}
+# Wrap up! {.unnumbered}
 
 Congrats on getting to the end. In this lesson, you learned details about the data class, **factors**, and how to manipulate them using basic operations such as `fct_relevel()`, `fct_reorder()` `fct_recode()`, and `fct_lump()`.
 
@@ -563,13 +563,72 @@ And while many statistical functions expect factors, not characters, for categor
 
 ## Q: Using fct_relevel {.unlisted .unnumbered}
 
+```{r}
+# Convert death_location to a factor with 'Home/address' as the first level
+hiv_mort <- hiv_mort %>%
+  mutate(death_location = fct_relevel(death_location, "Home/address"))
+
+# Create a bar plot of death_location
+ggplot(hiv_mort, aes(x = death_location)) +
+  geom_bar() +
+  labs(title = "Count of Individuals by Death Location")
+```
+
 ## Q: Using fct_reorder {.unlisted .unnumbered}
+
+```{r}
+# Reorder municipality_name by med_age_death and plot
+summary_per_muni <- summary_per_muni %>%
+  mutate(municipality_name = fct_reorder(municipality_name, med_age_death))
+
+# Create a bar plot of reordered municipality_name
+ggplot(summary_per_muni, aes(x = municipality_name)) +
+  geom_bar() +
+  labs(title = "Municipality by Median Age at Death")
+```
 
 ## Q: Using .fun {.unlisted .unnumbered}
 
+```{r}
+
+# Create a boxplot of birth_year by health_insurance_status
+ggplot(hiv_mort, aes(x = health_insurance_status, y = birth_year)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Birth Year by Health Insurance Status") +
+  coord_flip()  # To display categories on the y-axis
+
+```
+
 ## Q: Using fct_recode {.unlisted .unnumbered}
 
+```{r}
+
+# Convert death_location to a factor and rename 'Public way' to 'Public place'
+hiv_mort <- hiv_mort %>%
+  mutate(death_location = fct_recode(death_location, "Public place" = "Public way"))
+
+# Plot frequency counts of the updated variable
+ggplot(hiv_mort, aes(x = death_location)) +
+  geom_bar() +
+  labs(title = "Frequency Counts of Death Location")
+
+```
+
 ## Q: Using fct_lump {.unlisted .unnumbered}
+
+```{r}
+
+# Create a bar chart with the frequency of the 10 most common occupations
+hiv_mort <- hiv_mort %>%
+  mutate(occupation = fct_lump(occupation, n = 10, other_level = "Other"))
+
+# Create the bar plot with occupation on the y-axis
+ggplot(hiv_mort, aes(x = occupation)) +
+  geom_bar() +
+  labs(title = "Frequency of the 10 Most Common Occupations") +
+  coord_flip()  # To display categories on the y-axis
+
+```
 
 # Appendix: Codebook
 

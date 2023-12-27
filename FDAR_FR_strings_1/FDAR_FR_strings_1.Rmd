@@ -274,7 +274,7 @@ D'abord, nous chargeons l'ensemble de données et examinons des variables spéci
 
 ```{r}
 # Charger l'ensemble de données
-hiv_dat_messy_1 <- openxlsx::read.xlsx(here("data/hiv_dat_messy_1.xlsx")) %>%
+hiv_dat_messy_1 <- openxlsx::read.xlsx(here::here("data/hiv_dat_messy_1.xlsx")) %>%
   as_tibble()
 
 # Ces quatre variables contiennent des incohérences de formatage :
@@ -358,7 +358,7 @@ Dans cet exercice, vous nettoierez un ensemble de données, `lima_messy`, proven
 Commencez par importer l'ensemble de données :
 
 ```{r}
-lima_messy_1 <- openxlsx::read.xlsx(here("data/lima_messy_1.xlsx")) %>% 
+lima_messy_1 <- openxlsx::read.xlsx(here::here("data/lima_messy_1.xlsx")) %>% 
   as_tibble()
 lima_messy_1
 ```
@@ -433,7 +433,7 @@ Cependant, appliquer `str_split()` directement à un dataframe peut être plus c
 Essayons-le avec le jeu de données IRS du Malawi comme étude de cas. Vous devriez déjà être familier avec ce jeu de données d'une leçon précédente. Il est disponible [ici](https://zenodo.org/record/8146044){target="_blank"}. Pour l'instant, nous nous concentrerons sur la colonne `start_date_long` :
 
 ```{r}
-irs <- read_csv(here("data/Illovo_data.csv"))
+irs <- read_csv(here::here("data/Illovo_data.csv"))
 irs_dates_1 <- irs %>% select(village, start_date_long)
 irs_dates_1
 ```

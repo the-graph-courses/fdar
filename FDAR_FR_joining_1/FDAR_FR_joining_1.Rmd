@@ -46,6 +46,7 @@ Veuillez charger les paquets nécessaires à cette leçon avec le code ci-dessou
 # Charger les paquets
 if(!require(pacman)) install.packages("pacman")
 pacman::p_load(tidyverse, 
+               here,
                countrycode)
 ```
 
@@ -233,6 +234,9 @@ La syntaxe `c("nom" = "destinataire_test")` est un peu inhabituelle. Elle dit es
 ------------------------------------------------------------------------
 
 ::: practice
+
+**Q : `left_join()` entre patients et controles** {.unlisted}
+
 Considérez les deux ensembles de données ci-dessous, l'un avec les détails des patients et l'autre avec les dates de contrôle médical pour ces patients.
 
 ```{r}
@@ -255,6 +259,9 @@ Joignez l'ensemble de données `patients` avec l'ensemble de données `controles
 :::
 
 ::: practice
+
+**Q : `left_join()` avec l'argument "by"  ** {.unlisted .unnumbered}
+
 Deux ensembles de données sont définis ci-dessous, l'un avec les détails des patients et l'autre avec les registres de vaccination pour ces patients.
 
 ```{r}
@@ -338,6 +345,9 @@ Encore une fois, `left_join()` conserve toutes les lignes de l'ensemble de donn�
 :::
 
 ::: practice
+
+**Q : `left_join()` entre diagnostics et démographies**
+
 Essayez ce qui suit. Voici deux ensembles de données - l'un avec des diagnostics de maladie (`dx_maladie`) et un autre avec des données démographiques de patients (`demographique_patient`).
 
 ```{r}
@@ -368,14 +378,14 @@ Essayons un autre exemple, cette fois avec un ensemble de données plus réalist
 Premièrement, nous avons des données sur le taux d'incidence de la tuberculose par 100 000 personnes pour 47 pays africains, de l'[OMS](https://www.who.int/data/gho/data/indicators/indicator-details/GHO/incidence-of-tuberculosis-(per-100-000-population-per-year)) :
 
 ```{r render=reactable_5_rows}
-tb_2019_afrique <- read_csv(here("data/tb_incidence_2019.csv"))
+tb_2019_afrique <- read_csv(here::here("data/tb_incidence_2019.csv"))
 tb_2019_afrique
 ```
 
 Nous voulons analyser comment l'incidence de la TB dans les pays africains varie avec les dépenses de santé par habitant du gouvernement. Pour cela, nous avons des données sur les dépenses de santé par habitant en USD, également de l'OMS :
 
 ```{r render=reactable_5_rows}
-dep_sante_2019 <- read_csv(here("data/health_expend_per_cap_2019.csv"))
+dep_sante_2019 <- read_csv(here::here("data/health_expend_per_cap_2019.csv"))
 dep_sante_2019
 ```
 
@@ -415,6 +425,9 @@ dep_sante_2019 %>%
 En effet, ces pays ne sont pas présents dans `dep_sante_2019`.
 
 ::: practice
+
+**Q : `left_join()` entre cas de tuberculose et continents**
+
 Copiez le code ci-dessous pour définir deux ensembles de données.
 
 Le premier, `cas_tb_enfants` contient le nombre de cas de TB chez les moins de 15 ans en 2012, par pays :
@@ -511,6 +524,8 @@ Comme prévu, la seule différence ici est l'ordre de nos colonnes, sinon les in
 
 ::: practice
 
+**Q : `inner_join()` entre pathogènes**
+
 Les données suivantes concernent les épidémies d'origine alimentaire aux États-Unis en 2019, provenant du [CDC](https://wwwn.cdc.gov/FoodNetFast/PathogenSurveillance/AnnualSummary). Copiez le code ci-dessous pour créer deux nouveaux dataframes :
 
 ```{r}
@@ -558,11 +573,14 @@ Remarquez qu'il n'y a maintenant que 44 lignes dans le résultat, car les trois 
 En plus de `left_join()`, le `inner_join()` est l'un des jointures les plus courantes lors du travail avec des données, donc il est probable que vous le rencontrerez souvent. C'est un outil puissant et souvent utilisé, mais c'est aussi la jointure qui exclut le plus d'informations, alors assurez-vous que vous voulez uniquement des enregistrements correspondants dans votre ensemble de données final ou vous pourriez finir par perdre beaucoup de données accidentellement ! En contraste, `full_join()` est la jointure la plus inclusive, jetons un coup d'œil dans la section suivante.
 
 ::: practice
-Le bloc de code ci-dessous filtre le jeu de données `health_exp_2019` aux 70 pays ayant les dépenses les plus élevées :
+
+**Q : `inner_join()` d'une seule ligne**
+
+Le bloc de code ci-dessous filtre le jeu de données `dep_sante_2019` aux 70 pays ayant les dépenses les plus élevées :
 
 ```{r}
 exp_elevees <-  
-  health_exp_2019 %>%
+  dep_sante_2019 %>%
   arrange(-expend_usd) %>%  
   head(70)
 ```
@@ -669,4 +687,58 @@ Comme nous l'avons vu précédemment, toutes les lignes ont été conservées en
 Bravo, vous comprenez maintenant les bases de la jointure ! Le diagramme de Venn ci-dessous donne un résumé utile des différentes jointures et des informations que chacune conserve. Il peut être utile de sauvegarder cette image pour référence future !
 
 ![](images/venn_cropped-01.jpg)
+
+------------------------------------------------------------------------
+
+# Answer Key {.unnumbered}
+
+### Q : `left_join()` entre patients et controles {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patients, y=controles)
+```
+
+### Q : `left_join()` avec l'argument "by" {.unlisted .unnumbered}
+
+```{r}
+left_join(x=details_patient, y=registres_vaccination, by=c("numero_id"="code_patient"))
+```
+
+### Q : `left_join()` entre diagnostics et démographies {.unlisted .unnumbered}
+
+```{r}
+left_join(x=demographique_patient, y=dx_maladie)
+```
+
+### Q : `left_join()` entre cas de tuberculose et continents {.unlisted .unnumbered}
+
+```{r}
+left_join(x=cas_tb_enfants, y=pays_continents, by=c(country="country.name.fr"))
+```
+
+### Q : `inner_join()` entre pathogènes {.unlisted .unnumbered}
+
+```{r}
+inner_join(total_inf, resultats)
+```
+
+### Q : `inner_join()` d'une seule ligne {.unlisted .unnumbered}
+
+```{r}
+inner_join(exp_elevees, tb_2019_afrique)
+```
+Il n'y a qu'un seul pays en commun entre les deux ensembles de données.
+
+### Q : `full_join()` avec des données sur le paludisme {.unlisted .unnumbered}
+```{r}
+full_join(inc_paludisme, deces_paludisme)
+```
+
+------------------------------------------------------------------------
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("kendavidn", "amckinley"))` 
 

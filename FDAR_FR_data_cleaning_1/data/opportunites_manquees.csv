@@ -1,0 +1,202 @@
+"sexe","age","origine","acquis","chronic","cd4","categorie_cd4","aigu","present_tardive","raison_diagnostic","testlocal","nmbr_consult","cat_consultation","cat_temps_negatif_dx","opp_manquees","NaN."
+"Homme","18-29","Monde occidental","HSH","Non",126,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Homme",">50","Monde occidental","HSH","Non",147,1,"Non aigu","Oui","Risque epidemiologique","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"Femme",">50","Afrique subsaharienne","Heterosexuel","Non",416,3,"Non aigu","Non","Patient initie","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Homme","30-49","Monde occidental","HSH","Non",393,3,"Non aigu","Non","Risque epidem.","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"Homme","30-49","Monde occidental","Usage de drogues IV","Non",230,2,"Non aigu","Oui",NA,"Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Monde occidental","HSH","Non",652,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"H",">50","Monde occidental","Autre","Non",88,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Monde occidental","Usage de drogues IV","Oui",1100,4,"Non aigu","Non","Patient initie","Medecin de soins primaires",10,">5 consultations anterieures","Depistage du VIH l'annee precedente",12,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",634,4,"Non aigu","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",465,3,"Non aigu","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","18-29","Monde occidental","Heterosexuel","Non",265,2,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",295,2,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Homme","30-49","Autres","HSH","Non",322,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Oui",252,2,"oui","Non","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",4,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Monde occidental","Heterosexuel","Oui",679,4,"Non aigu","Non","Risque epidem.","Medecin de soins primaires",2,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",3,NA
+"Homme","18-29","Autres","Heterosexuel","Non",615,4,"Non aigu","Non",NA,"Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Homme","18-29","Monde occidental","HSH","Non",435,3,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",3,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",3,NA
+"H","18-29","Autres","HSH","Non",487,3,"Non aigu","Non","Risque epidem.","Medecin de soins primaires",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"H","18-29","Monde occidental","Heterosexuel","Non",140,1,"Non aigu","Oui","Patient initie","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","18-29","Afrique subsaharienne","Heterosexuel","Non",421,3,"Non aigu","Non",NA,"Medecin de soins primaires",2,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",2,NA
+"H",">50","Monde occidental","HSH","Oui",350,1,"Non aigu","Oui","Patient initie","Medecin de soins primaires",2,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",3,NA
+"Homme","30-49","Monde occidental","HSH","Non",704,4,"Non aigu","Non",NA,"Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Monde occidental","Heterosexuel","Non",47,1,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",69,1,"Non aigu","Oui","Patient initie","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","18-29","Autres","HSH","Non",49,1,"Non aigu","Oui","Maladie definissant le sida","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Non",1004,4,"Non aigu","Non",NA,"Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","18-29","Afrique subsaharienne","Heterosexuel","Non",134,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"H","30-49","Autres","Heterosexuel","Non",76,1,"Non aigu","Oui",NA,"Medecin de soins primaires",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",375,3,"Non aigu","Non","Patient initie","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Autres","HSH","Non",356,3,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",7,">5 consultations anterieures","Depistage du VIH l'annee precedente",NA,NA
+"H",">50","Monde occidental","HSH","Non",348,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"Homme","30-49","Monde occidental","HSH","Non",361,3,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",4,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",4,NA
+"H",">50","Monde occidental","Heterosexuel","Oui",49,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Monde occidental","Heterosexuel","Non",268,2,"oui","Non","Risque epidem.","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",198,1,"Non aigu","Oui","Risque epidem.","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",339,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",3,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",6,NA
+"Femme",">50","Monde occidental","Heterosexuel","Non",142,1,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",8,">5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Autres","Heterosexuel","Non",216,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme",">50","Monde occidental","Heterosexuel","Oui",578,4,"Non aigu","Non","Risque epidemiologique","Medecin de soins primaires",5,">5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",2,NA
+"Femme",">50","Monde occidental","Heterosexuel","Oui",174,1,"Non aigu","Oui",NA,"Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",182,1,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Homme","30-49","Monde occidental","HSH","Non",326,2,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",299,2,"Non aigu","Oui","Patient initie","Medecin de soins primaires",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",3,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",400,3,"Non aigu","Non",NA,"Medecin de soins primaires",3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",3,NA
+"H",">50","Monde occidental","HSH","Non",632,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"H","30-49","Monde occidental","HSH","Non",346,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"Femme",">50","Monde occidental","Heterosexuel","Non",471,3,"oui","Non","Patient initie","Medecin de soins primaires",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Homme","18-29","Monde occidental","HSH","Oui",1098,4,"Non aigu","Non","Patient initie","Medecin de soins primaires",3,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",3,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",205,2,"Non aigu","Oui","Maladie definissant le sida","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Autres","Heterosexuel","Non",43,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Homme","30-49","Monde occidental","HSH","Oui",735,4,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",8,">5 consultations anterieures","Aucun depistage VIH anterieur",8,NA
+"H","18-29","Monde occidental","HSH","Non",175,1,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"Homme","30-49","Monde occidental","Usage de drogues IV","Oui",642,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",10,">5 consultations anterieures","Aucun depistage VIH anterieur",10,NA
+"H","18-29","Monde occidental","HSH","Non",532,4,"Non aigu","Non","Patient initie","Medecin de soins primaires",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"H","30-49","Monde occidental","HSH","Oui",653,4,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",3,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",3,NA
+"Homme","30-49","Monde occidental","HSH","Non",448,3,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"H","18-29","Monde occidental","HSH","Non",709,4,"Non aigu","Non","Risque epidemiologique","Medecin de soins primaires",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"H",">50","Monde occidental","HSH","Non",226,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",705,4,"oui","Non","Suspicion d'infection aigue par le VIH","Medecin de soins primaires",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"Homme","30-49","Monde occidental","HSH","Non",383,3,"Non aigu","Non","Risque epidemiologique","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Monde occidental","HSH","Non",11,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",280,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme",">50","Monde occidental","Autre","Non",364,3,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Medecin de soins primaires",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Monde occidental","Heterosexuel","Non",462,3,"Non aigu","Non","Risque epidem.","Medecin de soins primaires",2,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",2,NA
+"H","18-29","Monde occidental","HSH","Non",671,4,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",4,"1-5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"Homme","18-29","Afrique subsaharienne","Heterosexuel","Non",224,2,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",3,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",3,NA
+"Homme",">50","Autres","Heterosexuel","Non",63,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Non",33,1,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","18-29","Autres","HSH","Non",442,3,"Non aigu","Non","Patient initie","Consultation au CHUV/PMU",3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",3,NA
+"H","30-49","Monde occidental","Heterosexuel","Non",990,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",5,">5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Homme",">50","Monde occidental","Heterosexuel","Oui",3,1,"Non aigu","Oui","Maladie definissant le sida","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Autres","Usage de drogues IV","Oui",207,2,"oui","Non","Maladie definissant le sida","Consultation au CHUV/PMU",9,">5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",9,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Oui",329,2,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",8,">5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",16,NA
+"H","30-49","Monde occidental","HSH","Non",467,3,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",4,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",4,NA
+"Homme","18-29","Monde occidental","Usage de drogues IV","Non",302,2,"Non aigu","Oui",NA,"Consultation au CHUV/PMU",10,">5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",10,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",311,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",78,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"Homme","30-49","Autres","HSH","Non",417,3,"Non aigu","Non","Risque epidem.","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"Homme","30-49","Monde occidental","HSH","Non",467,3,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",82,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",210,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",271,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",6,">5 consultations anterieures","Aucun depistage VIH anterieur",7,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",127,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Monde occidental","Heterosexuel","Oui",106,1,"Non aigu","Oui","Risque epidemiologique","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Homme",">50","Monde occidental","Heterosexuel","Oui",193,1,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",5,">5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",413,3,"Non aigu","Non","Risque epidemiologique","Consultation au CHUV/PMU",4,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",6,NA
+"Homme","30-49","Monde occidental","HSH","Non",300,2,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"Femme","30-49","Monde occidental","Usage de drogues IV","Non",359,3,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",3,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",4,NA
+"Homme","30-49","Afrique subsaharienne","Autre","Non",379,3,"Non aigu","Non","Risque epidem.","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Femme",">50","Monde occidental","Heterosexuel","Oui",8,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",5,">5 consultations anterieures","Aucun depistage VIH anterieur",5,NA
+"H","30-49","Autres","HSH","Non",1261,4,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",9,">5 consultations anterieures","Aucun depistage VIH anterieur",12,NA
+"Homme","18-29","Monde occidental","Heterosexuel","Non",444,3,"Non aigu","Non","Patient initie","Consultation au CHUV/PMU",4,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",4,NA
+"Homme",">50","Afrique subsaharienne","Heterosexuel","Non",123,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",3,NA
+"Homme","30-49","Monde occidental","HSH","Non",441,3,"oui","Non","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"H","18-29","Monde occidental","HSH","Oui",430,3,"Non aigu","Non","Risque epidem.","Consultation au CHUV/PMU",7,">5 consultations anterieures","Depistage du VIH l'annee precedente",10,NA
+"Homme","30-49","Monde occidental","HSH","Oui",922,4,"Non aigu","Non",NA,"Consultation au CHUV/PMU",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",24,1,"Non aigu","Oui","Maladie definissant le sida","Consultation au CHUV/PMU",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",108,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Homme","30-49","Afrique subsaharienne","HSH","Non",199,1,"Non aigu","Oui","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",5,">5 consultations anterieures","Depistage du VIH l'annee precedente",5,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Non",193,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",3,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",6,NA
+"Homme","18-29","Afrique subsaharienne","Heterosexuel","Non",324,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",2,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",2,NA
+"H","30-49","Monde occidental","HSH","Non",232,2,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"Homme","30-49","Monde occidental","HSH","Oui",879,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Oui",4,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",4,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",4,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",973,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%","Consultation au CHUV/PMU",3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",6,NA
+"H","30-49","Monde occidental","Heterosexuel","Non",222,2,"Non aigu","Oui",NA,NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",293,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme",">50","Autres","Heterosexuel","Non",247,2,"oui","Non","Suspicion d'infection aigue par le VIH",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme",">50","Afrique subsaharienne","Heterosexuel","Non",12,1,"Non aigu","Oui","Maladie definissant le sida",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme",">50","Autres","Heterosexuel","Non",59,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",53,1,"Non aigu","Oui","Maladie definissant le sida",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"H","30-49","Monde occidental","Heterosexuel","Non",21,1,"Non aigu","Oui","Maladie definissant le sida",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","18-29","Autres","HSH","Non",23,1,"Non aigu","Oui","Maladie definissant le sida",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","Heterosexuel","Oui",295,2,"oui","Non","Suspicion d'infection aigue par le VIH",NA,5,">5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",221,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",NA,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",123,1,"Non aigu","Oui","Maladie definissant le sida",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Non",110,1,"Non aigu","Oui","Maladie definissant le sida",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",43,1,"Non aigu","Oui","Maladie definissant le sida",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"Femme",">50","Monde occidental","Heterosexuel","Non",15,1,"Non aigu","Oui","Maladie definissant le sida",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",15,1,"Non aigu","Oui","Maladie definissant le sida",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Afrique subsaharienne","Autre","Non",2,1,"Non aigu","Oui",NA,NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","18-29","Afrique subsaharienne","Heterosexuel","Non",850,4,"Non aigu","Non","Maladie definissant le sida",NA,5,">5 consultations anterieures","Aucun depistage VIH anterieur",5,NA
+"H",">50","Monde occidental","Heterosexuel","Oui",463,3,"oui","Non","Suspicion d'infection aigue par le VIH",NA,10,">5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"H",">50","Monde occidental","Heterosexuel","Non",273,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,9,">5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"Femme","30-49","Afrique subsaharienne","Autre","Non",186,1,"Non aigu","Oui","Introduction d'un traitement immunosuppresseur",NA,4,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",6,NA
+"Femme",">50","Monde occidental","Heterosexuel","Oui",285,2,"oui","Non","Suspicion d'infection aigue par le VIH",NA,4,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",333,2,"Non aigu","Oui","Patient initie","Consultation anonyme",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"H","18-29","Monde occidental","HSH","Oui",337,2,"Non aigu","Oui","Patient initie","Consultation anonyme",4,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",4,NA
+"Homme","30-49","Afrique subsaharienne","Heterosexuel","Non",149,1,"Non aigu","Oui",NA,"Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Non",706,4,"Non aigu","Non","Patient initie","Consultation anonyme",8,">5 consultations anterieures","Depistage du VIH l'annee precedente",1,NA
+"Homme","30-49","Afrique subsaharienne","Heterosexuel","Non",276,2,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation anonyme",4,"1-5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"H","30-49","Monde occidental","HSH","Non",1067,4,"Non aigu","Non","Suspicion d'infection aigue par le VIH","Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Autre","Oui",363,3,"Non aigu","Non","Patient initie","Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","18-29","Afrique subsaharienne","Heterosexuel","Non",270,2,"Non aigu","Oui","Patient initie","Consultation anonyme",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"H","18-29","Autres","HSH","Oui",212,2,"Non aigu","Oui","Patient initie","Consultation anonyme",2,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",4,NA
+"H","30-49","Monde occidental","HSH","Non",336,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Autres","HSH","Non",627,4,"Non aigu","Non","Risque epidemiologique","Consultation anonyme",1,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",2,NA
+"H","30-49","Monde occidental","HSH","Non",453,3,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation anonyme",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Autres","Heterosexuel","Non",146,1,"Non aigu","Oui",NA,"Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Autres","HSH","Non",13,1,"Non aigu","Oui","Patient initie","Consultation anonyme",0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Homme",">50","Monde occidental","HSH","Non",340,2,"Non aigu","Oui","Patient initie","Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","18-29","Monde occidental","Heterosexuel","Non",208,2,"Non aigu","Oui","Patient initie","Consultation anonyme",1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Homme","18-29","Autres","HSH","Non",397,3,"Non aigu","Non","Patient initie","Consultation anonyme",4,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",5,NA
+"Femme",">50","Afrique subsaharienne","Heterosexuel","Non",169,1,"Non aigu","Oui",NA,"Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Oui",256,2,"Non aigu","Oui","Risque epidemiologique","Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Monde occidental","Heterosexuel","Non",89,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%","Consultation anonyme",2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",461,3,"Non aigu","Non","Patient initie","Consultation anonyme",6,">5 consultations anterieures","Depistage du VIH l'annee precedente",6,NA
+"H","18-29","Autres","HSH","Non",397,3,"Non aigu","Non","Risque epidemiologique","Consultation anonyme",1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",2,NA
+"H","18-29","Monde occidental","Heterosexuel","Non",176,1,"Non aigu","Oui",NA,"Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",103,1,"Non aigu","Oui","Risque epidem.","Consultation anonyme",0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",364,3,"oui","Non","Suspicion d'infection aigue par le VIH","Consultation anonyme",3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"H","30-49","Monde occidental","HSH","Oui",775,4,"Non aigu","Non","Suspicion d'infection aigue par le VIH","Consultation anonyme",1,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",1,NA
+"Homme","30-49","Monde occidental","HSH","Oui",452,3,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%",NA,1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",1,NA
+"H",">50","Monde occidental","HSH","Non",369,3,"oui","Non","Suspicion d'infection aigue par le VIH",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",288,2,"Non aigu","Oui","Grossesse",NA,1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",2,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Oui",955,4,"Non aigu","Non",NA,NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Homme","30-49","Monde occidental","Autre","Non",606,4,"Non aigu","Non","Patient initie",NA,1,"1-5 consultations anterieures","Depistage du VIH l'annee precedente",0,NA
+"Homme","30-49","Monde occidental","HSH","Non",45,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Autres","Heterosexuel","Non",98,1,"Non aigu","Oui","Maladie definissant le sida",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",546,4,"Non aigu","Non","Patient initie",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",447,3,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Afrique subsaharienne","Autre","Non",291,2,"Non aigu","Oui","Maladie definissant le sida",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Oui",102,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"H","30-49","Monde occidental","HSH","Non",44,1,"Non aigu","Oui","Maladie definissant le sida",NA,1,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",2,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",91,1,"Non aigu","Oui","Maladie definissant le sida",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Homme","18-29","Monde occidental","HSH","Non",418,3,"Non aigu","Non","Patient initie",NA,3,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",4,NA
+"Femme","30-49","Autres","Heterosexuel","Non",142,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Afrique subsaharienne","Heterosexuel","Non",17,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",115,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Monde occidental","Heterosexuel","Non",492,3,"Non aigu","Non","Patient initie",NA,3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",1,NA
+"H","30-49","Monde occidental","HSH","Non",557,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%",NA,5,">5 consultations anterieures","Aucun depistage VIH anterieur",9,NA
+"Femme",">50","Monde occidental","Heterosexuel","Oui",167,1,"oui","Non","Maladie pour laquelle la prevalence du VIH est >1%",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","Usage de drogues IV","Oui",188,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,5,">5 consultations anterieures","Aucun depistage VIH anterieur",10,NA
+"Femme",">50","Monde occidental","Heterosexuel","Non",655,4,"Non aigu","Non","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Autres","Heterosexuel","Non",222,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme","30-49","Afrique subsaharienne","Heterosexuel","Non",105,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,1,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"H","30-49","Monde occidental","Usage de drogues IV","Oui",185,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Homme",">50","Afrique subsaharienne","Heterosexuel","Oui",486,3,"Non aigu","Non","Maladie definissant le sida",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",3,NA
+"H",">50","Monde occidental","HSH","Oui",224,2,"Non aigu","Oui","Maladie definissant le sida",NA,10,">5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",11,NA
+"Homme","18-29","Monde occidental","Usage de drogues IV","Non",1209,4,"Non aigu","Non",NA,NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","Heterosexuel","Non",277,2,"Non aigu","Oui","Risque epidemiologique",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"H","30-49","Monde occidental","HSH","Non",404,3,"Non aigu","Non",NA,NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Homme","18-29","Monde occidental","HSH","Non",985,4,"Non aigu","Non",NA,NA,10,">5 consultations anterieures","Depistage du VIH l'annee precedente",17,NA
+"Femme",">50","Afrique subsaharienne","Heterosexuel","Oui",249,2,"Non aigu","Oui","Risque epidemiologique",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","18-29","Afrique subsaharienne","Autre","Non",50,1,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",631,4,"Non aigu","Non","Grossesse",NA,3,"1-5 consultations anterieures","Aucun depistage VIH anterieur",3,NA
+"Homme","18-29","Afrique subsaharienne","Heterosexuel","Non",240,2,"Non aigu","Oui","Grossesse",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",728,4,"Non aigu","Non",NA,NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA
+"H","18-29","Afrique subsaharienne","Heterosexuel","Non",507,4,"Non aigu","Non","Grossesse",NA,4,"1-5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"Femme","18-29","Autres","Heterosexuel","Non",393,3,"Non aigu","Non","Grossesse",NA,2,"1-5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Oui",267,2,"Non aigu","Oui","Grossesse",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",2,NA
+"Femme","18-29","Monde occidental","Heterosexuel","Non",205,2,"Non aigu","Oui","Grossesse",NA,21,">5 consultations anterieures","Aucun depistage VIH anterieur",6,NA
+"Homme","18-29","Afrique subsaharienne","Heterosexuel","Non",530,4,"Non aigu","Non","Grossesse",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",779,4,"Non aigu","Non","Grossesse",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","30-49","Autres","Heterosexuel","Non",323,2,"Non aigu","Oui","Maladie pour laquelle la prevalence du VIH est >1%",NA,5,">5 consultations anterieures","Dernier test VIH >1 avant le diagnostic",5,NA
+"Femme","18-29","Afrique subsaharienne","Heterosexuel","Non",351,3,"Non aigu","Non","Grossesse",NA,2,"1-5 consultations anterieures","Aucun depistage VIH anterieur",4,NA
+"Homme","30-49","Autres","Heterosexuel","Oui",219,2,"Non aigu","Oui","Grossesse",NA,6,">5 consultations anterieures","Aucun depistage VIH anterieur",0,NA
+"Femme","30-49","Afrique subsaharienne","Heterosexuel","Non",431,3,"Non aigu","Non","Patient initie",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","18-29","Monde occidental","Heterosexuel","Non",243,2,"Non aigu","Oui","Grossesse",NA,0,"Aucune consultation anterieure","Depistage du VIH l'annee precedente",0,NA
+"H","30-49","Afrique subsaharienne","Heterosexuel","Non",245,2,"Non aigu","Oui","Grossesse",NA,0,"Aucune consultation anterieure","Dernier test VIH >1 avant le diagnostic",0,NA
+"Femme","18-29","Autres","Autre","Non",27,1,"Non aigu","Oui","Grossesse",NA,0,"Aucune consultation anterieure","Aucun depistage VIH anterieur",0,NA

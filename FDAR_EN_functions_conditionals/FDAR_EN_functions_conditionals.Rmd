@@ -4,6 +4,7 @@ output:
   html_document:
     number_sections: true
     toc: true
+    toc_float: true
     css: !expr here::here("global/style/style.css")
     highlight: kate
   word_document:
@@ -913,13 +914,13 @@ The code in the gist can be updated at any time, and the changes will be reflect
 
 As previously mentioned, functions can also be stored in packages. This is a more advanced option that requires knowledge of R package development. For more information, see the [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html) manual.
 
-# Wrap-Up
+# Wrap Up!
 
 Congratulations on getting through the lesson!
 
 You now have the key building blocks to create custom functions that automate repetitive tasks in your R workflows. Of course, there's much more to learn about functions, but you now have the foundation to build on.
 
-# Answer Keys
+# Answer Key
 
 ### Age Months Function {.unlisted .unnumbered}
 

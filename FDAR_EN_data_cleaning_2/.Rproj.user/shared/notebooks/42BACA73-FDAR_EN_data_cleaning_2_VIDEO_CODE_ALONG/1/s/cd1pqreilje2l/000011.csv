@@ -1,0 +1,11 @@
+"0","non_adherence <- read_csv(here(""data/non_adherence_messy.csv""))"
+"2","[1mRows: [22m[34m1420[39m [1mColumns: [22m[34m15[39m"
+"2","[36m──[39m [1mColumn specification[22m [36m────────────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m "",""
+[31mchr[39m (5): Sex, Age_35, EDUCATION_OF_PATIENT, OCCUPATION_OF_PATIENT, Civil...status
+[32mdbl[39m (9): patient_id, District, Health unit, Age at ART initiation, WHO status at ART...
+[33mlgl[39m (1): NA"
+"2","
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message."
+"0","non_adherence"

@@ -1,0 +1,630 @@
+---
+title: 'Les Facteurs sur R' 
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r, echo = F, message = F, warning = F}
+knitr::opts_chunk$set(fig.width = 4.5, fig.height = 3, warning = F, message = F)
+
+# Charger les packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, janitor,  reactable, gt, flextable)
+
+## fonctions
+source(here::here("global/functions/misc_functions.R"))
+
+## rendu par défaut
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+#knitr::opts_chunk$set(class.source = "tgc-code-block", render = reactable_5_rows)
+
+```
+
+# Introduction
+
+Les facteurs sont une classe de données importante pour représenter et travailler avec des variables catégorielles en R.\
+Nous apprendrons comment créer des facteurs et comment les manipuler avec les fonctions du package `forcats`, une partie du tidyverse.
+
+
+
+# Objectifs d'apprentissage
+
+-   Vous comprenez ce que sont les facteurs et comment ils diffèrent des caractères en R.
+
+-   Vous êtes capable de modifier l'**ordre** des niveaux de facteur.
+
+-   Vous êtes capable de modifier la **valeur** des niveaux de facteur.
+
+# Packages
+
+```{r warning = F, message = F, echo = T}
+# Charger les packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse,
+               here)
+```
+
+# Jeu de données: Mortalité due au VIH
+
+-   Nous utiliserons un jeu de données sur la **mortalité due au VIH** en Colombie de 2010 à 2016
+
+-   Il est hébergé sur la plateforme de données ouvertes 'Datos Abiertos Colombia.'
+
+-   Vous pouvez en savoir plus [ici](https://www.datos.gov.co/en/Salud-y-Protecci-n-Social/Mortalidad-VIH-2010-A-2016/yht4-twf4).
+
+-   Chaque ligne correspond à un individu qui est décédé du SIDA ou de complications liées au SIDA.
+
+```{r message = F}
+hiv_mort <- read_csv(here("data/colombia_hiv_deaths_2010_to_2016"))
+hiv_mort
+```
+
+# Qu'est-ce qu'un facteur ?
+
+-   Les facteurs sont une classe de données importante sur R utilisée pour représenter les variables catégorielles.
+
+-   Une variable catégorielle prend un ensemble limité de valeurs possibles ou niveaux.
+
+    -   Exemples : pays, race ou affiliation politique.
+
+-   Ils diffèrent des variables de chaîne de caractères libres comme les noms de personnes ou les titres de livres.
+
+-   Les facteurs ont des avantages par rapport aux vecteurs de caractères :
+
+    -   Stockage plus efficace en R
+    -   Certaines fonctions statistiques comme `lm()`, nécessitent que les variables catégorielles soient entrées en tant que facteurs
+
+-   Contrôle sur l'ordre des catégories ou niveaux.
+
+## Les facteurs en action
+
+-   Supposons que nous voulons présenter ou décrire les patients du le jeu de données selon leur mois de naissance ?
+
+```{r}
+ggplot(hiv_mort) +
+  geom_bar(aes(x = birth_month))
+```
+
+-   **Problème :** l'axe des x classe les mois par ordre alphabétique, et non par ordre chronologique !
+
+-   **Solution :** Création d'un facteur en utilisant la fonction `factor()`:
+
+```{r}
+hiv_mort_modified <- 
+  hiv_mort %>% 
+  mutate(birth_month = factor(x = _____________, 
+                             levels = c(______, ______, ______, ______,
+                                        ______, ______, ______, ______,
+                                        ______, ______, ______, ______)))
+```
+
+-   L'argument `x` prend la variable initiale de type caractère, `birth_month`
+
+-   L'argument `levels` prend la séquence souhaitée de mois.
+
+-   Inspection du type de données :
+
+```{r}
+# Jeu de données modifié
+class(__________)
+
+# Jeu de données original
+class(__________)
+```
+
+-   Régénérez le graphique avec le jeu de données modifié :
+
+```{r}
+ggplot(__________) +
+  geom_bar(aes(x = __________))
+```
+
+-   Les mois sur l'axe des x sont maintenant affichés dans l'ordre que nous avons spécifié.
+
+-   La nouvelle variable facteur respectera l'ordre défini dans d'autres contextes également
+
+-   Par exemple, comparez comment la fonction `count()` affiche les tableaux de fréquence :
+
+```{r}
+# Jeu de données original
+count(hiv_mort, birth_month)
+
+# Jeu de données modifié
+count(hiv_mort_odified, birth_month)
+```
+
+::: remarque
+Vous pouvez utiliser le facteur sans niveaux. Il utilise simplement le classement par défaut (alphabétique) des niveaux
+
+```{r}
+hiv_mort_default_factor <- hiv_mort %>% 
+  mutate(birth_month = factor(x = birth_month)) 
+```
+
+```{r}
+class(hiv_mort_default_factor$birth_month)
+levels(hiv_mort_default_factor$birth_month)
+```
+:::
+
+::: r-practice
+### Q: Facteur de genre {.unlisted .unnumbered}
+
+En utilisant le jeu de données `hiv_mort`, convertissez la variable `gender` en un facteur avec les niveaux "Female" et "Male", dans cet ordre.
+
+### Q: Repérer les erreurs {.unlisted .unnumbered}
+
+Quelles erreurs pouvez-vous repérer dans le bloc de code suivant ? Quelles sont les conséquences de ces erreurs ?
+
+```{r eval = F}
+hiv_mort <- 
+  hiv_mort %>% 
+  mutate(birth_month = factor (x = birth_month, 
+                             levels = c("Jan", "Feb", "Mar", "Apr", 
+                                        "Mai", "Jun", "Jul", "Sep", 
+                                        "Oct", "Nov.", "Dec")))
+```
+
+### Q: Avantage des facteurs {.unlisted .unnumbered}
+
+Quel est l'un des principaux avantages de l'utilisation de facteurs par rapport aux chaines de caractères pour les données catégorielles sur R ?
+
+a)  Il est plus facile d'effectuer des manipulations de chaînes de caractères par rapport aux facteurs.
+b)  Les facteurs permettent un meilleur contrôle de l'ordre des données catégorielles.
+c)  Les facteurs augmentent la précision des modèles statistiques.
+:::
+
+# Manipulation de Facteurs avec `forcats`
+
+-   Les facteurs sont utiles, mais leur manipulation peut parfois être un peu fastidieuse
+
+-   `forcats` propose un ensemble de fonctions qui simplifient la manipulation des facteurs
+
+-   Nous allons explorer quatre fonctions, mais il y en a beaucoup d'autres, nous vous encourageons à explorer le site web de *forcats* à votre propre rythme [ici](https://forcats.tidyverse.org/reference/index.html) !
+
+## fct_relevel
+
+-   La fonction `fct_relevel()` est utilisée pour changer manuellement l'ordre des niveaux de facteurs. Par exemple, pour visualiser la fréquence des individus par type de municipalité :
+
+```{r}
+ggplot(hiv_mort) +
+  geom_bar(aes(x = municipality_type))
+```
+
+-   Cela peut être réalisé en utilisant `fct_relevel()`.
+
+Voici comment :
+
+```{r}
+hiv_mort_centre_pop_premier <- 
+  hiv_mort %>% 
+  mutate(municipality_type = fct_relevel(__________,__________))
+```
+
+-   Syntaxe: nous passons **la variable facteur comme [premier argument]{.underline}**, et **le niveau comme [deuxième argument]{.underline}**.
+
+-   Maintenant, lorsque nous traçons :
+
+```{r}
+ggplot(__________) +
+  geom_bar(aes(x = __________))
+```
+
+-   Le niveau "Populated center" est maintenant le premier.
+-   Nous pouvons déplacer le niveau "Populated center" à une position différente avec l'argument `after` :
+
+```{r}
+hiv_mort %>%
+  mutate(municipality_type = fct_relevel(__________, __________,
+                                         __________)) %>%
+ # passer directement au tracé pour visualiser le changement
+  ggplot() +
+  geom_bar(aes(x = municipality_type))
+```
+
+-   spécifier :
+
+    -   le facteur
+
+    -   le niveau à déplacer
+
+    -   et utiliser l'argument `after` pour définir la position
+
+-   Nous pouvons également [**déplacer plusieurs niveaux**]{.underline} à la fois en fournissant ces niveaux à `fct_relevel()` :
+
+-   Ci-dessous, nous organisons tous les niveaux de facteurs pour le type de municipalité dans l'ordre que nous désirons :
+
+```{r}
+hiv_mort %>%
+  mutate(municipality_type = fct_relevel(municipality_type,  
+                                         __________,
+                                         __________,
+                                         __________)) %>%
+  ggplot() +
+  geom_bar(aes(x = municipality_type))
+```
+
+-   C'est similaire à la création d'un facteur à partir de zéro avec des niveaux dans cet ordre :
+
+```{r eval = F}
+hiv_mort %>% 
+  mutate(municipality_type = factor(municipality_type, 
+                               levels = c(__________,
+                                          __________,
+                                          __________)))  %>% 
+ggplot() +
+  geom_bar(aes(x = municipality_type))
+```
+
+::: practice
+### Q: Utilisation de fct_relevel {.unlisted .unnumbered}
+
+En utilisant le jeu de données `hiv_mort`, convertissez la variable `lieu_décès` en un facteur de sorte que 'Home/address' soit le premier niveau. Puis créez un graphique à barres qui montre le décompte des individus dans le jeu de données par `lieu_décès.`
+:::
+
+## fct_reorder
+
+`fct_reorder()` est utilisé pour réorganiser les niveaux d'un facteur en fonction des valeurs d'une autre variable.
+
+Pour illustrer, faisons un tableau descriptif avec le nombre de décès, l'âge moyen et l'âge médian au décès pour chaque municipalité :
+
+```{r}
+summary_per_muni <- 
+  hiv_mort %>% 
+  group_by(municipality_name) %>% 
+  summarise(n_deceased = n(),
+            mean_age_death = mean(age_at_death, na.rm = T),
+            med_age_death = median(age_at_death, na.rm = T)) 
+
+summary_per_muni 
+```
+
+Lors de la création d'un graphique pour une des variables, nous pourrions vouloir organiser les niveaux du facteur par cette variable numérique.
+
+Par exemple, pour ordonner les municipalités par la colonne d'âge moyen :
+
+```{r}
+summary_per_muni_reordered <- 
+  summary_per_muni %>%
+  mutate(municipality_name = fct_reorder(.f = __________, 
+                                         .x = __________))
+```
+
+La syntaxe est :
+
+-   `.f` - le facteur à réorganiser
+-   `.x` - le vecteur numérique déterminant le nouvel ordre
+
+Nous pouvons maintenant créer un graphique à barres bien organisé :
+
+```{r}
+ggplot(summary_per_muni_reordered) +
+  geom_col(aes(y = municipality_name, x = mean_age_death))
+```
+
+::: Practice
+### Q: Utilisation de fct_reorder {.unlisted .unnumbered}
+
+En partant du jeu de données `summary_per_muni`, réorganisez la municipalité (`municipality_name`) par la colonne `mean_age_death` et tracez le graphique à barres réordonné.
+:::
+
+### L'argument `.fun`
+
+Parfois, nous voulons que les catégories de notre graphique apparaissent dans un ordre spécifique qui est déterminé par une statistique descriptive.
+
+Par exemple, considérons le boxplot de `birth_year` en fonction de `marital_status` :
+
+```{r}
+ggplot(hiv_mort, aes(y = marital_status, x = birth_year)) +
+  geom_boxplot()
+```
+
+-   Le boxplot affiche la médiane de `birth_year` pour chaque catégorie de statut marital sous forme de ligne au milieu de chaque boîte.
+-   Nous pourrions vouloir organiser les catégories de statut marital en fonction de ces médianes.
+-   Mais si nous créons un tableau récapitulatif avec des médianes, comme nous l'avons fait auparavant avec `summary_per_muni`, nous ne pouvons pas créer un boxplot avec lui (vérifiez-le vous-même en regardant le jeu de données `summary_per_muni`).
+-   C'est ici qu'intervient l'argument `.fun` de `fct_reorder()`. L'argument `.fun` nous permet de spécifier une fonction récapitulative qui sera utilisée pour calculer le nouvel ordre des niveaux :
+
+```{r}
+hiv_mort_arranged_marital <- 
+  hiv_mort %>%
+  mutate(marital_status = fct_reorder(.f = marital_status, 
+                                      .x = birth_year, 
+                                      .fun = median, 
+                                      na.rm = TRUE)) 
+```
+
+Dans ce code, nous réorganisons le facteur `marital_status` en fonction de la médiane de `birth_year` Nous incluons l'argument `na.rm = TRUE` pour ignorer les valeurs NA lors du calcul de la médiane. Maintenant, lorsque nous créons notre boxplot, les catégories de `marital_status` sont ordonnées en fonction l'année médiane de naissance :
+
+```{r}
+ggplot(hiv_mort_arranged_marital, aes(y = marital_status, x = birth_year)) +
+  geom_boxplot()
+```
+
+Nous pouvons voir que les individus ayant le statut marital "Cohabiting" ont tendance à être les plus jeunes (ils sont nés dans les années les plus récentes).
+
+::: Practice
+### Q: Utilisation de .fun {.unlisted .unnumbered}
+
+En utilisant le jeu de données `hiv_mort`, faites un boxplot de `birth_year` en fonction de `health_insurance_status`, où les catégories de `health_insurance_status` sont classés selon la médiane de `birth_year`.
+:::
+
+## fct_recode
+
+-   La fonction `fct_recode()` nous permet de modifier manuellement les valeurs des niveaux de facteurs.
+-   Cette fonction peut être particulièrement utile lorsque vous devez renommer des catégories ou lorsque vous souhaitez fusionner plusieurs catégories en une seule.
+-   Par exemple, nous pouvons renommer 'Municipal head' en 'City' dans la variable `municipality_type` :
+
+```{r}
+hiv_mort_muni_recode <- hiv_mort %>%
+  mutate(municipality_type = fct_recode(__________, 
+                                        __________ = __________))
+
+# Voir le changement
+levels(hiv_mort_muni_recode$municipality_type)
+```
+
+-   Dans le code ci-dessus, `fct_recode()` prend deux arguments : la variable de facteur que vous voulez changer (`municipality_type`), et l'ensemble de paires nom-valeur qui définit le recodage.
+
+-   Le nouveau niveau ("City") est à gauche du signe égal, et l'ancien niveau ("Municipal head") est à droite.
+
+-   `fct_recode()` est particulièrement utile pour compresser plusieurs catégories en moins de niveaux. Nous pouvons explorer cela en utilisant la variable education_level. Actuellement, elle a six catégories :
+
+```{r}
+count(hiv_mort, education_level)
+```
+
+Pour simplifier, regroupons-les en seulement trois catégories - "primary & below", "secondary & above" et "other" :
+
+```{r}
+hiv_mort_educ_simple <- 
+  hiv_mort %>%
+  mutate(education_level = fct_recode(education_level,
+                                      __________ = __________, 
+                                      __________ = __________,
+                                      __________ = __________,
+                                      __________ = __________,
+                                      __________ = __________,
+                                      __________ = __________,))
+```
+
+Cela regroupe bien les catégories :
+
+```{r}
+count(hiv_mort_educ_simple, education_level)
+```
+
+Pour bien faire, nous pouvons organiser les niveaux dans un ordre raisonnable, avec "others" comme dernier niveau :
+
+```{r}
+hiv_mort_educ_sorted <- 
+  hiv_mort_educ_simple %>%
+  mutate(education_level = fct_relevel(education_level,
+                                      "primary & below", 
+                                      "secondary & above",
+                                      "others"))
+```
+
+Cela regroupe bien les catégories :
+
+```{r}
+count(hiv_mort_educ_sorted, education_level)
+```
+
+::: practice
+### Q : Utilisation de fct_recode {.unlisted .unnumbered}
+
+En utilisant le jeu de données `hiv_mort`, convertissez death_location en un facteur.
+
+Ensuite, utilisez `fct_recode()` pour renommer 'Public way' en 'Public place' dans death_location. Tracez les décomptes de fréquence de la variable mise à jour.
+:::
+
+
+
+::: side-note
+**fct_recode vs case_when/if_else**
+
+Vous pourriez vous demander pourquoi nous avons besoin de `fct_recode()` lorsque nous pouvons utiliser `case_when()` ou `if_else()` ou même `recode()` pour substituer des valeurs spécifiques. Le problème est que ces autres fonctions peuvent perturber votre variable facteur.
+
+Pour illustrer, disons que nous choisissons d'utiliser `if_else()` pour apporter une modification à la variable `education_level` du jeu de données `hiv_mort_educ_sorted`.
+
+Pour rappel, la variable `education_level` est un facteur avec trois niveaux, organisés dans un ordre spécifique, avec "primary & below" en premier et "others" en dernier :
+
+```{r}
+count(hiv_mort_educ_sorted, education_level)
+```
+
+Disons que nous voulions remplacer "others" par "other", en supprimant le "s". Nous pouvons écrire :
+
+```{r}
+hiv_mort_educ_other <- 
+  hiv_mort_educ_sorted %>%
+  mutate(education_level = if_else(education_level == "others", 
+                                   "other", education_level))
+```
+
+Après cette opération, la variable n'est plus un facteur :
+
+```{r}
+class(hiv_mort_educ_other$education_level)
+```
+
+Si nous créons alors un tableau ou un graphique, notre ordre est perturbé et revient à l'ordre alphabétique, avec "other" comme premier niveau :
+
+```{r}
+count(hiv_mort_educ_other, education_level)
+```
+
+Cependant, si nous avions utilisé `fct_recode()` pour le recodage, nous n'aurions pas eu ce problème :
+
+```{r}
+hiv_mort_educ_other_fct <- 
+  hiv_mort_educ_sorted %>%
+  mutate(education_level = fct_recode(education_level, "other" = "others"))
+```
+
+La variable reste un facteur :
+
+```{r}
+class(hiv_mort_educ_other_fct$education_level)
+```
+
+Et si nous créons un tableau ou un graphique, notre ordre est préservé : primaire, secondaire, puis autre :
+
+```{r}
+count(hiv_mort_educ_other_fct, education_level)
+```
+:::
+
+## fct_lump
+
+-   Parfois, nous avons trop de niveaux pour un tableau ou un graphique, et nous voulons regrouper les niveaux les moins fréquents dans une seule catégorie, généralement appelée 'Other'.
+
+-   C'est là qu'intervient la fonction pratique `fct_lump()`.
+
+Dans l'exemple ci-dessous, nous regroupons les municipalités moins fréquentes dans 'Other', en ne conservant que les 5 municipalités les plus fréquentes :
+
+```{r}
+hiv_mort_lump_muni <- hiv_mort %>%
+  mutate(municipality_name = fct_lump(__________, __________))
+
+ggplot(hiv_mort_lump_muni, aes(x = municipality_name)) +
+  geom_bar()
+```
+
+Dans l'utilisation ci-dessus, le paramètre `n = 5` signifie que les cinq municipalités les plus fréquentes sont préservées, et le reste est regroupé dans 'Other'.
+
+Nous pouvons fournir un nom personnalisé pour la catégorie autre avec l'argument `other_level`. Ci-dessous, nous utilisons le nom `Other municipalities`.
+
+```{r}
+hiv_mort_lump_muni_other_name <- hiv_mort %>%
+  mutate(municipality_name = fct_lump(municipality_name, n = 5, 
+                                      other_level = "Other municipalities"))
+
+ggplot(hiv_mort_lump_muni_other_name, aes(x = municipality_name)) +
+  geom_bar()
+```
+
+De cette manière, `fct_lump()` est un outil pratique pour condenser des facteurs avec de nombreux niveaux peu fréquents en un nombre de catégories plus gérable.
+
+::: practice
+### Q : Utilisation de fct_lump {.unlisted .unnumbered}
+
+En partant de du jeu de données `hiv_mort`, utilisez `fct_lump()` pour créer un graphique à barres avec la fréquence des 10 professions les plus courantes.
+
+Regroupez les autres professions dans une catégorie 'Other'.
+
+Placez `occupation` sur l'axe des y, et non sur l'axe des x, pour éviter le chevauchement des étiquettes.
+:::
+
+
+
+# Synthèse {.unnumbered}
+
+Félicitations, vous êtes arrivé à la fin. Dans cette leçon, vous avez appris des détails sur la classe de données, les **facteurs**, et comment les manipuler en utilisant des opérations de base telles que `fct_relevel()`, `fct_reorder()`, `fct_recode()`, et `fct_lump()`.
+
+Bien que ces opérations couvrent des tâches courantes telles que la réorganisation, le recodage, et le regroupement de niveaux, cette introduction ne fait qu'effleurer la surface de ce qui est possible avec le package forcats. N'hésitez pas à en explorer davantage sur le site [forcats](https://forcats.tidyverse.org/).
+
+Maintenant que vous comprenez les bases du travail avec les facteurs, vous êtes équipé pour représenter correctement vos données catégorielles dans R pour l'analyse et la visualisation.
+
+# Réponses {.unnumbered}
+
+## Q : Facteur Genre {.unlisted .unnumbered}
+
+```{r}
+hiv_mort_q1 <- hiv_mort %>% 
+  mutate(gender = factor(x = gender, 
+                         levels = c("Female", "Male")))
+```
+
+## Q : Détection d'erreurs {.unlisted .unnumbered}
+
+**Erreurs :**
+
+-   "Mai" devrait être "May".
+-   "Nov." a un point supplémentaire.
+-   "Aug" manque dans la liste des mois.
+
+**Conséquences :**
+
+Toutes les lignes avec les valeurs "May", "Nov", ou "Aug" pour death_month seront converties en NA dans la nouvelle variable death_month. Si vous créez des graphiques, ggplot supprimera ces niveaux avec seulement des valeurs NA.
+
+## Q : Avantage des facteurs {.unlisted .unnumbered}
+
+b)  Les facteurs permettent un meilleur contrôle de l'ordre des données catégorielles.
+
+Les deux autres affirmations ne sont pas vraies.
+
+Si vous voulez appliquer des opérations de chaîne de caractères comme substr(), strsplit(), paste(), etc., il est en fait plus simple d'utiliser des vecteurs de caractères que des facteurs.
+
+Et bien que de nombreuses fonctions statistiques attendent des facteurs, pas des caractères, pour les prédicteurs catégoriels, cela ne les rend pas plus "précis".
+
+## Q : Utilisation de fct_relevel {.unlisted .unnumbered}
+
+## Q : Utilisation de fct_reorder {.unlisted .unnumbered}
+
+## Q : Utilisation de .fun {.unlisted .unnumbered}
+
+## Q : Utilisation de fct_recode {.unlisted .unnumbered}
+
+## Q : Utilisation de fct_lump {.unlisted .unnumbered}
+
+# Annexe : Codebook
+
+Les variables dans le jeu de données sont :
+
+-   `municipality` : localisation municipale générale du patient [chr]
+
+-   `death_location` : lieu où le patient est décédé [chr]
+
+-   `birth_date` : date de naissance complète, formatée "YYYY-MM-DD" [date]
+
+-   `birth_year` : année de naissance du patient [dbl]
+
+-   `birth_month` : mois de naissance du patient [chr]
+
+-   `birth_day` : jour de naissance du patient [dbl]
+
+-   `death_year` : année du décès du patient [dbl]
+
+-   `death_month` : mois du décès du patient [chr]
+
+-   `death_day` : jour du décès du patient [dbl]
+
+-   `gender` : sexe du patient [chr]
+
+-   `education_level` : niveau d'éducation le plus élevé atteint par le patient [chr]
+
+-   `occupation` : profession du patient [chr]
+
+-   `racial_id` : race du patient [chr]
+
+-   `municipality_code` : localisation municipale spécifique du patient [chr]
+
+-   `primary_cause_death_description` : cause principale du décès du patient [chr]
+
+-   `primary_cause_death_code` : code de la cause principale du décès [chr]
+
+-   `secondary_cause_death_description` : cause secondaire du décès du patient [chr]
+
+-   `secondary_cause_death_code` : code de la cause secondaire du décès [chr]
+
+-   `tertiary_cause_death_description` : cause tertiaire du décès du patient [chr]
+
+-   `tertiary_cause_death_code` : code de la cause tertiaire du décès [chr]
+
+-   `quaternary_cause_death_description` : cause quaternaire du décès du patient [chr]
+
+-   `quaternary_cause_death_code` : code de la cause quaternaire du décès [chr]
+
+# Contributeurs {.unlisted .unnumbered}
+
+Les membres de l'équipe suivants ont contribué à cette leçon :
+
+`r tgc_contributors_list(ids = c("camille", "kendavidn"))`

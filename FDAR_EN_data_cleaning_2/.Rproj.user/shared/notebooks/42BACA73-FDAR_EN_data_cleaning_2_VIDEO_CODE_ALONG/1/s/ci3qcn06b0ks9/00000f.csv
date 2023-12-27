@@ -1,0 +1,8 @@
+"0","non_adherence_distinct %>% 
+  get_dupes()
+"
+"2","No variable names specified - using all columns.
+
+"
+"2","No duplicate combinations found of: patient_id, district, health_unit, sex, age_35, age_at_art_initiation, education, occupation, civil_status, ... and 5 other variables
+"

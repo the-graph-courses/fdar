@@ -1,0 +1,3 @@
+municipality,death_location,death_year,death_month,death_day,education_level,occupation,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2011,Jul,23,No information,Unknown,Other,Norcasia,Cardiorespiratory Arrest,I469,Sepsis,A419,NA,G039,NA,NA
+Municipal head,Hospital/clinic,2014,Sep,14,None,Transient Crop Farmers,Other,Norcasia,Volume Depletion,E86,Hypovolemic shock,R571,NA,B24,NA,NA

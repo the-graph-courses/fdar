@@ -1,0 +1,4 @@
+"0","non_adherence_clean_2 <-  "
+"0","  non_adherence_clean %>% "
+"0","  rename_with(.cols = c(occupation_of_patient, education_of_patient), "
+"0","              .fn = ~ str_replace_all(.x, ""_of_patient"", """"))"

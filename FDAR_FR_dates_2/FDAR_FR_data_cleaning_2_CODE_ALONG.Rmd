@@ -1,0 +1,463 @@
+---
+title: 'Nettoyage de données II: '
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable, kable)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block")
+```
+
+------------------------------------------------------------------------
+
+# Introduction
+
+Dans cette leçon, nous allons explorer l'essentielle compétence du nettoyage des données, la prochaine étape cruciale pour raffiner vos jeux de données en vue d'une analyse robuste. Alors que nous passons de l'analyse exploratoire des données, où nous avons identifié des problèmes potentiels, nous nous concentrons maintenant sur la résolution systématique de ces problèmes. Commençons !
+
+------------------------------------------------------------------------
+
+# Objectifs d'apprentissage
+
+-   Vous savez comment nettoyer automatiquement et manuellement les noms de colonnes
+
+-   Vous pouvez facilement supprimer les colonnes et lignes vides
+
+-   Vous êtes capable de supprimer les ligne en double
+
+-   Vous savez comment corriger les valeurs en caractère de chaîne
+
+-   Vous pouvez changer les types de données
+
+------------------------------------------------------------------------
+
+# Packages
+
+Les packages ci-dessous seront nécessaires pour cette leçon :
+
+```{r}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse,
+               janitor,
+               inspectdf,
+               skimr, 
+               here)
+
+```
+
+------------------------------------------------------------------------
+
+# Jeu de données
+
+‣ Une version légèrement modifiée du jeu de données utilisé dans la première leçon.
+
+```{r}
+non_adherence <- read_csv(here("data/non_adherence_desordre.csv"))
+```
+
+------------------------------------------------------------------------
+
+# Nettoyage des noms de colonnes
+
+‣ Les noms de colonnes doivent être "propres" et standardisés
+
+‣ Cela simplifie le travail avec les données et rend le code plus lisible
+
+‣ Les noms de colonnes idéaux sont courts, sans espaces, points ou caractères spéciaux, et ils ont tous un style similaire
+
+‣ Utilisez `names()` pour voir les noms de colonnes actuels
+
+```{r}
+names(_________)
+```
+
+Ici, on voit que :
+
+‣ certains noms contiennent des espaces
+
+‣ certains noms contiennent des caractères spéciaux comme `...`
+
+‣ certains noms sont en majuscules alors que d'autres non
+
+## Nettoyage automatique
+
+‣ `clean_names()` du package `janitor` est une fonction utile pour standardiser les noms de colonnes
+
+‣ Elle gère les majuscules/minuscules, espaces, caractères spéciaux et séparateurs
+
+‣ Utilsons `clean_names()` sur notre jeu de données `non_adherence`
+
+```{r}
+_________ %>% 
+_________() %>%  
+  names()
+```
+
+D'après cette sortie, nous pouvons voir que :
+
+‣ les noms de variables en majuscules ont été convertis en minuscules
+
+‣ les espaces dans les noms de variables ont été convertis en tirets bas
+
+‣ les points (`.`) ont tous été remplacés par des tirets bas
+
+::: r-practice
+**QUESTION PRATIQUE:** `clean_names()`
+
+‣ L'ensemble de données suivant a été adapté d'une étude qui a utilisé des données rétrospectives pour caractériser les dynamiques temporelles et spatiales des épidémies de fièvre typhoïde à Kasese, Ouganda.
+
+```{r}
+typhoide <- read_csv(here("data/typhoid_uganda.csv"))
+
+__________(typhoide)
+```
+
+Utilisez la fonction `clean_names()` de `janitor` pour nettoyer les noms de variables dans le jeu de données `typhoide`.
+:::
+
+## Nettoyage automatique puis manuel des noms de colonnes
+
+‣ Parfois un nettoyage automatique seul n'est pas suffisant
+
+‣ Commencez par le nettoyage automatique, puis ajustez manuellement si nécessaire
+
+```{r}
+non_adherence %>% 
+clean_names() %>%  
+  names()
+```
+
+‣ Utilsons `clean_names()` pour standardiser, ensuite utilisons `rename()` et `rename_with()` pour manullement renommer les colonnes qui nécessitent toujours un nettoyage
+
+```{r}
+_________ <- non_adherence %>%  
+  clean_names() %>%                 
+  rename(_________) %>%          
+  rename_with(_________)
+
+_________
+```
+
+::: r-practice
+**QUESTION PRATIQUE:** Nettoyage automatique et manuelle
+
+Standardisez les noms de colonnes dans le jeu de données `typhoide` puis :
+
+-   remplacez `of` par `_`
+
+-   renommez les variables `below10years`, `n1119years`, `n2035years`, `n3644years`, `n4565years,` `above65years` en `moins_10_ans`, `11_19_ans`, `20_35_ans`, `36_44_ans`, `45_65_ans`, `plus_65_ans`
+
+```{r}
+typhoide_col_propre <- _________ %>%  
+  _________() %>%                 
+  rename(_________) %>%          
+  rename_with(_________)
+
+names(typhoide_col_propre)
+```
+:::
+
+## 
+
+# Supprimer des colonnes et lignes vides
+
+‣ Une ligne/colonne **VIDE** est une ligne/colonne où toutes les valeurs sont `NA`.
+
+‣ Le but est que **chaque ligne soit un point de données significatif** et que **chaque colonne soit une variable significative**.
+
+‣ Utilisons la fonction `inspect_na()` du package `inspectdf` pour identifier les colonnes vides.
+
+```{r}
+inspectdf::inspect_na(_________)
+```
+
+‣ La colonne `na` est completement vide
+
+‣ Utilisons la fonction `remove_empty()` avec l'argument `"cols"` du package `janitor` pour supprimer toutes les colonnes vides
+
+```{r}
+ncol(non_adh_col_propre)
+
+non_adh_col_propre <- non_adh_col_propre %>%
+  remove_empty(_________) 
+
+ncol(non_adh_col_propre)
+```
+
+::: r-practice
+**QUESTION PRATIQUE:** Colonnes vides
+
+Identifiez et supprimez les colonnes vides du jeu de données `typhoide_col_propre`.
+
+```{r}
+# Identifiez les colonnes vides
+___________(typhoide_col_propre)
+
+# Supprimez les colonnes vides
+typhoide_col_propre %>% 
+  _________(______)
+```
+:::
+
+## Supprimer des lignes vides
+
+‣ Nous pouvons aussi utiliser la fonction `remove_empty()` pour les lignes vides
+
+‣ Il faut juste spécifier `"rows"` au lieu de `"cols"`
+
+```{r}
+nrow(non_adh_col_propre)
+
+non_adh_col_propre <- non_adh_col_propre %>%
+  remove_empty("rows")
+
+nrow(non_adh_col_propre)
+```
+
+‣ Le nombre de lignes est passé de 1420 à 1417
+
+::: r-practice
+**QUESTION PRATIQUE :** Colonnes et lignes vides
+
+Supprimez à la fois les lignes et colonnes vides du jeu de données `typhoide_col_propre`.
+
+```{r}
+typhoide_col_propre <- typhoide_col_propre %>% 
+  ________(_____) %>% 
+  ________(_____)
+```
+:::
+
+## 
+
+# Supprimer des lignes en double
+
+‣ Les lignes en doubles sont celles qui ont exactement les mêmes valeurs qu'une autre ligne.
+
+‣ Cela peut se produire lorsque vous combinez des données de sources multiples ou lorsque vous avez reçu plusieurs réponses à un sondage.
+
+‣ Nous utiliserons deux fonctions : `janitor::get_dupes()` et `dplyr::distinct()`
+
+## `janitor::get_dupes()`
+
+‣ Pour vérifier les lignes en double, nous allons utiliser la fonction `get_dupes()` du package `janitor`
+
+‣ Essayons-le sur notre dataframe `non_adh_col_propre`.
+
+```{r}
+_________ %>%
+  _________()
+```
+
+‣ La sortie est composée de 8 lignes : il y a 2 lignes pour chaque paire de doublons
+
+::: r-practice
+**QUESTION PRATIQUE :** Identification des lignes en double
+
+Identifiez et extraire les lignes en double dans le jeu de données `typhoide_col_propre`.
+
+```{r}
+___________(typhoide_col_propre)
+```
+:::
+
+## `dplyr::distinct()`
+
+‣ La fonction `distinct()` est une fonction du package `dplyr` qui ne conserve que les lignes uniques/distinctes d'un jeu de données
+
+‣ Utilsons la fonction `distinct()` sur notre jeu de données `non_adh_col_propre`
+
+```{r}
+nrow(non_adh_col_propre)
+
+_________ <- non_adh_col_propre %>%
+  _________()
+
+nrow(_________)
+```
+
+‣ On est passé de 1417 à 1413 lignes
+
+::: r-practice
+**QUESTION PRATIQUE :** Supprimez les lignes en double
+
+Supprimez les lignes en double du jeu de données `typhoide_col_propre`. Assurez-vous que seules des lignes uniques restent dans le jeu de données.
+
+```{r}
+typhoide_distinct <- ________ %>%
+  ________()
+
+________(________)
+```
+:::
+
+------------------------------------------------------------------------
+
+# Transformations
+
+## Correction des chaînes de caractères
+
+‣ Il peut y avoir des moments où vous devez corriger certaines incohérences dans les chaînes de caractères comme les fautes d'orthographe et les majuscules non-voulus
+
+‣ Ces problèmes devraient être corrigés pendant le nettoyage, et non dans les données brutes
+
+‣ Tout d'abord, regardons la colonne `sexe` :
+
+```{r}
+non_adh_distinct %>% 
+  count(_________)  
+```
+
+## `dplyr::case_match()`
+
+‣ On va utiliser la fonction `case_match()`avec la fonction `mutate()` pour que `F` soit changé en `Femme`
+
+‣ La syntaxe est `case_match(nom_colonne, ancienne_valeur_colonne ~ nouvelle_valeur_colonne)`
+
+‣ Essayons-là sur notre jeu de données `non_adh_distinct`
+
+```{r}
+non_adh_distinct %>%
+  mutate(_________) %>% 
+  count(_________)  
+```
+
+::: watch-out
+Si vous ne spécifiez pas l'argument `.default=nom_colonne`, toutes les valeurs de cette colonne qui ne correspondent pas à celles que vous changez et que vous mentionnez explicitement dans votre fonction `case_match()` seront renvoyées comme `NA`. Dans le cas ci-dessus, cela signifie que tous les `Hommes` auraient été définis comme manquants.
+:::
+
+::: r-practice
+**QUESTION PRATIQUE :** Recodez les valeurs
+
+Il y a une valeur `01-May` dans la variable `householdmembers` du jeu de données `typhoide_distinct`. Recodez cette valeur en `1-5`.
+
+```{r}
+typhoide_distinct %>%
+  mutate(_______) 
+```
+:::
+
+### Homogénéiser toutes les chaînes dans l'ensemble du jeu de données
+
+‣ Dans la dernière leçon, nous avons vu que nos caractères de chaînes n'étaient pas cohérents. Par exemple, pour notre variable `occupation`, nous avions à la fois `Professeur` et `professeur`.
+
+‣ Nous allons transformer nos chaînes en minuscules à l'aide de la fonction `tolower()` et en sélectionant toutes les colonnes de type caractère avec `where(is.character)`
+
+```{r}
+non_adh_distinct %>% count(_________)
+
+non_adh_distinct %>%
+  mutate(_________) %>% 
+  count(_________)
+```
+
+‣ Nous sommes passés de 51 à 49 niveaux uniques pour la variable `occupation` lorsque nous transformons tout en minuscules !
+
+::: r-practice
+**QUESTION PRATIQUE :** `tolower()`
+
+Transformez toutes les chaînes de caractères du jeu de données `typhoide_distinct` en minuscules.
+
+```{r}
+typhoide_distinct %>%
+  mutate(__________) 
+```
+:::
+
+## Nettoyage des types de données
+
+‣ C'est nécessaire de vérfifer les types de vos variables, souvent il faut les redéfinir avant de pouvoir faire votre analyse
+
+‣ Utilisons `skim()` pour voir les types de nos variables:
+
+```{r}
+  skim(non_adh_distinct) %>%
+  select(skim_type) %>%
+  count(skim_type)
+```
+
+‣ Toutes nos variables sont catégorielles, sauf `age_initiation_arv`, `imc_initiation_arv`, `cd4_initiation_arv` et `nmbr_comprimes_jour`.
+
+Transformons toutes les autres en variables factorielles à l'aide de la fonction `as.factor()`
+
+```{r}
+non_adh_distinct %>%
+  mutate(_________) %>% 
+  skim() 
+```
+
+::: r-practice
+**QUESTION PRATIQUE :** `as.factor()`
+
+Convertissez les variables aux positions 13 à 29 dans le jeu de données `typhoide_distinct` en variables catégorielles.
+
+```{r}
+typhoide_distinct %>%
+  mutate(_______) 
+```
+:::
+
+## Mettre toutes les transformations ensembles
+
+‣ Appliquons ensemble les transformations de chaînes de caractères et de types de données
+
+```{r}
+_________ <- non_adh_distinct %>%
+  # Recodage des valeurs de sexe
+  mutate(_________) %>%
+  # Tout en minuscules 
+  mutate(_________) %>%
+  # Changement des types de variables
+  mutate(_________)
+
+_________
+```
+
+::: r-practice
+**QUESTION PRATIQUE :** Toutes les transformations
+
+Appliquez toutes les transformations de chaines de caracteres et types de données du jeu de données `typhoide_distinct`.
+
+```{r}
+typhoide_final <- _______ %>%
+  # Recodage des valeurs de la variable `householdmembers`
+  mutate(_______) 
+  # Mettre tout en minuscules 
+  mutate(_______) %>%
+  # Changement des types de variables aux positions 13 à 29
+  mutate(_______)
+  
+typhoide_final
+```
+:::
+
+------------------------------------------------------------------------
+
+# En Résumé
+
+Félicitations pour avoir terminé cette leçon en deux parties sur le processus de nettoyage des données ! Vous êtes maintenant mieux équipé pour transformer des données brutes en données propres; pretes à être utiliser pour vos analyses!
+
+------------------------------------------------------------------------
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("kendavidn", "amckinley"))`

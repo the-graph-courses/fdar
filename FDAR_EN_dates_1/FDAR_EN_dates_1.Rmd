@@ -455,7 +455,7 @@ Looks great!
 
 ------------------------------------------------------------------------
 
-# WRAP UP! {.unnumbered}
+# Wrap Up! {.unnumbered}
 
 Congratulations on finishing the first Dates lesson! Now that you understand how Dates are stored, displayed, and formatted in R, you can move on to the next section where you'll learn how to perform manipulations with dates and how to create basic time series graphs.
 

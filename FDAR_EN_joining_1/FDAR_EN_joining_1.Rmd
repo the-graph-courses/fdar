@@ -231,7 +231,8 @@ The syntax `c("name" = "test_recipient")` is a bit unusual. It essentially says,
 ------------------------------------------------------------------------
 
 ::: r-practice
-**Left Join Patients and Checkups**
+
+### Left Join Patients and Checkups {.unlisted .unnumbered}
 
 Consider the two datasets below, one with patient details and the other with medical check-up dates for these patients.
 
@@ -255,7 +256,8 @@ Join the `patients` dataset with the `checkups` dataset using `left_join()`
 :::
 
 ::: r-practice
-**Left Join with by Argument**
+
+### Left Join with by Argument {.unlisted .unnumbered}
 
 Two datasets are defined below, one with patient details and the other with vaccination records for those patients.
 
@@ -340,7 +342,8 @@ Once again, the `left_join()` retains all rows from the *left* dataset (now `tes
 :::
 
 ::: r-practice
-**Left Join Diagnoses and Demographics**
+
+### Left Join Diagnoses and Demographics {.unlisted .unnumbered}
 
 Try out the following. Below are two datasets - one with disease diagnoses (`disease_dx`) and another with patient demographics (`patient_demographics`).
 
@@ -371,14 +374,14 @@ Let's try another example, this time with a more realistic set of data.
 
 First, we have data on the TB incidence rate per 100,000 people for 47 African countries, from the [WHO](https://www.who.int/data/gho/data/indicators/indicator-details/GHO/incidence-of-tuberculosis-(per-100-000-population-per-year)):
 
-```{r render=reactable_5_rows}
+```{r render=reactable_5_rows, message=FALSE}
 tb_2019_africa <- read_csv(here("data/tb_incidence_2019.csv"))
 tb_2019_africa
 ```
 
 We want to analyze how TB incidence in African countries varies with government health expenditure per capita. For this, we have data on health expenditure per capita in USD, also from the WHO, for countries from all continents:
 
-```{r render=reactable_5_rows}
+```{r render=reactable_5_rows, message=FALSE}
 health_exp_2019 <- read_csv(here("data/health_expend_per_cap_2019.csv"))
 health_exp_2019
 ```
@@ -419,7 +422,8 @@ health_exp_2019 %>%
 Indeed, these countries aren't present in `health_exp_2019`.
 
 ::: r-practice
-**Left Join TB Cases and Continents**
+
+### Left Join TB Cases and Continents {.unlisted .unnumbered}
 
 Copy the code below to define two datasets.
 
@@ -517,7 +521,8 @@ inner_join(test_info_xavier, demographic, by="name")
 As expected, the only difference here is the order of our columns, otherwise the information retained is the same.
 
 ::: r-practice
-**Inner Join Pathogens**
+
+### Inner Join Pathogens {.unlisted .unnumbered}
 
 The following data is on foodborne-outbreaks in the US in 2019, from the [CDC](https://wwwn.cdc.gov/FoodNetFast/PathogenSurveillance/AnnualSummary). Copy the code below to create two new dataframes:
 
@@ -564,7 +569,8 @@ Notice that there are now only 44 rows in the output, since the three african co
 Along with `left_join()`, the `inner_join()` is one of the most common joins when working with data, so it's likely you will come across it a lot. It's a powerful and often-used tool, but it's also the join that excludes the most information, so be sure that you only want matching records in your final dataset or you may end up accidentally losing a lot of data! In contrast, `full_join()` is the most inclusive join, let's take a look at it in the next section.
 
 ::: r-practice
-**Inner Join One Row**
+
+### Inner Join One Row {.unlisted .unnumbered}
 
 The code chunk below filters the `health_exp_2019` dataset to the 70 countries with the highest spending:
 
@@ -610,7 +616,8 @@ full_join(test_info_xavier, demographic, by="name")
 Just as we saw above, all of the data from both of the original datasets are still there, with any missing information set to `NA`.
 
 ::: r-practice
-**Full Join Malaria Data**
+
+### Full Join Malaria Data {.unlisted .unnumbered}
 
 The following dataframes contain global malaria incidence rates per 100'000 people and global death rates per 100'000 people from malaria, from [Our World in Data](https://ourworldindata.org/malaria). Copy the code to create two small dataframes:
 
@@ -657,10 +664,63 @@ Just as we saw earlier, all rows were kept between both datasets with missing va
 
 ------------------------------------------------------------------------
 
-# Summary
+# Wrap Up!
 
 Way to go, you now understand the basics of joining! The Venn diagram below gives a helpful summary of the different joins and the information that each one retains. It may be helpful to save this image for future reference!
 
 ![](images/venn_cropped-01.jpg)
 
 ------------------------------------------------------------------------
+
+# Answer Key {.unnumbered}
+
+### Q: Left Join Patients and Checkups {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patients, y=checkups)
+```
+
+### Q: Left Join with by Argument {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patient_details, y=vaccination_records, by=c("id_number"="patient_code"))
+```
+
+### Q: Left Join Diagnoses and Demographics {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patient_demographics, y=disease_dx)
+```
+
+### Q: Left Join TB Cases and Continents {.unlisted .unnumbered}
+
+```{r}
+left_join(x=tb_cases_children, y=country_continents, by=c(country="country.name.en"))
+```
+
+### Q: Inner Join Pathogens {.unlisted .unnumbered}
+
+```{r}
+inner_join(total_inf, outcomes)
+```
+
+### Q: Inner Join One Row {.unlisted .unnumbered}
+
+```{r}
+inner_join(highest_exp, tb_2019_africa)
+```
+There is only one country in common between the two datasets. 
+
+### Q: Full Join Malaria Data {.unlisted .unnumbered}
+
+```{r}
+full_join(malaria_inc, malaria_deaths)
+```
+
+------------------------------------------------------------------------
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("kendavidn", "amckinley"))` 

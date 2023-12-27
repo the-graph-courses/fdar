@@ -497,7 +497,7 @@ irs %>%
 
 ------------------------------------------------------------------------
 
-## WRAP UP!
+## Wrap Up!
 
 ‣ Congratulations on finishing the first Dates lesson!
 
@@ -559,3 +559,11 @@ ip %>%
 my_date <- as.Date("2018-05-07")
 format(my_date, "%m/%d/%Y")
 ```
+
+------------------------------------------------------------------------
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(c("amckinley", "kendavidn"))`

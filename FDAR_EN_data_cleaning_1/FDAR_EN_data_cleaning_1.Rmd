@@ -328,7 +328,7 @@ Create a data report for your `missed_ops` data using the `create_report()` func
 
 ------------------------------------------------------------------------
 
-# Wrapping up
+# Wrap up!
 
 By familiarizing ourselves with the data, we have been able to identify some potential problems that may need to be addressed before the data are used in an analysis.
 

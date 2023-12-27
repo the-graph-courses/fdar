@@ -1,0 +1,6 @@
+"0","test_string <- ""this is a test test string"" # replace test with new"
+"0","str_replace_all(string = test_string, pattern = ""test"", replacement = ""new"")"
+"1","[1]"
+"1"," ""this is a new new string"""
+"1","
+"

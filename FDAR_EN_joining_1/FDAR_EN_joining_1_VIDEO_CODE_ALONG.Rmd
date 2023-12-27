@@ -671,3 +671,58 @@ full_tb_health
 -   You're able to choose the appropriate join for your data
 
 -   You can join simple datasets together using functions from `dplyr`
+------------------------------------------------------------------------
+
+# Answer Key {.unnumbered}
+
+### Q: Left Join Patients and Checkups {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patients, y=checkups)
+```
+
+### Q: Left Join with by Argument {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patient_details, y=vaccination_records, by=c("id_number"="patient_code"))
+```
+
+### Q: Left Join Diagnoses and Demographics {.unlisted .unnumbered}
+
+```{r}
+left_join(x=patient_demographics, y=disease_dx)
+```
+
+### Q: Left Join TB Cases and Continents {.unlisted .unnumbered}
+
+```{r}
+left_join(x=tb_cases_children, y=country_continents, by=c(country="country.name.en"))
+```
+
+### Q: Inner Join Pathogens {.unlisted .unnumbered}
+
+```{r}
+inner_join(total_inf, outcomes)
+```
+
+### Q: Inner Join One Row {.unlisted .unnumbered}
+
+```{r}
+inner_join(highest_exp, tb_2019_africa)
+```
+There is only one country in common between the two datasets. 
+
+### Q: Full Join Malaria Data {.unlisted .unnumbered}
+
+```{r}
+full_join(malaria_inc, malaria_deaths)
+```
+
+------------------------------------------------------------------------
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("kendavidn", "amckinley"))` 
+

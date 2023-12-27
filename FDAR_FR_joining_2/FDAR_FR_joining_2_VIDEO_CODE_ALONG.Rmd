@@ -1,0 +1,715 @@
+---
+title: 'Joindre des tables de données (leçon 2)'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: inline
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Charger les packages
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable)
+
+## fonctions
+source(here::here("global/functions/misc_functions.R"))
+
+## rendu par défaut
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block")
+```
+
+# Introduction
+
+Maintenant que nous avons une bonne compréhension des différents types de jointures et de leur fonctionnement, nous pouvons examiner comment gérer des jeux de données plus complexes et plus désordonnés. La jointure de données du monde réel provenant de différentes sources nécessite souvent une réflexion et un nettoyage préalable.
+
+------------------------------------------------------------------------
+
+# Objectifs d'apprentissage
+
+‣ Vous savez comment vérifier les valeurs incohérentes entre les jeux de données
+
+‣ Vous comprenez comment joindre en utilisant une correspondance un-à-plusieurs
+
+‣ Vous savez comment joindre sur plusieurs colonnes clés
+
+
+
+------------------------------------------------------------------------
+
+## Packages
+
+‣ Chargez les paquets nécessaires pour cette leçon en utilisant le code fourni ci-dessous:
+
+```{r}
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(_____________, _____________)
+```
+
+
+
+## Nettoyage des données avant la jointure : gérer les incohérences dans les données
+
+‣ Souvent, les donnéesprovenant de **différentes sources** nécessitent un nettoyage préalable avant la fusion.
+
+‣ Les raisons peuvent inclure :
+
+-   Les erreurs d'orthographe
+-   Les différences de majuscules
+-   Les espaces supplémentaires
+
+‣ Pour fusionner les valeurs avec succès, elles doivent **correspondre parfaitement** en R.
+
+## Un exemple jouet
+
+‣ Utilisons nos données fictives de patients de la première leçon.
+
+‣ Remarquez les différents formats de noms dans les jeux de données `demographic` et `test_info`.
+
+```{r}
+demographic <- tribble(
+  ~name,     ~age,
+  "Alice",    25,
+  "Bob",      32,
+  "Charlie",  45,
+)
+demographic
+```
+
+```{r}
+test_info <- tribble(
+  ~name,  ~test_date,    ~result,
+  "alice", "2023-06-05",  "Négatif",
+  "Bob",   "2023-08-10",  "Positif",
+  "charlie","2023-05-02",  "Négatif",
+)
+test_info
+```
+
+‣ Maintenant, faisons la jointure des deux jeux de données.
+
+```{r}
+left_join(_____________, _____________, _____________)
+
+```
+
+```{r}
+inner_join(_____________, _____________, _____________)
+```
+
+
+‣ Les jointures ne sont pas parfaites en raison des différences de majuscules dans les noms.
+
+‣ Solution : Convertir tous les noms titre majuscule en utilisant `str_to_title()`.
+
+```{r}
+test_info_title <- test_info %>%
+  mutate(name = str_to_title(_____________)) #convertit en police de titre
+```
+
+```{r}
+left_join(_____________, _____________, _____________)
+
+```
+
+```{r}
+inner_join(_____________, _____________, _____________)
+```
+
+**TEMPS DE PRATIQUE**
+
+::: practice
+### Q: Jointure interne des pays {.unlisted .unnumbered}
+
+Les deux jeux de données suivants contiennent des données pour l'Inde, l'Indonésie et les Philippines. Cependant, une `inner_join()` de ces jeux de données ne produit aucune sortie. Quelles sont les différences entre les valeurs dans les colonnes clés qui devraient être modifiées avant de joindre les jeux de données ?
+
+```{r}
+df1 <- tribble(
+  ~Country,     ~Capital,
+  "Inde",      "New Delhi",
+  "Indonésie",  "Jakarta",
+  "Philippines", "Manille"
+)
+
+df2 <- tribble(
+  ~Country,     ~Population,   ~Life_Expectancy,
+  "Inde ",      1393000000,   69.7,
+  "indonésie",   273500000,    71.7,
+  "Philipines",  113000000,    72.7
+)
+
+inner_join(df1, df2)
+```
+:::
+
+## Exemple de données réelles 1 : Fautes de saisie dans les clés
+
+‣ Travailler avec de petits jeux de données facilite la détection des discordances clés
+
+‣ Mais comment faire face à des jeux de données plus volumineux ?
+
+‣ Explorons cela avec deux jeux de données réels sur la tuberculose en Inde
+
+‣ Le premier jeu de données : Notifications de cas de tuberculose en 2022 pour tous les 36 États indiens et territoires de l'Union
+
+‣ Source: [Government of India Tuberculosis Report](https://data.gov.in/catalog/india-tuberculosis-report-2023)
+
+```{r}
+tb_notifs <- read_csv(here("data/notif_TB_india_modified.csv"))
+
+tb_notifs_public <- tb_notifs %>% 
+  filter(_____________ == "public") %>% #nous ne voulons que les systèmes publics pour le moment
+  select(-_____________)
+
+tb_notifs_public
+```
+
+‣ Le deuxième jeu de données : Dépistage du COVID parmi les cas de tuberculose pour 36 États indiens
+
+‣ Également tiré du même [TB Report](https://data.gov.in/catalog/india-tuberculosis-report-2023)
+
+```{r}
+covid_screening <- read_csv(here("data/COVID_india_modified.csv")) 
+
+covid_screening_public <- covid_screening %>% 
+  filter(_____________ == "_____________") %>% #nous ne voulons que les systèmes publics pour le moment
+  select(_____________)
+
+covid_screening_public
+```
+
+‣ Objectif : Joindre ces jeux de données pour calculer le pourcentage de patients atteints de tuberculose dans chaque État qui ont été testés positifs pour le COVID-19
+
+‣ Tentons une `inner_join()` :
+
+```{r}
+tb_notifs_and_covid_screening <- 
+  inner_join(_____________, _____________)
+
+tb_notifs_and_covid_screening
+```
+
+‣ Ensuite, effectuez le calcul du pourcentage :
+
+```{r}
+tb_notifs_and_covid_screening %>% 
+  mutate(pct_covid_pos = 100 * _____________ / _____________) 
+```
+
+‣ Observation : Nous avons maintenant seulement 32 lignes au lieu de 36. Pourquoi ?
+
+‣ Il y a des "fautes de saise dans les clés" qui causent des discordances lors de la jointure
+
+‣ Fautes de saisie dans les clés : Incohérences d'orthographe ou de formatage dans les colonnes clés à travers les jeux de données
+
+‣ Exemple : Un jeu de données liste "New Delhi" tandis que l'autre liste "Delhi"
+
+‣ Ces incohérences empêchent un appariement correct et entraînent une perte de données
+
+
+
+**VOCAB TIME !**
+
+::: vocab
+‣ "Clé" : Colonne(s) utilisée(s) pour faire correspondre les lignes à travers les jeux de données lors d'une jointure
+
+‣ "Fautes de saisie dans les clés" : Incohérences d'orthographe ou de formatage dans les colonnes clés à travers les jeux de données
+:::
+
+
+
+## Identification des valeurs non appariées avec `setdiff()`
+
+‣ Nous voulons **identifier les fautes de saisie dans les clés** dans nos données
+
+‣ Pour cela, nous pouvons utiliser la fonction `setdiff()`
+
+‣ Commençons par comparer les valeurs `state` de deux jeux de données: `tb_notifs_public` et `covid_screening_public`
+
+```{r}
+setdiff(_____________, _____________)
+```
+
+‣ En mettant le jeu de données `tb_notifs_public` en premier, nous demandons :
+
+‣ "Quelles valeurs sont dans `tb_notifs_public` mais *pas* dans `covid_screening_public`?"
+
+‣ Nous devrions également vérifier l'ordre inverse :
+
+‣ "Quelles valeurs sont dans `covid_screening_public` mais *pas* dans `tb_notifs_public`?"
+
+```{r}
+setdiff(_____________, _____________)
+```
+
+‣ Nous avons trouvé des valeurs dans `covid_screening_public` qui contiennent des erreurs d'orthographe ou qui sont écrites différemment que dans `tb_notifs_public`
+
+‣ Nettoyons `covid_screening_public` en utilisant `case_when()`
+
+```{r}
+covid_screening_public_clean <- covid_screening_public %>% 
+  mutate(state = 
+           case_when(______________________________,
+                     ______________________________,
+                     ______________________________, 
+                     ______________________________,
+                     TRUE ~ state))
+
+setdiff(_____________, _____________) 
+setdiff(_____________, _____________)
+```
+
+‣ Maintenant, nous n'avons plus de différences dans les noms de régions
+
+‣ Nous pouvons joindre nos jeux de données :
+
+```{r, render = reactable_5_rows}
+inner_join(_____________, _____________)
+```
+
+## Identifier les valeurs non appariées avec `antijoin()`
+
+‣ La fonction `anti_join()` de {dplyr} est une autre façon d'identifier les discordances
+
+‣ Elle renvoie les lignes du premier jeu de données où les valeurs clés **ne correspondent pas** au second jeu de données
+
+‣ Trouvons les valeurs `state` non appariées dans `tb_notifs_public` par rapport à `covid_screening_public`
+
+```{r, render = reactable_5_rows}
+anti_join(_____________, _____________)
+```
+
+‣ Et vice versa, pour les valeurs présentes dans `covid_screening_public` mais pas dans `tb_notifs_public` :
+
+```{r, render = reactable_5_rows}
+anti_join(_____________, _____________ )
+```
+
+‣ Cette méthode fournit plus de contexte pour les discordances
+
+‣ Après identification, corrigez les erreurs avec `mutate()` et procédez à la jointure
+
+**C'EST L'HEURE DE S'EXERCER !**
+
+::: practice
+### Q: Vérifier et corriger les fautes de saisie avant la jointure {.unlisted .unnumbered}
+
+Le jeu de données suivant, également extrait du [TB Report](https://data.gov.in/catalog/india-tuberculosis-report-2023), contient des informations sur le nombre de cas de tuberculose pédiatrique et le nombre de patients pédiatriques ayant débuté le traitement.
+
+```{r message=FALSE, render = reactable_5_rows}
+child <- read_csv(here("data/child_TB_india_modified.csv"))
+
+child_public <- child %>% 
+  filter(hc_type == "public") %>% 
+  select(-hc_type)
+
+child_public 
+```
+
+1.  En utilisant `set_diff()` ou `anti_join()`, comparez les valeurs clés du jeu de données `child_public` avec celles du jeu de données `tb_notifs_public`, qui a été défini précédemment
+2.  Apportez toutes les modifications nécessaires au jeu de données `child_public` pour assurer que les valeurs correspondent.
+3.  Joignez les deux jeux de données.
+4.  Identifiez quelles deux régions ont la plus grande proportion de cas de tuberculose chez les enfants.
+:::
+
+## Exemple de données réelles 2 : Fautes de saisie dans les clés et lacunes de données
+
+‣ Les **fautes de saisie dans les clés** et les **incohérences de formatage** peuvent entraver les jointures réussies entre les jeux de données.
+
+‣ Explorons un scénario plus complexe impliquant le jeu de données `covid_screening_public`.
+
+```{r}
+covid_screening_public
+```
+
+‣ Notre objectif est d'enrichir ce jeu de données avec des informations de **zonage** à partir du jeu de données `regions`.
+
+```{r}
+regions <- read_csv(here("data/region_data_india.csv"))
+regions
+```
+
+‣ Les colonnes de `regions` comprennent `zonal_council`, `subdivision_category` et `state_UT`.
+
+‣ Nous utiliserons une jointure de type **left join** pour fusionner sans perdre de lignes de `covid_screening_public`.
+
+```{r}
+covid_regions <- left_join(_____________, 
+                           _____________, 
+                           by = c("______" = "______"))
+covid_regions
+```
+
+‣ Après la jointure, certaines entrées **manquent d'informations de zonage**.
+
+```{r}
+covid_regions %>% 
+  filter(is.na(zonal_council))
+```
+
+‣ Pour comprendre pourquoi, nous allons enquêter en utilisant `anti_join()`.
+
+```{r}
+anti_join(regions, covid_screening_public, by = c(______ = ______))
+```
+
+‣ 3 états sont présents dans `regions` mais absents dans `covid_screening_public`.
+
+‣ Maintenant, inversons la vérification.
+
+```{r}
+anti_join(______, ______, by = c(______ = ______))
+```
+
+‣ Certaines discordances sont dues à des **fautes de saisie dans les clés**, tandis que d'autres sont **absentes du jeu de données `regions`**.
+
+‣ Pour corriger les fautes de saisie, nous appliquerons des corrections similaires à celles d'un exemple précédent.
+
+```{r}
+# Corriger les fautes de saisie dans les états :
+covid_screening_public_fixed <- covid_screening_public %>% 
+  mutate(state = 
+           case_when(______ == ______ ~ ______,
+                     TRUE ~ state))
+```
+
+‣ Après avoir appliqué les corrections, nous effectuons une autre jointure de gauche.
+
+```{r}
+covid_regions_joined_fixed <- left_join(______, 
+                                        ______, 
+                                        by = c(______ = ______))
+covid_regions_joined_fixed
+```
+
+‣ Vérifiez les entrées qui manquent toujours des informations de zonage.
+
+```{r}
+# Vérifier à nouveau les informations manquantes du conseil zonal :
+covid_regions_joined_fixed %>% 
+  filter(is.na(zonal_council))
+```
+
+‣ Certaines régions n'étaient pas incluses dans le jeu de données `regions`.
+
+‣ Cet exemple met en évidence les défis pour garantir **qu'aucune donnée n'est perdue pendant les jointures**.
+
+**RAPPELEZ-VOUS !**
+
+‣ La correction des erreurs typographiques pour des jointures réussies est une **tâche complexe**.
+
+‣ Une correspondance non identique peut être nécessaire pour des **comparaisons de chaînes imparfaites**.
+
+‣ Explorez le package `{fuzzyjoin}` dans R pour des solutions.
+
+::: practice
+### Q: Fusion des cas de tuberculose avec des données géographiques {.unlisted .unnumbered}
+
+Exécutez le code ci-dessous pour définir deux jeux de données.
+
+Le premier, `top_tb_cases_kids`, enregistre les 20 pays ayant la plus forte incidence de tuberculose (TB) chez les enfants pour l'année 2012 :
+
+```{r, render = reactable_5_rows}
+top_tb_cases_kids <- tidyr::who %>% 
+  filter(year == 2012) %>% 
+  transmute(country, iso3, tb_cases_smear_0_14 = new_sp_m014 + new_sp_f014) %>% 
+  arrange(desc(tb_cases_smear_0_14)) %>% 
+  head(20)
+
+top_tb_cases_kids
+```
+
+Et `country_regions` liste les pays avec leurs régions et continents respectifs :
+
+```{r, render = reactable_5_rows}
+country_regions <- countrycode::codelist %>% 
+  select(country_name = iso.name.en, iso3c, region) %>% 
+  filter(complete.cases(country_name, region))
+
+country_regions
+```
+
+Votre tâche est d'augmenter les données sur les cas de tuberculose avec les informations sur la région et le continent sans perdre de données pertinentes.
+
+1.  Effectuez une `left_join` de `top_tb_cases_kids` avec `country_regions` avec les noms de pays comme clé. Identifiez les cinq pays qui ne correspondent pas correctement.
+
+```{r eval = F}
+left_join(top_tb_cases_kids, _______________________, by = __________)
+```
+
+2.  À l'aide du code ci-dessous, modifiez les noms de pays dans `top_tb_cases_kids` en utilisant `case_when` pour rectifier les discordances :
+
+```{r}
+top_tb_cases_kids_fixed <- top_tb_cases_kids %>%
+  mutate(country = case_when(
+    country == "Democratic Republic of the Congo" ~ "Congo, Democratic Republic of the",
+    country == "Philippines" ~ "Philippines, The",
+    country == "Democratic People's Republic of Korea" ~ "Korea, Democratic People's Republic of",
+    country == "United Republic of Tanzania" ~ "Tanzania, United Republic of",
+    country == "Cote d'Ivoire" ~ "Côte d'Ivoire",
+    TRUE ~ country 
+  ))
+
+top_tb_cases_kids_fixed
+```
+
+Essayez à nouveau la jointure en utilisant le jeu de données révisé.
+
+```{r eval = F}
+left_join(top_tb_cases_kids_fixed, _______________________, by = __________)
+```
+
+3.  Essayez une autre `left_join`, mais cette fois, utilisez le code ISO à trois lettres comme clé. Est-ce que ces cinq premiers pays correspondent-ils correctement maintenant ?
+
+```{r eval = F}
+left_join(top_tb_cases_kids, _______________________, by = __________)
+```
+
+4.  Quel est l'avantage d'utiliser les codes ISO lors de l'enregistrement et du stockage des informations sur les pays ?
+:::
+
+
+
+## Relations un-à-plusieurs
+
+‣ Nous avons principalement examiné les **jointures un-à-un**.
+
+‣ Mais qu'en est-il des **jointures un-à-plusieurs** ?
+
+‣ Ici, une observation dans un jeu de données correspond à plusieurs observations dans l'autre.
+
+![The concept of one-to-many relationships](images/one_to_many.jpg)
+
+‣ Pour illustrer, revenons à nos patients et leurs données de test COVID.
+
+‣ Imaginez qu'`Alice` et `Xavier` aient été testés plusieurs fois pour le COVID.
+
+```{r}
+test_info_many <- tribble(
+  ~name,    ~test_date, ~result,
+  "Alice",  "2023-06-05", "Négatif",
+  "Alice",  "2023-06-10", "Positif",
+  "Bob",    "2023-08-10", "Positif",
+  "Xavier", "2023-05-02", "Négatif",
+  "Xavier", "2023-05-12", "Négatif",
+)
+```
+
+‣ Voyons ce qui se passe lorsque nous utilisons un `left_join()` avec `demographic` comme jeu de données à gauche de l'appel.
+
+```{r}
+left_join(demographic, test_info_many)
+```
+
+‣ Voici ce qui s'est passé :
+
+![](images/many_to_one.gif)
+
+::: practice
+### Q: jointure des cas de TB avec les données géographiques {.unlisted .unnumbered}
+
+Copiez le code ci-dessous pour créer deux petits jeux de données :
+
+```{r}
+patient_info <- tribble(
+  ~patient_id, ~name,     ~age,
+  1,          "Liam",     32,
+  2,          "Manny",    28,
+  3,          "Nico",     40
+)
+
+conditions <- tribble(
+  ~patient_id, ~disease,
+  1,           "Diabète",
+  1,           "Hypertension",
+  2,           "Asthme",
+  3,           "Cholestérol élevé",
+  3,           "Arthrite"
+)
+```
+
+Si vous utilisez un `left_join()` pour joindre ces jeux de données, combien de lignes y aura-t-il dans le jeu de données final ? Essayez de le deviner, puis effectuez la jointure pour voir si vous aviez raison !
+:::
+
+‣ Explorez l'ensemble de données `tb_notifs`
+
+```{r}
+tb_notifs
+```
+
+‣ Note : Deux lignes par État, pour les établissements de santé publics et privés
+
+‣ Deuxième jeu de données : le jeu de données `regions`, contenant les États indiens et les territoires de l'Union
+
+```{r}
+full_regions <- read_csv(here("data/region_data_india_full.csv"))
+full_regions
+```
+
+‣ Vérifiez les différences dans les colonnes `state` entre `tb_notifs` et `regions`
+
+
+
+```{r}
+# États présents dans `tb_notifs` mais pas dans `regions`:
+anti_join(tb_notifs, regions, by = c("state" = "state_UT"))
+
+# États présents dans `regions` mais pas dans `tb_notifs`
+anti_join(regions, tb_notifs, by = c("state_UT" = "state"))
+```
+
+
+
+‣ Il y a quatre États qui ne correspondent pas au jeu de données `regions`.
+
+
+
+‣ Nous n'avons pas l'information complète dans notre jeu de données `regions`.
+
+
+
+‣ Pour conserver tous les cas de `tb_notifs`, nous le placerons à gauche de notre jointure.
+
+
+
+```{r}
+notif_regions <- tb_notifs %>% 
+  left_join(regions, by = c("state" = "state_UT"))
+notif_regions
+```
+
+‣ Les données du jeu de données `regions` ont été dupliquées
+
+‣ Pour les États qui ne figurent pas dans l'ensemble de données `regions`, les cellules sont définies à `NA`.
+
+
+
+**TEMPS DE PRATIQUE !**
+
+::: practice
+### Q: Joindre `child` avec `regions` {.unlisted .unnumbered}
+
+**Joignez `child` avec `region`**
+
+En utilisant un `left_join()`, joignez le jeu de données TB `child` nettoyé avec le jeu de données `regions` tout en conservant toutes les valeurs du jeu de données `child`.
+
+```{r eval = F}
+joined_dat <- left_join(____________, _______________, by = ____________)
+```
+
+Ensuite, déterminez quel conseil zonal a le plus grand nombre d'États/territoires de l'Union
+
+```{r eval = F}
+joined_dat %>% 
+  count(_______________)
+```
+:::
+
+## Plusieurs colonnes clés
+
+‣ Parfois, nous avons plus d'une colonne qui identifie de manière unique les observations que nous voulons apparier.
+
+‣ Considérons les mesures de la pression artérielle systolique pour les patients avant et après un essai médicamenteux
+
+```{r}
+blood_pressure <- tribble(
+  ~name,    ~time_point,  ~systolic, 
+  "Alice",   "pre",         139,      
+  "Alice",   "post",        121,      
+  "Bob",     "pre",         137,      
+  "Bob",     "post",        128,      
+  "Charlie", "pre",         137,      
+  "Charlie", "post",        130 )
+```
+
+‣ Un autre jeu de données contient les niveaux de créatinine sérique pour les mêmes patients et les mêmes points dans le temps
+
+```{r}
+kidney <- tribble(
+  ~name,    ~time_point,  ~creatinine, 
+  "Alice",   "pre",         0.84,      
+  "Alice",   "post",        1.03,      
+  "Bob",     "pre",         0.87,      
+  "Bob",     "post",        1.21,      
+  "Charlie", "pre",         0.88,      
+  "Charlie", "post",        1.25 )
+```
+
+‣ Notre objectif : joindre deux jeux de données de sorte que chaque patient ait deux lignes, une pour les niveaux avant le médicament et une pour les niveaux après.
+
+‣ Premier instinct : joindre sur le nom du patient.
+
+‣ Essayons cela :
+
+```{r}
+bp_kidney_dups <- blood_pressure %>% 
+  left_join(kidney, by= _________)
+
+```
+
+‣ Résultat : Des lignes doublées, conduisant à quatre lignes par personne.
+
+‣ Relation "plusieurs à plusieurs" : Un scénario que nous voulons généralement éviter !
+
+‣ Nous voyons aussi deux colonnes `time_point` différenciées par `.x` et `.y`.
+
+‣ Au lieu de cela, nous devrions apparier à la fois sur `name` et `time_point`.
+
+‣ Utilisez la fonction `c()` pour spécifier les deux noms de colonnes.
+
+```{r}
+bp_kidney <- blood_pressure %>%
+  left_join(kidney, by = c(_______, _______))
+```
+
+‣ Cela nous donne le résultat souhaité !
+
+‣ Maintenant, appliquons cela à nos jeux de données `tb_notifs` et `covid_screening`.
+
+```{r}
+tb_notifs
+covid_screening
+```
+
+‣ Objectif du jeu de données final : Deux lignes pour chaque état, une pour les données du secteur public et une pour les données du secteur privé.
+
+‣ Apparier à la fois sur `state` et `hc_type` en utilisant `c()` dans l'instruction `by=`.
+
+```{r}
+notif_covid <- tb_notifs %>%
+  left_join(covid_screening, by=c(_______, _______))
+notif_covid
+```
+
+‣ Succès ! Nous avons obtenu exactement la structure que nous voulions.
+
+**TEMPS DE PRATIQUE !**
+
+::: practice
+### Q: Joindre trois jeux de données, y compris un-à-plusieurs {.unlisted .unnumbered}
+
+Joignez les trois jeux de données suivants : `notif_covid`, `child` et `regions`, en veillant à ce qu'aucune donnée ne soit perdue dans aucun des ensembles de données.
+:::
+
+
+
+# Conclusion
+
+Dans cette leçon, nous nous sommes immergés dans les subtilités du nettoyage de données avant une jointure, en nous concentrant sur la manière de détecter et de corriger les inadéquations ou les incohérences dans les colonnes clés. Nous avons également souligné l'impact des relations un-à-plusieurs lors de la jointure de jeux de données, montrant comment les données du côté "un" sont dupliquées pour chaque ligne correspondante du côté "plusieurs". Enfin, nous avons montré comment joindre des jeux de données en utilisant plusieurs colonnes clés.
+
+
+
+Alors que nous concluons cette leçon, nous espérons que vous avez acquis une compréhension plus profonde de l'importance et de l'utilité de joindre des jeux de données en R.
+
+# Contributeurs {.unlisted .unnumbered}
+
+Lesmembres de l'équipe suivants ont contribué à cette leçon :
+
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "guy"))` (assurez-vous de mettre à jour la liste des contributeurs en conséquence !)

@@ -1,0 +1,17 @@
+---
+title: 'Placeholder'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+pacman::p_load(here)
+```
+

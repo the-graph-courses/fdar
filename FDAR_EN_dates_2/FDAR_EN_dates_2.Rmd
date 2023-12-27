@@ -361,7 +361,7 @@ That looks much better! Now we get a much clearer picture of seasonal trends and
 Using the weather data, create a new line graph plotting the average monthly minimum and maximum temperatures from 2015-2019.
 :::
 
-# WRAP UP! {.unnumbered}
+# Wrap Up! {.unnumbered}
 
 This lesson covered fundamental skills for working with dates in R - calculating intervals, extracting components, rounding, and creating time series visualizations. With these key building blocks now mastered, you can can now start to wrangle date data to uncover and analyze patterns over time.
 

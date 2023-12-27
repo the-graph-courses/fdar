@@ -103,7 +103,7 @@ That worked perfectly! We won't go into detail about all the different functions
 
 ::: practice
 
-### Q: Inner Join countries {.unlisted .unnumbered}
+### Inner Join countries {.unlisted .unnumbered}
 
 The following two datasets contain data for India, Indonesia, and the Philippines. However an `inner_join()` of these datasets produces no output. What are the differences between the values in the key columns that would have to be changed before joining the datasets? 
 
@@ -256,7 +256,7 @@ After identifying these, we can again fix the errors with `mutate()` and proceed
 
 ::: practice
 
-### Q: Check and fix typos before join {.unlisted .unnumbered}
+### Check and fix typos before join {.unlisted .unnumbered}
 
 The following dataframe, also taken from the [TB Report](https://data.gov.in/catalog/india-tuberculosis-report-2023), contains information on the number of pediatric TB cases and the number of pediatric patients initiated on treatment.
 
@@ -376,7 +376,7 @@ Identifying and correcting typographical errors in large datasets to be joined i
 
 ::: practice
 
-### Q: Merging TB Cases with Geographic Data {.unlisted .unnumbered}
+### Merging TB Cases with Geographic Data {.unlisted .unnumbered}
 
 Run the code bellow to define two datasets. 
 
@@ -415,10 +415,10 @@ left_join(top_tb_cases_kids, _______________________, by = __________)
 ```{r}
 top_tb_cases_kids_fixed <- top_tb_cases_kids %>%
   mutate(country = case_when(
-    country == "Democratic Republic of the Congo" ~ "Congo, Democratic Republic of the",
-    country == "Philippines" ~ "Philippines, The",
-    country == "Democratic People's Republic of Korea" ~ "Korea, Democratic People's Republic of",
-    country == "United Republic of Tanzania" ~ "Tanzania, United Republic of",
+    country == "Democratic Republic of the Congo" ~ "Congo (the Democratic Republic of the)",
+    country == "Philippines" ~ "Philippines (the)",
+    country == "Democratic People's Republic of Korea" ~ "Korea (the Democratic People's Republic of)",
+    country == "United Republic of Tanzania" ~ "Tanzania, the United Republic of",
     country == "Cote d'Ivoire" ~ "Côte d'Ivoire",
     TRUE ~ country 
   ))
@@ -442,6 +442,7 @@ left_join(top_tb_cases_kids, _______________________, by = __________)
 
 :::
 
+------------------------------------------------------------------------
 
 # One-to-many relationships
 
@@ -476,7 +477,7 @@ What´s happened above? Basically, when you perform a one-to-many join, the data
 
 ::: practice
 
-### Q: Merging TB Cases with Geographic Data {.unlisted .unnumbered}
+### Merging One-to-Many Patient Records {.unlisted .unnumbered}
 
 Copy the code below to create two small dataframes:
 
@@ -529,7 +530,7 @@ As expected, the data from the `regions` dataframe was duplicated for every matc
 
 ::: practice
 
-### Q: Joining `child` with `regions` {.unlisted .unnumbered}
+### Joining `child` with `regions` {.unlisted .unnumbered}
 
 **Join `child` with `region`**
 
@@ -549,6 +550,7 @@ joined_dat %>%
 
 :::
 
+------------------------------------------------------------------------
 
 # Multiple key columns
 
@@ -622,25 +624,151 @@ Great, that's exactly what we wanted!
 
 ::: practice
 
-### Q: Joining three datasets, including one-to-many {.unlisted .unnumbered}
+### Joining three datasets, including one-to-many {.unlisted .unnumbered}
 
 Join the following three datasets: `notif_covid`, `child` and `regions`, ensuring that no data is lost from any of the datasets.
 
 :::
 
-# Wrap-up
+------------------------------------------------------------------------
+
+# Wrap Up!
 
 In this lesson, we delved into the intricacies of data cleaning before a join, focusing on how to detect and correct mismatches or inconsistencies in key columns. We also highlighted the impact of one-to-many relationships in joining dataframes, showing how data from the "one" side is duplicated for each matching row of the "many" side. Finally, we demonstrated how to join dataframes using multiple key columns.
  
 As we conclude this lesson, we hope that you have gained a deeper understanding of the importance and utility of joining dataframes in R.
 
 
-# Solutions
+------------------------------------------------------------------------
+
+# Answer Key {.unnumbered}
+
+### Q: Inner Join countries {.unlisted .unnumbered}
+```{r}
+df2_fixed <- df2 %>% 
+  mutate(Country = 
+           case_match(Country, 
+                             "India " ~ "India", # Remove blank space at end
+                             "indonesia" ~ "Indonesia", # Capitalize
+                             "Philipines" ~ "Philippines", # Fix spelling
+                             .default=Country))
+
+inner_join(df1, df2_fixed)
+```
 
 
+### Q: Check and fix typos before join {.unlisted .unnumbered}
+
+1. 
+```{r}
+# setdiff()
+setdiff(child_public$state, tb_notifs_public$state)
+setdiff(tb_notifs_public$state, child_public$state)
+
+# antijoin
+anti_join(child_public, tb_notifs_public)
+anti_join(tb_notifs_public, child_public)
+```
+
+
+2. 
+```{r}
+child_public_fixed <- child_public %>%
+  mutate(state = 
+           case_when(state == "ArunachalPradesh" ~ "Arunachal Pradesh", 
+                     state == "Jammu and Kashmir" ~ "Jammu & Kashmir", 
+                     state == "kerala" ~ "Kerala", 
+                     state == "Pondicherry" ~ "Puducherry",
+                     TRUE ~ state))
+```
+
+
+3.
+```{r}
+child_tb_public <- child_public_fixed %>%
+  inner_join(tb_notifs_public)
+```
+
+4. 
+```{r render = reactable_5_rows}
+child_tb_public %>%
+  mutate(tb_child_prop = tb_child_notifs/tb_notif_count) %>%
+  arrange(-tb_child_prop)
+```
+
+
+### Q: Merging TB Cases with Geographic Data {.unlisted .unnumbered}
+
+1.
+```{r render = reactable_5_rows}
+left_join(top_tb_cases_kids, country_regions, by = c("country"="country_name"))
+```
+
+```{r}
+setdiff(top_tb_cases_kids$country, country_regions$country_name)
+```
+
+2. 
+```{r render = reactable_5_rows}
+left_join(top_tb_cases_kids_fixed, country_regions, by = c("country"="country_name"))
+```
+
+3.
+
+```{r render = reactable_5_rows}
+left_join(top_tb_cases_kids, country_regions, by = c("iso3" = "iso3c"))
+```
+
+4. 
+
+ISO codes are standardized - there in only one way of writing them. This makes it useful for joining.
+
+
+### Q: Merging One-to-Many Patient Records {.unlisted .unnumbered}
+
+```{r, render = reactable_5_rows}
+# 5 rows in the final dataframe
+patient_info %>% 
+  left_join(conditions)
+```
+
+
+### Q: Joining `child` with `regions` {.unlisted .unnumbered}
+
+```{r, render = reactable_5_rows}
+child_fixed <- child %>%
+  mutate(state = 
+           case_when(state == "ArunachalPradesh" ~ "Arunachal Pradesh", 
+                     state == "Jammu and Kashmir" ~ "Jammu & Kashmir", 
+                     state == "kerala" ~ "Kerala", 
+                     state == "Pondicherry" ~ "Puducherry",
+                     TRUE ~ state))
+
+joined_dat <- left_join(child_fixed, regions, by = c("state"="state_UT"))
+joined_dat
+```
+
+```{r, render = reactable_5_rows}
+joined_dat %>% 
+  count(zonal_council)
+```
+
+### Q: Joining three datasets, including one-to-many {.unlisted .unnumbered}
+
+```{r, render = reactable_5_rows}
+join_1 <- notif_covid %>% 
+  full_join(child_fixed)
+
+final_join <- join_1 %>%
+  full_join(regions, by=c("state" ="state_UT"))
+
+final_join
+```
+
+------------------------------------------------------------------------
 
 # Contributors {.unlisted .unnumbered}
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("amckinley", "kendavidn"))` (make sure to update the contributor list accordingly!)
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "camille"))` 

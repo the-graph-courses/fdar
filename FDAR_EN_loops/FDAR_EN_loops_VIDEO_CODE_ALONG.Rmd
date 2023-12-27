@@ -948,12 +948,12 @@ tb_child_cases_plots
 ```
 :::
 
-# Wrap-up
+# Wrap Up
 
 In this lesson, we delved into for loops in R, demonstrating their utility from basic tasks to complex data analysis involving multiple datasets and plot generation. Despite R's preference for vectorized operations, for loops are indispensable in certain scenarios. Hopefully, this lesson has equipped you with the skills to confidently implement for loops in various data processing contexts.
 
 
-# Solutions
+# Answer Key
 
 ### Hours to Minutes Basic Loop
 
@@ -1102,7 +1102,7 @@ tb_child_cases_plots[["Uruguay"]]
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("sabina", "kendavidn"))` (make sure to update the contributor list accordingly!)
+`r tgc_contributors_list(ids = c("sabina", "kendavidn"))`
 
 ------------------------------------------------------------------------
 
