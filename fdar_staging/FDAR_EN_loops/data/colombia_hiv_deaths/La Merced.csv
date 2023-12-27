@@ -1,0 +1,4 @@
+municipality,death_location,birth_date,death_year,death_month,death_day,gender,occupation,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,1978-07-12,2010,Apr,11,Male,NA,La Merced,Cardiogenic Shock,R578,Cerebral toxoplasmosis,B588,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1988-03-28,2011,Jan,29,Male,Transient Crop Farmers,La Merced,Encephalopathy,G934,Toxoplasmosis,B589,NA,B24,NA,NA
+Municipal head,Hospital/clinic,1985-01-09,2013,Oct,5,Male,"Bricklayers, Masons and Similar",La Merced,Malignant Arrhythmia,I499,Metabolic acidosis,E872,HIV infection,J209,INFECCION POR VIH,B24

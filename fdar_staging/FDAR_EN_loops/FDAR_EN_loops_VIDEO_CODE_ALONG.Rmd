@@ -1,0 +1,1118 @@
+---
+title: 'Loops, Across, and Conditionals'
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r, echo = F, message = F, warning = F}
+# Load packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, reactable, gt, flextable)
+
+## functions
+source(here::here("global/functions/misc_functions.R"))
+
+## default render
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+knitr::opts_chunk$set(class.source = "tgc-code-block", error = T)
+
+```
+
+# Introduction
+
+At the heart of many programming tasks is the concept of repeating a task multiple times. A `for` loop in R allows us to do just that. Loops enable efficient repetition, saving time and effort.
+
+Whether you're a beginner or an experienced coder, mastering these concepts is essential for writing intelligent R code.
+
+Let's dive in and enhance your coding skills!
+
+# Learning Objectives
+
+By the end of this lesson, you will be able to:
+
+-   Explain the syntax and structure of a basic `for` loop in R
+-   Use index variables to iterate through multiple vectors simultaneously in a loop
+-   Integrate `if/else` conditional statements within a loop
+-   Store loop results in vectors and lists
+-   Apply loops to tasks like analyzing multiple datasets and generating multiple plots
+-   Debug loops by isolating and testing single iterations
+
+## Packages
+
+‣ We will use multiple packages in this lesson
+
+‣ **Ensure the following packages are installed and loaded:**
+
+```{r}
+# Load necessary packages
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(tidyverse, here, openxlsx, tools, outbreaks, medicaldata)
+```
+
+## Intro to `for` Loops
+
+‣ Let's start with a simple example of using `for` loops in R
+
+‣ Suppose we have a **vector of children's ages** and want to **convert these to months**
+
+‣ First, create a vector of ages in years
+
+```{r}
+ages <-                           # ages 7 8 and 9
+```
+
+‣ We could easily convert ages to months using `*` operation in R
+
+```{r}
+____________
+```
+
+‣ What R is doing (conceptually) though is running a for loop. Let's write it out explicitly
+
+```{r}
+____________________________
+```
+
+‣ `age` is a temporary variable that takes each element in `ages`
+
+‣ You can choose **any name** for this variable
+
+```{r}
+for (______________ in ages) print(_______________)  # random_name
+```
+
+‣ If the loop's content is **more than one line**, use **curly brackets** `{}`
+
+```{r}
+for (age in ages)   # multiple line loop 
+  _______________
+  _______________
+ 
+```
+
+‣ The general structure of any `for` loop:
+
+![](images/for_loop_syntax.png){width="420"}
+
+::: practice
+### Hours to Minutes Basic Loop {.unlisted .unnumbered}
+
+Try converting hours to minutes using a `for` loop. Start with this vector of hours:
+
+```{r eval = F}
+hours <- c(3, 4, 5) # Vector of hours
+# Your code here
+
+for ___
+  ___ # convert hours to minutes and print
+```
+:::
+
+‣ Side-note: Loops can be nested within each other. For instance:
+
+```{r}
+# for i in 1:2, for j in 1:2, print i * j
+___________
+```
+
+‣ This creates a combination of `i` and `j` values as shown in this table:
+
+| i   | j   | i \* j |
+|-----|-----|--------|
+| 1   | 1   | 1      |
+| 1   | 2   | 2      |
+| 2   | 1   | 2      |
+| 2   | 2   | 4      |
+
+‣ Nested loops are less common though, and often have more efficient alternatives.
+
+:::
+
+# Are `for` Loops Useful in R?
+
+‣ R already has *vectorized* operations!
+
+‣ Example: Age conversion without a loop. (Does not work by default in most programming languages)
+
+```{r}
+# ages * 12
+
+```
+
+‣ Moreover, usually working with data frames and `tidyverse` operations:
+
+```{r}
+ages_df <- tibble(age = ages)
+# mutate ages_df to add age_months column
+
+```
+
+‣ Loops will be quite useful in specific scenarios:
+
+-   operations on multiple data frames
+-   working with non-dataframe objects (e.g. plots)
+
+‣ We'll see this later in the lesson. For now, will focus on simple, "toy" examples.
+
+‣ **Loops vs function mapping?**
+
+‣ Often, loop tasks can be replaced with custom functions which are then mapped across a vector or data frame.
+
+‣ But loops are easy to learn, think about and debug, even for beginners.
+
+## Looping with an Index
+
+‣ Often useful to loop through a vector using an index, which is a counter for the current iteration.
+
+‣ Example: converting ages in years to months using an index:
+
+```{r}
+# Recall:
+ages <- c(7, 8, 9) # Vector of ages
+```
+
+‣ Create a sequence of indices the same length as the ages vector:
+
+```{r}
+    # 1 to the length of ages
+    # then assign to object called indices
+```
+
+‣ Use the index in a `for` loop to convert each age to months:
+
+```{r}
+# for i in indices, print ages[i] * 12
+
+```
+
+‣ The variable name in the loop (e.g., `i`, `j`, `index`) is arbitrary.
+
+‣ Of course, index-based loops can be used directly without a separate variable:
+
+```{r}
+# for i in 1:length(ages), print ages[i] * 12
+
+```
+
+‣ Such indexed loops will be helpful for working with multiple vectors simultaneously.
+
+::: practice
+### Hours to Minutes Indexed Loop {.unlisted .unnumbered}
+
+Rewrite your loop from last question using indices:
+
+```{r, eval = F}
+hours <- c(3, 4, 5) # Vector of hours
+
+# Your code here
+
+for ___ {
+  ___
+}
+```
+:::
+
+‣ Side-note: The function `seq_along()` is a shortcut for creating a sequence of indices.
+
+‣ Equivalent to `1:length()`:
+
+```{r}
+# These two are equivalent ways to generate sequence of indices for `ages`
+
+```
+
+# Looping on Multiple Vectors
+
+‣ Looping with indices allows us to work with multiple vectors simultaneously.
+
+```{r}
+# Consider:
+ages <- c(7, 8, 9) # ages in years
+heights <- c(120, 130, 140) # heights in cm
+```
+
+‣ We can loop through both using the index method:
+
+```{r}
+# for i in 1:length(ages), print a pasted string with age and height
+
+for(_______________________) {
+  
+  
+  print(paste("Age:", age, "Height:", height))
+}
+```
+
+‣ In each iteration:
+
+-   `i` is the index.
+-   We extract the ith element from each vector
+-   We paste the two together
+-   We print the result
+
+Alternatively, we can skip the variable assignment and use the indices in the `print()` statement directly:
+
+```{r}
+for(i in 1:length(ages)) {
+  print(paste("Age:", ages[i], "Height:", heights[i]))
+}
+```
+
+::: practice
+### BMI Calculation Loop {.unlisted .unnumbered}
+
+Using a for loop, calculate the Body Mass Index (BMI) of the three individuals shown below. The formul for BMI is `BMI = weight / (height ^ 2)`.
+
+```{r eval = F}
+weights <- c(30, 32, 35) # Weights in kg
+heights <- c(1.2, 1.3, 1.4) # Heights in meters
+
+for(i in ____________________) {
+
+  __________________________
+  
+  print(paste("Weight:", ____,
+              "Height:", ____,
+              "BMI:", ____,
+              ))
+  
+}
+
+```
+:::
+
+## Storing Loop Results
+
+‣ Usually we want to store loop results rather than just printing.
+
+‣ Example: converting ages to months.
+
+```{r}
+# Recall this loop:
+ages <- c(7, 8, 9) # Vector of ages
+for(i in 1:length(ages)) {
+  print(ages[i] * 12)
+}
+```
+
+‣ Let's try to store this info in a vector.
+
+‣ Create an empty vector to store results.
+
+```{r}
+ages_months <-    # vector of mode "numeric" and length 3
+```
+
+‣ How do we store values in this vector?
+
+```{r}
+                       # Store 99 in the first element of ages_months
+                       # Store 100 in the second element of ages_months
+```
+
+‣ Now, let's execute the loop, storing the results in `ages_months`:
+
+```{r}
+              # Create `age_months` vector of mode "numeric" and length of ages
+
+              # for i in 1:length(ages)
+              # store ages[i] * 12 in ages_months[i]
+```
+
+::: practice
+### Height cm to m {.unlisted .unnumbered}
+
+Use a for loop to convert height measurements from cm to m. Store the results in a vector called `height_meters`.
+
+```{r eval = F}
+height_cm <- c(180, 170, 190, 160, 150) # Heights in cm 
+
+height_m <- vector(_______________) # numeric vector of same length as height_cm
+
+for ___ {
+  height_m[i] <- ________________________
+}
+```
+:::
+
+‣ Watch out! Create your empty object **outside** the loop to save all iteration results.
+
+```{r}
+# Consider this:
+ages <- c(7, 8, 9)
+
+for (i in 1:length(ages)) {
+  ages_months <- vector("numeric", length(ages))
+  ages_months[i] <- ages[i] * 12
+}
+ages_months 
+```
+
+‣ Do you see the problem?
+
+‣ Side Note. In a rush? Initialize your vector with `c()` and append values:
+
+```{r}
+ages <- c(7, 8, 9)
+ages_months <- c() # quick and dirty way to initialize vector
+
+for (i in 1:length(ages)) {
+  ages_months[i] <- ages[i] * 12
+}
+ages_months
+```
+
+‣ And, you can append values at the end of the vector using `c()`:
+
+```{r}
+# Redo loop, but append values to end of vector with c()
+
+```
+
+‣ Discouraged because R does not know the final length of the vector, so reallocates memory each time you append a value.
+
+‣ Slow performance with large vectors. But for quick analysis, it's fine.
+
+# If Statements in Loops
+
+‣ `If` statements can be integrated into loops in R.
+
+‣ Example: Classifying ages as "Child" if under 18.
+
+```{r}
+______________ <- c(2, 12, 17, 24, 60) # Vector of ages
+
+# for age in ages, if age < 18, print "Child"
+
+```
+
+‣ Use curly braces for clarity and adding more code.
+
+```{r}
+# put these in loop:
+    print("Processing:") 
+    print(paste("Child, Age", age ))
+```
+
+‣ Let's add another condition with `else if` as 'Child' or 'Teen' based on age.
+
+```{r}
+# Add else if age >= 13 && age < 18, print "Teen"
+for (age in age_vec) {
+  if (age < 13) {
+    print(paste("Child, Age", age))
+    }
+}
+```
+
+‣ Final `else` statement for other ages, classifying as 'Adult'.
+
+```{r}
+# Add final else statement for "Adult"
+ 
+```
+
+‣ We can store these classifications in a vector using index-based loop.
+
+```{r}
+age_class <-   # vector of mode "character" and length of age_vec
+  
+# Refactor loop from above to store classifications in age_class
+for (i in ________________) {
+  
+}
+age_class
+```
+
+‣ Use `paste0()` for combining classification with age.
+
+```{r}
+for (i in 1:length(age_vec)) {
+  # if statements should output to "out" variable
+  
+  
+  
+  # then combine age_class[i] with "out" using paste0()
+  age_class[i] <- paste0(out, ", Age ", age_vec[i])
+}
+age_class
+```
+
+::: practice
+### Temperature Classification {.unlisted .unnumbered}
+
+You have a vector of body temperatures in Celsius. Classify each temperature as 'Hypothermia', 'Normal', or 'Fever' using a `for` loop combined with `if` and `else` statements.
+
+Use these rules:
+
+-   Below 36.0°C: 'Hypothermia'
+-   Between 36.0°C and 37.5°C: 'Normal'
+-   Above 37.5°C: 'Fever'
+
+```{r eval = F}
+body_temps <- c(35, 36.5, 37, 38, 39.5) # Body temperatures in Celsius
+classif_vec <- vector(______________________) # character vec, length of body_temps
+for (i in 1:length(________)) {
+    # Add your if-else logic here
+  if (body_temps[i] < 36.0) {
+    out <- "Hypothermia" 
+  } ## add other conditions
+  
+  
+    # Final print statement
+    classif_vec[i] <- paste(body_temps[i], "°C is", out)
+}
+classif_vec
+```
+
+An expected output is below
+
+```         
+35°C is Hypothermia
+36.5°C is Normal
+37°C is Normal
+38°C is Fever
+39.5°C is Fever
+```
+:::
+
+# Quick Techniques for Debugging `for` Loops
+
+‣ **Efficient editing and debugging** are crucial when working with `for` loops in R.
+
+‣ There are many techniques, but we'll demonstrate two simple approaches:
+
+‣ **Isolate and run a single iteration** of the loop.
+
+‣ **Adding `print()` statements** to the loop to track variable values at each iteration.
+
+## Isolating and Running a Single Iteration
+
+‣ Consider our now familiar loop with `age_vec` and `age_class` for categorizing age groups.
+
+```{r}
+age_vec <- c(2, 12, 17, 24, 60) # Vector of ages
+age_class <- vector("character", length(age_vec))
+
+for (i in 1:length(age_vec)) {
+  if (age_vec[i] < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  }
+  age_class[i] <- paste0(out, ", Age ", age_vec[i])
+}
+age_class
+```
+
+‣ **Example of an error** in a loop using `age` column from `fluH7N9_china_2013` dataset.
+
+```{r eval = F }
+
+flu_dat_age <- _____________ # extract age column
+
+# Now let's try to classify age groups 
+age_class <- vector("character", length(flu_dat_age))
+for (i in 1:length(flu_dat_age)) {
+  if (ebola_dat_age[i] < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  }
+  age_class[i] <- paste0(out, ", Age ", ebola_dat_age[i])
+}
+```
+
+‣ We get this error:
+
+```         
+Error in if (flu_dat_age[i] < 18) { : 
+  missing value where TRUE/FALSE needed
+In addition: Warning message:
+In Ops.factor(flu_dat_age[i], 18) : ‘<’ not meaningful for factors
+```
+
+‣ You may already know the cause of the error, but let's use **isolation** to confirm.
+
+```{r}
+for (i in 1:length(flu_dat_age)) {
+  
+  # Manually set i <- 1 and step through, highlighting and pressing Ctrl+Enter
+  
+  
+  if (flu_dat_age[i] < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  }
+  age_class[i] <- paste0(out, ", Age ", flu_dat_age[i])
+}
+```
+
+‣ If we run `i <- 1` then `flu_dat_age[i]`, we see that `flu_dat_age` is a factor, not a numeric vector.
+
+‣ To fix this, we can convert to a character and then to numeric in the loop.
+
+‣ Why not just convert straight to numeric?
+
+Consider:
+
+```{r}
+flu_dat_age[75]
+as.numeric(flu_dat_age[75])
+# `?`, which stands for missing in this case is converted to 1, at it is the first level of the factor
+
+# We therefore need: 
+as.numeric(as.character(flu_dat_age[75]))
+```
+
+‣ Now let's try to fix the loop, and run just the first iteration again:
+
+```{r eval = F}
+for (i in 1:length(flu_dat_age)) {
+  
+  # ▶️ Run from this line 
+  i <- 1 # Manually set i to 1 
+  
+  age_num <- as.numeric(as.character(flu_dat_age[i]))
+  
+  # Then highlight `age_num < 18` and press Ctrl + Enter
+  if (age_num < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  }
+  
+  age_class[i] <- paste0(out, ", Age ", flu_dat_age[i])
+  
+}
+```
+
+‣ Now the first iteration works, but let's see what happens when we run the entire loop:
+
+```{r eval = F}
+age_class <- vector("character", length(flu_dat_age))
+
+for (i in 1:length(flu_dat_age)) {
+  age_num <- as.numeric(as.character(flu_dat_age[i]))
+  
+  if (age_num < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  }
+  age_class[i] <- paste0(out, ", Age ", age_num)
+}
+head(age_class)
+```
+
+‣ Again, you may already know what this error means, but let's say you didn't.
+
+‣ We'll need our next debugging technique.
+
+## Adding Print Statements to the Loop
+
+‣ We saw that the loop works fine for the first iteration, but seems to fail on a further iteration.
+
+‣ To catch which the iteration fails on, we can add `print()` statements to the loop:
+
+```{r eval = F}
+for (i in 1:length(flu_dat_age)) {
+  # Print the iteration number
+  age_num <- as.numeric(as.character(flu_dat_age[i]))
+  # Print the value of age_num
+  if (age_num < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  } # Print the value of out
+  age_class[i] <- paste0(out, ", Age ", age_num) # Print the value of the output
+}
+head(age_class)
+```
+
+‣ Now, when we inspect the output, we can see that the loop fails on the 74th iteration:
+
+‣ 74th value of `flu_dat_age` is `NA` (because of our factor to numeric conversion)
+
+‣ R cannot evaluate whether it is less than 18.
+
+‣ We can fix this by adding an `if` statement to check for `NA` values:
+
+```{r}
+for (i in 1:length(flu_dat_age)) {
+  
+  age_num <- as.numeric(as.character(flu_dat_age[i]))
+  
+  # if age_num is NA, set out to "NA"
+  
+  if (age_num < 18) {
+    out <- "Child"
+  } else {
+    out <- "Adult"
+  }
+  
+  age_class[i] <- paste0(out, ", Age ", age_num)
+}
+# Check the 74th value of age_class
+age_class[74]
+```
+
+‣ Even with our "toy" loop, debugging can be a time-consuming process.
+
+‣ As your mother used to say "Programming is 98% debugging and 2% writing code."
+
+‣ Pro-tip: R offers advanced error diagnosis techniques like `try()`, `tryCatch()`, and `browser()`.
+
+‣ These techniques are not covered here but are well-documented in R resources. Search "Hadley Advanced R Debugging" for more information.
+
+## Real Loops Application 1: Analyzing Multiple Datasets
+
+‣ Working with multiple datasets containing HIV deaths data for municipalities in Colombia.
+
+![](images/colombia_folder_struct-01.jpg){width="521"}
+
+‣ Goal is to compile a single table with information about each dataset.
+
+‣ **Information Required**: Number of rows (deaths), number of columns, and column names.
+
+‣ Use a loop to avoid tedium and errors.
+
+‣ First Step: List the files in the folder "data/colombia_hiv_deaths".
+
+```{r}
+colom_data_paths <- 
+head(colom_data_paths)
+```
+
+‣ Import one dataset which we will use to test our loop.
+
+```{r}
+______________ <- read_csv() # Import first dataset
+colom_data
+```
+
+‣ How to gather required information from each dataset.
+
+```{r}
+  # Dataset/Municipality name with basename() and file_path_sans_ext()
+  # Number of rows/deaths
+  # Number of columns
+  # Names of all columns. Paste names() together with paste()
+```
+
+‣ Store the information using `tibble` with columns `dataset`, `n_deaths`, `n_cols`, and `col_names`.
+
+```{r}
+single_row <- tibble(_____)
+single_row
+```
+
+‣ Store each data frame in a list.
+
+```{r}
+data_frames_list <- vector("list", length(______________))
+head(data_frames_list) # Show first 6 elements
+                    # Store first data frame in list with [[1]]
+```
+
+‣ Let's put it all together:
+
+```{r, message=FALSE}
+
+```
+
+‣ **Checking the List**: Ensure the loop is working correctly.
+
+```{r}
+head(data_frames_list, 2) # Show first 2 elements
+```
+
+‣ **Final Step**: Combine all data frames into one final table.
+
+```{r, message=FALSE}
+colom_data_final <- bind_rows(data_frames_list)
+colom_data_final
+```
+
+::: practice
+### File Properties {.unlisted .unnumbered}
+
+You have a folder containing CSV files with data on HIV cases, sourced from [WHO](https://www.who.int/data/gho/data/indicators/indicator-details/GHO/number-of-new-hiv-infections).
+
+![](images/hiv_csvs_folder.jpg){width="373"}
+
+Using the principles learned, you will write a loop that extracts the following information from each dataset and stores this in a single data frame:
+
+-   The name of the dataset (i.e. the country)
+-   The size of the dataset in bytes
+-   The date the dataset was last modified
+
+You can use the `file.size()` and `file.mtime()` functions to get the latter two pieces of information. For example:
+
+```{r}
+file.size(here("data/new_hiv_infections_gho/Bangladesh.csv"))
+file.mtime(here("data/new_hiv_infections_gho/Bangladesh.csv"))
+```
+
+Note that you do not need to import the CSVs to get this information.
+
+```{r eval = F}
+# List files
+csv_files <- list.files(path = "data/new_hiv_infections_gho", 
+                        _____________________________________________)
+
+for (i in _______________) {
+  
+  path <- csv_files[i]
+  
+  # Get the country name. Hint: use file_path_sans_ext and basename
+  country_name <- _____________________________________
+  
+  # Get the file size and date modified
+  size <- _____________________________________________
+  date <- _____________________________________________
+  
+  # Data frame for this interation. Hint: use tibble() to combine the objects above
+  hiv_dat_row <- _____________________________________________
+    
+  # Store in the list. Hint: use double brackets and the index i
+  data_frames_list_____ <- hiv_dat_row
+}
+
+# Combine into one data frame
+hiv_file_info_final <- bind_rows(data_frames_list)
+```
+:::
+
+::: practice
+### Data Filtering Loop {.unlisted .unnumbered}
+
+You will again work with the folder of HIV datasets from the previous question. Here is an example of one of the country datasets from that folder:
+
+```{r message=FALSE}
+bangla_dat <- read_csv(here("data/new_hiv_infections_gho/Bangladesh.csv"))
+bangla_dat
+```
+
+Your task is to complete the loop template below so that it: - Imports each CSV in the folder - Filters to data to just the "Female" sex - Saves each filtered dataset as a CSV in your `outputs` folder
+
+Note that in this case you do not need to store the outputs in a list, since you are importing, modifying then directly exporting each dataset.
+
+```{r eval = F}
+# List files
+csv_files <- list.files(path = "data/new_hiv_infections_gho", 
+                        pattern = "*.csv", full.names = TRUE) 
+
+for (file in _____________) {
+
+  # Import the data. Hint: use read_csv with the `file` variable as the path
+  hiv_dat _____________________________________________ 
+  
+  # Filter. Hint: use filter() and the `Sex` variable
+  hiv_dat_filtered <- _____________________________________________ 
+  
+  # Name output file 
+  # This line is done for you, but make sure you understand it
+  output_file_name <-  paste0(here(), "outputs/", "Female_", basename(file)))
+  
+  # Export. 
+  write_csv(hiv_dat_filtered, output_file_name) 
+}
+```
+:::
+
+# Real Loops Application 2: Generating Multiple Plots
+
+‣ Using loops to **generate multiple plots** for different groups within a dataset.
+
+‣ Example with the `strep_tb` dataset from `medicaldata` package.
+
+‣ Aim: create **category inspection plots** for each **radiologic 6-month improvement group** using `inspectdf::inspect_cat()`.
+
+‣ First, create a **single plot** for the **first radiologic improvement group**.
+
+```{r}
+______________ <- 
+  medicaldata::strep_tb %>%  
+                           # filter radiologic_6m to "6_Considerable_improvement"
+                           # inspect_cat
+                           # show_plot
+```
+
+‣ Want to create similar plots for **each radiologic improvement group**.
+
+‣ Identify all unique values of `medicaldata::strep_tb$radiologic_6m`
+
+```{r}
+radiologic_levels_6m <- _____________________
+```
+
+‣ Initiate an **empty list object** to store the plots.
+
+```{r}
+cat_plot_list <- _________________________
+```
+
+‣ Optionally, set names of list elements to the radiologic improvement groups.
+
+```{r}
+names(cat_plot_list) <- radiologic_levels_6m
+cat_plot_list
+```
+
+‣ Let's put it together
+
+```{r}
+for (_________ in radiologic_levels_6m) {
+  
+  # Generate plot for each level
+  ____________ <- 
+    medicaldata::strep_tb %>% 
+    filter(_____________________) %>% 
+    inspectdf::inspect_cat() %>%
+    inspectdf::show_plot()
+  
+  # Append to the list
+  cat_plot_list[[_________]] <- ____________
+}
+```
+
+‣ Access a specific plot using **double bracket syntax** or by number.
+
+```{r}
+cat_plot_list[[______________________]] # "6_Considerable_improvement"
+```
+
+```{r}
+cat_plot_list[[1]]
+```
+
+‣ To display all plots at once, call the entire list.
+
+```{r fig.height = 2, fig.show='hold', message=F}
+cat_plot_list
+```
+
+::: practice 
+### Visualizing TB Cases {.unlisted .unnumbered}
+
+In this exercise, you will use WHO data from the `tidyr` package to create line graphs showing the number of new TB cases in children over the years in South American countries.
+
+First, we'll prepare the data:
+
+```{r}
+tb_child_cases <- tidyr::who2 %>% 
+  transmute(country, year, 
+            tb_cases_children = sp_m_014 + sp_f_014 + sn_m_014 + sn_f_014) %>% 
+  filter(country %in% c("Brazil", "Colombia", "Argentina", 
+                        "Uruguay", "Chile", "Guyana"))  %>% 
+  filter(year >= 2006)
+
+tb_child_cases
+```
+
+Now, fill in the blanks in the template below to create a line graph for each country using a `for` loop:
+
+```{r}
+# Get list of countries. Hint: Use unique() on the country column
+countries <- _____________________________________________ 
+
+# Create list to store plots. Hint: Initialize an empty list
+tb_child_cases_plots <- vector("list", ________________)
+names(tb_child_cases_plots) <- countries # Set names of list elements
+
+# Loop through countries
+for (country in _____________) { 
+  
+  # Filter data for each country
+  tb_child_cases_filtered <- _____________________________________________ 
+  
+  # Make plot
+  tb_child_cases_plot <- _____________________________________________  
+  
+  # Append to list. Hint: Use double brackets
+  tb_child_cases_plots[[country]] <- tb_child_cases_plot 
+}
+
+tb_child_cases_plots
+```
+:::
+
+# Wrap Up!
+
+In this lesson, we delved into for loops in R, demonstrating their utility from basic tasks to complex data analysis involving multiple datasets and plot generation. Despite R's preference for vectorized operations, for loops are indispensable in certain scenarios. Hopefully, this lesson has equipped you with the skills to confidently implement for loops in various data processing contexts.
+
+
+# Answer Key
+
+### Hours to Minutes Basic Loop
+
+```{r}
+hours <- c(3, 4, 5) # Vector of hours
+
+for (hour in hours) {
+  minutes <- hour * 60
+  print(minutes)
+}
+```
+
+### Hours to Minutes Indexed Loop
+
+```{r}
+hours <- c(3, 4, 5) # Vector of hours
+
+for (i in 1:length(hours)) {
+  minutes <- hours[i] * 60
+  print(minutes)
+}
+```
+
+### BMI Calculation Loop
+
+```{r}
+weights <- c(30, 32, 35) # Weights in kg
+heights <- c(1.2, 1.3, 1.4) # Heights in meters
+
+for(i in 1:length(weights)) {
+  bmi <- weights[i] / (heights[i] ^ 2)
+  
+  print(paste("Weight:", weights[i],
+              "Height:", heights[i],
+              "BMI:", bmi))
+}
+```
+
+### Height cm to m
+
+```{r}
+height_cm <- c(180, 170, 190, 160, 150) # Heights in cm 
+
+height_m <- vector("numeric", length = length(height_cm)) 
+
+for (i in 1:length(height_cm)) {
+  height_m[i] <- height_cm[i] / 100
+}
+height_m
+```
+
+### Temperature Classification
+
+```{r}
+body_temps <- c(35, 36.5, 37, 38, 39.5) # Body temperatures in Celsius
+classif_vec <- vector("character", length = length(body_temps)) # character vector
+
+for (i in 1:length(body_temps)) {
+    # Add your if-else logic here
+    if (body_temps[i] < 36) {
+        out <- "Hypothermia"
+    } else if (body_temps[i] <= 37.5) {
+        out <- "Normal"
+    } else {
+        out <- "Fever"
+    }
+  
+    # Final print statement
+    classif_vec[i] <- paste(body_temps[i], "°C is", out)
+}
+classif_vec
+```
+
+### File Properties
+
+```{r}
+# Assuming the path and file structure are correct
+csv_files <- list.files(path = "data/new_hiv_infections_gho", 
+                        pattern = "\\.csv$", full.names = TRUE)
+
+data_frames_list <- vector("list", length = length(csv_files))
+
+for (i in 1:length(csv_files)) {
+  
+  path <- csv_files[i]
+  country_name <- tools::file_path_sans_ext(basename(path))
+  
+  size <- file.size(path)
+  date <- file.mtime(path)
+  
+  hiv_dat_row <- tibble(country = country_name, size = size, date = date)
+    
+  data_frames_list[[i]] <- hiv_dat_row
+}
+
+hiv_file_info_final <- bind_rows(data_frames_list)
+hiv_file_info_final
+```
+
+### Data Filtering Loop
+
+```{r}
+csv_files <- list.files(path = "data/new_hiv_infections_gho", 
+                        pattern = "*.csv", full.names = TRUE) 
+
+for (file in csv_files) {
+  hiv_dat <- read_csv(file)
+  
+  hiv_dat_filtered <- hiv_dat %>% filter(Sex == "Female")
+  
+  output_file_name <- paste0(here(), "/outputs/", "Female_", basename(file))
+  
+  write_csv(hiv_dat_filtered, output_file_name) 
+}
+```
+
+### Visualizing TB Cases
+
+```{r}
+# Assuming tb_child_cases is a dataframe with the necessary columns
+countries <- unique(tb_child_cases$country)
+
+# Create list to store plots
+tb_child_cases_plots <- vector("list", length(countries))
+names(tb_child_cases_plots) <- countries
+
+# Loop through countries
+for (countryname in countries) { 
+  
+  # Filter data for each country
+  tb_child_cases_filtered <- filter(tb_child_cases, country == countryname)
+  
+  # Make plot
+  tb_child_cases_plot <- ggplot(tb_child_cases_filtered, aes(x = year, y = tb_cases_children)) +
+    geom_line() +
+    ggtitle(paste("TB Cases in Children -", countryname))
+  
+  # Append to list
+  tb_child_cases_plots[[countryname]] <- tb_child_cases_plot 
+}
+
+tb_child_cases_plots[["Uruguay"]]
+```
+
+# Contributors {.unlisted .unnumbered}
+
+The following team members contributed to this lesson:
+
+`r tgc_contributors_list(ids = c("sabina", "kendavidn"))`
+
+------------------------------------------------------------------------
+
+# References {.unnumbered .unlisted}
+
+Some material in this lesson was adapted from the following sources:
+
+-   Barnier, Julien. "Introduction à R et au tidyverse." <https://juba.github.io/tidyverse>
+
+-   Wickham, Hadley; Grolemund, Garrett. "R for Data Science." <https://r4ds.had.co.nz/>
+
+-   Wickham, Hadley; Grolemund, Garrett. "R for Data Science (2e)." <https://r4ds.hadley.nz/>
+

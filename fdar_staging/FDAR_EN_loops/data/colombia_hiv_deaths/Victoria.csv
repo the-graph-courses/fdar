@@ -1,0 +1,7 @@
+municipality,death_location,death_year,death_month,death_day,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2011,Mar,15,Other,Victoria,Cryptococcus neoformans Meningitis,B451,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2011,Jan,10,Other,Victoria,Acquired Immunodeficiency Syndrome AIDS,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Dec,19,Other,Victoria,Cardiorespiratory Arrest,I469,AIDS immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,May,29,Other,Victoria,Cardiorespiratory Arrest,I469,Ventilatory failure,J969,HIV/AIDS,J189,VIH SIDA,B24
+Municipal head,Home/address,2014,Jun,30,Other,Victoria,Acquired Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Jul,8,Other,Victoria,Bronchoaspirative Syndrome,J988,Disseminated histoplasmosis,B393,NA,B24,NA,NA

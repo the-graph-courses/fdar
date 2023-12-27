@@ -1,0 +1,16 @@
+municipality,death_location,death_year,death_month,death_day,occupation,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2011,Oct,19,Unknown,Other,Anserma,Acquired Immunodeficiency Syndrome,B24,Generalized sepsis,A419,NA,NA,NA,NA
+Municipal head,Home/address,2012,Nov,19,Home,Other,Anserma,Multi-Organ Failure,R688,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Jan,13,Home,Other,Anserma,Bacterial Pneumonia,J159,Human immunodeficiency disease,B24,NA,J449,NA,NA
+Municipal head,Hospital/clinic,2013,Dec,25,Framing Carpenters and Finish Carpenters,Other,Anserma,Cardiorespiratory Arrest,I469,Respiratory distress syndrome,J80,Pneumonia,A419,NEUMONIA,J189
+Municipal head,Hospital/clinic,2013,Feb,21,"Commercial Agents and Brokers, Not Classified Under Other Categories",Other,Anserma,Cardiovascular Collapse,I516,Massive hypovolemia,E86,Acquired immunodeficiency syndrome,R418,SINDROME DE INMUNODEFICIENCIA ADQUIRIDA,B24
+Municipal head,Hospital/clinic,2013,Dec,6,Transient Crop Farmers,Other,Anserma,Hypoxia Anoxia,R090,HIV pneumonia,J189,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Nov,2,Unknown,Other,Anserma,Sepsis of Abdominal Origin,K650,Gastroenteritis,A090,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Oct,6,Home,Other,Anserma,Hypoxia Anoxia,R090,Acute pulmonary edema,J81,Human immunodeficiency syndrome,J80,SINDROME DE INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,2013,Sep,5,Unknown,Other,Anserma,Hypoxia Anoxia,R090,Cerebral toxoplasmosis,B582,Opportunistic infections,B24,INFECCIONES OPORFUNISTAS,B209
+Municipal head,Hospital/clinic,2013,May,4,Taxi Drivers,Other,Anserma,Cardiorespiratory Arrest,I469,Respiratory failure,J969,Neuroinfection,J189,NEUROINFECCION,G049
+Municipal head,Hospital/clinic,2014,Apr,26,Military Forces Soldiers,Other,Anserma,Pneumonia,J189,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Jun,30,Prisoner,Other,Anserma,Septic Shock,R572,HIV-induced immunosuppression,D849,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Feb,26,Transient Crop Farmers,Other,Anserma,Lymphoma,C859,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Jan,20,"Commercial Agents and Brokers, Not Classified Under Other Categories",Other,Anserma,Respiratory Insufficiency,J969,Septic shock,R572,Peritonitis intestinal obstruction,K650,PERITONITIS  OBSTRUCCION INTESTINAL,K659
+Municipal head,Hospital/clinic,2016,Dec,21,Welders and Oxy-cutters,Other,Anserma,Malignant Cerebral Edema,G936,Opportunistic pathogen neuroinfection tuberculosis,G049,NA,B24,NA,NA

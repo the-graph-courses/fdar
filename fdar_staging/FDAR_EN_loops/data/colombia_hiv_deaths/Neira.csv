@@ -1,0 +1,21 @@
+municipality,death_location,death_year,death_month,death_day,gender,occupation,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Scattered rural,Home/address,2010,Jul,14,Male,Systems Technician,Neira,Ventricular Arrhythmia,I499,Septic shock,A419,HIV disease,C837,ENFERMEDAD POR  VIH,B24
+Municipal head,Hospital/clinic,2010,May,16,Female,NA,Neira,Acute Ventilatory Failure,J960,Sepsis,A419,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2011,Dec,3,Male,Betting Receivers and Similar,Neira,Pneumonia,J189,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2011,Nov,10,Male,Transient Crop Farmers,Neira,Sepsis,A419,Pancytopenia,D619,NA,B24,NA,NA
+Municipal head,Home/address,2012,Sep,10,Male,Agricultural Workers,Neira,Acquired Immunodeficiency Syndrome,B24,Recurrent respiratory infections,J988,Hyporexia,D70,HIPOREXIA,R090
+Municipal head,Hospital/clinic,2012,Apr,30,Male,Transient Crop Farmers,Neira,Meningitis,G039,Acquired immunodeficiency syndrome HIV,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Apr,7,Female,Home,Neira,Disseminated Intravascular Coagulation,D65,Acute myeloid leukemia,C920,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Nov,21,Male,Transient Crop Farmers,Neira,Sudden Respiratory Failure,J969,Massive pulmonary thromboembolism,I269,NA,D849,NA,NA
+Municipal head,Hospital/clinic,2013,May,31,Male,Unknown,Neira,Acute Myocardial Infarction Type Two According to Third Universal Definition of Myocardial Infarction,I219,Anemia of chronic disease,D649,HIV infection,E46,INFECCION POR VIH VIRUS DE INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,2013,Jan,6,Male,Transient Crop Farmers,Neira,Cardiorespiratory Arrest,I469,Respiratory failure,J969,Acquired immunodeficiency virus stage IIIC,J984,VIRUS DE INMUNODEFICIENCIA ADQUIRIDA ESTADIO IIIC,B24
+Municipal head,Hospital/clinic,2014,Oct,7,Male,Permanent Crop Farmers (Tree and Shrub Plantations),Neira,Acute Respiratory Insufficiency,J960,Miliary tuberculosis,A199,NA,B24,NA,NA
+Scattered rural,Home/address,2014,Dec,22,Male,NA,Neira,Human Immunodeficiency Virus HIV,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Sep,18,Male,Cooks and Similar,Neira,HIV Infection,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Home/address,2015,Oct,4,Male,Van and Light Vehicle Drivers,Neira,Severe Pneumonia,J189,Immunodeficiency,D849,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2015,Jun,28,Male,Transient Crop Farmers,Neira,Acute Myocardial Infarction,I219,Ventilatory failure,J969,Hypertension,B24,HIPERTENSION ARTERIAL,I10
+Municipal head,Hospital/clinic,2015,May,31,Female,Home,Neira,Pneumonia,J189,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Home/address,2016,Dec,12,Male,Transient Crop Farmers,Neira,Human Immunodeficiency Virus,B24,Tuberculosis,A169,NA,NA,NA,NA
+Municipal head,Home/address,2016,Oct,5,Male,"Messengers, Porters, and Delivery Workers",Neira,Acquired Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Sep,7,Male,Transient Crop Farmers,Neira,Non-Hodgkin's Lymphoma,C859,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Jun,3,Female,Home,Neira,Malignant Cardiac Arrhythmia,I499,Severe septic shock,R572,HIV infection,J180,INFECION POR EL VIRUS DE LA INMUNODEFICIENCIA HUMANA,B24

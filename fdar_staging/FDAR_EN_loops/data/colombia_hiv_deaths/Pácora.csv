@@ -1,0 +1,4 @@
+municipality,death_location,death_year,death_month,death_day,gender,occupation,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Home/address,2011,Sep,26,Female,Home,Other,Pácora,Pneumonia,J189,AIDS complication,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Jul,8,Male,Unknown,Other,Pácora,Tuberculous Meningoencephalitis,A178,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Oct,17,Male,Unknown,Other,Pácora,Acute Myocardial Infarction,I219,Bacterial pneumonia,J159,Anemia,B24,ANEMIA,D649

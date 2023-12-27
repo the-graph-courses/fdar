@@ -1,0 +1,4 @@
+municipality,death_location,death_year,death_month,death_day,gender,education_level,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Home/address,2013,Dec,5,Female,Academic or classical middle,Salamina,Abdominal Lymphoma,C859,HIV infection,B24,NA,D849,NA,NA
+Scattered rural,Home/address,2011,Apr,3,Female,No information,Salamina,Multi-Organ Failure,R688,Neuroinfection,G049,HIV infection,B24,INFECCION POR VIH,B24
+Municipal head,Home/address,2014,Aug,14,Male,None,Salamina,Cardiorespiratory Arrest,I469,Multisystem failure,R688,NA,B24,NA,NA

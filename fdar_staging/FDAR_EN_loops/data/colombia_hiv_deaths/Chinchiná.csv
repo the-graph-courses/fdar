@@ -1,0 +1,63 @@
+municipality,death_location,death_year,death_month,death_day,gender,education_level,occupation,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2010,Jan,9,Female,Primary basic,NA,Chinchiná,Respiratory Failure,J969,Bronchial aspiration,T175,AIDS,B589,SIDA,B24
+Municipal head,Hospital/clinic,2010,Sep,19,Male,No information,Unknown,Chinchiná,Bacterial Pneumonia,J159,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2010,Oct,31,Male,Academic or classical middle,"Bricklayers, Masons and Similar",Chinchiná,Severe Respiratory Failure,J969,Multiple organ failure,R688,HIV/AIDS,B59,VHI SIDA,B24
+Municipal head,Hospital/clinic,2010,Nov,20,Male,Primary basic,Unknown,Chinchiná,Myocardial Infarction,I219,Severe hypoxia,R090,NA,J81,NA,NA
+Municipal head,Hospital/clinic,2010,Dec,3,Male,Secondary basic,Kiosk and Market Stall Sellers,Chinchiná,Cardiorespiratory Arrest,I469,Multiple organ failure,R688,Visceral tuberculosis,A419,TUBERCULOSIS VISCERAL,A168
+Municipal head,Hospital/clinic,2010,Nov,20,Male,No information,Unknown,Chinchiná,Human Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2010,Aug,7,Male,Academic or classical middle,"Workshop Assistant, Automotive Mechanics and Similar",Chinchiná,Cardiorespiratory Arrest,I469,Multisystem failure,R688,AIDS,J984,SIDA,B24
+Municipal head,Hospital/clinic,2010,Jun,30,Male,Secondary basic,"Shop and Store Sellers, Demonstrators",Chinchiná,Gram-Positive Sepsis,A418,Cerebral histoplasmosis,B399,Immunodeficiency syndrome,A169,SINDROME INMUDEFICIENCIA H,B24
+Municipal head,Hospital/clinic,2010,Jun,13,Male,No information,Unknown,Chinchiná,Cardiorespiratory Arrest,I469,Septic shock,A419,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2011,Aug,31,Male,Academic or classical middle,"Waiters, Bartenders, and Similar",Chinchiná,Adult Respiratory Distress Syndrome,J80,Septicemia,A419,NA,A020,NA,NA
+Municipal head,Hospital/clinic,2011,Sep,20,Female,Primary basic,Home,Chinchiná,Human Immunodeficiency Syndrome,B24,Pulmonary tuberculosis,A162,NA,B582,NA,NA
+Municipal head,Hospital/clinic,2011,Aug,20,Male,Secondary basic,Unknown,Chinchiná,Bacterial Pneumonia,J159,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2011,May,17,Male,No information,Transient Crop Farmers,Chinchiná,Multi-Organ Failure,R688,Human immunodeficiency virus,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2011,Apr,26,Male,Primary basic,Transient Crop Farmers,Chinchiná,Cardiorespiratory Arrest,I469,Septic shock,A419,NA,G008,NA,NA
+Municipal head,Hospital/clinic,2011,Apr,20,Male,Primary basic,Unknown,Chinchiná,Cardiorespiratory Arrest,I469,Pulmonary thromboembolism,I269,NA,A419,NA,NA
+Municipal head,Hospital/clinic,2011,Jan,15,Female,No information,Unknown,Chinchiná,HIV Infection,B24,AIDS stage C,B24,Pulmonary tuberculosis,B59,TUBERCULOSIS PULMONAR,A162
+Municipal head,Hospital/clinic,2011,Jan,6,Male,Secondary basic,Transient Crop Farmers,Chinchiná,Bacterial Pneumonia,J159,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2012,Feb,9,Male,None,Unknown,Chinchiná,Cardiorespiratory Arrest,I469,Multisystem failure,R688,HIV/AIDS,J984,VIH SIDA,B24
+Municipal head,Hospital/clinic,2012,Dec,23,Female,Secondary basic,Home,Chinchiná,HIV AIDS,B24,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Dec,21,Male,Primary basic,Transient Crop Farmers,Chinchiná,Septic Shock,A419,Multilobar pneumonia,J180,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2012,Dec,21,Female,Primary basic,Home,Chinchiná,Pulmonary Tuberculosis,A162,Human immunodeficiency virus disease,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Oct,9,Male,Academic or classical middle,Student,Chinchiná,Toxoplasma Meningitis,G039,Acquired immunodeficiency syndrome due to HIV,B24,NA,E43,NA,NA
+Municipal head,Hospital/clinic,2012,Aug,21,Male,Primary basic,Agricultural Workers,Chinchiná,Septic Shock,A419,Tuberculosis,A169,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2012,Jul,23,Male,Primary basic,Transient Crop Farmers,Chinchiná,Human Immunodeficiency Syndrome,B24,Community-acquired pneumonia,J189,NA,K922,NA,NA
+Municipal head,Hospital/clinic,2012,Jan,22,Male,Secondary basic,Unknown,Chinchiná,Septic Shock,A419,Bacterial pneumonia,J159,NA,B209,NA,NA
+Municipal head,Hospital/clinic,2012,Feb,18,Male,Primary basic,"Painters, Wallpaperers, and Similar",Chinchiná,Community-Acquired Pneumonia,J189,Acquired immunodeficiency syndrome AIDS,B24,NA,NA,NA,NA
+Municipal head,Home/address,2013,Jul,4,Female,Academic or classical middle,Home,Chinchiná,Cardiorespiratory Arrest,I469,Multiple organ failure,R688,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2013,Dec,27,Male,Primary basic,Unknown,Chinchiná,Pulmonary Origin Sepsis,J984,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2013,Dec,24,Male,No information,Unknown,Chinchiná,Septic Shock,A419,Atypical pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2013,Feb,23,Male,Secondary basic,Student,Chinchiná,Bacterial Pneumonia,J159,Human immunodeficiency virus infection,B24,NA,J960,NA,NA
+Municipal head,Hospital/clinic,2013,Mar,10,Male,Primary basic,Transient Crop Farmers,Chinchiná,Malignant Tumor of Lymph Nodes of Multiple Regions,C779,HIV disease resulting in other types of non-Hodgkin's lymphoma,B212,Bacterial pneumonia,B24,NEUMONIA BACTERIANA,J159
+Municipal head,Hospital/clinic,2013,Jan,19,Male,Primary basic,Unknown,Chinchiná,Human Immunodeficiency Syndrome,B24,Multiple organ failure,R688,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Feb,10,Male,Primary basic,Home,Chinchiná,Respiratory Failure,J969,Pneumonia,J189,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2013,Feb,8,Male,Primary basic,Unknown,Chinchiná,Pulmonary Tuberculosis,A162,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Nov,12,Female,Primary basic,"Other Personal Service Workers to Individuals, Not Classified Under Other Categories",Chinchiná,Multi-Organ Failure,R688,Acquired immunodeficiency virus infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Dec,25,Female,Primary basic,Home,Chinchiná,Bacterial Pneumonia,J159,Acquired immunodeficiency syndrome HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jul,30,Male,No information,Transient Crop Farmers,Chinchiná,Sepsis,A419,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jun,19,Male,No information,Unknown,Chinchiná,Septic Shock,R572,Acquired immunodeficiency syndrome,B24,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2014,Mar,13,Male,No information,Unknown,Chinchiná,Chronic Pneumonia,J841,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Home/address,2014,Jan,8,Male,Primary basic,Transient Crop Farmers,Chinchiná,Ventilatory Failure,J969,Cardiogenic shock,R570,NA,D849,NA,NA
+Municipal head,Hospital/clinic,2015,Nov,8,Male,No information,Street Vendors,Chinchiná,Cerebral Edema,G936,Meningoencephalitis,G049,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2015,Dec,28,Male,Primary basic,Transient Crop Farmers,Chinchiná,Pulmonary Origin Sepsis,J189,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Home/address,2015,Dec,15,Male,None,Transient Crop Farmers,Chinchiná,Multi-Systemic Organ Failure,R688,Acquired immunodeficiency syndrome,B24,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2015,Dec,14,Male,None,Transient Crop Farmers,Chinchiná,Neurogenic Shock,R578,Encephalitis,G049,NA,B24,NA,NA
+Scattered rural,Home/address,2015,Sep,23,Male,Primary basic,"Workers of Orchards, Greenhouses, Nurseries, and Gardens",Chinchiná,Peritoneal Tuberculosis,A183,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Oct,14,Female,Primary basic,Home,Chinchiná,Neurogenic Shock,R578,Cerebral toxoplasmosis,B582,HIV infection,B24,INFECCION POR EL VIH,B24
+Municipal head,Hospital/clinic,2015,Sep,5,Female,No information,Unknown,Chinchiná,Hepatic Encephalopathy,K729,Liver failure,K729,Acquired immunodeficiency,N19,INMUNODEFICIENCIA  ADQUIRIDA,B24
+Municipal head,Hospital/clinic,2015,Mar,28,Male,No information,Unknown,Chinchiná,Septicemia,A419,Community-acquired pneumonia,J189,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,Mar,23,Male,Primary basic,Transient Crop Farmers,Chinchiná,Bacterial Pneumonia,J159,Human immunodeficiency virus disease,B24,NA,A162,NA,NA
+Municipal head,Hospital/clinic,2016,Nov,23,Female,No information,Home,Chinchiná,Severe Septic Shock,R572,Severe bacterial pneumonia,J159,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Oct,18,Female,Primary basic,Unknown,Chinchiná,Bacterial Pneumonia,J159,Pulmonary tuberculosis,A162,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Jul,28,Male,Primary basic,Transient Crop Farmers,Chinchiná,Severe Bradycardia,R001,Pneumocystis jirovecii pneumonia,B59,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Jun,17,Male,Primary basic,Transient Crop Farmers,Chinchiná,Malignant Ventricular Arrhythmia,I499,Community-acquired pneumonia,J189,HIV infection,A169,INFECCION POR VIH,B24
+Municipal head,Hospital/clinic,2016,Jun,3,Female,Primary basic,Home,Chinchiná,Septic Shock,R572,Encephalitis,G049,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Jun,3,Male,Primary basic,Cabinetmakers and Similar,Chinchiná,Severe Pneumonia,J189,HIV stage C,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,May,31,Male,Preschool,Photography Workers and Similar,Chinchiná,Respiratory Insufficiency,J969,Septic shock,R572,Probable HIV infection,J189,INFECCION POR VIH PROBABLE,B24
+Municipal head,Hospital/clinic,2016,May,22,Female,Primary basic,Home,Chinchiná,Acquired Immunodeficiency Syndrome,B24,NA,NA,NA,NA,NA,NA
+Scattered rural,Home/address,2016,Mar,28,Male,Primary basic,Unknown,Chinchiná,Septic Shock,R572,Multiorgan dysfunction,R688,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Apr,4,Male,Secondary basic,"Office, Hotel, and Other Establishment Cleaners and Fumigators",Chinchiná,Septicemia,A419,Multilobar pneumonia,J180,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Jan,29,Female,None,Home,Chinchiná,Cardiogenic Shock,R570,Acute respiratory distress syndrome,J80,HIV infection,A169,INFECCION POR VIRUS DE LA INMUNODEFICIENCIA HUMANA,B24
+Municipal head,Hospital/clinic,2016,Jan,17,Female,Primary basic,Home,Chinchiná,Cardiorespiratory Arrest,I469,Septic shock of central nervous system origin,G049,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2016,Feb,20,Male,No information,Unknown,Chinchiná,Septic Shock,R572,Acquired immunodeficiency HIV,B24,NA,J189,NA,NA

@@ -1,0 +1,8 @@
+municipality,death_location,death_year,death_month,death_day,gender,occupation,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Scattered rural,Home/address,2010,Jun,19,Male,NA,Other,Supía,Respiratory Arrest,R092,HIV infection,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2012,Dec,7,Male,"Commercial Agents and Brokers, Not Classified Under Other Categories",Other,Supía,Multiple Organ Dysfunction,R688,Disseminated histoplasmosis,B399,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2014,Feb,13,Male,Unknown,Other,Supía,Multiple Infections,B99,Tuberculosis,A169,NA,B24,NA,NA
+Municipal head,Hospital/clinic,2015,Nov,26,Male,Transient Crop Farmers,Other,Supía,Septicemia,A419,HIV disease resulting in other infectious and parasitic diseases,B208,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2015,May,29,Male,"Shop and Store Sellers, Demonstrators",Other,Supía,Cardiac Arrhythmia,I499,Hyperkalemia electrolyte disorder,E875,HIV infection,N179,INFECCION POR VIH,B24
+Municipal head,Hospital/clinic,2015,Jan,22,Female,Home,Other,Supía,Bacterial Pneumonia,J159,HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Mar,7,Male,"Other Personal Service Workers to Individuals, Not Classified Under Other Categories",Other,Supía,Ischemia,I99,Cardiorespiratory arrest,I469,Tuberculosis HIV meningitis,A419,TBC VIH MENINGITIS,A162

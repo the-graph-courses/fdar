@@ -1,0 +1,3 @@
+municipality,death_location,death_year,death_month,death_day,occupation,racial_id,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Hospital/clinic,2010,Sep,17,Farmer,Other,Samaná,Cerebral Anoxia,G931,Endocranial hypertension syndrome,G932,NA,G039,NA,G936
+Municipal head,Hospital/clinic,2014,Aug,2,Unknown,Other,Samaná,Cerebral Infarction,I639,Acute cerebral edema,G936,HIV infection,B582,INFECCION POR VIRUS DE INMUNODEFICIENCIA HUMANA,B24

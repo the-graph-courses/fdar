@@ -1,0 +1,955 @@
+---
+titre: 'Travailler avec des chaînes de caractères en R'
+sortie:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    css: !expr here::here("global/style/style.css")
+    highlight: kate
+options de l'éditeur: 
+  type de sortie de fragment: inline
+---
+
+```{r, echo = F, message = F, warning = F}
+knitr::opts_chunk$set(fig.width = 4.5, fig.height = 3, warning = T, message = F)
+
+# Charger les packages 
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(rlang, tidyverse, knitr, here, janitor,  reactable, gt, flextable, gtsummary, lubridate, medicaldata)
+
+## fonctions
+source(here::here("global/functions/misc_functions.R"))
+
+## rendu par défaut
+registerS3method("reactable_5_rows", "data.frame", reactable_5_rows)
+
+```
+
+# Introduction
+
+La maîtrise de la manipulation des chaînes de caractères est une compétence essentielle pour les data scientists. Des tâches comme le nettoyage de données désordonnées et la mise en forme des sorties dépendent fortement de la capacité à analyser, combiner et modifier des chaînes de caractères. Cette leçon se concentre sur les techniques de travail avec des chaînes de caractères en R, en utilisant les fonctions du package {stringr} de tidyverse. Plongeons-y !
+
+
+
+# Objectifs d'apprentissage
+
+-   Comprendre le concept de chaînes de caractères et les règles pour les définir en R
+
+-   Utiliser des échappatoires pour inclure des caractères spéciaux comme des guillemets dans les chaînes de caractères
+
+-   Utiliser les fonctions de {stringr} pour formater les chaînes de caractères :
+
+    -   Changer la majuscule avec `str_to_lower()`, `str_to_upper()`, `str_to_title()`
+
+    -   Supprimer les espaces blancs avec `str_trim()` et `str_squish()`
+
+    -   Ramener les chaînes à une largeur égale avec `str_pad()`
+
+    -   Fragmenter le texte à une certaine largeur en utilisant `str_wrap()`
+
+-   Diviser les chaînes en parties en utilisant `str_split()` et `separate()`
+
+-   Combiner les chaînes ensemble avec `paste()` et `paste0()`
+
+-   Extraire des sous-chaînes à partir de chaînes en utilisant `str_sub()`
+
+
+
+# Packages
+
+```{r, warning = FALSE, message = FALSE, echo = TRUE}
+# Chargement des paquets nécessaires
+if(!require(pacman)) install.packages("pacman")
+pacman::p_load(________, ________, ________)
+```
+
+## Définition des chaînes de caractères
+
+‣ Les chaînes de caractères en R peuvent être définies en utilisant des guillemets simples ou doubles.
+
+‣ Il est nécessaire d'avoir des guillemets de début et de fin correspondants.
+
+```{r}
+string_1 <- "Bonjour" # En utilisant des guillemets doubles
+string_2 <- 'Bonjour' # En utilisant des guillemets simples
+```
+
+‣ On ne peut pas inclure des guillemets doubles à l'intérieur d'une chaîne qui commence et se termine par des guillemets doubles. La même chose s'applique aux guillemets simples à l'intérieur d'une chaîne qui commence et se termine par des guillemets simples.
+
+```{r}
+ne_fonctionnera_pas <- "Guillemets doubles " au sein des guillemets doubles"
+ne_fonctionnera_pas <- 'Guillemets simples ' au sein des guillemets simples'
+```
+
+‣ Il est permis de mélanger des guillemets simples à l'intérieur de guillemets doubles, et vice versa.
+
+```{r}
+simple_a_l_interieur_double <- "Guillemets simples ' à l_intérieur de guillemets doubles"
+```
+
+‣ Utilisez le caractère d'échappement `\` pour inclure des guillemets dans les chaînes.
+
+```{r}
+guillemet_simple <- 'Guillemets simples \' à l_intérieur de guillemets simples'
+guillemet_double <- "Guillemets doubles \" à l_intérieur de guillemets doubles"
+```
+
+‣ La fonction `cat()` est utilisée pour afficher les chaînes en sortie.
+
+```{r}
+cat(guillemet_simple)
+cat(guillemet_double)
+```
+
+::: side note
+
+Puisque `\` est le caractère d'échappement, vous devez utiliser `\\` pour inclure un backslash littéral dans une chaîne :
+
+```{r}
+backslash <- "Ceci est un backslash: \\"
+cat(backslash)
+```
+
+:::
+
+**TEMPS DE PRATIQUE !**
+
+::: practice
+### Q: Repérage des erreurs dans les définitions de chaînes {.non répertorié .non numéroté}
+
+Ci-dessous, des tentatives de définition de chaînes de caractères en R, deux des cinq lignes contiennent une erreur. Identifiez et corrigez ces erreurs.
+
+```{r, eval = FALSE}
+ex_a <- 'Elle a dit, "Bonjour !" à lui.'
+ex_b <- "Elle a dit \"Allons sur la lune\""
+ex_c <- "Ils ont été "meilleurs amis" pendant des années."
+ex_d <- 'Jane\\'s diary'
+ex_e <- "It's a sunny day!
+```
+:::
+
+## Formatage des chaînes de caractères en R avec {stringr}
+
+‣ Le package {stringr} aide à formater les chaînes de caractères pour l'analyse et la visualisation.
+
+‣ Changements de majuscule
+
+‣ Gestion des espaces blancs
+
+‣ Standardisation de la longueur
+
+‣ Mise en page du texte
+
+### Changement de majuscule
+
+‣ La standardisation des chaînes de caractères ou leur préparation pour l'affichage nécessite souvent une conversion de la majuscule.
+
+‣ `str_to_upper()` convertit les chaînes en majuscules.
+
+```{r}
+str_to_upper("bonjour monde") 
+```
+
+‣ `str_to_lower()` convertit les chaînes en minuscules.
+
+```{r}
+str_to_lower("Au revoir")
+```
+
+‣ `str_to_title()` met en majuscule la première lettre de chaque mot. Idéal pour titrer les noms, les sujets, etc.
+
+```{r}
+str_to_title("manipulation de chaîne de caractères")
+```
+
+### Gestion des espaces blancs
+
+‣ Les chaînes de caractères peuvent être rendues nettes et uniformes en gérant les espaces blancs.
+
+‣ Utilisez `str_trim()` pour supprimer les espaces blancs en début et en fin de chaîne.
+
+```{r}
+str_trim(" coupé ")
+```
+
+‣ `str_squish()` supprime également les espaces au début et à la fin, *et* réduit les espaces internes multiples à un seul.
+
+```{r}
+str_squish("   trop   d'    espace   ") 
+
+# remarquez la différence avec str_trim
+str_trim("   trop   d'    espace   ") 
+```
+
+## Remplissage de texte
+
+‣ `str_pad()` est utilisé pour compléter les chaînes à une largeur spécifiée.
+
+‣ Il aide à standardiser la longueur des chaînes en ajoutant des caractères.
+
+```{r}
+# Complétez le nombre "7" à gauche pour une largeur totale de 3 avec "0"
+str_pad(______, ______, ______)
+```
+
+‣ premier argument : la chaîne à compléter
+
+‣ `width` définit la largeur finale de la chaîne, `pad` spécifie le caractère de remplissage.
+
+‣ l'argument `side` peut être "left", "right", ou "both".
+
+‣ sur la droite :
+
+```{r}
+# Complétez le nombre "7" à droite pour une longueur de 4 avec "_"
+str_pad("7", width = 4, side = "right", pad = "-")
+```
+
+‣ des deux côtés :
+
+```{r}
+# Complétez le nombre "7" des deux côtés pour une largeur totale de 5 avec "_"
+str_pad(______, width = ___, side = "______", pad = "______")
+```
+
+## Mise en page du texte
+
+‣ `str_wrap()` fragmente le texte pour l'adapter à une largeur définie, utile pour des espaces confinés.
+
+```{r}
+exemple_chaine <- "La manipulation de chaînes avec str_wrap peut améliorer la lisibilité dans les graphiques."
+enveloppé_à_10 <- str_wrap(______, width = ______)
+enveloppé_à_10
+```
+
+‣ `cat()` affiche les chaînes avec des sauts de ligne, ce qui les rend lisibles.
+
+```{r}
+cat(______)
+```
+
+‣ Définir la divislargeur à 1 e essentiellement la chaîne en mots individuels :
+
+```{r}
+cat(str_wrap(enveloppé_à_10, width = 1))
+```
+
+‣ Voici un exemple d'utilisation de `str_wrap()` dans ggplot2 pour des titres soignés :
+
+```{r}
+long_titre <- "Ceci est un exemple de titre très long, qui dépasserait généralement la fin de votre ggplot, mais vous pouvez l'envelopper avec str_wrap pour qu'il s'adapte à une limite de caractères spécifiée."
+
+# Exemple de graphique sans fragmentation du titre
+ggplot(women, aes(height, weight)) +
+  geom_point() +
+  labs(title = long_titre)
+
+# Maintenant, ajoutez un titre fragmenté à 50 caractères
+ggplot(women, aes(height, weight)) +
+  geom_point() +
+  labs(title = str_wrap(______, width = ______))
+```
+
+**TEMPS DE PRATIQUE !**
+
+::: practice
+### Q: Nettoyage des données sur les noms de patients {.non répertorié .non numéroté}
+
+Un jeu de données contient des noms de patients avec un formatage incohérent et des espaces blancs supplémentaires. Utilisez le package {stringr} pour standardiser cette information :
+
+```{r, eval = FALSE}
+patient_names <- c("  john doe", "ANNA SMITH   ", "Emily Davis")
+# 1. Supprimez les espaces blancs de chaque nom.
+# 2. Convertissez chaque nom en majuscule de titre pour la cohérence.
+```
+:::
+
+::: practice
+### Q: Standardisation des codes de médicaments {.non répertorié .non numéroté}
+
+Les codes de médicaments suivants (fictifs) sont formatés de manière incohérente. Standardisez-les en les complétant avec des zéros pour s'assurer que tous les codes ont une longueur de 8 caractères :
+
+```{r, eval = FALSE}
+drug_codes <- c("12345", "678", "91011")
+# Complétez chaque code avec des zéros à gauche pour une largeur fixe de 8 caractères.
+```
+:::
+
+::: practice
+### Q: Enveloppement des instructions médicales {.non répertorié .non numéroté}
+
+Utilisez `str_wrap()` pour formater ce qui suit pour une meilleure lisibilité :
+
+```{r}
+instructions <- "Prenez deux comprimés par jour après les repas. Si les symptômes persistent pendant plus de trois jours, consultez immédiatement votre médecin. Ne prenez pas plus que la dose recommandée. Tenir hors de portée des enfants."
+
+ggplot(data.frame(x = 1, y = 1), aes(x, y, label = instructions)) +
+  geom_label() + 
+  theme_void()
+
+# Maintenant, enveloppez les instructions à une largeur de 50 caractères puis tracez à nouveau.
+
+```
+:::
+
+## Application du formatage de chaînes à un jeu de données
+
+‣ Nous apprendrons à nettoyer et à standardiser les données en utilisant les fonctions de {stringr}.
+
+‣ Notre focus : un jeu de données sur **les soins du VIH** dans la **province de Zambézia**, Mozambique.
+
+‣ Le jeu de données contient des **incohérences de formatage** intentionnellement ajoutées pour l'apprentissage.
+
+```{r}
+# Charger l'ensemble de données désordonnées
+hiv_dat_messy_1 <- openxlsx::read.xlsx(here("data/hiv_dat_messy_1.xlsx")) %>%
+  as_tibble()
+
+# Observez les problèmes de formatage dans ces colonnes
+hiv_dat_messy_1 %>%
+  select(______, ______, ______, ______)
+```
+
+‣ Utilisez `tabyl` pour compter et identifier les valeurs uniques, mettant en évidence les incohérences.
+
+```{r}
+# Comptage des valeurs uniques pour repérer les incohérences
+hiv_dat_messy_1 %>% tabyl(health_unit)
+hiv_dat_messy_1 %>% tabyl(education)
+hiv_dat_messy_1 %>% tabyl(regimen)
+hiv_dat_messy_1 %>% tabyl(district)
+```
+
+‣ `tbl_summary` de {gtsummary} visualise les problèmes de majuscule, d'espacement et de format.
+
+```{r}
+# Résumez les données pour voir les incohérences avant le nettoyage
+hiv_dat_messy_1 %>%
+  select(district, health_unit, education,regimen) %>%
+  tbl_summary()
+```
+
+‣ Ensuite, nous nettoyons systématiquement chaque variable pour la cohérence.
+
+```{r}
+# Appliquer les fonctions de nettoyage pour standardiser les données
+hiv_dat_clean_1 <- hiv_dat_messy_1 %>%
+  mutate(
+    district = str_to_title(str_trim(______)), # Standardiser les noms des districts
+    health_unit = str_squish(______),          # Supprimer les espaces supplémentaires
+    education = str_to_title(______),          # Standardiser les niveaux d'éducation
+    regimen = str_to_upper(______)             # Consistance de la colonne de régime
+  )
+```
+
+‣ Confirmez les améliorations en relançant `tbl_summary()`.
+
+```{r}
+# Vérifiez les données nettoyées
+hiv_dat_clean_1 %>%
+  select(district, health_unit, education, regimen) %>%
+  tbl_summary()
+```
+
+‣ Résolvez les problèmes de traçage avec `ggplot` en raison des longues étiquettes `health_unit`.
+
+```{r}
+ggplot(hiv_dat_clean_1, aes(x = health_unit)) +
+  geom_bar()
+```
+
+```{r}
+# Utilisez str_wrap pour ajuster la longueur des étiquettes pour une meilleure affichage du graphique
+______ %>%
+  ggplot(aes(x = str_wrap(______, width = ______)))+ 
+  geom_bar()
+```
+
+‣ Affinez le graphique en corrigeant le titre de l'axe.
+
+```{r}
+# Finalisez les ajustements du graphique
+hiv_dat_clean_1 %>% 
+  ggplot(aes(x = str_wrap(health_unit, width = 20))) +
+  geom_bar() +
+  labs(x = ______)
+```
+
+**TEMPS DE PRATIQUE !**
+
+::: practice
+### Q: Formatage d'un jeu de données sur la tuberculose {.non répertorié .non numéroté}
+
+Dans cet exercice, vous nettoierez un jeu de données, `lima_messy`, provenant d'une étude sur l'adhésion au traitement de la tuberculose à Lima, au Pérou. Vous trouverez plus de détails sur l'étude et l'ensemble de données [ici](https://zenodo.org/records/4992464){target="_blank"}.
+
+Commencez par importer le jeu de données :
+
+```{r}
+lima_messy_1 <- openxlsx::read.xlsx(here("data/lima_messy_1.xlsx")) %>% 
+  as_tibble()
+lima_messy_1
+```
+
+Votre tâche est de nettoyer les variables `marital_status`, `sex`, et `age` dans `lima_messy`. Après le processus de nettoyage, générer un tableau récapitulatif en utilisant la fonction `tbl_summary()`. l'objectif est d'obtenir une sortie qui correspond à cette structure :
+
+| **Characteristic**     | **N = 1,293** |
+|------------------------|---------------|
+| marital_status         |               |
+| Divorced / Separated   | 93 (7.2%)     |
+| Married / Cohabitating | 486 (38%)     |
+| Single                 | 677 (52%)     |
+| Widowed                | 37 (2.9%)     |
+| sex                    |               |
+| F                      | 503 (39%)     |
+| M                      | 790 (61%)     |
+| age                    |               |
+| 21 and younger         | 338 (26%)     |
+| 22 to 26               | 345 (27%)     |
+| 27 to 37               | 303 (23%)     |
+| 38 and older           | 307 (24%)     |
+
+Mettez en œuvre le nettoyage et résumez :
+
+```{r eval = F}
+# Créez un nouvel objet pour les données nettoyées
+lima_clean <- lima_messy_1 %>%
+  mutate(
+    # Nettoyez marital_status
+    
+    # Nettoyez le sexe
+    
+    # Nettoyez l'âge
+    
+  )
+
+# Vérifiez le nettoyage
+lima_clean %>% 
+  select(marital_status, sex, age) %>% 
+  tbl_summary()
+```
+:::
+
+
+
+::: practice
+### Q: Enveloppement des étiquettes d'axe dans un graphique {.non répertorié .non numéroté}
+
+En utilisant le jeu de données nettoyé `lima_clean` de la tâche précédente, créez un graphique à barres pour afficher le comptage des participants par `marital_status`. Ensuite, enveloppez les étiquettes d'axe sur l'axe des x à un maximum de 15 caractères par ligne pour la lisibilité.
+
+```{r eval = F}
+# Créez votre graphique à barres avec du texte enveloppé ici :
+
+```
+:::
+
+## Diviser les chaînes de caractères
+
+‣ Les tâches courantes de manipulation de données comprennent la division et la combinaison de chaînes de caractères.
+
+‣ `stringr::str_split()` et `tidyr::separate()` sont des fonctions tidyverse à cet effet.
+
+### En utilisant `str_split()`
+
+‣ `str_split()` divise les chaînes en parties.
+
+‣ Pour diviser `exemple_chaine` à chaque tiret :
+
+```{r}
+exemple_chaine <- "diviser-cette-chaine"
+str_split(______, ______)
+```
+
+‣ L'application directe à un jeu de données est complexe.
+
+‣ Avec le jeu de données IRS, concentrez-vous sur `start_date_long` :
+
+```{r}
+irs <- read_csv(here("data/Illovo_data.csv"))
+irs_dates_1 <- irs %>% select(village, start_date_long)
+irs_dates_1
+```
+
+‣ Pour extraire le mois, le jour et l'année de `start_date_long` :
+
+```{r}
+irs_dates_1 %>% 
+  mutate(start_date_parts = str_split(______, ______))
+```
+
+‣ Pour la lisibilité, utilisez `unnest_wider()` :
+
+```{r}
+irs_dates_1 %>% 
+  mutate(start_date_parts = str_split(start_date_long, ______)) %>% 
+  unnest_wider(______, ______)
+```
+
+### En utilisant `separate()`
+
+‣ `separate()` est plus direct pour diviser.
+
+‣ Pour diviser en `mois`, `jour`, `année` :
+
+```{r}
+irs_dates_1 %>%
+  separate(start_date_log, into = c("mois", "jour", "année"), sep = " ", remove = FALSE)
+```
+
+‣ La fonction `separate()` nécessite de spécifier :
+
+-   la colonne à diviser
+
+-   into : noms des nouvelles colonnes
+
+-   sep : caractère séparateur
+
+‣ Pour conserver la colonne d'origine :
+
+```{r}
+irs_dates_1 %>%
+  separate(start_date_long, into = c("mois", "jour", "année"), sep = " ", _______)
+```
+
+::: side-note
+En alternative, le package `lubridate` propose des fonctions pour extraire les composants de date :
+
+```{r}
+irs_dates_1 %>% 
+  mutate(start_date_long = mdy(start_date_long)) %>% 
+  mutate(jour = day(start_date_long),
+         mois = month(start_date_long, label = TRUE),
+         année = year(start_date_long))
+```
+:::
+
+‣ Si des lignes manquent de parties, `separate()` donne un avertissement
+
+‣ Démonstration avec des dates manquantes "April" :
+
+```{r}
+irs_dates_with_problem <- 
+  irs_dates_1 %>% 
+  mutate(start_date_missing = str_replace(start_date_long, "April ", ""))
+irs_dates_with_problem
+```
+
+‣ Division avec des parties manquantes :
+
+```{r warning=TRUE}
+irs_dates_with_problem %>% 
+  separate(start_date_missing, into = c("mois", "jour", "année"), sep = " ")
+```
+
+‣ Maintenant, nous avons le jour et le mois dans les mauvaises colonnes pour certaines lignes.
+
+
+
+::: practice
+### Q: Diviser les chaînes d'intervalle d'âge {.non répertorié .non numéroté}
+
+Considérez le jeu de données `esoph_ca`, du package {medicaldata}, qui concerne une étude cas-témoin sur le cancer de l'œsophage en France.
+
+```{r}
+medicaldata::esoph_ca %>% as_tibble()
+```
+
+Divisez les plages d'âge de la colonne `agegp` en deux colonnes distinctes : `agegp_lower` et `agegp_upper`.
+
+Après avoir utilisé la fonction `separate()`, le groupe d'âge "75+" nécessitera une gestion spéciale. Utilisez `readr::parse_number()`ou une autre méthode pour convertir la limite d'âge inférieure ("75+") en nombre.
+
+```{r eval = F}
+medicaldata::esoph_ca %>%
+  separate(________) %>% 
+  # convertir 75+ en nombre 
+  mutate(________)
+```
+:::
+
+
+
+## Séparer les caractères spéciaux
+
+‣ Pour utiliser la fonction `separate()` sur des caractères spéciaux (., +, \*, ?) doivent être échappés en `\\`
+
+\
+‣ Considérez le scénario où les dates sont formatées avec des points :
+
+```{r}
+# Séparation correcte des dates avec des points
+irs_with_period <- irs_dates_1 %>% 
+  mutate(start_date_long = format(lubridate::mdy(start_date_long), "%d.%m.%Y"))
+irs_with_period
+```
+
+‣ Lorsqu'on tente de séparer ce format de date directement avec `sep = "."` :
+
+```{r}
+irs_with_period %>%
+  separate(start_date_long, into = c("jour", "mois", "année"), sep = ".")
+```
+
+‣ C'est parce que, dans regex (expressions régulières), le point est un caractère spécial.
+
+‣ La bonne approche est d'échapper le point avec un double backslash (\\) :
+
+```{r}
+irs_with_period %>% 
+  separate(start_date_long, into = c("jour", "mois", "année"), sep = "\\.")
+```
+
+‣ Maintenant, la fonction comprend qu'il faut diviser la chaîne à chaque point littéral.
+
+‣ Lorsque vous utilisez d'autres caractères spéciaux comme `+`, `*`, ou `?`, ils doivent être précédés d'un double backslash (\\) dans l'argument `sep`.
+
+::: side_note
+**Qu'est-ce qu'un caractère spécial ?**
+
+Dans les expressions régulières, qui aident à trouver des motifs dans le texte, les caractères spéciaux ont des rôles spécifiques. Par exemple, un point (.) est un caractère générique qui peut représenter n'importe quel caractère. Ainsi, dans une recherche, "fa.t" pourrait correspondre à "fait", "fast", ou "faqt". De même, le signe plus (+) est utilisé pour indiquer une ou plusieurs occurrences du caractère précédent. Par exemple, "ma+ison" correspondrait à "maison" ou "maaaison" mais pas à "mison". Lorsque nous avons besoin d'utiliser ces caractères dans leurs rôles ordinaires, nous utilisons un double backslash (`\\`) avant eux, comme "`\\.`" ou "`\\+.`" Plus d'informations sur ces caractères spéciaux seront couvertes dans une future leçon.
+:::
+
+::: practice
+### Q: Séparation des caractères spéciaux {.non répertorié .non numéroté}
+
+Votre prochaine tâche concerne le jeu de données `hiv_dat_clean_1`. Concentrez-vous sur la colonne `regimen`, qui répertorie les régimes médicamenteux séparés par un signe `+`. Votre objectif est de diviser cette colonne en trois nouvelles colonnes : `drug_1`, `drug_2`, et `drug_3` en utilisant la fonction `separate()`. Faites attention à la façon dont vous gérez le séparateur `+`. Voici la colonne :
+
+```{r}
+hiv_dat_clean_1 %>% 
+  select(regimen)
+```
+:::
+
+
+
+# Combiner des chaînes avec `paste()`
+
+‣ Concaténez des chaînes avec `paste()`
+
+‣ Pour combiner deux chaînes simples :
+
+```{r}
+chaine1 <- "Bonjour"
+chaine2 <- "Monde"
+paste(chaine1, chaine2)
+```
+
+‣ Démontrons cela avec les données IRS.
+
+‣ Tout d'abord, nous séparerons la date de début en colonnes individuelles :
+
+```{r}
+irs_dates_separated <- # stocker pour une utilisation ultérieure
+  irs_dates_1 %>%
+  separate(start_date_long, into = c("mois", "jour", "année"), sep = " ", remove = FALSE)
+irs_dates_separated
+```
+
+‣ Ensuite, recombinons jour, mois et année avec `paste()` :
+
+```{r}
+irs_dates_separated %>%
+  select(jour, mois, année) %>%
+  mutate(start_date_long_2 = paste(______, ______, ______))
+```
+
+‣ L'argument `sep` spécifie le séparateur entre les éléments
+
+‣ Pour des séparateurs différents, nous pouvons écrire :
+
+```{r}
+irs_dates_separated %>%
+  mutate(start_date_long_2 = paste(______, ______, ______, ______))
+```
+
+‣ Pour concaténer sans espaces, nous pouvons définir `sep = ""` :
+
+```{r}
+irs_dates_separated %>%
+  select(jour, mois, année) %>%
+  mutate(start_date_long_2 = paste(jour, mois, année, sep = _____))
+```
+
+‣ Ou utilisez la fonction `paste0()`, qui est équivalente à `paste(..., sep = "")` :
+
+```{r}
+irs_dates_separated %>%
+  select(jour, mois, année) %>%
+  mutate(start_date_long_2 = paste0(jour, mois, année))
+```
+
+‣ Combine `paste()` avec d'autres fonctions de chaîne pour résoudre un problème de données réaliste.
+
+‣ Considérez la colonne ID dans le jeu de données `hiv_dat_messy_1` :
+
+```{r}
+hiv_dat_messy_1 %>% 
+  select(patient_id)
+```
+
+‣ Standardisez ces ID pour avoir le même nombre de caractères.
+
+‣ Utilisez `separate()` pour diviser les ID en parties, puis utilisez `paste()` pour les recombiner :
+
+```{r}
+hiv_dat_messy_1 %>%
+  select(patient_id) %>% # pour la visibilité
+  separate(patient_id, into = c(_____, _____), sep = _____, remove = FALSE) %>%
+  mutate(patient_num = str_pad(patient_num, width = 5, side = "left", pad = "0")) %>%
+  mutate(patient_id_padded = paste(_____, _____, sep = _____))
+```
+
+‣ Dans cet exemple, `patient_id` est divisé en un préfixe et un nombre. ‣ Le nombre est complété par des zéros pour assurer une longueur constante ‣ Ils sont concaténés à nouveau en utilisant `paste()` avec un tiret comme séparateur.
+
+::: practice
+### Q: Standardisation des ID dans le jeu de données `lima_messy_1` {.non répertorié .non numéroté}
+
+Dans le jeu de données `lima_messy_1`, les ID ne sont pas complétés par des zéros, ce qui les rend difficiles à trier.
+
+Par exemple, l'ID `pe-998` est en haut de la liste après un tri en ordre décroissant, ce qui n'est pas ce que nous voulons.
+
+```{r}
+lima_messy_1 %>%
+  select(id) %>%
+  arrange(desc(id)) # tri en ordre décroissant (les ID les plus élevés doivent être en haut)
+```
+
+Essayez de résoudre ce problème en utilisant une procédure similaire à celle utilisée pour `hiv_dat_messy_1`.
+
+**Votre tâche :**
+
+-   Séparez l'ID en parties.
+-   Complétez la partie numérique pour la standardisation.
+-   Recombinez les parties en utilisant `paste()`.
+-   Trier à nouveau les ID en ordre décroissant. Le plus haut ID doit se terminer par `2347`
+
+```{r eval = F}
+lima_messy_1 %>%
+  ______________
+```
+:::
+
+::: practice
+### Q: Création de déclarations récapitulatives {.non répertorié .non numéroté}
+
+Créez une colonne contenant des déclarations récapitulatives combinant `village`, `start_date_default`, et `coverage_p` du jeu de données `irs`. La déclaration doit décrire la couverture de pulvérisation pour chaque village.
+
+**Sortie souhaitée :** "Pour le village X, la couverture de pulvérisation était de Y% à la date Z."
+
+**Votre tâche :** - Sélectionnez les colonnes nécessaires du jeu de données `irs`. - Utilisez `paste()` pour créer la déclaration récapitulative.
+
+```{r eval = F}
+irs %>% 
+  select(village, start_date_default, coverage_p) %>% 
+  ______________________
+```
+:::
+
+
+
+# Sous-ensemble de chaînes avec `str_sub`
+
+‣ `str_sub` est utilisé pour extraire des parties d'une chaîne en fonction des positions des caractères
+
+‣ Syntaxe de base : `str_sub(chaine, début, fin)`
+
+‣ Exemple : Extraction des 2 premiers caractères des ID des patients
+
+```{r}
+patient_ids <- c("ID12345-abc", "ID67890-def")
+str_sub(patient_ids, __, __) 
+```
+
+‣ Pour extraire d'autres caractères, comme les 5 premiers, ajustez les valeurs de `début` et `fin`
+
+```{r}
+str_sub(patient_ids, __, __)
+```
+
+‣ Les valeurs négatives comptent à rebours à partir de la fin de la chaîne, utiles pour les suffixes
+
+‣ Exemples : Obtenez les 4 derniers caractères des ID des patients :
+
+```{r}
+str_sub(patient_ids, __, __)
+```
+
+‣ `str_sub` ne générera pas d'erreur si les indices dépassent la longueur de la chaîne
+
+```{r}
+str_sub(patient_ids, __, __) # Renvoie en toute sécurité la chaîne complète si la plage dépasse la longueur de la chaîne
+```
+
+‣ Dans `mutate()`, `str_sub` peut être utilisé pour transformer des colonnes dans un jeu de données
+
+‣ Exemple : Extraction de l'année et du mois à partir de la colonne `start_date_default` et création d'une nouvelle colonne appelée `year_month` :
+
+```{r}
+irs %>% 
+  select(_________) %>%
+  mutate(_________ = str_sub(_________, start = __, end = __))
+
+```
+
+
+
+**TEMPS DE PRATIQUE !**
+
+::: practice
+### Q: Extraction de sous-chaînes d'ID
+
+Utilisez `str_sub()` pour isoler uniquement la partie numérique de la colonne `patient_id` dans le jeu de données `hiv_dat_messy_1`.
+
+```{r eval = F}
+hiv_dat_messy_1 %>% 
+  select(patient_id) %>% 
+  # Complétez le code ci-dessous :
+  mutate(numeric_id = str_sub(patient_id, __, __))
+```
+:::
+
+
+
+# Récapitulatif {.unnumbered}
+
+Félicitations pour avoir atteint la fin de cette leçon ! Vous avez appris à connaître les chaînes de caractères en R et diverses fonctions pour les manipuler efficacement.
+
+Le tableau ci-dessous donne un rapide récapitulatif des principales fonctions que nous avons couvertes. N'oubliez pas, vous n'avez pas besoin de mémoriser toutes ces fonctions. Savoir qu'elles existent et comment les rechercher (comme en utilisant Google) est plus que suffisant pour des applications pratiques.
+
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| Fonction         | Description                                                                    | Exemple                                  | Exemple de sortie   |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_to_upper()` | Convertit la chaîne de caractère en majuscules                                 | `str_to_upper("hiv")`                    | "HIV"               |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_to_lower()` | Convertit la chaîne de caractère en minuscules                                 | `str_to_lower("HIV")`                    | "hiv"               |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_to_title()` | Convertit le premier caractère de chaque mot en majuscule                      | `str_to_title("hiv awareness")`          | "Hiv Awareness"     |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_trim()`     | Supprime les espaces blancs au début et à la fin                               | `str_trim(" hiv ")`                      | "hiv"               |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_squish()`   | Supprime les espaces blancs au début , à la fin et réduit les espaces internes | `str_squish(" hiv cases ")`              | "hiv cases"         |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_pad()`      | Etend une chaîne à une largeur fixe                                            | `str_pad("45", width = 5)`               | "00045"             |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_wrap()`     | Ramène une chaîne à une largeur fixe (pour le formatage de la sortie)          | `str_wrap("HIV awareness", width = 5)`   | "HIV\nawareness"    |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_split()`    | Découpe les éléments d'une chaîne                                              | `str_split("Hello-World", "-")`          | c("Hello", "World") |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `paste()`        | Recolle les vecteurs après la conversion en caractère                          | `paste("Hello", "World")`                | "Hello World"       |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `str_sub()`      | Extrait et remplace les parties d'un vecteur de caractères                     | `str_sub("HelloWorld", 1, 4)`            | "Hell"              |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+| `separate()`     | Sépare une colonne de caractère en plusieurs colonnes                          | `separate(tibble(a = "Hello-World"), a,` | `|b     |c     |`\  |
+|                  |                                                                                |                                          | `|Hello |World |`   |
+|                  |                                                                                | `into = c("b", "c"),`                    |                     |
+|                  |                                                                                |                                          |                     |
+|                  |                                                                                | `sep = "-")`                             |                     |
++------------------+--------------------------------------------------------------------------------+------------------------------------------+---------------------+
+
+
+
+Notez que si ces fonctions couvrent des tâches courantes telles que la standardisation des chaînes, la division et la jonction des chaînes, cette introduction ne fait qu'effleurer la surface de ce qui est possible avec le package {stringr}. Si vous travaillez avec beaucoup de données textuelles brutes, vous voudrez peut-être explorer davantage le site web [stringr](https://stringr.tidyverse.org){target="_blank"}.
+
+
+
+
+# Corrigé {.unnumbered}
+
+### Q : Recherche d'erreurs dans les définitions de chaînes de caractères {.unlisted .unnumbered}
+
+1.  **`ex_a`** : Correct.
+2.  **`ex_b`** : Correct.
+3.  **`ex_c`** : Erreur. Version corrigée : `ex_c <- "Ils sont \"meilleurs amis\" depuis des années."`
+4.  **`ex_d`** : Erreur. Version corrigée : `ex_d <- 'Le journal de Jane'`
+5.  **`ex_e`** : Erreur. Guillemet de fermeture manquant. Version corrigée : `ex_e <- "C'est une journée ensoleillée !"`
+
+### Q : Nettoyage des données de noms de patients {.unlisted .unnumbered}
+
+```{r eval = F}
+patient_names <- c("  john doe", "ANNA SMITH   ", "Emily Davis")
+
+patient_names <- str_trim(patient_names) # Éliminer les espaces blancs
+patient_names <- str_to_title(patient_names) # Convertir en casse de titre
+```
+
+### Q : Standardisation des codes de médicaments {.unlisted .unnumbered}
+
+```{r eval = F}
+drug_codes <- c("12345", "678", "91011")
+
+# Compléter chaque code avec des zéros à gauche pour atteindre une largeur fixe de 8 caractères.
+drug_codes_padded <- str_pad(drug_codes, 8, pad = "0")
+```
+
+### Q : Mise en forme des instructions médicales {.unlisted .unnumbered}
+
+```{r eval = F}
+instructions <- "Prenez deux comprimés par jour après les repas. Si les symptômes persistent plus de trois jours, consultez immédiatement votre médecin. Ne prenez pas plus que la dose recommandée. Tenir hors de portée des enfants."
+
+# Mise en forme des instructions
+wrapped_instructions <- str_wrap(instructions, width = 50)
+
+ggplot(data.frame(x = 1, y = 1), aes(x, y, label = wrapped_instructions)) +
+  geom_label() + 
+  theme_void()
+```
+
+### Q : Formatage d'un jeu de données sur la tuberculose {.unlisted .unnumbered}
+
+Les étapes pour nettoyer le jeu de données `lima_messy` seraient :
+
+```{r eval = F}
+lima_clean <- lima_messy %>%
+  mutate(
+    marital_status = str_squish(str_to_title(marital_status)), # Nettoyer et standardiser marital_status
+    sex = str_squish(str_to_upper(sex)),                        # Nettoyer et standardiser sex
+    age = str_squish(str_to_lower(age))                         # Nettoyer et standardiser age
+  )
+
+
+lima_clean %>% 
+  select(marital_status, sex, age) %>%
+  tbl_summary()
+```
+
+Ensuite, utilisez la fonction `tbl_summary()` pour créer le tableau récapitulatif.
+
+### Q : Retour à la ligne pour les étiquettes d'axe dans un graphique {.unlisted .unnumbered}
+
+```{r eval = F}
+# En supposant que lima_clean est déjà créé et contient marital_status
+ggplot(lima_clean, aes(x = str_wrap(marital_status, width = 15))) +
+  geom_bar() + 
+  labs(x = "État Civil")
+```
+
+### Q : Scission des chaînes de caractères de tranches d'âge {.unlisted .unnumbered}
+
+```{r eval = F}
+esoph_ca %>% 
+  select(agegp) %>% # pour illustration
+  separate(agegp, into = c("agegp_lower", "agegp_upper"), sep = "-") %>% 
+  mutate(agegp_lower = readr::parse_number(agegp_lower))
+```
+
+### Q : Création de déclarations récapitulatives {.unlisted .unnumbered}
+
+```{r eval = F}
+irs %>% 
+  select(village, start_date_default, coverage_p) %>% 
+  mutate(summary_statement = paste0("Pour le village ", village, ", le taux de couverture par pulvérisation était de ", coverage_p, "% le ", start_date_default))
+```
+
+### Q : Extraction de sous-chaînes ID {.unlisted .unnumbered}
+
+```{r eval = F}
+hiv_dat_messy_1 %>% 
+  select(patient_id) %>% 
+  mutate(numeric_part = str_sub(patient_id, 4))
+```
+
+# Contributeurs {.unlisted .unnumbered}
+
+Les membres de l'équipe suivants ont contribué à cette leçon :
+
+`r tgc_contributors_list(ids = c("camille", "kendavidn", "guy"))`
+```

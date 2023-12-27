@@ -1,0 +1,6 @@
+municipality,death_location,death_year,death_month,death_day,municipality_code,primary_cause_death_description,primary_cause_death_code,secondary_cause_death_description,secondary_cause_death_code,tertiary_cause_death_description,tertiary_cause_death_code,quaternary_cause_death_description,quaternary_cause_death_code
+Municipal head,Home/address,2010,Feb,20,Viterbo,Cerebral Toxoplasmosis,B582,Acquired immunodeficiency syndrome,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2013,Jun,17,Viterbo,Acute Abdomen,R100,NA,NA,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2014,Jun,1,Viterbo,Multiple Organ Failure,R688,Respiratory failure,J969,NA,A162,NA,NA
+Municipal head,Hospital/clinic,2014,Jan,29,Viterbo,Multilobar Pneumonia,J180,Advanced stage HIV AIDS,B24,NA,NA,NA,NA
+Municipal head,Hospital/clinic,2016,Mar,25,Viterbo,Cardiorespiratory Arrest,I469,Acute pulmonary edema,J81,Acute myocardial infarction,R570,INFARTO AGUDO MIOCARIDO,I219
