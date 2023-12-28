@@ -948,7 +948,7 @@ tb_child_cases_plots
 ```
 :::
 
-# Wrap Up
+# Wrap Up!
 
 In this lesson, we delved into for loops in R, demonstrating their utility from basic tasks to complex data analysis involving multiple datasets and plot generation. Despite R's preference for vectorized operations, for loops are indispensable in certain scenarios. Hopefully, this lesson has equipped you with the skills to confidently implement for loops in various data processing contexts.
 

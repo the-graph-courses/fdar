@@ -1,5 +1,5 @@
 ---
-titre: 'Notes de leçon | Travailler avec des chaînes de caractères en R'
+titre: 'Travailler avec des chaînes de caractères en R'
 sortie:
   html_document:
     number_sections: true

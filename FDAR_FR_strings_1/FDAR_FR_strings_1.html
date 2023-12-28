@@ -11,7 +11,7 @@
 
 
 
-<title>Travailler avec les Chaînes de Caractères en R</title>
+<title>Travailler avec des chaînes de caractères en R</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1297,7 +1297,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1844,7 +1844,7 @@ border-radius: 0px;
 
 
 
-<h1 class="title toc-ignore">Travailler avec les Chaînes de Caractères
+<h1 class="title toc-ignore">Travailler avec des chaînes de caractères
 en R</h1>
 
 </div>
@@ -2131,7 +2131,7 @@ supplémentaires à des fins éducatives.</p>
 <p>D’abord, nous chargeons l’ensemble de données et examinons des
 variables spécifiques pour des problèmes potentiels.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="co"># Charger l&#39;ensemble de données</span></span>
-<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>hiv_dat_messy_1 <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/hiv_dat_messy_1.xlsx&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>hiv_dat_messy_1 <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="fu">here</span>(<span class="st">&quot;data/hiv_dat_messy_1.xlsx&quot;</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
 <span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a></span>
 <span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a><span class="co"># Ces quatre variables contiennent des incohérences de formatage :</span></span>
@@ -2203,20 +2203,20 @@ et compter les valeurs uniques, révélant les incohérences :</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a>  <span class="fu">select</span>(district, health_unit, education, regimen) <span class="sc">%&gt;%</span></span>
 <span id="cb53-3"><a href="#cb53-3" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
-<div id="tleedvcjoo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tleedvcjoo table {
+<div id="yjqujuqanj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#yjqujuqanj table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#tleedvcjoo thead, #tleedvcjoo tbody, #tleedvcjoo tfoot, #tleedvcjoo tr, #tleedvcjoo td, #tleedvcjoo th {
+#yjqujuqanj thead, #yjqujuqanj tbody, #yjqujuqanj tfoot, #yjqujuqanj tr, #yjqujuqanj td, #yjqujuqanj th {
 border-style: none;
 }
-#tleedvcjoo p {
+#yjqujuqanj p {
 margin: 0;
 padding: 0;
 }
-#tleedvcjoo .gt_table {
+#yjqujuqanj .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -2241,11 +2241,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#tleedvcjoo .gt_caption {
+#yjqujuqanj .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#tleedvcjoo .gt_title {
+#yjqujuqanj .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2256,7 +2256,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#tleedvcjoo .gt_subtitle {
+#yjqujuqanj .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2267,7 +2267,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#tleedvcjoo .gt_heading {
+#yjqujuqanj .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2278,12 +2278,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#tleedvcjoo .gt_bottom_border {
+#yjqujuqanj .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#tleedvcjoo .gt_col_headings {
+#yjqujuqanj .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2297,7 +2297,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#tleedvcjoo .gt_col_heading {
+#yjqujuqanj .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2316,7 +2316,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#tleedvcjoo .gt_column_spanner_outer {
+#yjqujuqanj .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2327,13 +2327,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#tleedvcjoo .gt_column_spanner_outer:first-child {
+#yjqujuqanj .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#tleedvcjoo .gt_column_spanner_outer:last-child {
+#yjqujuqanj .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#tleedvcjoo .gt_column_spanner {
+#yjqujuqanj .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -2344,10 +2344,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#tleedvcjoo .gt_spanner_row {
+#yjqujuqanj .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#tleedvcjoo .gt_group_heading {
+#yjqujuqanj .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2372,7 +2372,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#tleedvcjoo .gt_empty_group_heading {
+#yjqujuqanj .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -2386,13 +2386,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#tleedvcjoo .gt_from_md > :first-child {
+#yjqujuqanj .gt_from_md > :first-child {
 margin-top: 0;
 }
-#tleedvcjoo .gt_from_md > :last-child {
+#yjqujuqanj .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#tleedvcjoo .gt_row {
+#yjqujuqanj .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2410,7 +2410,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#tleedvcjoo .gt_stub {
+#yjqujuqanj .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2422,7 +2422,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tleedvcjoo .gt_stub_row_group {
+#yjqujuqanj .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2435,13 +2435,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#tleedvcjoo .gt_row_group_first td {
+#yjqujuqanj .gt_row_group_first td {
 border-top-width: 2px;
 }
-#tleedvcjoo .gt_row_group_first th {
+#yjqujuqanj .gt_row_group_first th {
 border-top-width: 2px;
 }
-#tleedvcjoo .gt_summary_row {
+#yjqujuqanj .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2450,14 +2450,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tleedvcjoo .gt_first_summary_row {
+#yjqujuqanj .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#tleedvcjoo .gt_first_summary_row.thick {
+#yjqujuqanj .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#tleedvcjoo .gt_last_summary_row {
+#yjqujuqanj .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2466,7 +2466,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#tleedvcjoo .gt_grand_summary_row {
+#yjqujuqanj .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2475,7 +2475,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tleedvcjoo .gt_first_grand_summary_row {
+#yjqujuqanj .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2484,7 +2484,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#tleedvcjoo .gt_last_grand_summary_row_top {
+#yjqujuqanj .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2493,10 +2493,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#tleedvcjoo .gt_striped {
+#yjqujuqanj .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#tleedvcjoo .gt_table_body {
+#yjqujuqanj .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2504,7 +2504,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#tleedvcjoo .gt_footnotes {
+#yjqujuqanj .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2517,7 +2517,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#tleedvcjoo .gt_footnote {
+#yjqujuqanj .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -2525,7 +2525,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tleedvcjoo .gt_sourcenotes {
+#yjqujuqanj .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -2538,57 +2538,57 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#tleedvcjoo .gt_sourcenote {
+#yjqujuqanj .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#tleedvcjoo .gt_left {
+#yjqujuqanj .gt_left {
 text-align: left;
 }
-#tleedvcjoo .gt_center {
+#yjqujuqanj .gt_center {
 text-align: center;
 }
-#tleedvcjoo .gt_right {
+#yjqujuqanj .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#tleedvcjoo .gt_font_normal {
+#yjqujuqanj .gt_font_normal {
 font-weight: normal;
 }
-#tleedvcjoo .gt_font_bold {
+#yjqujuqanj .gt_font_bold {
 font-weight: bold;
 }
-#tleedvcjoo .gt_font_italic {
+#yjqujuqanj .gt_font_italic {
 font-style: italic;
 }
-#tleedvcjoo .gt_super {
+#yjqujuqanj .gt_super {
 font-size: 65%;
 }
-#tleedvcjoo .gt_footnote_marks {
+#yjqujuqanj .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#tleedvcjoo .gt_asterisk {
+#yjqujuqanj .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#tleedvcjoo .gt_indent_1 {
+#yjqujuqanj .gt_indent_1 {
 text-indent: 5px;
 }
-#tleedvcjoo .gt_indent_2 {
+#yjqujuqanj .gt_indent_2 {
 text-indent: 10px;
 }
-#tleedvcjoo .gt_indent_3 {
+#yjqujuqanj .gt_indent_3 {
 text-indent: 15px;
 }
-#tleedvcjoo .gt_indent_4 {
+#yjqujuqanj .gt_indent_4 {
 text-indent: 20px;
 }
-#tleedvcjoo .gt_indent_5 {
+#yjqujuqanj .gt_indent_5 {
 text-indent: 25px;
 }
 </style>
@@ -2602,7 +2602,7 @@ text-indent: 25px;
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left">district</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">     Rural</td>
 <td headers="stat_0" class="gt_row gt_center">234 (17%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">     Urban</td>
@@ -2612,7 +2612,7 @@ text-indent: 25px;
     <tr><td headers="label" class="gt_row gt_left">    Urban</td>
 <td headers="stat_0" class="gt_row gt_center">370 (26%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">health_unit</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    24th  Of  July  Health  Facility</td>
 <td headers="stat_0" class="gt_row gt_center">239 (17%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    24th Of July Health Facility</td>
@@ -2626,7 +2626,7 @@ text-indent: 25px;
     <tr><td headers="label" class="gt_row gt_left">    Nante Health Facility</td>
 <td headers="stat_0" class="gt_row gt_center">128 (9.1%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">education</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    MISSING</td>
 <td headers="stat_0" class="gt_row gt_center">776 (55%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    None</td>
@@ -2644,7 +2644,7 @@ text-indent: 25px;
     <tr><td headers="label" class="gt_row gt_left">    University</td>
 <td headers="stat_0" class="gt_row gt_center">4 (0.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">regimen</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    azt+3tc+efv</td>
 <td headers="stat_0" class="gt_row gt_center">16 (1.2%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    AZT+3TC+EFV</td>
@@ -2705,20 +2705,20 @@ réexécutant la fonction <code>tbl_summary()</code> :</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a>hiv_dat_clean_1 <span class="sc">%&gt;%</span> </span>
 <span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a>  <span class="fu">select</span>(district, health_unit, education, regimen) <span class="sc">%&gt;%</span></span>
 <span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
-<div id="wevivczfmf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wevivczfmf table {
+<div id="ibxhnatgbc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ibxhnatgbc table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#wevivczfmf thead, #wevivczfmf tbody, #wevivczfmf tfoot, #wevivczfmf tr, #wevivczfmf td, #wevivczfmf th {
+#ibxhnatgbc thead, #ibxhnatgbc tbody, #ibxhnatgbc tfoot, #ibxhnatgbc tr, #ibxhnatgbc td, #ibxhnatgbc th {
 border-style: none;
 }
-#wevivczfmf p {
+#ibxhnatgbc p {
 margin: 0;
 padding: 0;
 }
-#wevivczfmf .gt_table {
+#ibxhnatgbc .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -2743,11 +2743,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#wevivczfmf .gt_caption {
+#ibxhnatgbc .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#wevivczfmf .gt_title {
+#ibxhnatgbc .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -2758,7 +2758,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#wevivczfmf .gt_subtitle {
+#ibxhnatgbc .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -2769,7 +2769,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#wevivczfmf .gt_heading {
+#ibxhnatgbc .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -2780,12 +2780,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#wevivczfmf .gt_bottom_border {
+#ibxhnatgbc .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#wevivczfmf .gt_col_headings {
+#ibxhnatgbc .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -2799,7 +2799,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#wevivczfmf .gt_col_heading {
+#ibxhnatgbc .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2818,7 +2818,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#wevivczfmf .gt_column_spanner_outer {
+#ibxhnatgbc .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2829,13 +2829,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#wevivczfmf .gt_column_spanner_outer:first-child {
+#ibxhnatgbc .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#wevivczfmf .gt_column_spanner_outer:last-child {
+#ibxhnatgbc .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#wevivczfmf .gt_column_spanner {
+#ibxhnatgbc .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -2846,10 +2846,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#wevivczfmf .gt_spanner_row {
+#ibxhnatgbc .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#wevivczfmf .gt_group_heading {
+#ibxhnatgbc .gt_group_heading {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2874,7 +2874,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#wevivczfmf .gt_empty_group_heading {
+#ibxhnatgbc .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -2888,13 +2888,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#wevivczfmf .gt_from_md > :first-child {
+#ibxhnatgbc .gt_from_md > :first-child {
 margin-top: 0;
 }
-#wevivczfmf .gt_from_md > :last-child {
+#ibxhnatgbc .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#wevivczfmf .gt_row {
+#ibxhnatgbc .gt_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2912,7 +2912,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#wevivczfmf .gt_stub {
+#ibxhnatgbc .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2924,7 +2924,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#wevivczfmf .gt_stub_row_group {
+#ibxhnatgbc .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -2937,13 +2937,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#wevivczfmf .gt_row_group_first td {
+#ibxhnatgbc .gt_row_group_first td {
 border-top-width: 2px;
 }
-#wevivczfmf .gt_row_group_first th {
+#ibxhnatgbc .gt_row_group_first th {
 border-top-width: 2px;
 }
-#wevivczfmf .gt_summary_row {
+#ibxhnatgbc .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2952,14 +2952,14 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#wevivczfmf .gt_first_summary_row {
+#ibxhnatgbc .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#wevivczfmf .gt_first_summary_row.thick {
+#ibxhnatgbc .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#wevivczfmf .gt_last_summary_row {
+#ibxhnatgbc .gt_last_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2968,7 +2968,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#wevivczfmf .gt_grand_summary_row {
+#ibxhnatgbc .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -2977,7 +2977,7 @@ padding-bottom: 8px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#wevivczfmf .gt_first_grand_summary_row {
+#ibxhnatgbc .gt_first_grand_summary_row {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2986,7 +2986,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#wevivczfmf .gt_last_grand_summary_row_top {
+#ibxhnatgbc .gt_last_grand_summary_row_top {
 padding-top: 8px;
 padding-bottom: 8px;
 padding-left: 5px;
@@ -2995,10 +2995,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#wevivczfmf .gt_striped {
+#ibxhnatgbc .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#wevivczfmf .gt_table_body {
+#ibxhnatgbc .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -3006,7 +3006,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#wevivczfmf .gt_footnotes {
+#ibxhnatgbc .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3019,7 +3019,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#wevivczfmf .gt_footnote {
+#ibxhnatgbc .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 4px;
@@ -3027,7 +3027,7 @@ padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#wevivczfmf .gt_sourcenotes {
+#ibxhnatgbc .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -3040,57 +3040,57 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#wevivczfmf .gt_sourcenote {
+#ibxhnatgbc .gt_sourcenote {
 font-size: 90%;
 padding-top: 4px;
 padding-bottom: 4px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#wevivczfmf .gt_left {
+#ibxhnatgbc .gt_left {
 text-align: left;
 }
-#wevivczfmf .gt_center {
+#ibxhnatgbc .gt_center {
 text-align: center;
 }
-#wevivczfmf .gt_right {
+#ibxhnatgbc .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#wevivczfmf .gt_font_normal {
+#ibxhnatgbc .gt_font_normal {
 font-weight: normal;
 }
-#wevivczfmf .gt_font_bold {
+#ibxhnatgbc .gt_font_bold {
 font-weight: bold;
 }
-#wevivczfmf .gt_font_italic {
+#ibxhnatgbc .gt_font_italic {
 font-style: italic;
 }
-#wevivczfmf .gt_super {
+#ibxhnatgbc .gt_super {
 font-size: 65%;
 }
-#wevivczfmf .gt_footnote_marks {
+#ibxhnatgbc .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#wevivczfmf .gt_asterisk {
+#ibxhnatgbc .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#wevivczfmf .gt_indent_1 {
+#ibxhnatgbc .gt_indent_1 {
 text-indent: 5px;
 }
-#wevivczfmf .gt_indent_2 {
+#ibxhnatgbc .gt_indent_2 {
 text-indent: 10px;
 }
-#wevivczfmf .gt_indent_3 {
+#ibxhnatgbc .gt_indent_3 {
 text-indent: 15px;
 }
-#wevivczfmf .gt_indent_4 {
+#ibxhnatgbc .gt_indent_4 {
 text-indent: 20px;
 }
-#wevivczfmf .gt_indent_5 {
+#ibxhnatgbc .gt_indent_5 {
 text-indent: 25px;
 }
 </style>
@@ -3104,13 +3104,13 @@ text-indent: 25px;
   </thead>
   <tbody class="gt_table_body">
     <tr><td headers="label" class="gt_row gt_left">district</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Rural</td>
 <td headers="stat_0" class="gt_row gt_center">925 (65%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Urban</td>
 <td headers="stat_0" class="gt_row gt_center">488 (35%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">health_unit</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    24th Of July Health Facility</td>
 <td headers="stat_0" class="gt_row gt_center">488 (35%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    District Hospital Maganja Da Costa</td>
@@ -3118,7 +3118,7 @@ text-indent: 25px;
     <tr><td headers="label" class="gt_row gt_left">    Nante Health Facility</td>
 <td headers="stat_0" class="gt_row gt_center">247 (17%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">education</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    Missing</td>
 <td headers="stat_0" class="gt_row gt_center">776 (55%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    None</td>
@@ -3132,7 +3132,7 @@ text-indent: 25px;
     <tr><td headers="label" class="gt_row gt_left">    University</td>
 <td headers="stat_0" class="gt_row gt_center">4 (0.3%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">regimen</td>
-<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+<td headers="stat_0" class="gt_row gt_center"></td></tr>
     <tr><td headers="label" class="gt_row gt_left">    AZT+3TC+EFV</td>
 <td headers="stat_0" class="gt_row gt_center">40 (3.0%)</td></tr>
     <tr><td headers="label" class="gt_row gt_left">    AZT+3TC+NVP</td>
@@ -3194,7 +3194,7 @@ sur la tuberculose</h3>
 traitement de la tuberculose à Lima, au Pérou. Plus de détails sur
 l’étude et l’ensemble de données sont disponibles <a href="https://zenodo.org/records/4992464" target="_blank">ici</a>.</p>
 <p>Commencez par importer l’ensemble de données :</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a>lima_messy_1 <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/lima_messy_1.xlsx&quot;</span>)) <span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a>lima_messy_1 <span class="ot">&lt;-</span> openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>(<span class="fu">here</span>(<span class="st">&quot;data/lima_messy_1.xlsx&quot;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
 <span id="cb59-3"><a href="#cb59-3" tabindex="-1"></a>lima_messy_1</span></code></pre></div>
 <pre><code>## # A tibble: 1,293 × 18
@@ -3334,7 +3334,7 @@ Vous devriez déjà être familier avec ce jeu de données d’une leçon
 précédente. Il est disponible <a href="https://zenodo.org/record/8146044" target="_blank">ici</a>. Pour
 l’instant, nous nous concentrerons sur la colonne
 <code>start_date_long</code> :</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>irs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/Illovo_data.csv&quot;</span>))</span>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a>irs <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">&quot;data/Illovo_data.csv&quot;</span>))</span>
 <span id="cb65-2"><a href="#cb65-2" tabindex="-1"></a>irs_dates_1 <span class="ot">&lt;-</span> irs <span class="sc">%&gt;%</span> <span class="fu">select</span>(village, start_date_long)</span>
 <span id="cb65-3"><a href="#cb65-3" tabindex="-1"></a>irs_dates_1</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 2
@@ -3490,6 +3490,7 @@ dates :</p>
 <span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_missing, <span class="at">into =</span> c</span>
 <span id="cb79-3"><a href="#cb79-3" tabindex="-1"></a></span>
 <span id="cb79-4"><a href="#cb79-4" tabindex="-1"></a>(<span class="st">&quot;mois&quot;</span>, <span class="st">&quot;jour&quot;</span>, <span class="st">&quot;année&quot;</span>), <span class="at">sep =</span> <span class="st">&quot; &quot;</span>)</span></code></pre></div>
+<pre><code>## Warning: Expected 3 pieces. Missing pieces filled with `NA` in 3 rows [1, 2, 12].</code></pre>
 <pre><code>## # A tibble: 112 × 5
 ##    village           start_date_long mois  jour  année
 ##    &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -3515,7 +3516,7 @@ d’âge</h3>
 <p>Considérez le jeu de données <code>esoph_ca</code>, du package
 {medicaldata}, qui implique une étude cas-témoins sur le cancer de
 l’œsophage en France.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a>medicaldata<span class="sc">::</span>esoph_ca <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a>medicaldata<span class="sc">::</span>esoph_ca <span class="sc">%&gt;%</span> <span class="fu">as_tibble</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 88 × 5
 ##    agegp alcgp     tobgp    ncases ncontrols
 ##    &lt;ord&gt; &lt;ord&gt;     &lt;ord&gt;     &lt;dbl&gt;     &lt;dbl&gt;
@@ -3537,10 +3538,10 @@ colonnes distinctes : <code>agegp_inferieur</code> et
 d’âge “75+” nécessitera un traitement spécial. Utilisez
 <code>readr::parse_number()</code> ou une autre méthode pour convertir
 la limite d’âge inférieure (“75+”) en nombre.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" tabindex="-1"></a>medicaldata<span class="sc">::</span>esoph_ca <span class="sc">%&gt;%</span> </span>
-<span id="cb83-2"><a href="#cb83-2" tabindex="-1"></a>  <span class="fu">separate</span>(________) <span class="sc">%&gt;%</span> </span>
-<span id="cb83-3"><a href="#cb83-3" tabindex="-1"></a>  <span class="co"># convertir 75+ en nombre </span></span>
-<span id="cb83-4"><a href="#cb83-4" tabindex="-1"></a>  <span class="fu">mutate</span>(________)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a>medicaldata<span class="sc">::</span>esoph_ca <span class="sc">%&gt;%</span> </span>
+<span id="cb84-2"><a href="#cb84-2" tabindex="-1"></a>  <span class="fu">separate</span>(________) <span class="sc">%&gt;%</span> </span>
+<span id="cb84-3"><a href="#cb84-3" tabindex="-1"></a>  <span class="co"># convertir 75+ en nombre </span></span>
+<span id="cb84-4"><a href="#cb84-4" tabindex="-1"></a>  <span class="fu">mutate</span>(________)</span></code></pre></div>
 </div>
 </div>
 <div id="séparation-des-caractères-spéciaux" class="section level2" number="6.3">
@@ -3551,9 +3552,9 @@ spéciaux comme le point (.), nous devons les échapper avec un double
 antislash (<code>\\</code>).</p>
 <p>Considérez le scénario où les dates sont formatées avec des points
 :</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a>irs_with_period <span class="ot">&lt;-</span> irs_dates_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb84-2"><a href="#cb84-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long =</span> <span class="fu">format</span>(lubridate<span class="sc">::</span><span class="fu">mdy</span>(start_date_long), <span class="st">&quot;%d.%m.%Y&quot;</span>))</span>
-<span id="cb84-3"><a href="#cb84-3" tabindex="-1"></a>irs_with_period</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a>irs_with_period <span class="ot">&lt;-</span> irs_dates_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb85-2"><a href="#cb85-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long =</span> <span class="fu">format</span>(lubridate<span class="sc">::</span><span class="fu">mdy</span>(start_date_long), <span class="st">&quot;%d.%m.%Y&quot;</span>))</span>
+<span id="cb85-3"><a href="#cb85-3" tabindex="-1"></a>irs_with_period</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 2
 ##    village           start_date_long
 ##    &lt;chr&gt;             &lt;chr&gt;          
@@ -3570,8 +3571,8 @@ antislash (<code>\\</code>).</p>
 ## # ℹ 102 more rows</code></pre>
 <p>Tenter de séparer ce format de date directement avec
 <code>sep = &quot;.&quot;</code> ne fonctionnera pas :</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a>irs_with_period <span class="sc">%&gt;%</span></span>
-<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_long, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" tabindex="-1"></a>irs_with_period <span class="sc">%&gt;%</span></span>
+<span id="cb87-2"><a href="#cb87-2" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_long, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;.&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 4
 ##    village           day   month year 
 ##    &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -3590,8 +3591,8 @@ antislash (<code>\\</code>).</p>
 régulières (regex), le point est un caractère spécial. Nous en
 apprendrons davantage à ce sujet en temps voulu. La bonne approche
 consiste à échapper le point en utilisant un double antislash (\) :</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a>irs_with_period <span class="sc">%&gt;%</span> </span>
-<span id="cb88-2"><a href="#cb88-2" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_long, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" tabindex="-1"></a>irs_with_period <span class="sc">%&gt;%</span> </span>
+<span id="cb89-2"><a href="#cb89-2" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_long, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;day&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;</span><span class="sc">\\</span><span class="st">.&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 4
 ##    village           day   month year 
 ##    &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -3638,8 +3639,8 @@ trois nouvelles colonnes : <code>drug_1</code>, <code>drug_2</code> et
 <code>drug_3</code> en utilisant la fonction <code>separate()</code>.
 Faites très attention à la façon dont vous gérez le séparateur
 <code>+</code>. Voici la colonne :</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" tabindex="-1"></a>hiv_dat_clean_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb90-2"><a href="#cb90-2" tabindex="-1"></a>  <span class="fu">select</span>(regimen)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" tabindex="-1"></a>hiv_dat_clean_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb91-2"><a href="#cb91-2" tabindex="-1"></a>  <span class="fu">select</span>(regimen)</span></code></pre></div>
 <pre><code>## # A tibble: 1,413 × 1
 ##    regimen    
 ##    &lt;chr&gt;      
@@ -3664,19 +3665,19 @@ avec <code>paste()</code></h1>
 des chaînes de caractères. Cela vous permet de combiner plusieurs
 chaînes en une seule.</p>
 <p>Pour combiner deux chaînes simples :</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb92-2"><a href="#cb92-2" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">&quot;World&quot;</span></span>
-<span id="cb92-3"><a href="#cb92-3" tabindex="-1"></a><span class="fu">paste</span>(string1, string2)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" tabindex="-1"></a>string1 <span class="ot">&lt;-</span> <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb93-2"><a href="#cb93-2" tabindex="-1"></a>string2 <span class="ot">&lt;-</span> <span class="st">&quot;World&quot;</span></span>
+<span id="cb93-3"><a href="#cb93-3" tabindex="-1"></a><span class="fu">paste</span>(string1, string2)</span></code></pre></div>
 <pre><code>## [1] &quot;Hello World&quot;</code></pre>
 <p>Le séparateur par défaut est un espace, donc cela renvoie “Hello
 World”.</p>
 <p>Démontrons comment utiliser cela sur un ensemble de données, avec les
 données de date de l’IRS. D’abord, nous séparerons la date de début en
 colonnes individuelles :</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" tabindex="-1"></a>irs_dates_separated <span class="ot">&lt;-</span> <span class="co"># stocker pour une utilisation ultérieure</span></span>
-<span id="cb94-2"><a href="#cb94-2" tabindex="-1"></a>  irs_dates_1 <span class="sc">%&gt;%</span></span>
-<span id="cb94-3"><a href="#cb94-3" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_long, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot; &quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb94-4"><a href="#cb94-4" tabindex="-1"></a>irs_dates_separated</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" tabindex="-1"></a>irs_dates_separated <span class="ot">&lt;-</span> <span class="co"># stocker pour une utilisation ultérieure</span></span>
+<span id="cb95-2"><a href="#cb95-2" tabindex="-1"></a>  irs_dates_1 <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="#cb95-3" tabindex="-1"></a>  <span class="fu">separate</span>(start_date_long, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>, <span class="st">&quot;year&quot;</span>), <span class="at">sep =</span> <span class="st">&quot; &quot;</span>, <span class="at">remove =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb95-4"><a href="#cb95-4" tabindex="-1"></a>irs_dates_separated</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 5
 ##    village           start_date_long month day   year 
 ##    &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -3693,9 +3694,9 @@ colonnes individuelles :</p>
 ## # ℹ 102 more rows</code></pre>
 <p>Ensuite, nous pouvons recombiner jour, mois et année avec
 <code>paste()</code> :</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
-<span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>  <span class="fu">select</span>(day, month, year) <span class="sc">%&gt;%</span></span>
-<span id="cb96-3"><a href="#cb96-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste</span>(day, month, year))</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
+<span id="cb97-2"><a href="#cb97-2" tabindex="-1"></a>  <span class="fu">select</span>(day, month, year) <span class="sc">%&gt;%</span></span>
+<span id="cb97-3"><a href="#cb97-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste</span>(day, month, year))</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 4
 ##    day   month year  start_date_long_2
 ##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            
@@ -3714,8 +3715,8 @@ colonnes individuelles :</p>
 éléments. Pour un séparateur différent, comme un trait d’union, nous
 pouvons é</p>
 <p>crire :</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="#cb98-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste</span>(day, month, year, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
+<span id="cb99-2"><a href="#cb99-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste</span>(day, month, year, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 6
 ##    village           start_date_long month day   year 
 ##    &lt;chr&gt;             &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;
@@ -3733,9 +3734,9 @@ pouvons é</p>
 ## # ℹ 1 more variable: start_date_long_2 &lt;chr&gt;</code></pre>
 <p>Pour concaténer sans espaces, nous pouvons définir
 <code>sep = &quot;&quot;</code> :</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
-<span id="cb100-2"><a href="#cb100-2" tabindex="-1"></a>  <span class="fu">select</span>(day, month, year) <span class="sc">%&gt;%</span></span>
-<span id="cb100-3"><a href="#cb100-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste</span>(day, month, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
+<span id="cb101-2"><a href="#cb101-2" tabindex="-1"></a>  <span class="fu">select</span>(day, month, year) <span class="sc">%&gt;%</span></span>
+<span id="cb101-3"><a href="#cb101-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste</span>(day, month, year, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 4
 ##    day   month year  start_date_long_2
 ##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            
@@ -3752,9 +3753,9 @@ pouvons é</p>
 ## # ℹ 102 more rows</code></pre>
 <p>Ou nous pouvons utiliser la fonction <code>paste0()</code>, qui est
 équivalente à <code>paste(..., sep = &quot;&quot;)</code> :</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
-<span id="cb102-2"><a href="#cb102-2" tabindex="-1"></a>  <span class="fu">select</span>(day, month, year) <span class="sc">%&gt;%</span></span>
-<span id="cb102-3"><a href="#cb102-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste0</span>(day, month, year))</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" tabindex="-1"></a>irs_dates_separated <span class="sc">%&gt;%</span></span>
+<span id="cb103-2"><a href="#cb103-2" tabindex="-1"></a>  <span class="fu">select</span>(day, month, year) <span class="sc">%&gt;%</span></span>
+<span id="cb103-3"><a href="#cb103-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">start_date_long_2 =</span> <span class="fu">paste0</span>(day, month, year))</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 4
 ##    day   month year  start_date_long_2
 ##    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            
@@ -3772,8 +3773,8 @@ pouvons é</p>
 <p>Essayons de combiner <code>paste()</code> avec d’autres fonctions de
 chaîne pour résoudre un problème de données réaliste. Considérez la
 colonne ID dans le jeu de données <code>hiv_dat_messy_1</code> :</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb104-2"><a href="#cb104-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb105-2"><a href="#cb105-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id)</span></code></pre></div>
 <pre><code>## # A tibble: 1,413 × 1
 ##    patient_id
 ##    &lt;chr&gt;     
@@ -3794,11 +3795,11 @@ même nombre de caractères. C’est souvent une exigence pour les ID
 <p>Pour cela, nous pouvons utiliser <code>separate()</code> pour diviser
 les ID en parties, puis utiliser <code>paste()</code> pour les
 recombiner dans un format standardisé.</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span></span>
-<span id="cb106-2"><a href="#cb106-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id) <span class="sc">%&gt;%</span> <span class="co"># pour la visibilité</span></span>
-<span id="cb106-3"><a href="#cb106-3" tabindex="-1"></a>  <span class="fu">separate</span>(patient_id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;prefix&quot;</span>, <span class="st">&quot;patient_num&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="at">remove =</span> F) <span class="sc">%&gt;%</span></span>
-<span id="cb106-4"><a href="#cb106-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">patient_num =</span> <span class="fu">str_pad</span>(patient_num, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb106-5"><a href="#cb106-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">patient_id_padded =</span> <span class="fu">paste</span>(prefix, patient_num, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span></span>
+<span id="cb107-2"><a href="#cb107-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id) <span class="sc">%&gt;%</span> <span class="co"># pour la visibilité</span></span>
+<span id="cb107-3"><a href="#cb107-3" tabindex="-1"></a>  <span class="fu">separate</span>(patient_id, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;prefix&quot;</span>, <span class="st">&quot;patient_num&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>, <span class="at">remove =</span> F) <span class="sc">%&gt;%</span></span>
+<span id="cb107-4"><a href="#cb107-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">patient_num =</span> <span class="fu">str_pad</span>(patient_num, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">side =</span> <span class="st">&quot;left&quot;</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb107-5"><a href="#cb107-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">patient_id_padded =</span> <span class="fu">paste</span>(prefix, patient_num, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1,413 × 4
 ##    patient_id prefix patient_num patient_id_padded
 ##    &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;            
@@ -3826,9 +3827,9 @@ de Données <code>lima_messy_1</code></h3>
 complétés par des zéros, ce qui les rend difficiles à trier.</p>
 <p>Par exemple, l’ID <code>pe-998</code> est en haut de la liste après
 un tri par ordre décroissant, ce qui n’est pas ce que nous voulons.</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" tabindex="-1"></a>lima_messy_1 <span class="sc">%&gt;%</span></span>
-<span id="cb108-2"><a href="#cb108-2" tabindex="-1"></a>  <span class="fu">select</span>(id) <span class="sc">%&gt;%</span></span>
-<span id="cb108-3"><a href="#cb108-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(id)) <span class="co"># trier par ordre décroissant (les ID les plus élevés devraient être en haut)</span></span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" tabindex="-1"></a>lima_messy_1 <span class="sc">%&gt;%</span></span>
+<span id="cb109-2"><a href="#cb109-2" tabindex="-1"></a>  <span class="fu">select</span>(id) <span class="sc">%&gt;%</span></span>
+<span id="cb109-3"><a href="#cb109-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(id)) <span class="co"># trier par ordre décroissant (les ID les plus élevés devraient être en haut)</span></span></code></pre></div>
 <pre><code>## # A tibble: 1,293 × 1
 ##    id     
 ##    &lt;chr&gt;  
@@ -3853,8 +3854,8 @@ un tri par ordre décroissant, ce qui n’est pas ce que nous voulons.</p>
 <li>Retrier les ID par ordre décroissant. Le plus haut ID devrait se
 terminer par <code>2347</code></li>
 </ul>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" tabindex="-1"></a>lima_messy_1 <span class="sc">%&gt;%</span></span>
-<span id="cb110-2"><a href="#cb110-2" tabindex="-1"></a>  ______________</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" tabindex="-1"></a>lima_messy_1 <span class="sc">%&gt;%</span></span>
+<span id="cb111-2"><a href="#cb111-2" tabindex="-1"></a>  ______________</span></code></pre></div>
 </div>
 <div id="q-création-de-déclarations-récapitulatives" class="section level3 unlisted unnumbered practice">
 <h3 class="unlisted unnumbered">Q : Création de déclarations
@@ -3869,9 +3870,9 @@ de pulvérisation était de Y % à la date Z.”</p>
 <p><strong>Votre tâche :</strong> - Sélectionnez les colonnes
 nécessaires de l’ensemble de données <code>irs</code>. - Utilisez
 <code>paste()</code> pour créer la déclaration récapitulative.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" tabindex="-1"></a>irs <span class="sc">%&gt;%</span> </span>
-<span id="cb111-2"><a href="#cb111-2" tabindex="-1"></a>  <span class="fu">select</span>(village, start_date_default, coverage_p) <span class="sc">%&gt;%</span> </span>
-<span id="cb111-3"><a href="#cb111-3" tabindex="-1"></a>  ______________________</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" tabindex="-1"></a>irs <span class="sc">%&gt;%</span> </span>
+<span id="cb112-2"><a href="#cb112-2" tabindex="-1"></a>  <span class="fu">select</span>(village, start_date_default, coverage_p) <span class="sc">%&gt;%</span> </span>
+<span id="cb112-3"><a href="#cb112-3" tabindex="-1"></a>  ______________________</span></code></pre></div>
 </div>
 <div class="reminder">
 <p>Au fur et à mesure que nous avançons dans cette leçon, rappelez-vous
@@ -3892,31 +3893,31 @@ de caractères en fonction des positions des caractères. La syntaxe de
 base est <code>str_sub(chaine, debut, fin)</code>.</p>
 <p>Exemple : Extraction des 2 premiers caractères des identifiants de
 patients :</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" tabindex="-1"></a>patient_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ID12345-abc&quot;</span>, <span class="st">&quot;ID67890-def&quot;</span>)</span>
-<span id="cb112-2"><a href="#cb112-2" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="dv">1</span>, <span class="dv">2</span>) <span class="co"># Retourne &quot;ID&quot;, &quot;ID&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" tabindex="-1"></a>patient_ids <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ID12345-abc&quot;</span>, <span class="st">&quot;ID67890-def&quot;</span>)</span>
+<span id="cb113-2"><a href="#cb113-2" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="dv">1</span>, <span class="dv">2</span>) <span class="co"># Retourne &quot;ID&quot;, &quot;ID&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;ID&quot; &quot;ID&quot;</code></pre>
 <p>Ou les 5 premiers :</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="dv">1</span>, <span class="dv">5</span>) <span class="co"># Retourne &quot;ID123&quot;, &quot;ID678&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="dv">1</span>, <span class="dv">5</span>) <span class="co"># Retourne &quot;ID123&quot;, &quot;ID678&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;ID123&quot; &quot;ID678&quot;</code></pre>
 <p>Les valeurs négatives comptent à rebours depuis la fin de la chaîne.
 Cela est utile pour extraire des suffixes.</p>
 <p>Par exemple, pour obtenir les 4 derniers caractères des identifiants
 de patients.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">1</span>) <span class="co"># Retourne &quot;-abc&quot;, &quot;-def&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="sc">-</span><span class="dv">4</span>, <span class="sc">-</span><span class="dv">1</span>) <span class="co"># Retourne &quot;-abc&quot;, &quot;-def&quot;</span></span></code></pre></div>
 <pre><code>## [1] &quot;-abc&quot; &quot;-def&quot;</code></pre>
 <p>Assurez-vous de faire une pause et de comprendre ce qui s’est passé
 ci-dessus.</p>
 <p>Lorsque les indices sont en dehors de la longueur de la chaîne,
 <code>str_sub</code> le gère avec grâce sans erreurs :</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="dv">1</span>, <span class="dv">30</span>) <span class="co"># Retourne en toute sécurité la chaîne complète lorsque la plage dépasse la longueur de la chaîne</span></span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" tabindex="-1"></a><span class="fu">str_sub</span>(patient_ids, <span class="dv">1</span>, <span class="dv">30</span>) <span class="co"># Retourne en toute sécurité la chaîne complète lorsque la plage dépasse la longueur de la chaîne</span></span></code></pre></div>
 <pre><code>## [1] &quot;ID12345-abc&quot; &quot;ID67890-def&quot;</code></pre>
 <p>Dans un dataframe, nous pouvons utiliser <code>str_sub</code> dans
 <code>mutate()</code>. Par exemple, ci-dessous, nous extrayons l’année
 et le mois de la colonne <code>start_date_default</code> et créons une
 nouvelle colonne appelée <code>year_month</code> :</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" tabindex="-1"></a>irs <span class="sc">%&gt;%</span> </span>
-<span id="cb120-2"><a href="#cb120-2" tabindex="-1"></a>  <span class="fu">select</span>(start_date_default) <span class="sc">%&gt;%</span></span>
-<span id="cb120-3"><a href="#cb120-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">str_sub</span>(start_date_default, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">7</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" tabindex="-1"></a>irs <span class="sc">%&gt;%</span> </span>
+<span id="cb121-2"><a href="#cb121-2" tabindex="-1"></a>  <span class="fu">select</span>(start_date_default) <span class="sc">%&gt;%</span></span>
+<span id="cb121-3"><a href="#cb121-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_month =</span> <span class="fu">str_sub</span>(start_date_default, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">7</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 112 × 2
 ##    start_date_default year_month
 ##    &lt;date&gt;             &lt;chr&gt;     
@@ -3936,10 +3937,10 @@ nouvelle colonne appelée <code>year_month</code> :</p>
 <p>Utilisez <code>str_sub()</code> pour isoler uniquement la partie
 numérique de la colonne <code>patient_id</code> dans l’ensemble de
 données <code>hiv_dat_messy_1</code>.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb122-2"><a href="#cb122-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb122-3"><a href="#cb122-3" tabindex="-1"></a>  <span class="co"># votre code ici : </span></span>
-<span id="cb122-4"><a href="#cb122-4" tabindex="-1"></a>  ______________</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb123-2"><a href="#cb123-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb123-3"><a href="#cb123-3" tabindex="-1"></a>  <span class="co"># votre code ici : </span></span>
+<span id="cb123-4"><a href="#cb123-4" tabindex="-1"></a>  ______________</span></code></pre></div>
 </div>
 </div>
 <div id="conclusion" class="section level1 unnumbered">
@@ -4081,78 +4082,78 @@ manquant. Version corrigée :
 <div id="q-nettoyage-des-données-de-noms-de-patients-1" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Nettoyage des Données de Noms de
 Patients</h3>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;  john doe&quot;</span>, <span class="st">&quot;ANNA SMITH   &quot;</span>, <span class="st">&quot;Emily Davis&quot;</span>)</span>
-<span id="cb123-2"><a href="#cb123-2" tabindex="-1"></a></span>
-<span id="cb123-3"><a href="#cb123-3" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">str_trim</span>(patient_names) <span class="co"># Supprimer les espaces</span></span>
-<span id="cb123-4"><a href="#cb123-4" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(patient_names) <span class="co"># Convertir en casse de titre</span></span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;  john doe&quot;</span>, <span class="st">&quot;ANNA SMITH   &quot;</span>, <span class="st">&quot;Emily Davis&quot;</span>)</span>
+<span id="cb124-2"><a href="#cb124-2" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="#cb124-3" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">str_trim</span>(patient_names) <span class="co"># Supprimer les espaces</span></span>
+<span id="cb124-4"><a href="#cb124-4" tabindex="-1"></a>patient_names <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(patient_names) <span class="co"># Convertir en casse de titre</span></span></code></pre></div>
 </div>
 <div id="q-standardisation-des-codes-de-médicaments-1" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Standardisation des Codes de
 Médicaments</h3>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" tabindex="-1"></a>drug_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;12345&quot;</span>, <span class="st">&quot;678&quot;</span>, <span class="st">&quot;91011&quot;</span>)</span>
-<span id="cb124-2"><a href="#cb124-2" tabindex="-1"></a></span>
-<span id="cb124-3"><a href="#cb124-3" tabindex="-1"></a><span class="co"># Remplir chaque code avec des zéros à gauche pour une largeur fixe de 8 caractères.</span></span>
-<span id="cb124-4"><a href="#cb124-4" tabindex="-1"></a>drug_codes_padded <span class="ot">&lt;-</span> <span class="fu">str_pad</span>(drug_codes, <span class="dv">8</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" tabindex="-1"></a>drug_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;12345&quot;</span>, <span class="st">&quot;678&quot;</span>, <span class="st">&quot;91011&quot;</span>)</span>
+<span id="cb125-2"><a href="#cb125-2" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="#cb125-3" tabindex="-1"></a><span class="co"># Remplir chaque code avec des zéros à gauche pour une largeur fixe de 8 caractères.</span></span>
+<span id="cb125-4"><a href="#cb125-4" tabindex="-1"></a>drug_codes_padded <span class="ot">&lt;-</span> <span class="fu">str_pad</span>(drug_codes, <span class="dv">8</span>, <span class="at">pad =</span> <span class="st">&quot;0&quot;</span>)</span></code></pre></div>
 </div>
 <div id="q-formatage-des-instructions-médicales" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Formatage des Instructions
 Médicales</h3>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" tabindex="-1"></a>instructions <span class="ot">&lt;-</span> <span class="st">&quot;Prenez deux comprimés quotidiennement après les repas. Si les symptômes persistent pendant plus de trois jours, consultez immédiatement votre médecin. Ne prenez pas plus que la dose recommandée. Tenir hors de portée des enfants.&quot;</span></span>
-<span id="cb125-2"><a href="#cb125-2" tabindex="-1"></a></span>
-<span id="cb125-3"><a href="#cb125-3" tabindex="-1"></a><span class="co"># Formater les instructions</span></span>
-<span id="cb125-4"><a href="#cb125-4" tabindex="-1"></a>wrapped_instructions <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(instructions, <span class="at">width =</span> <span class="dv">50</span>)</span>
-<span id="cb125-5"><a href="#cb125-5" tabindex="-1"></a></span>
-<span id="cb125-6"><a href="#cb125-6" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span>), <span class="fu">aes</span>(x, y, <span class="at">label =</span> wrapped_instructions)) <span class="sc">+</span></span>
-<span id="cb125-7"><a href="#cb125-7" tabindex="-1"></a>  <span class="fu">geom_label</span>() <span class="sc">+</span> </span>
-<span id="cb125-8"><a href="#cb125-8" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" tabindex="-1"></a>instructions <span class="ot">&lt;-</span> <span class="st">&quot;Prenez deux comprimés quotidiennement après les repas. Si les symptômes persistent pendant plus de trois jours, consultez immédiatement votre médecin. Ne prenez pas plus que la dose recommandée. Tenir hors de portée des enfants.&quot;</span></span>
+<span id="cb126-2"><a href="#cb126-2" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="#cb126-3" tabindex="-1"></a><span class="co"># Formater les instructions</span></span>
+<span id="cb126-4"><a href="#cb126-4" tabindex="-1"></a>wrapped_instructions <span class="ot">&lt;-</span> <span class="fu">str_wrap</span>(instructions, <span class="at">width =</span> <span class="dv">50</span>)</span>
+<span id="cb126-5"><a href="#cb126-5" tabindex="-1"></a></span>
+<span id="cb126-6"><a href="#cb126-6" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> <span class="dv">1</span>), <span class="fu">aes</span>(x, y, <span class="at">label =</span> wrapped_instructions)) <span class="sc">+</span></span>
+<span id="cb126-7"><a href="#cb126-7" tabindex="-1"></a>  <span class="fu">geom_label</span>() <span class="sc">+</span> </span>
+<span id="cb126-8"><a href="#cb126-8" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code></pre></div>
 </div>
 <div id="q-formatage-dun-jeu-de-données-sur-la-tuberculose" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Formatage d’un Jeu de Données sur la
 Tuberculose</h3>
 <p>Les étapes pour nettoyer le jeu de données <code>lima_messy</code>
 comprendraient :</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" tabindex="-1"></a>lima_clean <span class="ot">&lt;-</span> lima_messy <span class="sc">%&gt;%</span></span>
-<span id="cb126-2"><a href="#cb126-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb126-3"><a href="#cb126-3" tabindex="-1"></a>    <span class="at">marital_status =</span> <span class="fu">str_squish</span>(<span class="fu">str_to_title</span>(marital_status)), <span class="co"># Nettoyer et standardiser marital_status</span></span>
-<span id="cb126-4"><a href="#cb126-4" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">str_squish</span>(<span class="fu">str_to_upper</span>(sex)),                        <span class="co"># Nettoyer et standardiser sex</span></span>
-<span id="cb126-5"><a href="#cb126-5" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">str_squish</span>(<span class="fu">str_to_lower</span>(age))                         <span class="co"># Nettoyer et standardiser age</span></span>
-<span id="cb126-6"><a href="#cb126-6" tabindex="-1"></a>  )</span>
-<span id="cb126-7"><a href="#cb126-7" tabindex="-1"></a></span>
-<span id="cb126-8"><a href="#cb126-8" tabindex="-1"></a></span>
-<span id="cb126-9"><a href="#cb126-9" tabindex="-1"></a>lima_clean <span class="sc">%&gt;%</span> </span>
-<span id="cb126-10"><a href="#cb126-10" tabindex="-1"></a>  <span class="fu">select</span>(marital_status, sex, age) <span class="sc">%&gt;%</span></span>
-<span id="cb126-11"><a href="#cb126-11" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" tabindex="-1"></a>lima_clean <span class="ot">&lt;-</span> lima_messy <span class="sc">%&gt;%</span></span>
+<span id="cb127-2"><a href="#cb127-2" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb127-3"><a href="#cb127-3" tabindex="-1"></a>    <span class="at">marital_status =</span> <span class="fu">str_squish</span>(<span class="fu">str_to_title</span>(marital_status)), <span class="co"># Nettoyer et standardiser marital_status</span></span>
+<span id="cb127-4"><a href="#cb127-4" tabindex="-1"></a>    <span class="at">sex =</span> <span class="fu">str_squish</span>(<span class="fu">str_to_upper</span>(sex)),                        <span class="co"># Nettoyer et standardiser sex</span></span>
+<span id="cb127-5"><a href="#cb127-5" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">str_squish</span>(<span class="fu">str_to_lower</span>(age))                         <span class="co"># Nettoyer et standardiser age</span></span>
+<span id="cb127-6"><a href="#cb127-6" tabindex="-1"></a>  )</span>
+<span id="cb127-7"><a href="#cb127-7" tabindex="-1"></a></span>
+<span id="cb127-8"><a href="#cb127-8" tabindex="-1"></a></span>
+<span id="cb127-9"><a href="#cb127-9" tabindex="-1"></a>lima_clean <span class="sc">%&gt;%</span> </span>
+<span id="cb127-10"><a href="#cb127-10" tabindex="-1"></a>  <span class="fu">select</span>(marital_status, sex, age) <span class="sc">%&gt;%</span></span>
+<span id="cb127-11"><a href="#cb127-11" tabindex="-1"></a>  <span class="fu">tbl_summary</span>()</span></code></pre></div>
 <p>Ensuite, utilisez la fonction <code>tbl_summary()</code> pour créer
 le tableau récapitulatif.</p>
 </div>
 <div id="q-formatage-des-étiquettes-daxe-dans-un-graphique" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Formatage des Étiquettes d’Axe dans
 un Graphique</h3>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" tabindex="-1"></a><span class="co"># En supposant que lima_clean est déjà créé et contient marital_status</span></span>
-<span id="cb127-2"><a href="#cb127-2" tabindex="-1"></a><span class="fu">ggplot</span>(lima_clean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">str_wrap</span>(marital_status, <span class="at">width =</span> <span class="dv">15</span>))) <span class="sc">+</span></span>
-<span id="cb127-3"><a href="#cb127-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
-<span id="cb127-4"><a href="#cb127-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;État Civil&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" tabindex="-1"></a><span class="co"># En supposant que lima_clean est déjà créé et contient marital_status</span></span>
+<span id="cb128-2"><a href="#cb128-2" tabindex="-1"></a><span class="fu">ggplot</span>(lima_clean, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">str_wrap</span>(marital_status, <span class="at">width =</span> <span class="dv">15</span>))) <span class="sc">+</span></span>
+<span id="cb128-3"><a href="#cb128-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb128-4"><a href="#cb128-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;État Civil&quot;</span>)</span></code></pre></div>
 </div>
 <div id="q-séparation-des-chaînes-de-plages-dâge" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Séparation des Chaînes de Plages
 d’Âge</h3>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" tabindex="-1"></a>esoph_ca <span class="sc">%&gt;%</span> </span>
-<span id="cb128-2"><a href="#cb128-2" tabindex="-1"></a>  <span class="fu">select</span>(agegp) <span class="sc">%&gt;%</span> <span class="co"># pour illustration</span></span>
-<span id="cb128-3"><a href="#cb128-3" tabindex="-1"></a>  <span class="fu">separate</span>(agegp, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;agegp_lower&quot;</span>, <span class="st">&quot;agegp_upper&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb128-4"><a href="#cb128-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agegp_lower =</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(agegp_lower))</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" tabindex="-1"></a>esoph_ca <span class="sc">%&gt;%</span> </span>
+<span id="cb129-2"><a href="#cb129-2" tabindex="-1"></a>  <span class="fu">select</span>(agegp) <span class="sc">%&gt;%</span> <span class="co"># pour illustration</span></span>
+<span id="cb129-3"><a href="#cb129-3" tabindex="-1"></a>  <span class="fu">separate</span>(agegp, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;agegp_lower&quot;</span>, <span class="st">&quot;agegp_upper&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb129-4"><a href="#cb129-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">agegp_lower =</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(agegp_lower))</span></code></pre></div>
 </div>
 <div id="q-création-de-déclarations-sommaires" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Création de Déclarations
 Sommaires</h3>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" tabindex="-1"></a>irs <span class="sc">%&gt;%</span> </span>
-<span id="cb129-2"><a href="#cb129-2" tabindex="-1"></a>  <span class="fu">select</span>(village, start_date_default, coverage_p) <span class="sc">%&gt;%</span> </span>
-<span id="cb129-3"><a href="#cb129-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">summary_statement =</span> <span class="fu">paste0</span>(<span class="st">&quot;Pour le village &quot;</span>, village, <span class="st">&quot;, la couverture de pulvérisation était de &quot;</span>, coverage_p, <span class="st">&quot;% le &quot;</span>, start_date_default))</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" tabindex="-1"></a>irs <span class="sc">%&gt;%</span> </span>
+<span id="cb130-2"><a href="#cb130-2" tabindex="-1"></a>  <span class="fu">select</span>(village, start_date_default, coverage_p) <span class="sc">%&gt;%</span> </span>
+<span id="cb130-3"><a href="#cb130-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">summary_statement =</span> <span class="fu">paste0</span>(<span class="st">&quot;Pour le village &quot;</span>, village, <span class="st">&quot;, la couverture de pulvérisation était de &quot;</span>, coverage_p, <span class="st">&quot;% le &quot;</span>, start_date_default))</span></code></pre></div>
 </div>
 <div id="q-extraction-de-sous-chaînes-did-1" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Q : Extraction de Sous-chaînes d’ID</h3>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
-<span id="cb130-2"><a href="#cb130-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb130-3"><a href="#cb130-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">numeric_part =</span> <span class="fu">str_sub</span>(patient_id, <span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" tabindex="-1"></a>hiv_dat_messy_1 <span class="sc">%&gt;%</span> </span>
+<span id="cb131-2"><a href="#cb131-2" tabindex="-1"></a>  <span class="fu">select</span>(patient_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb131-3"><a href="#cb131-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">numeric_part =</span> <span class="fu">str_sub</span>(patient_id, <span class="dv">4</span>))</span></code></pre></div>
 </div>
 </div>
 <div id="contributeurs" class="section level1 unlisted unnumbered">
