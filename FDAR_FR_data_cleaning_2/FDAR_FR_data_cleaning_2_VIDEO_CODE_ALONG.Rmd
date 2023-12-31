@@ -1,5 +1,5 @@
 ---
-title: 'Nettoyage de données II: '
+title: 'Nettoyage de données II: corriger les incohérences'
 output:
   html_document:
     number_sections: true

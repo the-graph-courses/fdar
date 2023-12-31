@@ -1,5 +1,5 @@
 ---
-title: 'Introduction aux fonctions et aux conditionnelles'
+title: 'Notes de leçon : Introduction aux fonctions et aux conditionnelles'
 output:
   html_document:
     number_sections: true
@@ -12,7 +12,7 @@ editor_options:
   markdown:
     wrap: 100
   canonical: true
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r, include = FALSE, warning = FALSE, message = FALSE}
@@ -39,6 +39,8 @@ Jusqu'à présent, vous avez principalement utilisé des fonctions écrites par 
 
 Dans cette leçon, nous allons apprendre les fondements des fonctions avec des exemples simples. Puis, dans une leçon future, nous écrirons des fonctions plus complexes qui peuvent automatiser de grandes parties de votre flux de travail d'analyse de données.
 
+![](images/0-whitebox.JPG)
+
 # Objectifs d'apprentissage
 
 À la fin de cette leçon, vous serez capable de :
@@ -60,23 +62,20 @@ if (!require(pacman)) install.packages("pacman")
 pacman::p_load(tidyverse, here, NHSRdatasets, medicaldata, outbreaks, reactable)
 ```
 
-## Packages
-
-‣ Installer et charger les packages nécessaires pour cette leçon.
-
-```{r}
-if (!require(pacman)) install.packages("pacman")
-pacman::p_load(tidyverse, here, NHSRdatasets, medicaldata, outbreaks, reactable)
-```
+## 
 
 ## Bases d'une fonction
 
-‣ Apprendre à créer une fonction simple : **Convertir des livres en kilogrammes**
+‣ Apprendre à créer une fonction simple : **Convertir des pounds en kilogrammes**
 
 ‣ Définir une fonction nommée `pounds_to_kg`, en multipliant l'entrée par 0.4536 :
 
 ```{r}
 
+pounds_to_kg <- function(pounds) {
+ kg <- pounds * 0.4536
+ return (kg)
+ }
 ```
 
 ‣ Nouvel objet dans l'environnement de type fonction.
@@ -84,7 +83,7 @@ pacman::p_load(tidyverse, here, NHSRdatasets, medicaldata, outbreaks, reactable)
 ‣ Utiliser `pounds_to_kg` pour convertir une valeur :
 
 ```{r}
-pounds_to_kg(_____)
+pounds_to_kg(200)
 ```
 
 ‣ Décortiquer la structure d'une fonction :
@@ -92,6 +91,10 @@ pounds_to_kg(_____)
 ```{r}
 # Construire progressivement la fonction
 
+  pounds_to_kg <- function (pounds) {
+   kg  <- pounds * 0.4536
+   return (kg)
+   }
 ```
 
 ‣ **Création de la fonction** : Utiliser `function`, suivi de parenthèses et d'accolades.
@@ -107,15 +110,15 @@ pounds_to_kg(_____)
 ‣ Nous pouvons utiliser la fonction avec des arguments nommés et non nommés :
 
 ```{r}
-pounds_to_kg(pounds = ____)
-pounds_to_kg(____)
+pounds_to_kg(pounds = 200)
+pounds_to_kg(100)
 ```
 
 ‣ Et nous pouvons appliquer la fonction à un vecteur :
 
 ```{r}
-____________ <- c(____, ____, ____)
-pounds_to_kg(____________)
+pounds_vec <- c(150, 250, 400)
+pounds_to_kg(pounds_vec)
 ```
 
 ‣ Pour explorer le code source de la fonction, tapez le nom de la fonction sans parenthèses :
@@ -127,8 +130,8 @@ pounds_to_kg
 ‣ Ou visualisez la fonction dans RStudio avec `View` :
 
 ```{r eval = F}
-  # Voir la fonction pounds_to_kg
-  # Voir la fonction reactable
+ View (pounds_to_kg) # Voir la fonction pounds_to_kg
+ View (reactable)  # Voir la fonction reactable
 ```
 
 ::: pratique
@@ -150,15 +153,22 @@ years_to_months <- ...
 
 ```{r}
 
+fahrenheit_to_celsius <-  function(fahrenheit) {
+   celsius <- 5/9 * (fahrenheit - 32)
+   return(celsius)
+  }
+
+
 fahrenheit_to_celsius(32) # Devrait être 0
 ```
 
 ‣ Tester la fonction sur le jeu de données `airquality`.
 
 ```{r}
-airquality
-   # sélectionner la colonne Temp
-   # appliquer la fonction à la colonne Temp
+airquality %>% 
+  select(Temp) %>% 
+  mutate(Temp_celsius = fahrenheit_to_celsius(Temp) )
+
 ```
 
 Super !
@@ -228,9 +238,13 @@ beaver1 %>%
 ‣ `calculate_calories`, pour calculer les calories à partir des macronutriments.
 
 ```{r}
-            # Trois arguments : carb_grams, protein_grams, fat_grams
-            # result <- 4 calories par gramme de glucide, 4 par gramme de protéine, 9 calories par gramme de lipide
-            # Renvoyer le résultat
+    
+ calculate_calories  <-  
+   function(carb_grams, protein_grams, fat_grams) {
+    result <- (carb_grams * 4) + (protein_grams *4) + (fat_grams *9)
+    return(result)
+    }
+        
 
 
 calculate_calories(carb_grams = 50, protein_grams = 25, fat_grams = 10)
@@ -245,7 +259,8 @@ calculate_calories(carb_grams = 50, protein_grams = 25)
 ‣ Des valeurs par défaut peuvent être définies pour les arguments de la fonction.
 
 ```{r}
-calculate_calories <- function(carb_grams, protein_grams, fat_grams = 10) {
+calculate_calories <- 
+  function(carb_grams, protein_grams, fat_grams = 0) {
   result <- (carb_grams * 4) + (protein_grams * 4)+ (fat_grams * 9)
   return(result)
 }
@@ -256,7 +271,8 @@ calculate_calories(50, 25)
 ‣ Nous pouvons rendre **tous** les arguments optionnels avec des valeurs par défaut.
 
 ```{r}
-calculate_calories <- function(carb_grams = 0, protein_grams = 0, fat_grams = 0) {
+calculate_calories <- 
+  function(carb_grams = 0, protein_grams = 0, fat_grams = 0) {
   result <- (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
   return(result)
 }
@@ -312,6 +328,11 @@ round(x = 1.2345, digits = 2)
 ‣ Pour cela, nous pouvons ajouter un argument `round_to` dans la fonction personnalisée pour contrôler l'arrondi.
 
 ```{r}
+pounds_to_kg <- function(pounds, round_to = 2) {
+  kg <- pounds * 0.4536
+  rounded_kg <- round(x = kg, digits = round_to)
+  return(rounded_kg)
+}
 # copiez la fonction ci-dessus, puis ajoutez un argument `round_to`
 ```
 
@@ -344,7 +365,8 @@ format(x = 12364.2345,
 # Modifiez la fonction pour utiliser `...`
 pounds_to_kg <- function(pounds, ...) {
   kg <- pounds * 0.4536
-  return(kg)
+  formated_kg <- format (x = kg, ...) 
+  return(formated_kg)
 }
 ```
 
@@ -396,23 +418,30 @@ kg
 ```{r}
 pounds_to_kg <- function(pounds) {
   kg <- pounds * 0.4536
-  return(kg)
+  return (kg)
 }
 ```
 
 ‣ Stockez le résultat de la fonction dans une variable globale pour y accéder.
 
 ```{r}
+kg <-pounds_to_kg(50)
+kg
 # stockez la sortie de pounds_to_kg(50) dans un objet global, kg
 ```
 
-‣ **ASTUCE PRO : Opérateur de superaffectation, `<<-`**
+‣ **ASTUCE PRO : Opérateur de super-assignation, `<<-`**
 
 ‣ En fait, vous pouvez créer des variables globales depuis l'intérieur d'une fonction avec `<<-`.
 
 ‣ Exemple : Création d'une variable globale `new_obj` à l'intérieur d'une fonction.
 
 ```{r}
+
+ test <- function(){
+    new_obj <<- 15
+  }
+
 # fonction appelée test() qui assigne globalement la valeur 15 à new_obj
 ```
 
@@ -436,17 +465,22 @@ new_obj
 ‣ Structure d'une instruction `if` :
 
 ```{r eval=FALSE}
-          # si la condition est vraie, exécuter le corps du code
+  if (condition){
+    #Code à exécuter
+  }
+   # si la condition est vraie, exécuter le corps du code
 ```
 
 ‣ Exemple : Conversion de la température de Celsius en Fahrenheit.
 
 ```{r}
 celsius <- 20
-convert_to <- "fahrenheit"
+convert_to <- "not fahrenheit"
 
-# si convert_to est "fahrenheit", créer fahrenheit, comme c * 9/5 + 32, puis imprimer
-
+if (convert_to == "fahrenheit"){
+  fahrenheit <- celsius * (9/5) + 32
+  print (fahrenheit)
+}
 
 ```
 
@@ -455,7 +489,15 @@ convert_to <- "fahrenheit"
 ‣ Ajoutez une clause `else` pour gérer le cas où `convert_to` n'est pas `"fahrenheit"`.
 
 ```{r}
+celsius <- 20
 convert_to <- "kelvin"
+
+if (convert_to == "fahrenheit"){
+  fahrenheit <- celsius * (9/5) + 32
+  print (fahrenheit)
+} else {
+  print (celsius)
+}
 
 # ajoutez une clause else pour imprimer la valeur originale en celsius
 
@@ -464,17 +506,21 @@ convert_to <- "kelvin"
 ‣ Utilisez `else if` pour vérifier plusieurs conditions spécifiques.
 
 ```{r}
+
+celsius <- 20
 convert_to <- "kelvin"
 
-if (convert_to == "fahrenheit") {
-  fahrenheit <- (celsius * 9/5) + 32
-  print(fahrenheit)
+if (convert_to == "fahrenheit"){
+  fahrenheit <- celsius * (9/5) + 32
+  print (fahrenheit)
 } else if (convert_to == "kelvin") {
-  _____________ <- celsius + 273.15
-  print(_____________)
+  kelvin <- celsius + 273.15
+  print (kelvin)
 } else {
-  print(celsius)
+  print (celsius)
 }
+
+
 ```
 
 ‣ Le code gère trois scénarios : conversion en Fahrenheit, Kelvin ou maintien en Celsius.
@@ -484,7 +530,18 @@ if (convert_to == "fahrenheit") {
 ‣ Finalement, nous pouvons encapsuler cette logique dans une fonction.
 
 ```{r}
-celsius_convert <- function(celsius, convert_to)...
+celsius_convert <- function(celsius, convert_to) {
+  
+  if (convert_to == "fahrenheit"){
+  out <- celsius * (9/5) + 32
+} else if (convert_to == "kelvin") {
+  out <- celsius + 273.15
+} else {
+  out <- celsius
+}
+  return(out)
+  
+}
 ```
 
 ‣ Testons la fonction :
@@ -498,7 +555,7 @@ celsius_convert(20, "kelvin")
 
 ```{r}
 celsius_convert(20, "celsius")
-celsius_convert(20, "foo") 
+celsius_convert(20, "bla bla") 
 ```
 
 ‣ Il faudra ajouter une gestion des erreurs à la fonction.
@@ -531,7 +588,7 @@ Identifiez et corrigez les erreurs de syntaxe dans la fonction `check_negatives`
 ‣ Exemple : Utilisation de la fonction `celsius_convert()` pour la conversion de température.
 
 ```{r}
-celsius_convert(30, "centigrade")
+celsius_convert(30, "bla bla")
 ```
 
 ‣ **Problème** : Échec silencieux lorsque `convert_to` n'est pas une échelle de température valide.
@@ -541,7 +598,11 @@ celsius_convert(30, "centigrade")
 ‣ Exemple : Valider l'argument `convert_to`. Nous allons les écrire d'abord, puis les intégrer dans la fonction.
 
 ```{r eval=FALSE}
-convert_to <- "mauvaise échelle"
+convert_to <- "mauvaise echelle"
+
+  if (! convert_to %in% c("fahrenheit", "kelvin") ){
+    stop("convert_to doit être 'farenheit' ou 'kelvin'")
+  }
 
 # si convert_to n'est ni en fahrenheit ni en kelvin, arrêter avec un message d'erreur
 
@@ -550,7 +611,24 @@ convert_to <- "mauvaise échelle"
 ‣ **Intégration dans la fonction `celsius_convert()`** :
 
 ```{r}
-celsius_convert <- ...
+celsius_convert <- function(celsius, convert_to) {
+  
+  #Validité de convert_to
+  if (! convert_to %in% c("fahrenheit", "kelvin") ){
+    stop("convert_to doit être 'farenheit' ou 'kelvin'")
+  }
+  
+  #Conversion de la valeur
+  if (convert_to == "fahrenheit"){
+  out <- celsius * (9/5) + 32
+} else if (convert_to == "kelvin") {
+  out <- celsius + 273.15
+} else {
+  out <- celsius
+}
+  return(out)
+  
+}
 ```
 
 ‣ Plus besoin de `else`, car `stop()` interrompra l'exécution si `convert_to` n'est pas valide.
@@ -558,7 +636,7 @@ celsius_convert <- ...
 ‣ **Résultat** : Message d'erreur clair pour des échelles de température invalides.
 
 ```{r eval = F}
-celsius_convert(30, "centigrade")
+celsius_convert(30, "fahrenheit")
 ```
 
 **CONSEIL PRO**
@@ -622,20 +700,44 @@ classify_temp(temp_vec)  # Cela ne fonctionnera pas correctement
 ‣ Pour les instructions conditionnelles pour les vecteurs, nous utilisons donc `ifelse` ou `dplyr::case_when`.
 
 ```{r}
-classify_temp <- function(temp)...
-      # si temp inférieur à 36.5, retourner "hypothermie"
-      # si temp entre 36.5 et 37.5, retourner "normal"
-      # si temp supérieur à 37.5, retourner "fièvre"
-
+classify_temp <- function(temp){
+out <- ifelse (temp < 36.5, "hypothermie", 
+          ifelse ((temp >= 36.5 & temp <= 37.5),"normal", 
+                  ifelse (temp > 37.5,"fievre", NA )))
+return (out)
+  }
+      
 
 classify_temp(temp_vec)  # Fonctionne avec le vecteur
 ```
 
 ‣ Cette fonction peut être intégrée de manière transparente avec des jeux de données.
 
+‣ `dplyr::case_when` est une meilleure alternative
+
+```{r}
+classify_temp <- function(temp){
+ out <- case_when(
+  temp < 36.5 ~  "hypothermie", 
+  (temp >= 36.5 & temp <= 37.5) ~ "normal", 
+  temp > 37.5 ~ "fievre", 
+  TRUE ~ NA_character_ 
+  )
+ 
+ return (out)
+  
+}
+  
+  
+  
+  classify_temp(temp_vec)
+
+```
+
 ```{r}
 NHSRdatasets::synthetic_news_data %>% 
-  select(temp) %>% ...
+  select(temp) %>% 
+  mutate (temp_class = classify_temp (temp))
 ```
 
 ::: pratique
@@ -646,7 +748,7 @@ Appliquons cette connaissance à un cas pratique. Considérez la tentative suiva
 ```{r}
 calculate_isoniazid_dosage <- function(weight) {
   if (weight < 30) {
-    stop("Le poids doit être au moins de 30 kg.")
+    stop("Le poids doit etre au moins de 30 kg.")
   } else if (weight <= 35) {
     return(150)
   } else if (weight <= 45) {
@@ -688,7 +790,7 @@ calculate_isoniazid_dosage2(c(30, 40, 50, 100))
 
 ```{r eval = F}
 # Exemple de chargement d'un script séparé
-source("example_script.R")
+source(here (Function/IMC_calc.R))
 ```
 
 ‣ **3) GitHub Gist** : - Pour des fonctions fréquemment utilisées ou partagées. - Stockez dans un gist public sur <https://gist.github.com/>. - Utilisez `source_gist()` de `devtools` pour charger dans le script R.
@@ -701,9 +803,41 @@ source("example_script.R")
 # Chargement à partir d'un GitHub Gist
 pacman::p_load(devtools)
 devtools::source_gist("https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0")
+
+hello_from_gist("balbalal")
 ```
 
 ‣ **4) Package** : - Adapté pour une collection de fonctions. - Nécessite une connaissance du développement de packages R. - Référence : [Écrire des Extensions R](https://cran.r-project.org/doc/manuals/r-release/R-exts.html).
+
+# Objectifs d'apprentissage
+
+1.  Créer et utiliser vos propres fonctions dans R.
+
+<!-- -->
+
+2.  Concevoir des arguments de fonction et définir des valeurs par défaut.
+
+<!-- -->
+
+3.  Utiliser une logique conditionnelle comme `if`, `else if`, et `else` à l'intérieur des fonctions.
+
+<!-- -->
+
+4.  Vérifier et valider les arguments de fonction pour prévenir les erreurs.
+
+<!-- -->
+
+5.  Gérer la portée des fonctions et comprendre les variables locales vs globales.
+
+<!-- -->
+
+6.  Gérer les données vectorisées dans les fonctions.
+
+<!-- -->
+
+7.  Organiser et stocker vos fonctions personnalisées pour une réutilisation facile.
+
+![](images/0-whitebox.JPG)
 
 # Corrigés
 
