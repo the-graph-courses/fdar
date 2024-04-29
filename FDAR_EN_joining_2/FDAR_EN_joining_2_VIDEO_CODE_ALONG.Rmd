@@ -115,6 +115,9 @@ inner_join(___________, ___________, ___________)
 **PRACTICE TIME!**
 
 ::: practice
+
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
+
 ### Q: Inner Join countries {.unlisted .unnumbered}
 
 The following two datasets contain data for India, Indonesia, and the Philippines. However an `inner_join()` of these datasets produces no output. What are the differences between the values in the key columns that would have to be changed before joining the datasets?
@@ -555,27 +558,6 @@ notif_regions
 
 ‣ Data from the `regions` dataframe was duplicated
 
-**PRACTICE TIME !**
-
-::: practice
-### Q: Joining `child` with `regions` {.unlisted .unnumbered}
-
-**Join `child` with `region`**
-
-Using a `left_join()`, join the cleaned `child` TB dataset with the `regions` dataset whilst keeping all of the values from the `child` dataframe.
-
-```{r eval = F}
-joined_dat <- left_join(____________, _______________, by = ____________)
-```
-
-Then work out which Zonal council has the highest number of states/Union territories
-
-```{r eval = F}
-joined_dat %>% 
-  count(_______________)
-```
-:::
-
 ## Multiple key columns
 
 ‣ Sometimes we have more than one column that uniquely identifies the observations that we want to match on.
@@ -656,10 +638,81 @@ notif_covid
 **PRACTICE TIME !**
 
 ::: practice
+
 ### Q: Joining three datasets, including one-to-many {.unlisted .unnumbered}
 
-Join the following three datasets: `notif_covid`, `child` and `regions`, ensuring that no data is lost from any of the datasets.
+In this practice, you will join three datasets: `notif_covid`, `child`, and `regions`. Follow the steps below to ensure that no data is lost.
+
+Follow these steps and fill in the blanked code fragments to complete the joining process.
+
+1. Check for mismatches between `notif_covid` and `child` using `anti_join()`.
+
+```{r eval=F}
+# Check mismatches
+anti_join(___________________)
+anti_join(___________________)
+```
+
+2. Clean the mismatches in `child` by creating `child_fixed`. Use `case_when()` to update state names.
+
+```{r eval=F}
+# Clean mismatches
+child_fixed <- child %>%
+  mutate(state = case_when(
+    state == "___________________" ~ "Arunachal Pradesh",
+    state == "___________________" ~ "Jammu & Kashmir",
+    state == "___________________" ~ "Kerala",
+    state == "___________________" ~ "Puducherry",
+    TRUE ~ state
+  ))
+```
+
+3. Verify that the mismatches have been resolved using `anti_join()`. These should return empty dataframes.
+
+```{r eval=F}
+# Verify mismatches resolved
+anti_join(child_fixed, notif_covid)
+anti_join(notif_covid, child_fixed)
+```
+
+4. Join `notif_covid` and `child_fixed` using `left_join()` on `state` and `hc_type`. Assign the result to `join_1`.
+
+```{r eval=F}
+# Join notif_covid and child_fixed
+join_1 <- notif_covid %>% 
+  left_join(child_fixed, by = _____________)
+```
+
+5. Check for mismatches between `join_1` and `regions` using `anti_join()`.
+
+```{r eval=F}
+# Check mismatches
+anti_join(join_1, regions, by = c("state" = "state_UT"))
+anti_join(regions, join_1, by = c("state_UT" = "state"))
+```
+
+You may notice that some states, e.g. Ladakh, are missing from the `regions` dataset. There is nothing we can do about this for the moment, so we will proceed with the join.
+
+
+6. Perform the final join using `left_join()` on `state` from `join_1` and `state_UT` from `regions`. Assign the result to `final_join`.
+
+```{r eval=F}
+# Final join
+final_join <- join_1 %>% 
+  left_join(___________________)
+```
+
+The question said to avoid losing information, so you may be wondering why we used a `left_join()` of a `full_join()`? The outputs are actually the same in this case. Remember that `left_join()` keeps all rows from the left dataset. The missing states we commented in step 5 are present in the left,  `join_1` dataset, so they are not lost in the final join. And when you can choose between `left_join()` and `full_join()`, it is better to use `left_join()` as it is easier for your audience to reason about what your code is doing.
+
+7. Display the `final_join` dataset.
+
+```{r eval=F}
+# Display final_join
+final_join
+```
+
 :::
+
 
 # Wrap Up!
 
@@ -761,39 +814,73 @@ patient_info %>%
 ```
 
 
-### Q: Joining `child` with `regions` {.unlisted .unnumbered}
-
-```{r, render = reactable_5_rows}
-child_fixed <- child %>%
-  mutate(state = 
-           case_when(state == "ArunachalPradesh" ~ "Arunachal Pradesh", 
-                     state == "Jammu and Kashmir" ~ "Jammu & Kashmir", 
-                     state == "kerala" ~ "Kerala", 
-                     state == "Pondicherry" ~ "Puducherry",
-                     TRUE ~ state))
-
-joined_dat <- left_join(child_fixed, regions, by = c("state"="state_UT"))
-joined_dat
-```
-
-```{r, render = reactable_5_rows}
-joined_dat %>% 
-  count(zonal_council)
-```
-
 ### Q: Joining three datasets, including one-to-many {.unlisted .unnumbered}
 
-```{r, render = reactable_5_rows}
+1. Check for mismatches between `notif_covid` and `child` using `anti_join()`.
+
+```{r}
+# Check mismatches
+anti_join(child, notif_covid)
+anti_join(notif_covid, child)
+```
+
+2. Clean the mismatches in `child` by creating `child_fixed`. Use `case_when()` to update state names.
+
+```{r}
+# Clean mismatches
+child_fixed <- child %>%
+  mutate(state = case_when(
+    state == "ArunachalPradesh" ~ "Arunachal Pradesh",
+    state == "Jammu and Kashmir" ~ "Jammu & Kashmir",
+    state == "kerala" ~ "Kerala",
+    state == "Pondicherry" ~ "Puducherry",
+    TRUE ~ state
+  ))
+```
+
+3. Verify that the mismatches have been resolved using `anti_join()`.
+
+```{r}
+# Verify mismatches resolved
+anti_join(child_fixed, notif_covid)
+anti_join(notif_covid, child_fixed)
+```
+
+4. Join `notif_covid` and `child_fixed` using `left_join()` on `state` and `hc_type`. Assign the result to `join_1`.
+
+```{r}
+# Join notif_covid and child_fixed
 join_1 <- notif_covid %>% 
-  full_join(child_fixed)
+  left_join(child_fixed, by = c("state", "hc_type"))
+```
 
-final_join <- join_1 %>%
-  full_join(regions, by=c("state" ="state_UT"))
+5. Check for mismatches between `join_1` and `regions` using `anti_join()`.
 
+```{r}
+# Check mismatches
+anti_join(join_1, regions, by = c("state" = "state_UT"))
+anti_join(regions, join_1, by = c("state_UT" = "state"))
+```
+
+You may notice that some states, e.g. Ladakh, which are present in `join_1` are missing from the `regions` dataset. There is nothing we can do about this for the moment, so we will proceed with the join.
+
+6. Perform the final join using `left_join()` on `state` from `join_1` and `state_UT` from `regions`. Assign the result to `final_join`.
+
+```{r}
+# Final join
+final_join <- join_1 %>% 
+  left_join(regions, by = c("state" = "state_UT"))
+```
+
+The question said to avoid losing information, so you may be wondering why we used a `left_join()` of a `full_join()`? The outputs are actually the same in this case. Remember that `left_join()` keeps all rows from the left dataset. The missing states we commented in step 5 are present in the left,  `join_1` dataset, so they are not lost in the final join. And when you can choose between `left_join()` and `full_join()`, it is better to use `left_join()` as it is easier for your audience to reason about what your code is doing.
+
+7. Display the `final_join` dataset.
+
+```{r}
+# Display final_join
 final_join
 ```
 
-------------------------------------------------------------------------
 
 # Contributors {.unlisted .unnumbered}
 

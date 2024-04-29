@@ -232,6 +232,8 @@ The syntax `c("name" = "test_recipient")` is a bit unusual. It essentially says,
 
 ::: r-practice
 
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
+
 ### Left Join Patients and Checkups {.unlisted .unnumbered}
 
 Consider the two datasets below, one with patient details and the other with medical check-up dates for these patients.
@@ -647,7 +649,7 @@ Then, join the above tables using a `full_join()` in order to retain all informa
 Let's turn back to our TB dataset and our health expenditure dataset.
 
 ```{r reneder=reactable_5_rows}
-tb_2019_africa 
+tb_2019_africa
 health_exp_2019
 ```
 

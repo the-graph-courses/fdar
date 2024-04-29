@@ -220,6 +220,9 @@ left_join(demographic, test_info_different_name,
 ‣ `c("name" = "test_recipient")` tells R to connect `name` from data frame x with `test_recipient` from data frame y.
 
 ::: practice
+
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
+
 **Left Join Patients and Checkups**
 
 Consider the two datasets below, one with patient details and the other with medical check-up dates for these patients.
