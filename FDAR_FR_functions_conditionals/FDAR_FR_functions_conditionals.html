@@ -1987,7 +1987,7 @@ tapant son nom sans parenthèses :</p>
 ##   kg &lt;- pounds * 0.4536
 ##   return(kg)
 ## }
-## &lt;bytecode: 0x15a47efb8&gt;</code></pre>
+## &lt;bytecode: 0x12645f2e8&gt;</code></pre>
 <p>Pour voir cela comme un script R, vous pouvez utiliser la fonction
 <code>View</code> :</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">View</span>(pounds_to_kg)</span></code></pre></div>
@@ -2172,92 +2172,8 @@ personne :</p>
 <span id="cb44-4"><a href="#cb44-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> <span class="fu">calc_imc</span>(Weight, Height))</span></code></pre></div>
 </div>
 </div>
-<div id="passage-darguments-aux-fonctions-internes" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Passage d’Arguments aux
-Fonctions Internes</h1>
-<p>Lors de l’écriture de fonctions en R, vous pourriez avoir besoin
-d’utiliser des fonctions existantes au sein de votre fonction
-personnalisée. Par exemple, considérons notre fonction familière qui
-convertit les livres en kilogrammes :</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds) {</span>
-<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
-<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>  <span class="fu">return</span>(kg)</span>
-<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a>}</span></code></pre></div>
-<p>Il pourrait être utile de pouvoir arrondir le résultat à un nombre
-spécifié de décimales sans appeler une fonction séparée.</p>
-<p>Pour cela, nous pouvons intégrer directement la fonction
-<code>round</code> dans notre fonction personnalisée. La fonction
-<code>round</code> a deux arguments : <code>x</code>, le nombre à
-arrondir, et <code>digits</code>, le nombre de décimales à arrondir
-:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="fu">round</span>(<span class="at">x =</span> <span class="fl">1.2345</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## [1] 1.23</code></pre>
-<p>Maintenant, nous pouvons ajouter un argument à notre fonction appelé
-<code>arrondir_a</code> qui sera passé à l’argument <code>digits</code>
-de la fonction <code>round</code>.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds, <span class="at">arrondir_a =</span> <span class="dv">2</span>) {</span>
-<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
-<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>  kg_arrondi <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="at">x =</span> kg, <span class="at">digits =</span> arrondir_a)</span>
-<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a>  <span class="fu">return</span>(kg_arrondi)</span>
-<span id="cb48-5"><a href="#cb48-5" tabindex="-1"></a>}</span></code></pre></div>
-<p>Dans la fonction ci-dessus, nous avons ajouté un argument appelé
-<code>arrondir_a</code> avec une valeur par défaut de
-<code>3</code>.</p>
-<p>Maintenant, lorsque vous passez une valeur à l’argument
-<code>arrondir_a</code>, elle sera utilisée par la fonction
-<code>round</code>.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="dv">10</span>) <span class="co"># sans argument passé à arrondir_a, la valeur par défaut de 2 est utilisée</span></span></code></pre></div>
-<pre><code>## [1] 4.54</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="dv">10</span>, <span class="at">arrondir_a =</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## [1] 4.5</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="dv">10</span>, <span class="at">arrondir_a =</span> <span class="dv">3</span>)</span></code></pre></div>
-<pre><code>## [1] 4.536</code></pre>
-<div id="largument-ellipse-..." class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> L’Argument Ellipse,
-<code>...</code></h2>
-<p>Parfois, il y a de nombreux arguments à passer à une fonction
-interne. Par exemple, considérez la fonction <code>format()</code> en R,
-qui a de nombreux arguments :</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a><span class="fu">format</span>(<span class="at">x =</span> <span class="fl">12364.2345</span>, </span>
-<span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a>       <span class="at">big.mark =</span> <span class="st">&quot; &quot;</span>, <span class="co"># séparateur de milliers</span></span>
-<span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a>       <span class="at">decimal.mark =</span> <span class="st">&quot;,&quot;</span>, <span class="co"># point décimal à la française !</span></span>
-<span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a>       <span class="at">nsmall =</span> <span class="dv">2</span>, <span class="co"># nombre de chiffres après la virgule</span></span>
-<span id="cb55-5"><a href="#cb55-5" tabindex="-1"></a>       <span class="at">scientific =</span> <span class="cn">FALSE</span> <span class="co"># utiliser la notation scientifique ?</span></span>
-<span id="cb55-6"><a href="#cb55-6" tabindex="-1"></a>       )</span></code></pre></div>
-<pre><code>## [1] &quot;12 364,23&quot;</code></pre>
-<p>Vous pouvez voir tous les arguments en tapant <code>?format</code>
-dans la console.</p>
-<p>Si nous voulons que notre fonction puisse passer tous ces arguments à
-la fonction <code>format</code>, nous utiliserons l’argument ellipse,
-<code>...</code>. Voici un exemple :</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds, ...) {</span>
-<span id="cb57-2"><a href="#cb57-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
-<span id="cb57-3"><a href="#cb57-3" tabindex="-1"></a>  kg_formate <span class="ot">&lt;-</span> <span class="fu">format</span>(<span class="at">x =</span> kg, ...)</span>
-<span id="cb57-4"><a href="#cb57-4" tabindex="-1"></a>  <span class="fu">return</span>(kg_formate)</span>
-<span id="cb57-5"><a href="#cb57-5" tabindex="-1"></a>}</span></code></pre></div>
-<p>Maintenant, lorsque nous passons des arguments à la fonction
-<code>livres_en_kg</code>, ils seront transmis à la fonction
-<code>format</code>, même si nous ne les avons pas explicitement définis
-dans notre fonction.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="fl">10000.234</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;4536.106&quot;</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="fl">10000.234</span>, <span class="at">big.mark =</span> <span class="st">&quot; &quot;</span>, <span class="at">decimal.mark =</span> <span class="st">&quot;,&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;4 536,106&quot;</code></pre>
-<p>Super !</p>
-<div id="pratique-avec-largument" class="section level3 unlisted unnumbered pratique">
-<h3 class="unlisted unnumbered">Pratique avec l’Argument …</h3>
-<p>Considérez notre fonction <code>calculer_calories()</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a>calculate_calories <span class="ot">&lt;-</span> <span class="cf">function</span>(carb_grams, protein_grams, fat_grams) {</span>
-<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a>  result <span class="ot">&lt;-</span> (carb_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (protein_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (fat_grams <span class="sc">*</span> <span class="dv">9</span>)</span>
-<span id="cb62-3"><a href="#cb62-3" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb62-4"><a href="#cb62-4" tabindex="-1"></a>}</span></code></pre></div>
-<p>Améliorez cette fonction pour accepter les arguments de formatage en
-utilisant le mécanisme <code>...</code>.</p>
-</div>
-</div>
-</div>
-<div id="compréhension-de-la-portée-en-r" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Compréhension de la
+<div id="compréhension-de-la-portée-en-r" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Compréhension de la
 Portée en R</h1>
 <p>La portée se réfère à la visibilité des variables et objets dans
 différentes parties de votre code R. Il est important de comprendre la
@@ -2269,52 +2185,33 @@ la fonction. Illustrons cela avec la fonction <code>pounds_en_kg</code>
 :</p>
 <p>Imaginez que vous voulez convertir un poids en pounds en kilogrammes
 et vous écrivez une fonction pour cela :</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds) {</span>
-<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
-<span id="cb63-3"><a href="#cb63-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds) {</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
+<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>}</span></code></pre></div>
 <p>Vous pourriez être tenté d’essayer d’accéder à la variable
 <code>kg</code> en dehors de la fonction, mais vous obtiendrez une
 erreur :</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="dv">50</span>)</span>
-<span id="cb64-2"><a href="#cb64-2" tabindex="-1"></a>kg</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="fu">pounds_en_kg</span>(<span class="dv">50</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a>kg</span></code></pre></div>
 <pre><code>Erreur : objet &#39;kg&#39; introuvable</code></pre>
 <p>C’est parce que <code>kg</code> est une variable locale à l’intérieur
 de la fonction <code>livres_en_kg</code> et n’est pas accessible dans
 l’environnement global.</p>
 <p>Pour utiliser une valeur générée à l’intérieur d’une fonction, nous
 devons nous assurer qu’elle est retournée par la fonction :</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds) {</span>
-<span id="cb66-2"><a href="#cb66-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
-<span id="cb66-3"><a href="#cb66-3" tabindex="-1"></a>  <span class="fu">return</span>(kg)</span>
-<span id="cb66-4"><a href="#cb66-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>pounds_en_kg <span class="ot">&lt;-</span> <span class="cf">function</span>(pounds) {</span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>  kg <span class="ot">&lt;-</span> pounds <span class="sc">*</span> <span class="fl">0.4536</span></span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>  <span class="fu">return</span>(kg)</span>
+<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a>}</span></code></pre></div>
 <p>Et ensuite, nous pouvons stocker le résultat de la fonction dans une
 variable globale :</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a>kg <span class="ot">&lt;-</span> <span class="fu">pounds_en_kg</span>(<span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>kg <span class="ot">&lt;-</span> <span class="fu">pounds_en_kg</span>(<span class="dv">50</span>)</span></code></pre></div>
 <p>Maintenant, nous pouvons accéder à l’objet <code>kg</code> :</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a>kg</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>kg</span></code></pre></div>
 <pre><code>## [1] 22.68</code></pre>
-<div class="astuce-pro">
-<p><strong>L’Opérateur de Superassignation, `&lt;&lt;-`</strong></p>
-<p>Bien que nous ayons dit que les objets créés au sein d’une fonction
-ont une portée locale, il est en réalité <strong>possible</strong> de
-créer des variables globales depuis l’intérieur d’une fonction en
-utilisant l’opérateur spécial <code>&lt;&lt;-</code>.</p>
-<p>Considérez l’exemple suivant :</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb70-2"><a href="#cb70-2" tabindex="-1"></a>  nouvel_objet <span class="ot">&lt;&lt;-</span> <span class="dv">15</span></span>
-<span id="cb70-3"><a href="#cb70-3" tabindex="-1"></a>}</span></code></pre></div>
-<p>Maintenant, si nous exécutons la fonction, <code>nouvel_objet</code>
-sera créé dans l’environnement global, avec une valeur de 15 :</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" tabindex="-1"></a><span class="fu">test</span>()</span>
-<span id="cb71-2"><a href="#cb71-2" tabindex="-1"></a>nouvel_objet</span></code></pre></div>
-<pre><code>## [1] 15</code></pre>
-<p>Bien que cela soit techniquement possible, cela n’est généralement
-pas recommandé (surtout pour les non-experts) en raison des effets
-secondaires potentiels et des défis de maintenance.</p>
 </div>
-</div>
-<div id="introduction-aux-conditionnels-if-else-if-et-else" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Introduction aux
+<div id="introduction-aux-conditionnels-if-else-if-et-else" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Introduction aux
 Conditionnels : <code>if</code>, <code>else if</code> et
 <code>else</code></h1>
 <p>Les conditionnels, qui sont utilisés pour contrôler le flux
@@ -2326,61 +2223,61 @@ sont mis en œuvre à l’aide des instructions <code>if</code>,
 voulons que certaines parties du code s’exécutent uniquement si une
 condition spécifique est vraie.</p>
 <p>Voici la structure d’une instruction <code>if</code> :</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" tabindex="-1"></a><span class="cf">if</span> (condition) {</span>
-<span id="cb73-2"><a href="#cb73-2" tabindex="-1"></a>  <span class="co"># code à exécuter si la condition est vraie</span></span>
-<span id="cb73-3"><a href="#cb73-3" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="cf">if</span> (condition) {</span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a>  <span class="co"># code à exécuter si la condition est vraie</span></span>
+<span id="cb52-3"><a href="#cb52-3" tabindex="-1"></a>}</span></code></pre></div>
 <p>Remarquez que cela ressemble à la structure d’une fonction.</p>
 <p>Maintenant, voyons une instruction <code>if</code> en action, pour
 convertir une température de Celsius en Fahrenheit :</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a>celsius <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb74-2"><a href="#cb74-2" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;fahrenheit&quot;</span></span>
-<span id="cb74-3"><a href="#cb74-3" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="#cb74-4" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb74-5"><a href="#cb74-5" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb74-6"><a href="#cb74-6" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
-<span id="cb74-7"><a href="#cb74-7" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a>celsius <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;fahrenheit&quot;</span></span>
+<span id="cb53-3"><a href="#cb53-3" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb53-5"><a href="#cb53-5" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb53-6"><a href="#cb53-6" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
+<span id="cb53-7"><a href="#cb53-7" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 68</code></pre>
 <p>Dans ce fragment de code, si la variable <code>convertir_en</code>
 est égale à <code>&quot;fahrenheit&quot;</code>, la conversion est réalisée et le
 résultat est imprimé.</p>
 <p>Voyons maintenant ce qui se passe lorsque <code>convertir_en</code>
 est défini à une valeur autre que <code>&quot;fahrenheit&quot;</code> :</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;kelvin&quot;</span></span>
-<span id="cb76-2"><a href="#cb76-2" tabindex="-1"></a></span>
-<span id="cb76-3"><a href="#cb76-3" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb76-4"><a href="#cb76-4" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb76-5"><a href="#cb76-5" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
-<span id="cb76-6"><a href="#cb76-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;kelvin&quot;</span></span>
+<span id="cb55-2"><a href="#cb55-2" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb55-4"><a href="#cb55-4" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb55-5"><a href="#cb55-5" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
+<span id="cb55-6"><a href="#cb55-6" tabindex="-1"></a>}</span></code></pre></div>
 <p>Dans ce cas, rien n’est imprimé car la condition n’est pas
 satisfaite.</p>
 <p>Pour gérer les situations où <code>convertir_en</code> n’est pas
 <code>&quot;fahrenheit&quot;</code>, nous pouvons ajouter une instruction
 <code>else</code> :</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;kelvin&quot;</span></span>
-<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a></span>
-<span id="cb77-3"><a href="#cb77-3" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb77-4"><a href="#cb77-4" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb77-5"><a href="#cb77-5" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
-<span id="cb77-6"><a href="#cb77-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb77-7"><a href="#cb77-7" tabindex="-1"></a>  <span class="fu">print</span>(celsius)</span>
-<span id="cb77-8"><a href="#cb77-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;kelvin&quot;</span></span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb56-4"><a href="#cb56-4" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb56-5"><a href="#cb56-5" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
+<span id="cb56-6"><a href="#cb56-6" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb56-7"><a href="#cb56-7" tabindex="-1"></a>  <span class="fu">print</span>(celsius)</span>
+<span id="cb56-8"><a href="#cb56-8" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <p>Ici, si la variable <code>convertir_en</code> ne correspond pas à
 <code>&quot;fahrenheit&quot;</code>, le code dans le bloc <code>else</code>
 s’exécute, imprimant la valeur originale en Celsius.</p>
 <p>Pour vérifier plusieurs conditions spécifiques, nous pouvons utiliser
 <code>else if</code> :</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;kelvin&quot;</span></span>
-<span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a></span>
-<span id="cb79-3"><a href="#cb79-3" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb79-4"><a href="#cb79-4" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb79-5"><a href="#cb79-5" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
-<span id="cb79-6"><a href="#cb79-6" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
-<span id="cb79-7"><a href="#cb79-7" tabindex="-1"></a>  temp_kelvin <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
-<span id="cb79-8"><a href="#cb79-8" tabindex="-1"></a>  <span class="fu">print</span>(temp_kelvin)</span>
-<span id="cb79-9"><a href="#cb79-9" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb79-10"><a href="#cb79-10" tabindex="-1"></a>  <span class="fu">print</span>(celsius)</span>
-<span id="cb79-11"><a href="#cb79-11" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;kelvin&quot;</span></span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a><span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb58-4"><a href="#cb58-4" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb58-5"><a href="#cb58-5" tabindex="-1"></a>  <span class="fu">print</span>(fahrenheit)</span>
+<span id="cb58-6"><a href="#cb58-6" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
+<span id="cb58-7"><a href="#cb58-7" tabindex="-1"></a>  temp_kelvin <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb58-8"><a href="#cb58-8" tabindex="-1"></a>  <span class="fu">print</span>(temp_kelvin)</span>
+<span id="cb58-9"><a href="#cb58-9" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb58-10"><a href="#cb58-10" tabindex="-1"></a>  <span class="fu">print</span>(celsius)</span>
+<span id="cb58-11"><a href="#cb58-11" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## [1] 293.15</code></pre>
 <p>Ici, le code gère trois possibilités :</p>
 <ul>
@@ -2399,27 +2296,27 @@ qu’une seule instruction <code>else</code> attachée à une instruction
 Nous allons assigner le résultat à l’intérieur de chaque conditionnel à
 une variable appelée <code>sortie</code> et retourner
 <code>sortie</code> à la fin de la fonction :</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" tabindex="-1"></a>convertir_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius, convertir_en) {</span>
-<span id="cb81-2"><a href="#cb81-2" tabindex="-1"></a>  <span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb81-3"><a href="#cb81-3" tabindex="-1"></a>    sortie <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb81-4"><a href="#cb81-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
-<span id="cb81-5"><a href="#cb81-5" tabindex="-1"></a>    sortie <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
-<span id="cb81-6"><a href="#cb81-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb81-7"><a href="#cb81-7" tabindex="-1"></a>    sortie <span class="ot">&lt;-</span> celsius</span>
-<span id="cb81-8"><a href="#cb81-8" tabindex="-1"></a>  }</span>
-<span id="cb81-9"><a href="#cb81-9" tabindex="-1"></a>  <span class="fu">return</span>(sortie)</span>
-<span id="cb81-10"><a href="#cb81-10" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a>convertir_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius, convertir_en) {</span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a>  <span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb60-3"><a href="#cb60-3" tabindex="-1"></a>    sortie <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb60-4"><a href="#cb60-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (convertir_en <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
+<span id="cb60-5"><a href="#cb60-5" tabindex="-1"></a>    sortie <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb60-6"><a href="#cb60-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb60-7"><a href="#cb60-7" tabindex="-1"></a>    sortie <span class="ot">&lt;-</span> celsius</span>
+<span id="cb60-8"><a href="#cb60-8" tabindex="-1"></a>  }</span>
+<span id="cb60-9"><a href="#cb60-9" tabindex="-1"></a>  <span class="fu">return</span>(sortie)</span>
+<span id="cb60-10"><a href="#cb60-10" tabindex="-1"></a>}</span></code></pre></div>
 <p>Testons la fonction :</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;fahrenheit&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;fahrenheit&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 68</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;kelvin&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;kelvin&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 293.15</code></pre>
 <p>Un problème avec la fonction actuelle est que si une valeur invalide
 est passée à <code>convert_to</code>, nous n’obtenons aucun message
 informatif à ce sujet :</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;celsius&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;celsius&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;foo&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">20</span>, <span class="st">&quot;foo&quot;</span>) </span></code></pre></div>
 <pre><code>## [1] 20</code></pre>
 <p>C’est un problème courant avec les fonctions qui utilisent des
 conditionnels. Nous discuterons de la manière de gérer cela dans la
@@ -2431,14 +2328,14 @@ conditionnelle</h3>
 analyser un vecteur de nombres en R et imprimer un message indiquant si
 le vecteur contient des nombres négatifs. Cependant, la fonction
 contient actuellement des erreurs de syntaxe.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" tabindex="-1"></a>check_negatives <span class="ot">&lt;-</span> <span class="cf">function</span>(numbers) {</span>
-<span id="cb90-2"><a href="#cb90-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> numbers</span>
-<span id="cb90-3"><a href="#cb90-3" tabindex="-1"></a></span>
-<span id="cb90-4"><a href="#cb90-4" tabindex="-1"></a>  <span class="cf">if</span> <span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
-<span id="cb90-5"><a href="#cb90-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x contient des nombres négatifs&quot;</span>)</span>
-<span id="cb90-6"><a href="#cb90-6" tabindex="-1"></a>  <span class="cf">else</span> {</span>
-<span id="cb90-7"><a href="#cb90-7" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x ne contient pas de nombres négatifs&quot;</span>)</span>
-<span id="cb90-8"><a href="#cb90-8" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" tabindex="-1"></a>check_negatives <span class="ot">&lt;-</span> <span class="cf">function</span>(numbers) {</span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1"></a>  x <span class="ot">&lt;-</span> numbers</span>
+<span id="cb69-3"><a href="#cb69-3" tabindex="-1"></a></span>
+<span id="cb69-4"><a href="#cb69-4" tabindex="-1"></a>  <span class="cf">if</span> <span class="fu">any</span>(x <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb69-5"><a href="#cb69-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x contient des nombres négatifs&quot;</span>)</span>
+<span id="cb69-6"><a href="#cb69-6" tabindex="-1"></a>  <span class="cf">else</span> {</span>
+<span id="cb69-7"><a href="#cb69-7" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x ne contient pas de nombres négatifs&quot;</span>)</span>
+<span id="cb69-8"><a href="#cb69-8" tabindex="-1"></a>}</span></code></pre></div>
 <p>Identifiez et corrigez les erreurs de syntaxe dans la fonction
 <code>check_negatives</code>. Après avoir corrigé la fonction, testez-la
 avec les vecteurs suivants pour vous assurer qu’elle fonctionne
@@ -2446,8 +2343,8 @@ correctement : 1. <code>c(8, 3, -2, 5)</code> 2.
 <code>c(10, 20, 30, 40)</code></p>
 </div>
 </div>
-<div id="vérification-des-arguments-avec-des-conditionnels" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Vérification des
+<div id="vérification-des-arguments-avec-des-conditionnels" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Vérification des
 arguments avec des conditionnels</h1>
 <p>Lors de l’écriture de fonctions en R, il est souvent utile de
 s’assurer que les entrées fournies sont sensées et dans le domaine
@@ -2458,7 +2355,7 @@ vérification des arguments intervient.</p>
 <p>Considérez le scénario suivant avec notre fonction de conversion de
 température <code>convertir_celsius()</code>, qui convertit une
 température de Celsius en fahrenheit ou kelvin</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" tabindex="-1"></a><span class="fu">convertir_celsius</span> (<span class="dv">30</span>, <span class="st">&quot;centigrade&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a><span class="fu">convertir_celsius</span> (<span class="dv">30</span>, <span class="st">&quot;centigrade&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] 30</code></pre>
 <p>Dans ce cas, l’utilisateur essaie de convertir une température de
 Kelvin en “centigrade”. Mais notre fonction échoue silencieusement,
@@ -2472,49 +2369,49 @@ permet de terminer l’exécution d’une fonction et d’imprimer un message
 d’erreur. Voici comment nous pouvons utiliser <code>stop()</code> pour
 vérifier des valeurs valides de <code>convertir_de</code> et
 <code>convertir_en</code> :</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" tabindex="-1"></a><span class="co"># Tester stop() en dehors d&#39;une fonction, pour l&#39;intégrer plus tard dans conv_temp()</span></span>
-<span id="cb93-2"><a href="#cb93-2" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;mauvaise échelle&quot;</span></span>
-<span id="cb93-3"><a href="#cb93-3" tabindex="-1"></a></span>
-<span id="cb93-4"><a href="#cb93-4" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(convertir_en <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;fahrenheit&quot;</span>, <span class="st">&quot;kelvin&quot;</span>))) {</span>
-<span id="cb93-5"><a href="#cb93-5" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;convertir_en doit être fahrenheit ou kelvin&quot;</span>)</span>
-<span id="cb93-6"><a href="#cb93-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a><span class="co"># Tester stop() en dehors d&#39;une fonction, pour l&#39;intégrer plus tard dans conv_temp()</span></span>
+<span id="cb72-2"><a href="#cb72-2" tabindex="-1"></a>convertir_en <span class="ot">&lt;-</span> <span class="st">&quot;mauvaise échelle&quot;</span></span>
+<span id="cb72-3"><a href="#cb72-3" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span>(convertir_en <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;fahrenheit&quot;</span>, <span class="st">&quot;kelvin&quot;</span>))) {</span>
+<span id="cb72-5"><a href="#cb72-5" tabindex="-1"></a>  <span class="fu">stop</span>(<span class="st">&quot;convertir_en doit être fahrenheit ou kelvin&quot;</span>)</span>
+<span id="cb72-6"><a href="#cb72-6" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>Erreur : convertir_en doit être celsius, fahrenheit, ou kelvin</code></pre>
 <p>Intégrons cela dans notre fonction <code>convertir_celsius()</code>
 :</p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" tabindex="-1"></a>convertir_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius, convert_en) {</span>
-<span id="cb95-2"><a href="#cb95-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(convert_en <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;fahrenheit&quot;</span>, <span class="st">&quot;kelvin&quot;</span>))) {</span>
-<span id="cb95-3"><a href="#cb95-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;convert_en doit être fahrenheit ou kelvin&quot;</span>)</span>
-<span id="cb95-4"><a href="#cb95-4" tabindex="-1"></a>  }</span>
-<span id="cb95-5"><a href="#cb95-5" tabindex="-1"></a>  </span>
-<span id="cb95-6"><a href="#cb95-6" tabindex="-1"></a>  <span class="cf">if</span> (convert_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb95-7"><a href="#cb95-7" tabindex="-1"></a>    out <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb95-8"><a href="#cb95-8" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (convert_to <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
-<span id="cb95-9"><a href="#cb95-9" tabindex="-1"></a>    out <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
-<span id="cb95-10"><a href="#cb95-10" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb95-11"><a href="#cb95-11" tabindex="-1"></a>    out <span class="ot">&lt;-</span> celsius</span>
-<span id="cb95-12"><a href="#cb95-12" tabindex="-1"></a>  }</span>
-<span id="cb95-13"><a href="#cb95-13" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb95-14"><a href="#cb95-14" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a>convertir_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius, convert_en) {</span>
+<span id="cb74-2"><a href="#cb74-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(convert_en <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;fahrenheit&quot;</span>, <span class="st">&quot;kelvin&quot;</span>))) {</span>
+<span id="cb74-3"><a href="#cb74-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;convert_en doit être fahrenheit ou kelvin&quot;</span>)</span>
+<span id="cb74-4"><a href="#cb74-4" tabindex="-1"></a>  }</span>
+<span id="cb74-5"><a href="#cb74-5" tabindex="-1"></a>  </span>
+<span id="cb74-6"><a href="#cb74-6" tabindex="-1"></a>  <span class="cf">if</span> (convert_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb74-7"><a href="#cb74-7" tabindex="-1"></a>    out <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb74-8"><a href="#cb74-8" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (convert_to <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
+<span id="cb74-9"><a href="#cb74-9" tabindex="-1"></a>    out <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb74-10"><a href="#cb74-10" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb74-11"><a href="#cb74-11" tabindex="-1"></a>    out <span class="ot">&lt;-</span> celsius</span>
+<span id="cb74-12"><a href="#cb74-12" tabindex="-1"></a>  }</span>
+<span id="cb74-13"><a href="#cb74-13" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb74-14"><a href="#cb74-14" tabindex="-1"></a>}</span></code></pre></div>
 <p>Notez que dans cette fonction mise à jour, il n’est plus nécessaire
 d’avoir une instruction <code>else</code>, car la fonction
 <code>stop()</code> mettra fin à l’exécution de la fonction si
 <code>convert_en</code> n’est pas l’une des trois valeurs valides.
 Ainsi, nous pouvons simplifier la fonction comme suit :</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a>convertir_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius, convert_en) {</span>
-<span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(convert_en <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;fahrenheit&quot;</span>, <span class="st">&quot;kelvin&quot;</span>))) {</span>
-<span id="cb96-3"><a href="#cb96-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;convert_en doit être fahrenheit ou kelvin&quot;</span>)</span>
-<span id="cb96-4"><a href="#cb96-4" tabindex="-1"></a>  }</span>
-<span id="cb96-5"><a href="#cb96-5" tabindex="-1"></a>  </span>
-<span id="cb96-6"><a href="#cb96-6" tabindex="-1"></a>  <span class="cf">if</span> (convert_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
-<span id="cb96-7"><a href="#cb96-7" tabindex="-1"></a>    out <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb96-8"><a href="#cb96-8" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (convert_en <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
-<span id="cb96-9"><a href="#cb96-9" tabindex="-1"></a>    out <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
-<span id="cb96-10"><a href="#cb96-10" tabindex="-1"></a>  }</span>
-<span id="cb96-11"><a href="#cb96-11" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb96-12"><a href="#cb96-12" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" tabindex="-1"></a>convertir_celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius, convert_en) {</span>
+<span id="cb75-2"><a href="#cb75-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>(convert_en <span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;fahrenheit&quot;</span>, <span class="st">&quot;kelvin&quot;</span>))) {</span>
+<span id="cb75-3"><a href="#cb75-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;convert_en doit être fahrenheit ou kelvin&quot;</span>)</span>
+<span id="cb75-4"><a href="#cb75-4" tabindex="-1"></a>  }</span>
+<span id="cb75-5"><a href="#cb75-5" tabindex="-1"></a>  </span>
+<span id="cb75-6"><a href="#cb75-6" tabindex="-1"></a>  <span class="cf">if</span> (convert_en <span class="sc">==</span> <span class="st">&quot;fahrenheit&quot;</span>) {</span>
+<span id="cb75-7"><a href="#cb75-7" tabindex="-1"></a>    out <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb75-8"><a href="#cb75-8" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (convert_en <span class="sc">==</span> <span class="st">&quot;kelvin&quot;</span>) {</span>
+<span id="cb75-9"><a href="#cb75-9" tabindex="-1"></a>    out <span class="ot">&lt;-</span> celsius <span class="sc">+</span> <span class="fl">273.15</span></span>
+<span id="cb75-10"><a href="#cb75-10" tabindex="-1"></a>  }</span>
+<span id="cb75-11"><a href="#cb75-11" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb75-12"><a href="#cb75-12" tabindex="-1"></a>}</span></code></pre></div>
 <p>Maintenant, si nous exécutons la commande problématique originale
 :</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">30</span>, <span class="st">&quot;centigrade&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a><span class="fu">convertir_celsius</span>(<span class="dv">30</span>, <span class="st">&quot;centigrade&quot;</span>)</span></code></pre></div>
 <p>La fonction s’arrêtera immédiatement et fournira un message d’erreur
 clair, indiquant que “centigrade” n’est pas une échelle de température
 reconnue.</p>
@@ -2532,26 +2429,26 @@ vérifications.</p>
 arguments</h3>
 <p>Considérez la fonction <code>calculate_calories</code> que nous avons
 écrite plus tôt :</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a>calculate_calories <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">carb_grams =</span> <span class="dv">0</span>, <span class="at">protein_grams =</span> <span class="dv">0</span>, <span class="at">fat_grams =</span> <span class="dv">0</span>) {</span>
-<span id="cb98-2"><a href="#cb98-2" tabindex="-1"></a>  result <span class="ot">&lt;-</span> (carb_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (protein_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (fat_grams <span class="sc">*</span> <span class="dv">9</span>)</span>
-<span id="cb98-3"><a href="#cb98-3" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb98-4"><a href="#cb98-4" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" tabindex="-1"></a>calculate_calories <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">carb_grams =</span> <span class="dv">0</span>, <span class="at">protein_grams =</span> <span class="dv">0</span>, <span class="at">fat_grams =</span> <span class="dv">0</span>) {</span>
+<span id="cb77-2"><a href="#cb77-2" tabindex="-1"></a>  result <span class="ot">&lt;-</span> (carb_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (protein_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (fat_grams <span class="sc">*</span> <span class="dv">9</span>)</span>
+<span id="cb77-3"><a href="#cb77-3" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb77-4"><a href="#cb77-4" tabindex="-1"></a>}</span></code></pre></div>
 <p>Écrire une fonction appelée <code>calculate_calories2()</code> qui
 est identique à <code>calculate_calories()</code> sauf qu’elle vérifie
 si les arguments <code>carb_grams</code>, <code>protein_grams</code> et
 <code>fat_grams</code> sont numériques. Si l’un d’eux n’est pas
 numérique, la fonction doit imprimer un message d’erreur en utilisant la
 fonction <code>stop()</code>.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" tabindex="-1"></a>calculate_calories2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">carb_grams =</span> <span class="dv">0</span>, <span class="at">protein_grams =</span> <span class="dv">0</span>, <span class="at">fat_grams =</span> <span class="dv">0</span>) {</span>
-<span id="cb99-2"><a href="#cb99-2" tabindex="-1"></a>  </span>
-<span id="cb99-3"><a href="#cb99-3" tabindex="-1"></a>  <span class="co"># votre code ici</span></span>
-<span id="cb99-4"><a href="#cb99-4" tabindex="-1"></a>  </span>
-<span id="cb99-5"><a href="#cb99-5" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb99-6"><a href="#cb99-6" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a>calculate_calories2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">carb_grams =</span> <span class="dv">0</span>, <span class="at">protein_grams =</span> <span class="dv">0</span>, <span class="at">fat_grams =</span> <span class="dv">0</span>) {</span>
+<span id="cb78-2"><a href="#cb78-2" tabindex="-1"></a>  </span>
+<span id="cb78-3"><a href="#cb78-3" tabindex="-1"></a>  <span class="co"># votre code ici</span></span>
+<span id="cb78-4"><a href="#cb78-4" tabindex="-1"></a>  </span>
+<span id="cb78-5"><a href="#cb78-5" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb78-6"><a href="#cb78-6" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
-<div id="conditionnels-vectorisés" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Conditionnels
+<div id="conditionnels-vectorisés" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Conditionnels
 Vectorisés</h1>
 <p>Dans les exemples précédents, nous avons ajouté une condition sur une
 seule valeur, telle que l’argument <code>convert_en</code>. Maintenant,
@@ -2561,55 +2458,55 @@ valeurs. De tels cas nécessitent une gestion spéciale car l’instruction
 <p>Par exemple, si nous voulions écrire une fonction pour classifier les
 lectures de température en hypothermie, normal ou fièvre, vous pourriez
 penser à utiliser une construction if-else comme ceci :</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a>classify_temp <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb100-2"><a href="#cb100-2" tabindex="-1"></a>  <span class="cf">if</span> (temp <span class="sc">&lt;</span> <span class="fl">36.5</span>) {</span>
-<span id="cb100-3"><a href="#cb100-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;hypothermie&quot;</span>)</span>
-<span id="cb100-4"><a href="#cb100-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (temp <span class="sc">&gt;=</span> <span class="fl">36.5</span> <span class="sc">&amp;</span> temp <span class="sc">&lt;=</span> <span class="fl">37.5</span>) {</span>
-<span id="cb100-5"><a href="#cb100-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;normal&quot;</span>)</span>
-<span id="cb100-6"><a href="#cb100-6" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (temp <span class="sc">&gt;</span> <span class="fl">37.5</span>) {</span>
-<span id="cb100-7"><a href="#cb100-7" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;fièvre&quot;</span>)</span>
-<span id="cb100-8"><a href="#cb100-8" tabindex="-1"></a>  }</span>
-<span id="cb100-9"><a href="#cb100-9" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" tabindex="-1"></a>classify_temp <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb79-2"><a href="#cb79-2" tabindex="-1"></a>  <span class="cf">if</span> (temp <span class="sc">&lt;</span> <span class="fl">36.5</span>) {</span>
+<span id="cb79-3"><a href="#cb79-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;hypothermie&quot;</span>)</span>
+<span id="cb79-4"><a href="#cb79-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (temp <span class="sc">&gt;=</span> <span class="fl">36.5</span> <span class="sc">&amp;</span> temp <span class="sc">&lt;=</span> <span class="fl">37.5</span>) {</span>
+<span id="cb79-5"><a href="#cb79-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;normal&quot;</span>)</span>
+<span id="cb79-6"><a href="#cb79-6" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (temp <span class="sc">&gt;</span> <span class="fl">37.5</span>) {</span>
+<span id="cb79-7"><a href="#cb79-7" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;fièvre&quot;</span>)</span>
+<span id="cb79-8"><a href="#cb79-8" tabindex="-1"></a>  }</span>
+<span id="cb79-9"><a href="#cb79-9" tabindex="-1"></a>}</span></code></pre></div>
 <p>Cela fonctionne sur une seule valeur :</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" tabindex="-1"></a><span class="fu">classify_temp</span>(<span class="dv">36</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" tabindex="-1"></a><span class="fu">classify_temp</span>(<span class="dv">36</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;hypothermie&quot;</code></pre>
 <p>Mais cela ne fonctionnera pas comme prévu sur un vecteur, car
 l’instruction <code>if</code> n’est pas vectorisée et évalue seulement
 le premier élément du vecteur. Par exemple :</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" tabindex="-1"></a>temp_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">38</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" tabindex="-1"></a><span class="fu">classify_temp</span>(temp_vec)  <span class="co"># Ceci ne fonctionnera pas correctement</span></span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a>temp_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">36</span>, <span class="dv">37</span>, <span class="dv">38</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" tabindex="-1"></a><span class="fu">classify_temp</span>(temp_vec)  <span class="co"># Ceci ne fonctionnera pas correctement</span></span></code></pre></div>
 <pre><code>Erreur dans if (temp &lt; 35) { : la condition a une longueur &gt; 1</code></pre>
 <p>Pour traiter l’ensemble du vecteur, vous devriez utiliser des
 fonctions vectorisées telles que <code>ifelse</code> ou
 <code>case_when</code> du package <code>dplyr</code>. Voici comment vous
 pouvez employer <code>ifelse</code> :</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" tabindex="-1"></a>classify_temp <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb106-2"><a href="#cb106-2" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(temp <span class="sc">&lt;</span> <span class="fl">36.5</span>, <span class="st">&quot;hypothermie&quot;</span>,</span>
-<span id="cb106-3"><a href="#cb106-3" tabindex="-1"></a>                <span class="fu">ifelse</span>(temp <span class="sc">&gt;=</span> <span class="fl">36.5</span> <span class="sc">&amp;</span> temp <span class="sc">&lt;=</span> <span class="fl">37.5</span>, <span class="st">&quot;normal&quot;</span>,</span>
-<span id="cb106-4"><a href="#cb106-4" tabindex="-1"></a>                       <span class="fu">ifelse</span>(temp <span class="sc">&gt;</span> <span class="fl">37.5</span>, <span class="st">&quot;fièvre&quot;</span>, <span class="cn">NA</span>)))</span>
-<span id="cb106-5"><a href="#cb106-5" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb106-6"><a href="#cb106-6" tabindex="-1"></a>}</span>
-<span id="cb106-7"><a href="#cb106-7" tabindex="-1"></a></span>
-<span id="cb106-8"><a href="#cb106-8" tabindex="-1"></a><span class="fu">classify_temp</span>(temp_vec)  <span class="co"># Ceci fonctionne comme prévu</span></span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a>classify_temp <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb85-2"><a href="#cb85-2" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(temp <span class="sc">&lt;</span> <span class="fl">36.5</span>, <span class="st">&quot;hypothermie&quot;</span>,</span>
+<span id="cb85-3"><a href="#cb85-3" tabindex="-1"></a>                <span class="fu">ifelse</span>(temp <span class="sc">&gt;=</span> <span class="fl">36.5</span> <span class="sc">&amp;</span> temp <span class="sc">&lt;=</span> <span class="fl">37.5</span>, <span class="st">&quot;normal&quot;</span>,</span>
+<span id="cb85-4"><a href="#cb85-4" tabindex="-1"></a>                       <span class="fu">ifelse</span>(temp <span class="sc">&gt;</span> <span class="fl">37.5</span>, <span class="st">&quot;fièvre&quot;</span>, <span class="cn">NA</span>)))</span>
+<span id="cb85-5"><a href="#cb85-5" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb85-6"><a href="#cb85-6" tabindex="-1"></a>}</span>
+<span id="cb85-7"><a href="#cb85-7" tabindex="-1"></a></span>
+<span id="cb85-8"><a href="#cb85-8" tabindex="-1"></a><span class="fu">classify_temp</span>(temp_vec)  <span class="co"># Ceci fonctionne comme prévu</span></span></code></pre></div>
 <pre><code>## [1] &quot;hypothermie&quot; &quot;normal&quot;      &quot;fièvre&quot;</code></pre>
 <p>Pour une alternative plus propre et plus lisible,
 <code>dplyr::case_when</code> peut également être utilisé :</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" tabindex="-1"></a>classify_temp <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
-<span id="cb108-2"><a href="#cb108-2" tabindex="-1"></a> <span class="fu">case_when</span>(</span>
-<span id="cb108-3"><a href="#cb108-3" tabindex="-1"></a>    temp <span class="sc">&lt;</span> <span class="fl">36.5</span> <span class="sc">~</span> <span class="st">&quot;hypothermie&quot;</span>,</span>
-<span id="cb108-4"><a href="#cb108-4" tabindex="-1"></a>    temp <span class="sc">&gt;=</span> <span class="fl">36.5</span> <span class="sc">&amp;</span> temp <span class="sc">&lt;=</span> <span class="fl">37.5</span> <span class="sc">~</span> <span class="st">&quot;normal&quot;</span>,</span>
-<span id="cb108-5"><a href="#cb108-5" tabindex="-1"></a>    temp <span class="sc">&gt;</span> <span class="fl">37.5</span> <span class="sc">~</span> <span class="st">&quot;fièvre&quot;</span>,</span>
-<span id="cb108-6"><a href="#cb108-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
-<span id="cb108-7"><a href="#cb108-7" tabindex="-1"></a>  )</span>
-<span id="cb108-8"><a href="#cb108-8" tabindex="-1"></a>}</span>
-<span id="cb108-9"><a href="#cb108-9" tabindex="-1"></a></span>
-<span id="cb108-10"><a href="#cb108-10" tabindex="-1"></a><span class="fu">classify_temp</span>(temp_vec)  <span class="co"># Ceci fonctionne aussi comme prévu</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" tabindex="-1"></a>classify_temp <span class="ot">&lt;-</span> <span class="cf">function</span>(temp) {</span>
+<span id="cb87-2"><a href="#cb87-2" tabindex="-1"></a> <span class="fu">case_when</span>(</span>
+<span id="cb87-3"><a href="#cb87-3" tabindex="-1"></a>    temp <span class="sc">&lt;</span> <span class="fl">36.5</span> <span class="sc">~</span> <span class="st">&quot;hypothermie&quot;</span>,</span>
+<span id="cb87-4"><a href="#cb87-4" tabindex="-1"></a>    temp <span class="sc">&gt;=</span> <span class="fl">36.5</span> <span class="sc">&amp;</span> temp <span class="sc">&lt;=</span> <span class="fl">37.5</span> <span class="sc">~</span> <span class="st">&quot;normal&quot;</span>,</span>
+<span id="cb87-5"><a href="#cb87-5" tabindex="-1"></a>    temp <span class="sc">&gt;</span> <span class="fl">37.5</span> <span class="sc">~</span> <span class="st">&quot;fièvre&quot;</span>,</span>
+<span id="cb87-6"><a href="#cb87-6" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb87-7"><a href="#cb87-7" tabindex="-1"></a>  )</span>
+<span id="cb87-8"><a href="#cb87-8" tabindex="-1"></a>}</span>
+<span id="cb87-9"><a href="#cb87-9" tabindex="-1"></a></span>
+<span id="cb87-10"><a href="#cb87-10" tabindex="-1"></a><span class="fu">classify_temp</span>(temp_vec)  <span class="co"># Ceci fonctionne aussi comme prévu</span></span></code></pre></div>
 <pre><code>## [1] &quot;hypothermie&quot; &quot;normal&quot;      &quot;fièvre&quot;</code></pre>
 <p>Cette fonction fonctionne sans problème avec les jeux de données
 aussi :</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" tabindex="-1"></a>NHSRdatasets<span class="sc">::</span>synthetic_news_data <span class="sc">%&gt;%</span> </span>
-<span id="cb110-2"><a href="#cb110-2" tabindex="-1"></a>  <span class="fu">select</span>(temp) <span class="sc">%&gt;%</span></span>
-<span id="cb110-3"><a href="#cb110-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp_class =</span> <span class="fu">classify_temp</span>(temp))</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" tabindex="-1"></a>NHSRdatasets<span class="sc">::</span>synthetic_news_data <span class="sc">%&gt;%</span> </span>
+<span id="cb89-2"><a href="#cb89-2" tabindex="-1"></a>  <span class="fu">select</span>(temp) <span class="sc">%&gt;%</span></span>
+<span id="cb89-3"><a href="#cb89-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">temp_class =</span> <span class="fu">classify_temp</span>(temp))</span></code></pre></div>
 <pre><code>## # A tibble: 1,000 × 2
 ##     temp temp_class 
 ##    &lt;dbl&gt; &lt;chr&gt;      
@@ -2630,21 +2527,21 @@ d’Isoniazide</h3>
 <p>Appliquons ces connaissances à un cas pratique. Considérez la
 tentative suivante pour écrire une fonction qui calcule les dosages du
 médicament isoniazide pour des adultes pesant plus de 30kg :</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" tabindex="-1"></a>calculer_dosage_isoniazide <span class="ot">&lt;-</span> <span class="cf">function</span>(poids) {</span>
-<span id="cb112-2"><a href="#cb112-2" tabindex="-1"></a>  <span class="cf">if</span> (poids <span class="sc">&lt;</span> <span class="dv">30</span>) {</span>
-<span id="cb112-3"><a href="#cb112-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Le poids doit être au moins de 30 kg.&quot;</span>)</span>
-<span id="cb112-4"><a href="#cb112-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">35</span>) {</span>
-<span id="cb112-5"><a href="#cb112-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">150</span>)</span>
-<span id="cb112-6"><a href="#cb112-6" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">45</span>) {</span>
-<span id="cb112-7"><a href="#cb112-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">200</span>)</span>
-<span id="cb112-8"><a href="#cb112-8" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">55</span>) {</span>
-<span id="cb112-9"><a href="#cb112-9" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">300</span>)</span>
-<span id="cb112-10"><a href="#cb112-10" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">70</span>) {</span>
-<span id="cb112-11"><a href="#cb112-11" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">300</span>)</span>
-<span id="cb112-12"><a href="#cb112-12" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb112-13"><a href="#cb112-13" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">300</span>)</span>
-<span id="cb112-14"><a href="#cb112-14" tabindex="-1"></a>  }</span>
-<span id="cb112-15"><a href="#cb112-15" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" tabindex="-1"></a>calculer_dosage_isoniazide <span class="ot">&lt;-</span> <span class="cf">function</span>(poids) {</span>
+<span id="cb91-2"><a href="#cb91-2" tabindex="-1"></a>  <span class="cf">if</span> (poids <span class="sc">&lt;</span> <span class="dv">30</span>) {</span>
+<span id="cb91-3"><a href="#cb91-3" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;Le poids doit être au moins de 30 kg.&quot;</span>)</span>
+<span id="cb91-4"><a href="#cb91-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">35</span>) {</span>
+<span id="cb91-5"><a href="#cb91-5" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">150</span>)</span>
+<span id="cb91-6"><a href="#cb91-6" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">45</span>) {</span>
+<span id="cb91-7"><a href="#cb91-7" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">200</span>)</span>
+<span id="cb91-8"><a href="#cb91-8" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">55</span>) {</span>
+<span id="cb91-9"><a href="#cb91-9" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">300</span>)</span>
+<span id="cb91-10"><a href="#cb91-10" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (poids <span class="sc">&lt;=</span> <span class="dv">70</span>) {</span>
+<span id="cb91-11"><a href="#cb91-11" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">300</span>)</span>
+<span id="cb91-12"><a href="#cb91-12" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb91-13"><a href="#cb91-13" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">300</span>)</span>
+<span id="cb91-14"><a href="#cb91-14" tabindex="-1"></a>  }</span>
+<span id="cb91-15"><a href="#cb91-15" tabindex="-1"></a>}</span></code></pre></div>
 <p>Cette fonction échoue avec un vecteur de poids. Votre tâche est
 d’écrire une nouvelle fonction
 <code>calculate_isoniazid_dosage2()</code> qui peut gérer les entrées
@@ -2652,63 +2549,20 @@ vectorielles. Pour vous assurer que tous les poids sont au-dessus de 30
 kg, vous utiliserez la fonction <code>any()</code> dans votre
 vérification des erreurs.</p>
 <p>Voici une ébauche pour vous aider à démarrer :</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" tabindex="-1"></a>calculate_isoniazid_dosage2 <span class="ot">&lt;-</span> <span class="cf">function</span>(weight) {</span>
-<span id="cb113-2"><a href="#cb113-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(weight <span class="sc">&lt;</span> <span class="dv">30</span>)) <span class="fu">stop</span>(<span class="st">&quot;Tous les poids doivent être au moins de 30 kg.&quot;</span>)</span>
-<span id="cb113-3"><a href="#cb113-3" tabindex="-1"></a>   </span>
-<span id="cb113-4"><a href="#cb113-4" tabindex="-1"></a>  <span class="co"># Votre code ici</span></span>
-<span id="cb113-5"><a href="#cb113-5" tabindex="-1"></a></span>
-<span id="cb113-6"><a href="#cb113-6" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
-<span id="cb113-7"><a href="#cb113-7" tabindex="-1"></a>}</span>
-<span id="cb113-8"><a href="#cb113-8" tabindex="-1"></a></span>
-<span id="cb113-9"><a href="#cb113-9" tabindex="-1"></a><span class="fu">calculate_isoniazid_dosage2</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>))  </span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" tabindex="-1"></a>calculate_isoniazid_dosage2 <span class="ot">&lt;-</span> <span class="cf">function</span>(weight) {</span>
+<span id="cb92-2"><a href="#cb92-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(weight <span class="sc">&lt;</span> <span class="dv">30</span>)) <span class="fu">stop</span>(<span class="st">&quot;Tous les poids doivent être au moins de 30 kg.&quot;</span>)</span>
+<span id="cb92-3"><a href="#cb92-3" tabindex="-1"></a>   </span>
+<span id="cb92-4"><a href="#cb92-4" tabindex="-1"></a>  <span class="co"># Votre code ici</span></span>
+<span id="cb92-5"><a href="#cb92-5" tabindex="-1"></a></span>
+<span id="cb92-6"><a href="#cb92-6" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb92-7"><a href="#cb92-7" tabindex="-1"></a>}</span>
+<span id="cb92-8"><a href="#cb92-8" tabindex="-1"></a></span>
+<span id="cb92-9"><a href="#cb92-9" tabindex="-1"></a><span class="fu">calculate_isoniazid_dosage2</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>))  </span></code></pre></div>
 <pre><code>## Error in calculate_isoniazid_dosage2(c(30, 40, 50, 100)): object &#39;out&#39; not found</code></pre>
 </div>
 </div>
-<div id="où-stocker-vos-fonctions" class="section level1" number="11">
-<h1><span class="header-section-number">11</span> Où stocker vos
-fonctions</h1>
-<p>Lorsque vous écrivez des scripts en R, décider où stocker vos
-fonctions est une considération importante pour maintenir un code propre
-et un flux de travail. Voici quelques stratégies clés :</p>
-<p><strong>1) Haut du Script</strong></p>
-<p>Placer les fonctions en haut de votre script est une pratique simple
-et couramment utilisée.</p>
-<p><strong>2) Script Séparé qui est utilisé comme source</strong></p>
-<p>À mesure que votre projet grandit, vous pouvez avoir plusieurs
-fonctions. Dans de tels cas, les stocker dans un script R séparé peut
-permettre de garder votre script d’analyse principal ordonné. Vous
-pouvez ensuite ‘sourcer’ ce script pour charger les fonctions.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" tabindex="-1"></a><span class="co"># Sourcer un script séparé</span></span>
-<span id="cb115-2"><a href="#cb115-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;chemin_vers_votre_script_de_fonctions.R&quot;</span>)</span></code></pre></div>
-<p><strong>3) GitHub Gist</strong></p>
-<p>Pour des fonctions que vous réutilisez fréquemment ou souhaitez
-partager avec la communauté, les stocker dans un GitHub Gist est une
-bonne option. Créez un compte sur github, puis créez un gist public à <a href="https://gist.github.com/" class="uri">https://gist.github.com/</a>. Ensuite, vous pouvez
-copier-coller votre fonction dans le gist. Finalement, vous pouvez
-obtenir l’URL du gist et la sourcer dans votre script R en utilisant la
-fonction <code>source_gist()</code> du package <code>devtools</code>
-:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" tabindex="-1"></a><span class="co"># Sourcer depuis un GitHub Gist</span></span>
-<span id="cb116-2"><a href="#cb116-2" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(devtools)</span>
-<span id="cb116-3"><a href="#cb116-3" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">source_gist</span>(<span class="st">&quot;https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0&quot;</span>)</span></code></pre></div>
-<p>Lorsque vous exécutez le code ci-dessus, cela définira une nouvelle
-fonction appelée <code>hello_from_gist()</code> que nous avons créée
-pour cette leçon.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" tabindex="-1"></a><span class="fu">hello_from_gist</span>(<span class="st">&quot;Étudiant&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Hello Étudiant! This is a function from a gist!&quot;</code></pre>
-<p>Vous pouvez voir le code en allant directement à l’URL : <a href="https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0" class="uri">https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0</a>.</p>
-<p>Le code dans le gist peut être mis à jour à tout moment, et les
-changements seront reflétés dans votre script lorsque vous le sourcerez
-à nouveau.</p>
-<p><strong>4) Package</strong></p>
-<p>Comme précédemment mentionné, les fonctions peuvent également être
-stockées dans des packages. C’est une option plus avancée qui nécessite
-la connaissance du développement de packages R. Pour plus
-d’informations, voir le manuel <a href="https://cran.r-project.org/doc/manuals/r-release/R-exts.html">Writing
-R Extensions</a>.</p>
-</div>
-<div id="conclusion" class="section level1" number="12">
-<h1><span class="header-section-number">12</span> Conclusion !</h1>
+<div id="conclusion" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Conclusion !</h1>
 <p>Félicitations pour avoir suivi la leçon !</p>
 <p>Vous avez maintenant les éléments de base pour créer des fonctions
 personnalisées qui automatisent les tâches répétitives dans vos flux de
@@ -2716,30 +2570,30 @@ travail R. Bien sûr, il y a encore beaucoup à apprendre sur les
 fonctions, mais vous avez maintenant les fondations sur lesquelles
 construire.</p>
 </div>
-<div id="corrigés" class="section level1" number="13">
-<h1><span class="header-section-number">13</span> Corrigés</h1>
+<div id="corrigés" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Corrigés</h1>
 <div id="fonction-âge-en-mois" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Fonction Âge en Mois</h3>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" tabindex="-1"></a>annees_en_mois <span class="ot">&lt;-</span> <span class="cf">function</span>(annees) {</span>
-<span id="cb119-2"><a href="#cb119-2" tabindex="-1"></a>  mois <span class="ot">&lt;-</span> annees <span class="sc">*</span> <span class="dv">12</span></span>
-<span id="cb119-3"><a href="#cb119-3" tabindex="-1"></a>  <span class="fu">return</span>(mois)</span>
-<span id="cb119-4"><a href="#cb119-4" tabindex="-1"></a>}</span>
-<span id="cb119-5"><a href="#cb119-5" tabindex="-1"></a></span>
-<span id="cb119-6"><a href="#cb119-6" tabindex="-1"></a><span class="co"># Test</span></span>
-<span id="cb119-7"><a href="#cb119-7" tabindex="-1"></a><span class="fu">annees_en_mois</span>(<span class="dv">12</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" tabindex="-1"></a>annees_en_mois <span class="ot">&lt;-</span> <span class="cf">function</span>(annees) {</span>
+<span id="cb94-2"><a href="#cb94-2" tabindex="-1"></a>  mois <span class="ot">&lt;-</span> annees <span class="sc">*</span> <span class="dv">12</span></span>
+<span id="cb94-3"><a href="#cb94-3" tabindex="-1"></a>  <span class="fu">return</span>(mois)</span>
+<span id="cb94-4"><a href="#cb94-4" tabindex="-1"></a>}</span>
+<span id="cb94-5"><a href="#cb94-5" tabindex="-1"></a></span>
+<span id="cb94-6"><a href="#cb94-6" tabindex="-1"></a><span class="co"># Test</span></span>
+<span id="cb94-7"><a href="#cb94-7" tabindex="-1"></a><span class="fu">annees_en_mois</span>(<span class="dv">12</span>)</span></code></pre></div>
 <pre><code>## [1] 144</code></pre>
 </div>
 <div id="fonction-celsius-en-fahrenheit" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Fonction Celsius en Fahrenheit</h3>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" tabindex="-1"></a>celsius_en_fahrenheit <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
-<span id="cb121-2"><a href="#cb121-2" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> celsius <span class="sc">*</span> <span class="fl">1.8</span> <span class="sc">+</span> <span class="dv">32</span></span>
-<span id="cb121-3"><a href="#cb121-3" tabindex="-1"></a>  <span class="fu">return</span>(fahrenheit)</span>
-<span id="cb121-4"><a href="#cb121-4" tabindex="-1"></a>}</span>
-<span id="cb121-5"><a href="#cb121-5" tabindex="-1"></a></span>
-<span id="cb121-6"><a href="#cb121-6" tabindex="-1"></a><span class="co"># Test</span></span>
-<span id="cb121-7"><a href="#cb121-7" tabindex="-1"></a>beaver1 <span class="sc">%&gt;%</span></span>
-<span id="cb121-8"><a href="#cb121-8" tabindex="-1"></a>  <span class="fu">select</span>(temp) <span class="sc">%&gt;%</span></span>
-<span id="cb121-9"><a href="#cb121-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fahrenheit =</span> <span class="fu">celsius_en_fahrenheit</span>(temp))</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a>celsius_en_fahrenheit <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
+<span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>  fahrenheit <span class="ot">&lt;-</span> celsius <span class="sc">*</span> <span class="fl">1.8</span> <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb96-3"><a href="#cb96-3" tabindex="-1"></a>  <span class="fu">return</span>(fahrenheit)</span>
+<span id="cb96-4"><a href="#cb96-4" tabindex="-1"></a>}</span>
+<span id="cb96-5"><a href="#cb96-5" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="#cb96-6" tabindex="-1"></a><span class="co"># Test</span></span>
+<span id="cb96-7"><a href="#cb96-7" tabindex="-1"></a>beaver1 <span class="sc">%&gt;%</span></span>
+<span id="cb96-8"><a href="#cb96-8" tabindex="-1"></a>  <span class="fu">select</span>(temp) <span class="sc">%&gt;%</span></span>
+<span id="cb96-9"><a href="#cb96-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Fahrenheit =</span> <span class="fu">celsius_en_fahrenheit</span>(temp))</span></code></pre></div>
 <pre><code>##      temp Fahrenheit
 ## 1   36.33     97.394
 ## 2   36.34     97.412
@@ -2858,17 +2712,17 @@ construire.</p>
 </div>
 <div id="fonction-imc" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Fonction IMC</h3>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" tabindex="-1"></a>calculer_imc <span class="ot">&lt;-</span> <span class="cf">function</span>(poids, taille) {</span>
-<span id="cb123-2"><a href="#cb123-2" tabindex="-1"></a>  imc <span class="ot">&lt;-</span> poids <span class="sc">/</span> (taille<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb123-3"><a href="#cb123-3" tabindex="-1"></a>  <span class="fu">return</span>(imc)</span>
-<span id="cb123-4"><a href="#cb123-4" tabindex="-1"></a>}</span>
-<span id="cb123-5"><a href="#cb123-5" tabindex="-1"></a></span>
-<span id="cb123-6"><a href="#cb123-6" tabindex="-1"></a><span class="co"># Test</span></span>
-<span id="cb123-7"><a href="#cb123-7" tabindex="-1"></a><span class="fu">library</span>(medicaldata)</span>
-<span id="cb123-8"><a href="#cb123-8" tabindex="-1"></a>medicaldata<span class="sc">::</span>smartpill <span class="sc">%&gt;%</span></span>
-<span id="cb123-9"><a href="#cb123-9" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb123-10"><a href="#cb123-10" tabindex="-1"></a>  <span class="fu">select</span>(Weight, Height) <span class="sc">%&gt;%</span></span>
-<span id="cb123-11"><a href="#cb123-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> <span class="fu">calculer_imc</span>(Weight, Height))</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a>calculer_imc <span class="ot">&lt;-</span> <span class="cf">function</span>(poids, taille) {</span>
+<span id="cb98-2"><a href="#cb98-2" tabindex="-1"></a>  imc <span class="ot">&lt;-</span> poids <span class="sc">/</span> (taille<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb98-3"><a href="#cb98-3" tabindex="-1"></a>  <span class="fu">return</span>(imc)</span>
+<span id="cb98-4"><a href="#cb98-4" tabindex="-1"></a>}</span>
+<span id="cb98-5"><a href="#cb98-5" tabindex="-1"></a></span>
+<span id="cb98-6"><a href="#cb98-6" tabindex="-1"></a><span class="co"># Test</span></span>
+<span id="cb98-7"><a href="#cb98-7" tabindex="-1"></a><span class="fu">library</span>(medicaldata)</span>
+<span id="cb98-8"><a href="#cb98-8" tabindex="-1"></a>medicaldata<span class="sc">::</span>smartpill <span class="sc">%&gt;%</span></span>
+<span id="cb98-9"><a href="#cb98-9" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb98-10"><a href="#cb98-10" tabindex="-1"></a>  <span class="fu">select</span>(Weight, Height) <span class="sc">%&gt;%</span></span>
+<span id="cb98-11"><a href="#cb98-11" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IMC =</span> <span class="fu">calculer_imc</span>(Weight, Height))</span></code></pre></div>
 <pre><code>## # A tibble: 95 × 3
 ##    Weight Height     IMC
 ##     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -2884,70 +2738,62 @@ construire.</p>
 ## 10   64.9   170. 0.00224
 ## # ℹ 85 more rows</code></pre>
 </div>
-<div id="pratique-avec-largument-1" class="section level3 unlisted unnumbered">
-<h3 class="unlisted unnumbered">Pratique avec l’Argument …</h3>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" tabindex="-1"></a>calculate_calories <span class="ot">&lt;-</span> <span class="cf">function</span>(carb_grams, protein_grams, fat_grams, ...) {</span>
-<span id="cb125-2"><a href="#cb125-2" tabindex="-1"></a>  result <span class="ot">&lt;-</span> (carb_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (protein_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (fat_grams <span class="sc">*</span> <span class="dv">9</span>)</span>
-<span id="cb125-3"><a href="#cb125-3" tabindex="-1"></a>  result_formatted <span class="ot">&lt;-</span> <span class="fu">format</span>(result, ...)</span>
-<span id="cb125-4"><a href="#cb125-4" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb125-5"><a href="#cb125-5" tabindex="-1"></a>}</span></code></pre></div>
-</div>
 <div id="débogage-dune-fonction-avec-logique-conditionnelle" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Débogage d’une Fonction avec Logique
 Conditionnelle</h3>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" tabindex="-1"></a>verifier_negatifs <span class="ot">&lt;-</span> <span class="cf">function</span>(nombres) {</span>
-<span id="cb126-2"><a href="#cb126-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(nombres <span class="sc">&lt;</span> <span class="dv">0</span>)) {</span>
-<span id="cb126-3"><a href="#cb126-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x contient des nombres négatifs&quot;</span>)</span>
-<span id="cb126-4"><a href="#cb126-4" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb126-5"><a href="#cb126-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x ne contient pas de nombres négatifs&quot;</span>)</span>
-<span id="cb126-6"><a href="#cb126-6" tabindex="-1"></a>  }</span>
-<span id="cb126-7"><a href="#cb126-7" tabindex="-1"></a>}</span>
-<span id="cb126-8"><a href="#cb126-8" tabindex="-1"></a></span>
-<span id="cb126-9"><a href="#cb126-9" tabindex="-1"></a><span class="co"># Test</span></span>
-<span id="cb126-10"><a href="#cb126-10" tabindex="-1"></a><span class="fu">verifier_negatifs</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a>verifier_negatifs <span class="ot">&lt;-</span> <span class="cf">function</span>(nombres) {</span>
+<span id="cb100-2"><a href="#cb100-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(nombres <span class="sc">&lt;</span> <span class="dv">0</span>)) {</span>
+<span id="cb100-3"><a href="#cb100-3" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x contient des nombres négatifs&quot;</span>)</span>
+<span id="cb100-4"><a href="#cb100-4" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb100-5"><a href="#cb100-5" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">&quot;x ne contient pas de nombres négatifs&quot;</span>)</span>
+<span id="cb100-6"><a href="#cb100-6" tabindex="-1"></a>  }</span>
+<span id="cb100-7"><a href="#cb100-7" tabindex="-1"></a>}</span>
+<span id="cb100-8"><a href="#cb100-8" tabindex="-1"></a></span>
+<span id="cb100-9"><a href="#cb100-9" tabindex="-1"></a><span class="co"># Test</span></span>
+<span id="cb100-10"><a href="#cb100-10" tabindex="-1"></a><span class="fu">verifier_negatifs</span>(<span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">3</span>, <span class="sc">-</span><span class="dv">2</span>, <span class="dv">5</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;x contient des nombres négatifs&quot;</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" tabindex="-1"></a><span class="fu">verifier_negatifs</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" tabindex="-1"></a><span class="fu">verifier_negatifs</span>(<span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>))</span></code></pre></div>
 <pre><code>## [1] &quot;x ne contient pas de nombres négatifs&quot;</code></pre>
 </div>
 <div id="pratique-de-vérification-des-arguments" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Pratique de Vérification des
 Arguments</h3>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" tabindex="-1"></a>calculate_calories2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">carb_grams =</span> <span class="dv">0</span>, <span class="at">protein_grams =</span> <span class="dv">0</span>, <span class="at">fat_grams =</span> <span class="dv">0</span>) {</span>
-<span id="cb130-2"><a href="#cb130-2" tabindex="-1"></a></span>
-<span id="cb130-3"><a href="#cb130-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(carb_grams)) {</span>
-<span id="cb130-4"><a href="#cb130-4" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;carb_grams must be numeric&quot;</span>)</span>
-<span id="cb130-5"><a href="#cb130-5" tabindex="-1"></a>  }</span>
-<span id="cb130-6"><a href="#cb130-6" tabindex="-1"></a>  </span>
-<span id="cb130-7"><a href="#cb130-7" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(protein_grams)) {</span>
-<span id="cb130-8"><a href="#cb130-8" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;protein_grams must be numeric&quot;</span>)</span>
-<span id="cb130-9"><a href="#cb130-9" tabindex="-1"></a>  }</span>
-<span id="cb130-10"><a href="#cb130-10" tabindex="-1"></a>  </span>
-<span id="cb130-11"><a href="#cb130-11" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(fat_grams)) {</span>
-<span id="cb130-12"><a href="#cb130-12" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;fat_grams must be numeric&quot;</span>)</span>
-<span id="cb130-13"><a href="#cb130-13" tabindex="-1"></a>  }</span>
-<span id="cb130-14"><a href="#cb130-14" tabindex="-1"></a>  </span>
-<span id="cb130-15"><a href="#cb130-15" tabindex="-1"></a>  </span>
-<span id="cb130-16"><a href="#cb130-16" tabindex="-1"></a>  result <span class="ot">&lt;-</span> (carb_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (protein_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (fat_grams <span class="sc">*</span> <span class="dv">9</span>)</span>
-<span id="cb130-17"><a href="#cb130-17" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb130-18"><a href="#cb130-18" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" tabindex="-1"></a>calculate_calories2 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">carb_grams =</span> <span class="dv">0</span>, <span class="at">protein_grams =</span> <span class="dv">0</span>, <span class="at">fat_grams =</span> <span class="dv">0</span>) {</span>
+<span id="cb104-2"><a href="#cb104-2" tabindex="-1"></a></span>
+<span id="cb104-3"><a href="#cb104-3" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(carb_grams)) {</span>
+<span id="cb104-4"><a href="#cb104-4" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;carb_grams must be numeric&quot;</span>)</span>
+<span id="cb104-5"><a href="#cb104-5" tabindex="-1"></a>  }</span>
+<span id="cb104-6"><a href="#cb104-6" tabindex="-1"></a>  </span>
+<span id="cb104-7"><a href="#cb104-7" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(protein_grams)) {</span>
+<span id="cb104-8"><a href="#cb104-8" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;protein_grams must be numeric&quot;</span>)</span>
+<span id="cb104-9"><a href="#cb104-9" tabindex="-1"></a>  }</span>
+<span id="cb104-10"><a href="#cb104-10" tabindex="-1"></a>  </span>
+<span id="cb104-11"><a href="#cb104-11" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(fat_grams)) {</span>
+<span id="cb104-12"><a href="#cb104-12" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">&quot;fat_grams must be numeric&quot;</span>)</span>
+<span id="cb104-13"><a href="#cb104-13" tabindex="-1"></a>  }</span>
+<span id="cb104-14"><a href="#cb104-14" tabindex="-1"></a>  </span>
+<span id="cb104-15"><a href="#cb104-15" tabindex="-1"></a>  </span>
+<span id="cb104-16"><a href="#cb104-16" tabindex="-1"></a>  result <span class="ot">&lt;-</span> (carb_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (protein_grams <span class="sc">*</span> <span class="dv">4</span>) <span class="sc">+</span> (fat_grams <span class="sc">*</span> <span class="dv">9</span>)</span>
+<span id="cb104-17"><a href="#cb104-17" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb104-18"><a href="#cb104-18" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="pratique-de-classification-du-dosage-de-lisoniazide" class="section level3 unlisted unnumbered">
 <h3 class="unlisted unnumbered">Pratique de classification du dosage de
 l’Isoniazide</h3>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" tabindex="-1"></a>calculer_dosage_isoniazide2 <span class="ot">&lt;-</span> <span class="cf">function</span>(poids) {</span>
-<span id="cb131-2"><a href="#cb131-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(poids <span class="sc">&lt;</span> <span class="dv">30</span>)) <span class="fu">stop</span>(<span class="st">&quot;Tous les poids doivent être au moins de 30 kg.&quot;</span>)</span>
-<span id="cb131-3"><a href="#cb131-3" tabindex="-1"></a></span>
-<span id="cb131-4"><a href="#cb131-4" tabindex="-1"></a>  dosage <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb131-5"><a href="#cb131-5" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">35</span> <span class="sc">~</span> <span class="dv">150</span>,</span>
-<span id="cb131-6"><a href="#cb131-6" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">45</span> <span class="sc">~</span> <span class="dv">200</span>,</span>
-<span id="cb131-7"><a href="#cb131-7" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">55</span> <span class="sc">~</span> <span class="dv">300</span>,</span>
-<span id="cb131-8"><a href="#cb131-8" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="dv">300</span>,</span>
-<span id="cb131-9"><a href="#cb131-9" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">300</span></span>
-<span id="cb131-10"><a href="#cb131-10" tabindex="-1"></a>  )</span>
-<span id="cb131-11"><a href="#cb131-11" tabindex="-1"></a>  <span class="fu">return</span>(dosage)</span>
-<span id="cb131-12"><a href="#cb131-12" tabindex="-1"></a>}</span>
-<span id="cb131-13"><a href="#cb131-13" tabindex="-1"></a></span>
-<span id="cb131-14"><a href="#cb131-14" tabindex="-1"></a><span class="fu">calculer_dosage_isoniazide2</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r tgc-code-block"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" tabindex="-1"></a>calculer_dosage_isoniazide2 <span class="ot">&lt;-</span> <span class="cf">function</span>(poids) {</span>
+<span id="cb105-2"><a href="#cb105-2" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">any</span>(poids <span class="sc">&lt;</span> <span class="dv">30</span>)) <span class="fu">stop</span>(<span class="st">&quot;Tous les poids doivent être au moins de 30 kg.&quot;</span>)</span>
+<span id="cb105-3"><a href="#cb105-3" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="#cb105-4" tabindex="-1"></a>  dosage <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb105-5"><a href="#cb105-5" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">35</span> <span class="sc">~</span> <span class="dv">150</span>,</span>
+<span id="cb105-6"><a href="#cb105-6" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">45</span> <span class="sc">~</span> <span class="dv">200</span>,</span>
+<span id="cb105-7"><a href="#cb105-7" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">55</span> <span class="sc">~</span> <span class="dv">300</span>,</span>
+<span id="cb105-8"><a href="#cb105-8" tabindex="-1"></a>    poids <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="dv">300</span>,</span>
+<span id="cb105-9"><a href="#cb105-9" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="dv">300</span></span>
+<span id="cb105-10"><a href="#cb105-10" tabindex="-1"></a>  )</span>
+<span id="cb105-11"><a href="#cb105-11" tabindex="-1"></a>  <span class="fu">return</span>(dosage)</span>
+<span id="cb105-12"><a href="#cb105-12" tabindex="-1"></a>}</span>
+<span id="cb105-13"><a href="#cb105-13" tabindex="-1"></a></span>
+<span id="cb105-14"><a href="#cb105-14" tabindex="-1"></a><span class="fu">calculer_dosage_isoniazide2</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span></code></pre></div>
 <pre><code>## [1] 150 200 300 300</code></pre>
 </div>
 <div id="contributeurs" class="section level2 unlisted unnumbered">
@@ -2966,7 +2812,7 @@ suivantes :</p>
 Consulté le 25 mai 2022. <a href="https://r4ds.had.co.nz/" class="uri">https://r4ds.had.co.nz/</a></p></li>
 </ul>
 <!-- (Format de Chicago. Vous pouvez utiliser https://www.citationmachine.net) -->
-<p>This work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/"> Creative Commons Attribution Share Alike</a> license. <a class="license" rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">     <img alt="Creative Commons License" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAEZ0FNQQAAsY58+1GTAAAAAXNSR0IB2cksfwAAAb9QTFRF////////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4NAAAAi/BQCAAAAAN0Uk5TAAoO5yEBUwAAA49JREFUeNq1lo930lYUx7Pdsg5pjdF0DiixTNyyKpVhtToY2lGKxeJaHU4HpWrdZplOV7STDfnRbdGyLTTy/YN3XkJoGqBn4nwHzjvn+3gfbr73vvvCvYu3MjgOSCUTsfPhKTkwIXndbq/vWEAOhmdic8lUevnrm9lsLv/6A+CQSsYjZ0Oy3ycK/IjLNXJQEMf9cmg6EmfkzM1sbiAyh2Q8ciZ4QhL5x7UWe4hW7RF/xBc4Ff48nkxdvZ65ZYa8uc2WtzftjJ46OCQiZ4IBj1DY2TVoZ11w+0+GI3PJxaXr7ZDvN4B6qVQHGvethD46OMTOBgNuvgJAKxej0WJZA1A5/YH/1HQssZBeNkK+8wpVJxGRs4pXFkI/HRzOh054GFcrOsgYaxrQOO0OhGZm51N6yPl8A2UiAtgyGrsAXR+enBy26eAQliWhAihO6gyHAlQEnxyOJBbS125kc7lNVA+YYKqi46eu31ZVVb28R2fgqeNiAVAcRHvJ60f8wXOzyStLmVu53DYs/+vEtrmf6ZPq77/9oqo/WnUGln38DrSjtGc4NOzw43L4i0TqKvMCdaaWoRtCdXT212noO/UnonvqC6vOwIGxx0CRbGMNeCQGQhfiC+lrDFwi3QnDi9IuuERD/6h/EQ2r6nsWnYEnDtegOYii1Xq9aEwPiEhDTTjGvFhcvrEvmL56GdXB79vAEt9iDxjVK7i+ok9l9titg76T05fmryxn9rWCLt/+hGhVVe1WeEeBB0QKms5oc02B4lxprulejHjlcGw+tZTJmskzArYl756qbmz8rf5gT57HBUTZnqKxtW13FHC5PzbBm6hSn3Ij2mDl9uuQvdz+E9h6QEpdB+Sj1dUDNn2PFY6jzaIChU12KwY50u3ktbPWSV4JLV7qJC+fv9MAlHJJsTehPrpebhVo1Cm3lbo+URM1YSJ47kuj3AZpm4Gxgu5FrwPy2YW5hbTRhV6/0X+qH2nn/kd6EPDUcfFuryZUEP1TM7PJRb0JDQLGU0l4DiiWNuTU26b08xtd0wCeeQ9ZG72jqAF/8J6neFMwnrgPPbddTfyH39t+aZwPGN/uBeoFxhOvcNd6mRYEj50Lan+oWzcXu8F4Jol8wbz+13lR6vbBbJs9FowW0hOMP7/1jR3mR12uUV4Qx7/Z6jatjxHGUt+IAWw9vCh5PR6vdPHhVq9s9IvY9L4v+P9+K3znLXH/BS/TEND+y7DLAAAAAElFTkSuQmCC" /></a></p>
+<p>This work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/"> Creative Commons Attribution Share Alike</a> license. <a class="license" rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">     <img alt="Creative Commons License" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAAAfCAMAAABUFvrSAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjnz7UZMAAAAgY0hSTQAAeiUAAICDAAD5/wAAgOkAAHUwAADqYAAAOpgAABdvkl/FRgAAAb9QTFRFAAAAAAAA////////////8fHx7+/v6Ofn4+Pj4N/g39/f1tXV09bS0tXS0tXR0dTR0dTQ0NTQ0NPPz9PPztLOztHNzdHNzdHMz8/PzdDMzNDMzNDLzM/Ly8/Ly8/Ky87Kys3Jyc3Jyc3Iy8rLyMzIyMzHx8vHxsrGycjIxsrFxcnFyMfHxcnExMnExMjDw8jDxMfDw8fCwsfCwcXAwMXAwMW/wMS/v8S+v8O+vsO+vsK9vcK9vcK8v7+/vMG8vMG7vMC8u8C7u8C6ur+6ur+5ub65ub64uL23t7y2urm5tru1tbq0tLqztLmzs7iysrixtbW1srexsbewsbawsLavsLWvr7Wur7SusLOvrrStrrOtr7KvrbOsrLKrr6+vq7GqrKuro6Ghn6OenqCdn5+fnp2dn5aalpmWmJaXk5iTkZSRkZORkY+Pj4+PiYyJjoeLhIaEhIWEgoWChIGCgICAfX98fH98eXx5dnN0cHJvcHBwbmxsY19hYGBgXV5dUFFQUFBQQ0RDQEBAPj8+Pzc5NTY1MjMxMDAwMS0uLS0tKSkpKCkoKCgoKicnJCQkIx8gICAgGxsbEBAQDg4ODQ4N9qQJ7gAAAAR0Uk5T/wAKDnDBpeYAAANgSURBVHjatZb7VxJBFMdvNVIR2raFGRCr1FqbihL5TMLM9zPNNE1N0x5KmSZpUShiRUm1uPIHd2dhGd3d4zni8fvLeL5z9uPd78y9C5yBE9EpAOjt6gg2+qslsUxwORwud6koef0Nwfau3oHhp+OTk1Mvji5QuW3NdT7J47bzXKHNVniRt1/3SL7a5jZKHh2fnMqTjNx73nLBzq1spQGV3lrmrrjFKv99JA+OjE5oJa/vAGpnXYcw99HpQK7o5EO7kNPuIu/wVPqb27v6h0ayJS8kAeKRSBwgucCeN/oMHKzzig5uEwCUaDgQCEcVANisueqpqg129GAYaskv9yBmJShrDPYYwegzcKOv3Em5SthCMppHdLLGIfoaWjt7sWQKTkIUdwDoNiQZQPXPVVSc03wG9ksCj9yEleRkSWDNvFvyN2PJT8Ywi3WIXdDAJAa5PFV/VkZ1Z30Grr5pDyE3Wy4jL17xeOtbu/qGRiempnbAynatsKM9T/0K+fu3z7L8LuMzsOTmdkEpIQdkUWCXuy75H3T0DtIsIE7dKKiBkDhoz6Nf8Fr+QMgr+VfGZ2CxeAUgTHSaB1i2i76mNsyCgiPUBBRdIzkA+gX/5D8YsyyfVX0GLru8BQoGEYjF4+HM8h4fVmCLL6VZ9A+PHQomj38HVPB5HVjg0hBFIFDFp4EqSl87fdFdWfuws2949NAoSPfsbUJmZFkfhasIAEtMQMoaSM0n8HpMp+bVLApdkj+IFw7B2cMDMB4exiuvrv6V3+oPz2kDwHdRc84t6hvYHLc0MF4rYn7d0F+VUV8LqH9k8P4GiRga5MbMzAXmG6OwlKTCGAVd9FEcuaXZ4WVPLbvQ/5/mhNzhISEJkIhGEvohZPTZddsEheSu23RcXUgKr1uZt/5R5rrlMzbF4hBmYd4gd5vaewZo5+Uz6O+oLW09pKXzBOMQmjMbQiG7p7oBG48OobzAsCbwG0guYVyrOjaFj3BMfXFd2j/oLWEF4AfnXINj65Pj0obu08RdewMHlekP+ofpBjEnu/i5/R/TEO/UcyGDJUYu2zRLQ7BzIe3zv8jZBczBrDCz57URAqb6+dxdfJkrstmKOPzB8mwbDGJBGES0TVNtL7UILqfTJbQsMax5xUafgU9ep08Ge+o/RyjkZSMkFewAAAAASUVORK5CYII=" /></a></p>
 </div>
 </div>
 

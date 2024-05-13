@@ -289,87 +289,6 @@ medicaldata::smartpill %>%
 ```
 :::
 
-## Passer des Arguments aux Fonctions Internes
-
-‣ Lors de l'écriture de fonctions en R, vous pourriez avoir besoin **d'utiliser des fonctions existantes au sein de votre fonction personnalisée**.
-
-‣ Considérons notre fonction qui convertit les livres en kilogrammes.
-
-```{r}
-pounds_to_kg <- function(pounds) {
-  kg <- pounds * 0.4536
-  return(kg)
-}
-```
-
-‣ Nous pourrions vouloir intégrer la fonction `round` pour arrondir la sortie à un certain nombre de décimales.
-
-```{r}
-# Par exemple
-round(x = 1.2345, digits = 2)
-```
-
-‣ Pour cela, nous pouvons ajouter un argument `round_to` dans la fonction personnalisée pour contrôler l'arrondi.
-
-```{r}
-# copiez la fonction ci-dessus, puis ajoutez un argument `round_to`
-```
-
-‣ Testons la nouvelle fonction :
-
-```{r}
-pounds_to_kg(10) # sans argument passé à round_to, la valeur par défaut de 2 est utilisée
-pounds_to_kg(10, round_to = 1)
-pounds_to_kg(10, round_to = 3)
-```
-
-## L'Argument Ellipse, `...`
-
-‣ Lorsqu'il y a de nombreux arguments dans une fonction interne, on peut utiliser l'**argument ellipse** `...`.
-
-‣ Exemple : La fonction `format()` a de multiples arguments.
-
-```{r}
-format(x = 12364.2345, 
-       big.mark = " ", # séparateur de milliers
-       decimal.mark = ",", # point décimal. Style français !
-       nsmall = 2, # nombre de chiffres après le point décimal
-       scientific = FALSE # utiliser la notation scientifique ?
-       )
-```
-
-‣ Utilisez `...` pour passer plusieurs arguments à `format` dans une fonction personnalisée.
-
-```{r}
-# Modifiez la fonction pour utiliser `...`
-pounds_to_kg <- function(pounds, ...) {
-  kg <- pounds * 0.4536
-  return(kg)
-}
-```
-
-‣ Les arguments passés à la fonction personnalisée seront transmis à `format`.
-
-```{r}
-pounds_to_kg(10000.234)
-pounds_to_kg(10000.234, big.mark = " ", decimal.mark = ",")
-```
-
-::: pratique
-### Pratique avec l'Argument ... {.unlisted .unnumbered}
-
-Considérez notre fonction `calculate_calories()`.
-
-```{r}
-calculate_calories <- function(carb_grams, protein_grams, fat_grams, ...) {
-  result <- (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
-  return(result)
-}
-```
-
-Améliorez cette fonction pour accepter les arguments de formatage en utilisant le mécanisme `...`.
-:::
-
 ## Comprendre la Portée dans R
 
 ‣ La **portée** fait référence à la **visibilité des variables** et des objets dans différentes parties de votre code R.
@@ -678,33 +597,6 @@ calculate_isoniazid_dosage2(c(30, 40, 50, 100))
 ```
 :::
 
-## Où Garder Vos Fonctions
-
-‣ **Stocker les fonctions dans les scripts R** : Clé pour un code propre et des flux de travail efficaces.
-
-‣ **1) Haut du Script** : Pratique courante pour un accès facile.
-
-‣ **2) Script Séparé qui est Chargé** : - Idéal pour plusieurs fonctions. - Maintient le script principal ordonné. - Utilisez 'source' pour charger ces fonctions.
-
-```{r eval = F}
-# Exemple de chargement d'un script séparé
-source("example_script.R")
-```
-
-‣ **3) GitHub Gist** : - Pour des fonctions fréquemment utilisées ou partagées. - Stockez dans un gist public sur <https://gist.github.com/>. - Utilisez `source_gist()` de `devtools` pour charger dans le script R.
-
-‣ **Exemple de Fonction** : `hello_from_gist("Étudiant")`.
-
-‣ **URL du Gist** : Voir le code et les mises à jour sur <https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0>.
-
-```{r}
-# Chargement à partir d'un GitHub Gist
-pacman::p_load(devtools)
-devtools::source_gist("https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0")
-```
-
-‣ **4) Package** : - Adapté pour une collection de fonctions. - Nécessite une connaissance du développement de packages R. - Référence : [Écrire des Extensions R](https://cran.r-project.org/doc/manuals/r-release/R-exts.html).
-
 # Corrigés
 
 ### Fonction Mois d'Âge {.unlisted .unnumbered}
@@ -749,15 +641,6 @@ medicaldata::smartpill %>%
   mutate(IMC = calc_bmi(Weight, Height))
 ```
 
-### Pratiquer avec l'argument `...` {.unlisted .unnumbered}
-
-```{r}
-calculer_calories <- function(grammes_glucides, grammes_proteines, grammes_graisses, ...) {
-  resultat <- (grammes_glucides * 4) + (grammes_proteines * 4) + (grammes_graisses * 9)
-  resultat_formate <- format(resultat, ...)
-  return(resultat)
-}
-```
 
 ### Débogage d'une Fonction avec une Logique Conditionnelle {.unlisted .unnumbered}
 

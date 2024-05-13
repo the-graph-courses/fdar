@@ -365,94 +365,6 @@ medicaldata::smartpill %>%
 ```
 :::
 
-# Passage d'Arguments aux Fonctions Internes
-
-Lors de l'écriture de fonctions en R, vous pourriez avoir besoin d'utiliser des fonctions existantes au sein de votre fonction personnalisée. Par exemple, considérons notre fonction familière qui convertit les livres en kilogrammes :
-
-```{r}
-pounds_en_kg <- function(pounds) {
-  kg <- pounds * 0.4536
-  return(kg)
-}
-```
-
-Il pourrait être utile de pouvoir arrondir le résultat à un nombre spécifié de décimales sans appeler une fonction séparée.
-
-Pour cela, nous pouvons intégrer directement la fonction `round` dans notre fonction personnalisée. La fonction `round` a deux arguments : `x`, le nombre à arrondir, et `digits`, le nombre de décimales à arrondir :
-
-```{r}
-round(x = 1.2345, digits = 2)
-```
-
-Maintenant, nous pouvons ajouter un argument à notre fonction appelé `arrondir_a` qui sera passé à l'argument `digits` de la fonction `round`.
-
-```{r}
-pounds_en_kg <- function(pounds, arrondir_a = 2) {
-  kg <- pounds * 0.4536
-  kg_arrondi <- round(x = kg, digits = arrondir_a)
-  return(kg_arrondi)
-}
-```
-
-Dans la fonction ci-dessus, nous avons ajouté un argument appelé `arrondir_a` avec une valeur par défaut de `3`.
-
-Maintenant, lorsque vous passez une valeur à l'argument `arrondir_a`, elle sera utilisée par la fonction `round`.
-
-```{r}
-pounds_en_kg(10) # sans argument passé à arrondir_a, la valeur par défaut de 2 est utilisée
-pounds_en_kg(10, arrondir_a = 1)
-pounds_en_kg(10, arrondir_a = 3)
-```
-
-## L'Argument Ellipse, `...`
-
-Parfois, il y a de nombreux arguments à passer à une fonction interne. Par exemple, considérez la fonction `format()` en R, qui a de nombreux arguments :
-
-```{r}
-format(x = 12364.2345, 
-       big.mark = " ", # séparateur de milliers
-       decimal.mark = ",", # point décimal à la française !
-       nsmall = 2, # nombre de chiffres après la virgule
-       scientific = FALSE # utiliser la notation scientifique ?
-       )
-```
-
-Vous pouvez voir tous les arguments en tapant `?format` dans la console.
-
-Si nous voulons que notre fonction puisse passer tous ces arguments à la fonction `format`, nous utiliserons l'argument ellipse, `...`. Voici un exemple :
-
-```{r}
-pounds_en_kg <- function(pounds, ...) {
-  kg <- pounds * 0.4536
-  kg_formate <- format(x = kg, ...)
-  return(kg_formate)
-}
-```
-
-Maintenant, lorsque nous passons des arguments à la fonction `livres_en_kg`, ils seront transmis à la fonction `format`, même si nous ne les avons pas explicitement définis dans notre fonction.
-
-```{r}
-pounds_en_kg(10000.234)
-pounds_en_kg(10000.234, big.mark = " ", decimal.mark = ",")
-```
-
-Super !
-
-::: pratique
-### Pratique avec l'Argument ... {.unlisted .unnumbered}
-
-Considérez notre fonction `calculer_calories()`.
-
-```{r}
-calculate_calories <- function(carb_grams, protein_grams, fat_grams) {
-  result <- (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
-  return(result)
-}
-```
-
-Améliorez cette fonction pour accepter les arguments de formatage en utilisant le mécanisme `...`.
-:::
-
 # Compréhension de la Portée en R
 
 La portée se réfère à la visibilité des variables et objets dans différentes parties de votre code R. Il est important de comprendre la portée lors de l'écriture de fonctions.
@@ -500,29 +412,6 @@ Maintenant, nous pouvons accéder à l'objet `kg` :
 ```{r}
 kg
 ```
-
-::: astuce-pro
-**L'Opérateur de Superassignation, \`<<-\`**
-
-Bien que nous ayons dit que les objets créés au sein d'une fonction ont une portée locale, il est en réalité **possible** de créer des variables globales depuis l'intérieur d'une fonction en utilisant l'opérateur spécial `<<-`.
-
-Considérez l'exemple suivant :
-
-```{r}
-test <- function() {
-  nouvel_objet <<- 15
-}
-```
-
-Maintenant, si nous exécutons la fonction, `nouvel_objet` sera créé dans l'environnement global, avec une valeur de 15 :
-
-```{r}
-test()
-nouvel_objet
-```
-
-Bien que cela soit techniquement possible, cela n'est généralement pas recommandé (surtout pour les non-experts) en raison des effets secondaires potentiels et des défis de maintenance.
-:::
 
 # Introduction aux Conditionnels : `if`, `else if` et `else`
 
@@ -871,47 +760,6 @@ calculate_isoniazid_dosage2(c(30, 40, 50, 100))
 ```
 :::
 
-# Où stocker vos fonctions
-
-Lorsque vous écrivez des scripts en R, décider où stocker vos fonctions est une considération importante pour maintenir un code propre et un flux de travail. Voici quelques stratégies clés :
-
-**1) Haut du Script**
-
-Placer les fonctions en haut de votre script est une pratique simple et couramment utilisée.
-
-**2) Script Séparé qui est utilisé comme source**
-
-À mesure que votre projet grandit, vous pouvez avoir plusieurs fonctions. Dans de tels cas, les stocker dans un script R séparé peut permettre de garder votre script d'analyse principal ordonné. Vous pouvez ensuite 'sourcer' ce script pour charger les fonctions.
-
-```{r eval = F}
-# Sourcer un script séparé
-source("chemin_vers_votre_script_de_fonctions.R")
-```
-
-**3) GitHub Gist**
-
-Pour des fonctions que vous réutilisez fréquemment ou souhaitez partager avec la communauté, les stocker dans un GitHub Gist est une bonne option. Créez un compte sur github, puis créez un gist public à <https://gist.github.com/>. Ensuite, vous pouvez copier-coller votre fonction dans le gist. Finalement, vous pouvez obtenir l'URL du gist et la sourcer dans votre script R en utilisant la fonction `source_gist()` du package `devtools` :
-
-```{r}
-# Sourcer depuis un GitHub Gist
-pacman::p_load(devtools)
-devtools::source_gist("https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0")
-```
-
-Lorsque vous exécutez le code ci-dessus, cela définira une nouvelle fonction appelée `hello_from_gist()` que nous avons créée pour cette leçon.
-
-```{r}
-hello_from_gist("Étudiant")
-```
-
-Vous pouvez voir le code en allant directement à l'URL : <https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0>.
-
-Le code dans le gist peut être mis à jour à tout moment, et les changements seront reflétés dans votre script lorsque vous le sourcerez à nouveau.
-
-**4) Package**
-
-Comme précédemment mentionné, les fonctions peuvent également être stockées dans des packages. C'est une option plus avancée qui nécessite la connaissance du développement de packages R. Pour plus d'informations, voir le manuel [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html).
-
 # Conclusion !
 
 Félicitations pour avoir suivi la leçon !
@@ -960,16 +808,6 @@ medicaldata::smartpill %>%
   as_tibble() %>%
   select(Weight, Height) %>%
   mutate(IMC = calculer_imc(Weight, Height))
-```
-
-### Pratique avec l'Argument ... {.unlisted .unnumbered}
-
-```{r}
-calculate_calories <- function(carb_grams, protein_grams, fat_grams, ...) {
-  result <- (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
-  result_formatted <- format(result, ...)
-  return(result)
-}
 ```
 
 ### Débogage d'une Fonction avec Logique Conditionnelle {.unlisted .unnumbered}
