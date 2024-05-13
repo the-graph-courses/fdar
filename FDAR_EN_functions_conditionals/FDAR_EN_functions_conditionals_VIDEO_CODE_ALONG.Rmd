@@ -27,8 +27,6 @@ source(here("global/functions/misc_functions.R"))
 knitr::opts_chunk$set(warning = F, message = F, class.source = "tgc-code-block", error = T)
 ```
 
-<!-- # Functions: introduction -->
-
 # Intro
 
 The two main components of the R language are objects and functions. Objects are the data structures that we use to store information, and functions are the tools that we use to manipulate these objects. Paraphrasing [John Chambers](https://statweb.stanford.edu/~jmc4/vitae.html), one of the originators of the R language, everything that "exists" in R is an object, and everything that "happens" is a function.
@@ -133,6 +131,8 @@ pounds_to_kg
 
 ::: practice
 ### Age Months Function {.unlisted .unnumbered}
+
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
 
 Create a simple function called `years_to_months` that transforms age in years to age in months.
 
@@ -289,87 +289,6 @@ medicaldata::smartpill %>%
 ```
 :::
 
-## Passing Arguments to Internal Functions
-
-‣ When writing functions in R, you may need to **use existing functions within your custom function**.
-
-‣ Consider our function that converts pounds to kilograms.
-
-```{r}
-pounds_to_kg <- function(pounds) {
-  kg <- pounds * 0.4536
-  return(kg)
-}
-```
-
-‣ We may want to incorporate the `round` function to round the output to specified decimal places.
-
-```{r}
-# For example
-round(x = 1.2345, digits = 2)
-```
-
-‣ For this, we can add an argument `round_to` in the custom function to control rounding.
-
-```{r}
-# copy the function from above, then add an argument `round_to`
-```
-
-‣ Let's test the new function:
-
-```{r}
-pounds_to_kg(10) # with no argument passed to round_to, default of 2 is used
-pounds_to_kg(10, round_to = 1)
-pounds_to_kg(10, round_to = 3)
-```
-
-## The Ellipsis Argument, `...`
-
-‣ When there are many arguments in an internal function, can use the **ellipsis argument** `...`.
-
-‣ Example: The `format()` function has multiple arguments.
-
-```{r}
-format(x = 12364.2345, 
-       big.mark = " ", # thousands separator
-       decimal.mark = ",", # decimal point. French style!
-       nsmall = 2, # number of digits to the right of the decimal point
-       scientific = FALSE # use scientific notation?
-       )
-```
-
-‣ Use `...` to pass multiple arguments to `format` in a custom function.
-
-```{r}
-# Modify the function to use `...`
-pounds_to_kg <- function(pounds) {
-  kg <- pounds * 0.4536
-  return(kg)
-}
-```
-
-‣ Arguments passed to the custom function will be forwarded to `format`.
-
-```{r}
-pounds_to_kg(10000.234)
-pounds_to_kg(10000.234, big.mark = " ", decimal.mark = ",")
-```
-
-::: practice
-### Practice with the ... Argument {.unlisted .unnumbered}
-
-Consider our `calculate_calories()` function.
-
-```{r}
-calculate_calories <- function(carb_grams, protein_grams, fat_grams) {
-  result <- (carb_grams * 4) + (protein_grams * 4) + (fat_grams * 9)
-  return(result)
-}
-```
-
-Enhance this function to accept formatting arguments using the `...` mechanism.
-:::
-
 ## Understanding Scope in R
 
 ‣ **Scope** refers to the **visibility of variables** and objects within different parts of your R code.
@@ -405,25 +324,6 @@ pounds_to_kg <- function(pounds) {
 ```{r}
  # store the output of pounds_to_kg(50) in a global object, kg
 ```
-
-‣ **PRO-TIP: Superassignment Operator, `<<-`**
-
-‣ You can actually create global variables from within a function with `<<-`.
-
-‣ Example: Creating a global variable `new_obj` inside a function.
-
-```{r}
-# function called test() that globally assigns the value 15 to new_obj
-```
-
-‣ Running `test()` creates `new_obj` in the global environment.
-
-```{r}
-test()
-new_obj
-```
-
-‣ While possible, it's generally not recommended due to potential side effects.
 
 ## Intro to Conditionals: `if`, `else if` and `else`
 
@@ -692,33 +592,6 @@ calculate_isoniazid_dosage2 <- function(weight) {
 calculate_isoniazid_dosage2(c(30, 40, 50, 100))  
 ```
 :::
-
-## Where to Keep Your Functions
-
-‣ **Storing functions in R scripts**: Key for clean code and efficient workflows.
-
-‣ **1) Top of the Script**: Common practice for easy access.
-
-‣ **2) Separate Script That is Sourced**: - Ideal for multiple functions. - Keeps main script tidy. - Use 'source' to load these functions.
-
-```{r eval = F}
-# Example of sourcing a separate script
-source("example_script.R")
-```
-
-‣ **3) GitHub Gist**: - For frequently used or shared functions. - Store in a public gist at <https://gist.github.com/>. - Use `source_gist()` from `devtools` to source in R script.
-
-‣ **Function Example**: `hello_from_gist("Student")`.
-
-‣ **Gist URL**: See code and updates at <https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0>.
-
-```{r}
-# Sourcing from a GitHub Gist
-pacman::p_load(devtools)
-devtools::source_gist("https://gist.github.com/kendavidn/a5e1ce486910e6b2dc77a5b6bddf87d0")
-```
-
-‣ **4) Package**: - Suitable for a collection of functions. - Requires knowledge of R package development. - Reference: [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html).
 
 # Answer Key
 
