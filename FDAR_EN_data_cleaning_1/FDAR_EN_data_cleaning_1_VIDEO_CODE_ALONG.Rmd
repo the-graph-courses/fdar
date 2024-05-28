@@ -44,13 +44,9 @@ Let's get started!
 
 # Learning objectives
 
--   You can list typical operations involved in data cleaning process
-
 -   You can diagnose dataset issues that warrant data cleaning through functions such as:
 
     -   `visdat::vis_dat()`
-
-    -   `skimr::skim()`
 
     -   `inspectdf::inspect_cat()`
 
@@ -58,19 +54,15 @@ Let's get started!
 
     -   `gtsummary::tbl_summary()`
 
-    -   `DataExplorer::create_report()`
-
-# Packages
+#  Packages
 
 The packages loaded below will be required for this lesson:
 
 ```{r}
 if(!require("pacman")) install.packages("pacman")
 pacman::p_load(visdat, 
-               skimr,
                inspectdf,
                gtsummary,
-               DataExplorer,
                tidyverse)
 ```
 
@@ -134,7 +126,6 @@ vis_dat(_________)
 -   Some variable names are unclear/uncleaned.
 
 ::: r-practice
-
 *(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
 
 The following dataset was adapted from a study that investigated missed opportunities for HIV testing among patients newly presenting for HIV care at a Swiss university hospital. The full dataset can be found [here](https://zenodo.org/records/5008340).
@@ -148,65 +139,9 @@ Use the `vis_dat()` function to get a visual representation of the data. What po
 
 ------------------------------------------------------------------------
 
-# Generating a summary of variables with `skimr::skim()`
-
-‣ The `skim()` function from the `skimr` package provides a summary of each column (by class/type) in the console.
-
-‣ As a reminder, here is our dataset `covid_pat`:
-
-```{r}
-covid_pat
-```
-
-‣ Let's now try the `skim()` function!
-
-```{r}
-skimr::skim(covid_pat)
-```
-
-‣ The `skim::skimr()` function provides:
-
--   The number of rows and columns in our dataset
-
--   The data type for each variable
-
--   `n_missing`, the number of missing values for each variable
-
--   `complete_rate`, the completeness rate for each variable
-
--   A set of summary statistics: mean, standard deviation, and quartiles for numeric variables; and frequency and proportions for categorical variables
-
--   Histograms for numeric variables
-
-‣ Let's go back to our dataset `non_adherence` and run the `skim()` function on it.
-
-‣ As a reminder, here is our dataset `non_adherence`:
-
-```{r}
-non_adherence
-```
-
-```{r}
-skimr::skim(_________)
-```
-
-‣ From this data output, we can identify some potential issues:
-
--   We can confirm that the `NA` column is completely empty: it has a `complete_rate` of 0
-
--   The distribution of `Age at ARV initiation` is skewed
-
-::: r-practice
-Use `skim()` to obtain a detailed overview of the `missed_ops` dataset.
-
-```{r}
-skim(________)
-```
-:::
-
 # Visualization of summary statistics with `inspectdf`
 
-‣ Using the `inspectdf::inspect_cat()` and `inspectdf::inspect_num()` functions to get variable summaries in richer graphical form
+‣ Using the `inspectdf::inspect_cat()` and `inspectdf::inspect_num()` functions to get variable summaries in rich graphical form
 
 ‣ `inspect_cat()`: for a summary of categorical variables
 
@@ -219,6 +154,13 @@ inspectdf::inspect_cat(covid_pat)
 ‣ To see this, let's use the `show_plot()` function with `inspect_cat()`
 
 ‣ Use `show_plot()` to visualize categorical distributions
+
+```{r}
+inspect_cat(_________) %>%
+ show_plot()
+```
+
+‣ Now let's run this on the `non_adherence` dataset:
 
 ```{r}
 inspect_cat(_________) %>%
@@ -285,26 +227,6 @@ Use `tbl_summary()` to output a summary of your `missed_ops` dataset. Can you id
 
 ------------------------------------------------------------------------
 
-# Creating data reports with `DataExplorer::create_report()`
-
-‣ `create_report()` from `DataExplorer` generates an HTML format summary report of our dataset
-
-‣ Let's try it on `non_adherence`
-
-```{r}
-DataExplorer::create_report(________)
-```
-
-‣ The report includes basic statistics, distribution visualizations, and more
-
-‣ QQ plot, correlation analysis, and principal component analysis are included
-
-::: practice
-Create a data report for your `missed_ops` data using the `create_report()` function!
-:::
-
-------------------------------------------------------------------------
-
 # Wrap up!
 
 By familiarizing ourselves with the data, we have been able to identify some potential problems that may need to be addressed before the data are used in an analysis.
@@ -326,12 +248,6 @@ vis_dat(missed_ops)
 ```
 
 -   The column NaN is completely empty
-
-### Q: Genertaing summary stats with `skim()` {.unlisted .unnumbered}
-
-```{r}
-skim(missed_ops)
-```
 
 ### Q: Spotting data issues with `inspect_cat()` {.unlisted .unnumbered}
 
@@ -358,15 +274,9 @@ inspect_num(missed_ops) %>%
 tbl_summary(missed_ops)
 ```
 
--   For the variable `reasonsdx`, there are the categories `Epidemiological risk` and `Epi risk` which should be a single category
+-   Example issue: for the variable `reasonsdx`, there are the categories `Epidemiological risk` and `Epi risk` which should be a single category
 
-### Q: Data report with `create_report()` {.unlisted .unnumbered}
-
-```{r eval=FALSE}
-DataExplorer::create_report(missed_ops)
-```
-
------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 ## References {.unlisted .unnumbered}
 
@@ -382,5 +292,4 @@ Some material in this lesson was adapted from the following sources:
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko"))` 
-
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko"))`

@@ -44,21 +44,15 @@ Let's get started!
 
 # Learning objectives
 
--   You can list typical operations involved in data cleaning process
-
 -   You can diagnose dataset issues that warrant data cleaning through functions such as:
 
     -   `visdat::vis_dat()`
-
-    -   `skimr::skim()`
 
     -   `inspectdf::inspect_cat()`
 
     -   `inspectdf::inspect_num()`
 
     -   `gtsummary::tbl_summary()`
-
-    -   `DataExplorer::create_report()`
 
 ------------------------------------------------------------------------
 
@@ -69,10 +63,8 @@ The packages loaded below will be required for this lesson:
 ```{r}
 if(!require("pacman")) install.packages("pacman")
 pacman::p_load(visdat, 
-               skimr,
                inspectdf,
                gtsummary,
-               DataExplorer,
                tidyverse)
 ```
 
@@ -159,57 +151,9 @@ Use the `vis_dat()` function to get a visual representation of the data. What po
 
 ------------------------------------------------------------------------
 
-# Generating summary statistics with `skimr::skim()`
+# Visualizing variable distributions with functions from `inspectdf`
 
-The `skim()` function from the `skimr` package provides a console-based overview of the data frame and a summary of every column (by class/type). Let's try it on our `covid_pat` mock data first to get an idea of how it works. First, as a reminder, here is our `covid_pat` dataframe:
-
-```{r render=reactable_10_rows}
-covid_pat
-```
-
-Great, now let's run the `skim()` function!
-
-```{r}
-skimr::skim(covid_pat)
-```
-
-Amazing! As we can see, this function provides:
-
--   An overview of the rows and columns of the dataframe
--   The data type for each variable
--   `n_missing`, the number of missing values for each variable
--   `complete_rate`, the completeness rate for each variable
--   A set of summary statistics: the mean, standard deviation and quartiles for numerical variables; and the frequency and proportions for categorical variables
--   Spark histograms for the numerical variables
-
-Now we can tell why this is so valuable with large dataframes! Let's return to our `non-adherence` dataset and run the `skim()` function on it.
-
-```{r render=reactable_5_rows}
-non_adherence
-```
-
-```{r}
-skimr::skim(non_adherence)
-```
-
-From this output, we can identify some potential issues with our data:
-
--   we can confirm that the column `NA`, which you saw from the `vis_dat()` output, is indeed completely empty: it has a `complete_rate` of 0
--   the distribution for `Age at ART initation` is skewed
-
-::: r-practice
-### Genertaing summary stats with `skim()` {.unlisted .unnumbered}
-
-Use `skim()` to obtain a detailed overview of the `missed_ops` dataset.
-:::
-
-Great! Now that we know how to generate a short report of summary statistics for our variables. In the next section, we'll learn about a couple useful functions from the `inspectdf` package that allows us to visualize different summary stats.
-
-------------------------------------------------------------------------
-
-# Visualizing summary statistics with functions from `inspectdf`
-
-While the `skimr::skim()` function gives you variable summaries in the console, you may sometimes want variables summaries in richer graphical form instead. For this, the functions `inspectdf::inspect_cat()` and `inspectdf::inspect_num()` can be used.
+You may sometimes want to generate quick graphical summaries of your variable distributions. For this, the functions `inspectdf::inspect_cat()` and `inspectdf::inspect_num()` can be used.
 
 If you run `inspect_cat()` on a data object, you get a tabular summary of the categorical variables in the dataset (the important information is hidden in the `levels` column). Let's try it out on the `covid_pat` dataset first. As a reminder, here is our dataset:
 
@@ -304,32 +248,6 @@ Use `tbl_summary()` to output a summary of your `missed_ops` dataset. Can you id
 
 ------------------------------------------------------------------------
 
-# Creating data reports with `DataExplorer::create_report()`
-
-Finally, the `create_report()` function from the `DataExplorer` package creates a full data profile of a provided data frame: an HTML file with basic statistics and distribution visualizations.
-
-Let's run this function on the `non_adherence` dataframe and observe its output. Note that it may take a while to run. If it takes too long, you can run it on a dataset sample, rather than the entire dataset.
-
-```{r eval = FALSE}
-create_report(non_adherence)
-```
-
-As you can see, the report is quite extensive. We won't go over all of the outputs from this data report because many of the graphical outputs are the same as those we have seen with previous functions! However, some new outputs include:
-
--   QQ plot to assess the normality of numeric variables
--   Correlation analysis (when there are sufficient complete rows)
--   Principal component analysis (when there are sufficient complete rows)
-
-Feel free to explore the [package documentation](https://boxuancui.github.io/DataExplorer/index.html) on your own time.
-
-::: r-practice
-### Data report with `create_report()` {.unlisted .unnumbered}
-
-Create a data report for your `missed_ops` data using the `create_report()` function!
-:::
-
-------------------------------------------------------------------------
-
 # Wrap up!
 
 By familiarizing ourselves with the data, we have been able to identify some potential problems that may need to be addressed before the data are used in an analysis.
@@ -351,12 +269,6 @@ vis_dat(missed_ops)
 ```
 
 -   The column NaN is completely empty
-
-### Q: Genertaing summary stats with `skim()` {.unlisted .unnumbered}
-
-```{r}
-skim(missed_ops)
-```
 
 ### Q: Spotting data issues with `inspect_cat()` {.unlisted .unnumbered}
 
@@ -384,12 +296,6 @@ tbl_summary(missed_ops)
 ```
 
 -   For the variable `reasonsdx`, there are the categories `Epidemiological risk` and `Epi risk` which should be a single category
-
-### Q: Data report with `create_report()` {.unlisted .unnumbered}
-
-```{r eval=FALSE}
-DataExplorer::create_report(missed_ops)
-```
 
 ------------------------------------------------------------------------
 
