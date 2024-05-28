@@ -32,7 +32,7 @@ knitr::opts_chunk$set(class.source = "tgc-code-block")
 
 ![](images/data-cleaning.png){width="145"}
 
-Data cleaning is the process of transforming raw, "messy" data into reliable data that can be properly analyzed. This entails identifying **inaccurate**, **incomplete**, or **improbable** data points and resolving data inconsistencies or errors, as well as renaming variable names to make them more clear and simple to manipulate.
+Data cleaning is the process of transforming raw, "messy" data into reliable data that can be properly analyzed. This entails identifying **inaccurate**, **incomplete**, or **improbable** data points, and resolving data inconsistencies or errors, as well as renaming variable names to make them more clear and simple to manipulate.
 
 Data cleaning tasks can often be tedious and time-consuming. A common joke among data analysts goes "80% of data science is cleaning the data and the remaining 20% is complaining about cleaning the data." But data cleaning is an essential step of the data analysis process. A little bit of cleaning at the start of the data analysis process will go a long way to improving the quality of your analyses and the ease with which these analyses can be done. And a range of packages and functions in R can significantly simplify the data cleaning process.
 
@@ -145,6 +145,8 @@ In the next lesson, we will try to remedy these and other issues as best as poss
 
 ::: r-practice
 ### Spotting data issues with `vis_dat()`
+
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
 
 The following dataset was adapted from a study that investigated missed opportunities for HIV testing among patients newly presenting for HIV care at a Swiss university hospital. The full dataset can be found [here](https://zenodo.org/records/5008340).
 

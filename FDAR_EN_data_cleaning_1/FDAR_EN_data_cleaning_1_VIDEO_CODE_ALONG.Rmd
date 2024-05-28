@@ -81,7 +81,7 @@ pacman::p_load(visdat,
 -   It examines individual factors associated with the time until non-adherence to HIV treatment.
 
 ```{r render=reactable_5_rows}
-non_adherence <- read_csv(here("data/non_adherence_EN.csv"))
+non_adherence <- read_csv(here("data/non_adherence_moz.csv"))
 ```
 
 # Visualizing Missing Data with `visdat::vis_dat()`
@@ -134,6 +134,9 @@ vis_dat(_________)
 -   Some variable names are unclear/uncleaned.
 
 ::: r-practice
+
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
+
 The following dataset was adapted from a study that investigated missed opportunities for HIV testing among patients newly presenting for HIV care at a Swiss university hospital. The full dataset can be found [here](https://zenodo.org/records/5008340).
 
 ```{r eval=FALSE}
