@@ -224,8 +224,7 @@ While the `inspect_cat()` function is useful for a graphical overview of categor
 Let's try it out on our `non_adherence` dataset:
 
 ```{r}
-gtsummary::tbl_summary(non_adherence) %>% 
-  as_tibble()
+gtsummary::tbl_summary(non_adherence) 
 ```
 
 That looks great! As we can see it outputs a summary of the frequency and percentages for categorical variables and the median and IQR for numeric variables.
@@ -234,11 +233,7 @@ Below is a photo of part of the output where we can see additional issues with o
 
 ![](images/tbl_summary-01.png)
 
-This means that R doesn't recognize them as being the same value which would be problematic during analysis. We'll fix these errors in the next lesson, for now though let's move on to our last function for exploratory data analysis!
-
-::: watch-out
-The `tbl_summary()` function is not appropriate for checking variable names. As you may have noticed, all whitespaces were replaced by a period. For example, `Age at ART initation` becomes `Age.at.ART.initation`.
-:::
+This means that R doesn't recognize them as being the same value which would be problematic during analysis. We'll fix these errors in the next lesson!
 
 ::: r-practice
 ### Spotting data issues with `tbl_summary()` {.unlisted .unnumbered}
@@ -251,6 +246,13 @@ Use `tbl_summary()` to output a summary of your `missed_ops` dataset. Can you id
 # Wrap up!
 
 By familiarizing ourselves with the data, we have been able to identify some potential problems that may need to be addressed before the data are used in an analysis.
+
+The problems we identified in the `non_adherence` dataset were:
+
+-   The `NA` variable is a completely empty column, and can be removed.
+-   Variables names are not clean and must be standardized.
+-   There are inconsistencies in the way the levels have been coded (e.g., the `Age_35` variable has `Under 35` and `over 35`,  the `Sex` variable has `F` and `Male`, and the `Occupation` variable has inconsistent capitalization.)
+-   Many numeric variables should be coded as factors: `District`, `Health unit`, `WHO status at ART initiaiton`, `regimen.1`, and `Nr_of_pills_day`. 
 
 And as you have seen, the actual code needed to do this data exploration is very little; other R developers have done the difficult work for us by building amazing packages to quickly scan datasets and identify issues.
 
@@ -305,12 +307,10 @@ Some material in this lesson was adapted from the following sources:
 
 -   Batra, Neale, et al. The Epidemiologist R Handbook. 2021.*Cleaning data and core functions*. <https://epirhandbook.com/en/cleaning-data-and-core-functions.html#cleaning-data-and-core-functions>
 
--   Waring E, Quinn M, McNamara A, Arino de la Rubia E, Zhu H, Ellis S (2022). skimr: Compact and Flexible Summaries of Data. <https://docs.ropensci.org/skimr/> (website), <https://github.com/ropensci/skimr/.>
-
 ------------------------------------------------------------------------
 
 # Contributors {.unlisted .unnumbered}
 
 The following team members contributed to this lesson:
 
-`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko"))` 
+`r tgc_contributors_list(ids = c("amckinley", "kendavidn", "lolovanco", "elmanuko", "joy"))` 

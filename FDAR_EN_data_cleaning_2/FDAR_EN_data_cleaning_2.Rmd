@@ -35,10 +35,8 @@ In the previous lesson, we learned a range of functions for diagnosing data issu
 By the end of this lesson, you will be able to:
 
 -   Understand how to clean column names, both automatically and manually.
--   Remove empty columns and rows with ease.
 -   Effectively eliminate duplicate entries.
 -   Correct and fix string values in your data.
--   Convert and modify data types as required.
 
 # Packages
 
@@ -49,8 +47,7 @@ Load the following packages for this lesson:
 if(!require(pacman)) install.packages("pacman")
 pacman::p_load(tidyverse,
                janitor,
-               inspectdf,
-               skimr)
+               inspectdf)
 ```
 
 # Dataset
@@ -117,6 +114,8 @@ non_adherence_clean
 
 ::: r-practice
 ### Q: Automatic cleaning {.unlisted .unnumbered}
+
+*(NOTE: Answers are at the bottom of the page. Try to answer the questions yourself before checking.)*
 
 The following dataset has been adapted from a study that used retrospective data to characterize the tmporal and spatial dynamics of typhoid fever epidemics in Kasene, Uganda.
 
@@ -187,75 +186,6 @@ Standardize the column names in the `typhoid` dataset with `clean_names()` then;
 -   replace `or_` with `_`
 
 -   replace `of` with `_`
-
-:::
-
-# Removing Empty Rows and Columns in R
-
-Empty rows and columns in a dataset, filled entirely with `NA` values, can be misleading and affect your analysis. It's crucial to identify and remove these to ensure that every row represents a valid data point and every column represents a meaningful variable. Here's a straightforward guide to doing this in R.
-
-## How to Remove Empty Columns
-
-First, let's focus on columns. Use the `inspect_na()` function from the `inspectdf` package to identify columns filled entirely with `NA` values.
-
-```{r render=reactable_5_rows}
-inspectdf::inspect_na(non_adherence_clean_2) 
-```
-
-If a column shows 100% `NA` values, it's empty and should be removed. To do this, use the `remove_empty()` function from the `janitor` package, specifying `"cols"` to target columns:
-
-```{r}
-# Before removal
-ncol(non_adherence_clean_2)
-
-# Removing empty columns
-non_adherence_clean_3 <- non_adherence_clean_2 %>% 
-  remove_empty("cols")
-
-# After removal
-ncol(non_adherence_clean_3)
-```
-
-## How to Remove Empty Rows
-
-Identifying empty rows is a little more complicated, as there is no function (that we know of) to do this directly. Here is a construction that works:
-
-```{r}
-non_adherence_clean_3 %>%
-  mutate(missing_count = rowSums(is.na(.))) %>% 
-  select(missing_count)
-```
-
-We can then filter the dataset to show only rows with a `missing_count` of 14, indicating that all values in the row are `NA`:
-
-```{r}
-non_adherence_clean_3 %>%
-  mutate(missing_count = rowSums(is.na(.))) %>% 
-  filter(missing_count == 14)
-```
-
-These rows can then be removed using the same `remove_empty()` function from the `janitor` package. This time, specify `"rows"` to target rows:
-
-```{r}
-# Before removal
-nrow(non_adherence_clean_3)
-
-# Removing empty rows
-non_adherence_clean_4 <- non_adherence_clean_3 %>% 
-  remove_empty("rows")
-
-# After removal
-nrow(non_adherence_clean_4)
-```
-
-Notice the change in the row count, indicating the removal of empty rows.
-
-::: r-practice
-
-### Q: Removing empty columns and rows {.unlisted .unnumbered}
-
-Remove both empty rows and empty columns from the `typhoid` dataset. How many rows and columns are left?
-
 :::
 
 # Removing Duplicate Rows
@@ -265,7 +195,7 @@ Duplicated rows in datasets can occur due to multiple data sources or survey res
 Use `janitor::get_dupes()` to quickly identify duplicate rows. This function helps you visually inspect duplicates before removal. For example:
 
 ```{r render=reactable_10_rows}
-non_adherence_clean_4 %>% 
+non_adherence_clean_2 %>% 
   get_dupes()
 ```
 
@@ -275,10 +205,10 @@ After identifying duplicates, use `dplyr::distinct()` to remove them, keeping on
 
 ```{r}
 # Before removal
-nrow(non_adherence_clean_4)
+nrow(non_adherence_clean_2)
 
 # Removing duplicates
-non_adherence_distinct <- non_adherence_clean_4 %>% 
+non_adherence_distinct <- non_adherence_clean_2 %>% 
   distinct()
 
 # After removal
@@ -293,7 +223,6 @@ non_adherence_distinct %>%
 ```
 
 ::: r-practice
-
 ### Q: Removing duplicates {.unlisted .unnumbered}
 
 Identify the duplicates in the `typhoid` dataset using `get_dupes()`, then remove them using `distinct()`.
@@ -392,55 +321,6 @@ If you don't specify the `.default=column_name` argument then all of the values 
 The variable `householdmembers` from the `typhoid` dataset should represent the number of individuals in a household. There is a value `01-May` in this variable. Recode this value to `1-5`.
 :::
 
-# Converting data types
-
-Columns containing values that are numbers, factors, or logical values (TRUE/FALSE) will only behave as expected if they are correctly classified. As such, you may need to redefine the type or class of your variable.
-
-::: reminder
-R has 6 basic data types/classes.
-
--   `character`: strings or individual characters, quoted
--   `numeric` : any real numbers (includes decimals)
--   `integer`: any integer(s)/whole numbers
--   `logical`: variables composed of `TRUE` or `FALSE`
--   `factor`: categorical/qualitative variables
--   `Date/POSIXct`: represents calendar dates and times
-:::
-
-You may recall in the last lesson that our dataset contains 5 character variables and 9 numeric variables. Let's quickly take a look at our variables using the `skim()` function from last lesson:
-
-```{r render=reactable_10_rows}
-skim(non_adherence_recoded) %>%
-  select(skim_type) %>%
-  count(skim_type)
-```
-
-Looking at our data, all our variables are categorical, except `age_at_art_initation`, `bmi_initiation_art`, `cd4_initiation_art`, and `nr_of_pills_day`. Let's change all the others to factor variables using the `as.factor()` function!
-
-```{r render=reactable_5_rows}
-non_adherence_distinct %>%
-  mutate(across(
-    .cols = !c(
-      age_at_art_initiation,
-      bmi_initiation_art,
-      cd4_initiation_art,
-      nr_of_pills_day
-    ),
-    .fns = as.factor
-  )) %>% 
-  skim() %>%
-  select(skim_type) %>%
-  count(skim_type)
-```
-
-Great, that's exactly what we wanted!
-
-::: r-practice
-### Q: Changing data types {.unlisted .unnumbered}
-
-Convert the variables in position 13 to 29 in the `typhoid` dataset to factor.
-:::
-
 # Wrap Up!
 
 Congratulations on completing the two-part lesson on the data cleaning piepline! You are now better equipped to tackle the intricacies of real-world datasets. Remember, data cleaning is not just about tidying up messy data; it's about ensuring the reliability and accuracy of your analyses. By mastering techniques like handling column names, eliminating empty entries, addressing duplicates, refining string values, and managing data types, you've honed your abilities to transform raw health data into a clean foundation for meaningful insights!
@@ -456,25 +336,10 @@ clean_names(typhoid)
 ### Q: Complete cleaning of column names {.unlisted .unnumbered}
 
 ```{r}
-typhoid %>% 
-  clean_names() %>% 
-  rename_with(str_replace_all, pattern = "or_",replacement = "_") %>% 
-  rename_with(str_replace_all, pattern = "of",replacement = "_") %>% 
+typhoid %>%
+  clean_names() %>%
+  rename_with(.fn = ~ str_replace_all(.x, pattern = "or_|of", replacement = "_")) %>%
   names()
-```
-
-### Q: Removing empty columns and rows {.unlisted .unnumbered}
-
-```{r eval=FALSE}
-typhoid_empty_removed <- 
-  typhoid %>% 
-  remove_empty("cols") %>% 
-  remove_empty("rows")
-
-# identify how many empty columns were removed
-ncol(typhoid) - ncol(typhoid_empty_removed)
-# identify how many empty rows were removed
-nrow(typhoid) - nrow(typhoid_empty_removed)
 ```
 
 ### Q: Removing duplicates {.unlisted .unnumbered}
@@ -506,14 +371,6 @@ typhoid %>%
   mutate(Householdmembers = case_match(Householdmembers, "01-May" ~ "1-5", .default=Householdmembers)) %>% 
   count(Householdmembers)
 ```
-
-### Q: Changing data types {.unlisted .unnumbered}
-
-```{r render=reactable_5_rows}
-typhoid %>%
-  mutate(across(13:29, ~as.factor(.)))
-```
-
 
 # Contributors {.unlisted .unnumbered}
 

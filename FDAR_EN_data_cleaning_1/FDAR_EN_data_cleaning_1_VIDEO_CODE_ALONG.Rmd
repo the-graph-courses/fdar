@@ -214,9 +214,11 @@ inspect____(missed_ops) %>%
 
 ‣ We will see a tibble format and a snapshot of the output for our `non_adherence` dataset
 
+
+
 ```{r}
-gtsummary::tbl_summary(_______) %>% 
-  as_tibble()
+## NOTE: YOU DO NOT NEED THE AS_TIBBLE() FUNCTION USED IN THE VIDEO
+gtsummary::tbl_summary(_______)
 ```
 
 ‣ The summary includes frequencies and percentages for categorical variables, and the median and interquartile range for numeric variables
@@ -230,6 +232,13 @@ Use `tbl_summary()` to output a summary of your `missed_ops` dataset. Can you id
 # Wrap up!
 
 By familiarizing ourselves with the data, we have been able to identify some potential problems that may need to be addressed before the data are used in an analysis.
+
+The problems we identified in the `non_adherence` dataset were:
+
+-   The `NA` variable is a completely empty column, and can be removed.
+-   Variables names are not clean and must be standardized.
+-   There are inconsistencies in the way the levels have been coded (e.g., the `Age_35` variable has `Under 35` and `over 35`,  the `Sex` variable has `F` and `Male`, and the `Occupation` variable has inconsistent capitalization.)
+-   Many numeric variables should be coded as factors: `District`, `Health unit`, `WHO status at ART initiaiton`, `regimen.1`, and `Nr_of_pills_day`. 
 
 And as you have seen, the actual code needed to do this data exploration is very little; other R developers have done the difficult work for us by building amazing packages to quickly scan datasets and identify issues.
 
