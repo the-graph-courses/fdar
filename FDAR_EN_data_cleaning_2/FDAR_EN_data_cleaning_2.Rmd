@@ -8,7 +8,7 @@ output:
     css: !expr here::here("global/style/style.css")
     highlight: kate
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
   markdown: 
     wrap: 72
 ---
@@ -37,6 +37,7 @@ By the end of this lesson, you will be able to:
 -   Understand how to clean column names, both automatically and manually.
 -   Effectively eliminate duplicate entries.
 -   Correct and fix string values in your data.
+-   Convert data types as required.
 
 # Packages
 
@@ -230,7 +231,7 @@ Identify the duplicates in the `typhoid` dataset using `get_dupes()`, then remov
 
 # Homogenize strings
 
-You may remember that with the `skim` output from the first data cleaning pipeline lesson, we had instances where our string characters were inconstent regarding capitalization. For example, for our `occupation` variable, we had both `Professor` and `professor`:
+You may remember that with the `tbl_summary` output from the first data cleaning pipeline lesson, we had instances where our string characters were inconsistent regarding capitalization. For example, for our `occupation` variable, we had both `Professor` and `professor`:
 
 ```{r}
 non_adherence_distinct %>% 
@@ -248,14 +249,12 @@ non_adherence_case_corrected <-
 
 ```
 
-If we count the number of unique levels for the `occupation` variable, we can see that we have reduced the number of unique levels from 49 to 47:
+If we count the number of unique levels for the `occupation` variable, we can see that we have reduced the number of unique levels from 51 to 49:
 
 ```{r}
 non_adherence_case_corrected %>% 
   count(occupation, name = "Count")
 ```
-
-As we can see, we have gone from 51 to 49 unique levels for the `occupation` variable.
 
 ::: r-practice
 ### Q: Transforming to lowercase {.unlisted .unnumbered}
@@ -319,6 +318,61 @@ If you don't specify the `.default=column_name` argument then all of the values 
 ### Q: Fixing strings {.unlisted .unnumbered}
 
 The variable `householdmembers` from the `typhoid` dataset should represent the number of individuals in a household. There is a value `01-May` in this variable. Recode this value to `1-5`.
+:::
+
+# Converting data types
+
+Columns containing values that are numbers, factors, or logical values (TRUE/FALSE) will only behave as expected if they are correctly classified. As such, you may need to redefine the type or class of your variable.
+
+::: reminder
+R has 6 basic data types/classes.
+
+-   `character`: strings or individual characters, quoted
+-   `numeric` : any real numbers (includes decimals)
+-   `integer`: any integer(s)/whole numbers
+-   `logical`: variables composed of `TRUE` or `FALSE`
+-   `factor`: categorical/qualitative variables
+-   `Date/POSIXct`: represents calendar dates and times
+:::
+
+You may recall in the last lesson that our dataset contains 5 character variables and 9 numeric variables.
+
+```{r}
+str(non_adherence_recoded)
+```
+
+However, we noted that 5 of those numeric variables were not continuous numeric variables - they were in fact categorical.
+
+Let's quickly take a look at our 9 "numeric" variables using the `inspect_num()` function:
+
+```{r}
+inspect_num(non_adherence_recoded) %>% 
+  show_plot()
+```
+
+Looking at our data, the only true numerical variables are `age_at_art_initation`, `bmi_initiation_art`, `cd4_initiation_art`, and `nr_of_pills_day`. Let's change all the others to factor variables using the `as.factor()` function!
+
+```{r render=reactable_5_rows}
+non_adherence_final <- non_adherence_recoded %>%
+  mutate(across(
+    .cols = !c(
+      age_at_art_initiation,
+      bmi_initiation_art,
+      cd4_initiation_art,
+      nr_of_pills_day
+    ),
+    .fns = as.factor
+  )) 
+
+str(non_adherence_final)
+```
+
+Great, that's exactly what we wanted!
+
+::: r-practice
+### Q: Changing data types {.unlisted .unnumbered}
+
+Convert the variables in position 13 to 29 in the `typhoid` dataset to factor.
 :::
 
 # Wrap Up!

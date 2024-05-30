@@ -36,6 +36,7 @@ By the end of this lesson, you will be able to:
 -   Understand how to clean column names, both automatically and manually.
 -   Effectively eliminate duplicate entries.
 -   Correct and fix string values in your data.
+-   Convert data types as required.
 
 # Packages
 
@@ -273,19 +274,57 @@ Remember to use `.default=column_name` in `case_match()`. Without it, unmatched 
 The variable `householdmembers` from the `typhoid` dataset should represent the number of individuals in a household. There is a value `01-May` in this variable. Recode this value to `1-5`.
 :::
 
+## Converting Data Types
+
+‣ Understanding and correctly classifying 2data types is crucial for data to behave as expected.
+
+::: reminder
+R's 6 basic data types/classes:
+
+-   `character`: strings or characters, always quoted.
+-   `numeric`: real numbers, including decimals.
+-   `integer`: whole numbers.
+-   `logical`: `TRUE` or `FALSE` values.
+-   `factor`: categorical variables.
+-   `Date/POSIXct`: dates and times.
+:::
+
+‣ Recall our dataset: 5 character variables and 9 numeric variables.
+
+```{r}
+str(non_adherence_recoded)
+```
+
+‣ Looking at our data, the only true numerical variables are `age_at_art_initation`, `bmi_initiation_art`, `cd4_initiation_art`, and `nr_of_pills_day`. Let's change all the others to factor variables using the `as.factor()` function!
+
+‣ Change all others to factor variables using as.factor within across.
+
+```{r}
+______________ %>%
+  mutate(_______)
+```
+
+‣ This should result in correct classification as expected.
+
+::: r-practice
+### Q: Changing data types {.unlisted .unnumbered}
+
+Convert the variables in positions 13 to 29 in the `typhoid` dataset to factor.
+
+:::
+
+
 # Learning Objectives
 
 By the end of this lesson, you will be able to:
 
 ‣ Understand how to clean column names, both automatically and manually.
 
-‣ Remove empty columns and rows with ease.
-
-‣ Effectively eliminate duplicate entries.
+‣ Eliminate duplicate entries.
 
 ‣ Correct and fix string values in your data.
 
-‣ Convert and modify data types as required.
+‣ Convert data types as required.
 
 # Wrap Up!
 
@@ -338,6 +377,13 @@ typhoid %>%
 typhoid %>%
   mutate(Householdmembers = case_match(Householdmembers, "01-May" ~ "1-5", .default=Householdmembers)) %>% 
   count(Householdmembers)
+```
+
+### Q: Changing data types {.unlisted .unnumbered}
+
+```{r render=reactable_5_rows}
+typhoid %>%
+  mutate(across(13:29, ~as.factor(.)))
 ```
 
 # Contributors {.unlisted .unnumbered}
