@@ -436,19 +436,6 @@ for (i in ________________) {
 age_class
 ```
 
-‣ Use `paste0()` for combining classification with age.
-
-```{r}
-for (i in 1:length(age_vec)) {
-  # if statements should output to "out" variable
-  
-  
-  
-  # then combine age_class[i] with "out" using paste0()
-  age_class[i] <- paste0(out, ", Age ", age_vec[i])
-}
-age_class
-```
 
 ::: practice
 ### Temperature Classification {.unlisted .unnumbered}
@@ -464,16 +451,17 @@ Use these rules:
 ```{r eval = F}
 body_temps <- c(35, 36.5, 37, 38, 39.5) # Body temperatures in Celsius
 classif_vec <- vector(______________________) # character vec, length of body_temps
+
 for (i in 1:length(________)) {
     # Add your if-else logic here
-  if (body_temps[i] < 36.0) {
-    out <- "Hypothermia" 
-  } ## add other conditions
-  
-  
-    # Final print statement
-    classif_vec[i] <- paste(body_temps[i], "°C is", out)
+    if (body_temps[i] < 36.0) {
+        classif_vec[i] <- paste(body_temps[i], "°C is Hypothermia")
+    } 
+    ## add other conditions and their corresponding classifications
+    
+    
 }
+
 classif_vec
 ```
 
