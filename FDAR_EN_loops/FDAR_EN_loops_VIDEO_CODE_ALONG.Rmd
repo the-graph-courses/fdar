@@ -653,21 +653,18 @@ height_m
 
 ```{r}
 body_temps <- c(35, 36.5, 37, 38, 39.5) # Body temperatures in Celsius
-classif_vec <- vector("character", length = length(body_temps)) # character vector
+classif_vec <- vector(mode = "character", length = length(body_temps))
 
 for (i in 1:length(body_temps)) {
-    # Add your if-else logic here
-    if (body_temps[i] < 36) {
-        out <- "Hypothermia"
+    if (body_temps[i] < 36.0) {
+        classif_vec[i] <- paste(body_temps[i], "°C is Hypothermia")
     } else if (body_temps[i] <= 37.5) {
-        out <- "Normal"
+        classif_vec[i] <- paste(body_temps[i], "°C is Normal")
     } else {
-        out <- "Fever"
+        classif_vec[i] <- paste(body_temps[i], "°C is Fever")
     }
-  
-    # Final print statement
-    classif_vec[i] <- paste(body_temps[i], "°C is", out)
 }
+
 classif_vec
 ```
 
